@@ -29,6 +29,9 @@ import InvalidStateDemo from './components/InvalidStateDemo';
 import BlocksDemo from './components/BlocksDemo';
 import IconsDemo from './components/IconsDemo';
 
+//nuevas rutas
+import Procesos from './componentes/Procesos';
+
 import Crud from './pages/Crud';
 import EmptyPage from './pages/EmptyPage';
 import TimelineDemo from './pages/TimelineDemo';
@@ -158,9 +161,10 @@ const App = () => {
     const menu = [
         {
             label: 'Home',
-            items: [{
-                label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'
-            }]
+            items: [
+                { label: 'Inicio', icon: 'pi pi-fw pi-home', to: '/' },
+                { label: 'Procesos', icon: 'pi pi-fw pi-home', to: '/procesos' }
+            ]
         },
         {
             label: 'UI Components', icon: 'pi pi-fw pi-sitemap',
@@ -319,6 +323,9 @@ const App = () => {
                     <Route path="/crud" component={Crud} />
                     <Route path="/empty" component={EmptyPage} />
                     <Route path="/documentation" component={Documentation} />
+                     {/* nueva  rutas */}
+                     <Route path="/procesos" component={Procesos} />
+                     <Route path="/procesos/nuevo" component={Procesos} />
                 </div>
 
                 <AppFooter layoutColorMode={layoutColorMode} />
