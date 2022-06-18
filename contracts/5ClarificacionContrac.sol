@@ -8,7 +8,7 @@ contract ClarificacionContrac {
         bool aprobado;
         uint256 createdAt;
     }
-    
+
     mapping(address => mapping(uint256 => Clarificacion)) public lista;
     mapping(address => uint256) public contador;
 

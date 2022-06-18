@@ -2,28 +2,26 @@
 pragma solidity ^0.8.11;
 
 contract MateriaPrimaContrac {
-
     struct MateriaPrima {
-        uint id;
-        uint nro_cosecha;
+        uint256 id;
+        uint256 nro_cosecha;
         string lugar_procedencia;
         string nombre_propietario;
         string gadros_brix;
         bool aprobado;
-        uint createdAt;
+        uint256 createdAt;
     }
-    
-    mapping(address => mapping(uint => MateriaPrima)) public lista;
-    mapping(address => uint) public contador;
 
+    mapping(address => mapping(uint256 => MateriaPrima)) public lista;
+    mapping(address => uint256) public contador;
 
     function crear(
-        uint _nro_cosecha,
+        uint256 _nro_cosecha,
         string memory _lugar_procedencia,
         string memory _nombre_propietario,
         string memory _grados_brix
     ) public {
-        uint contador_id = contador[msg.sender];
+        uint256 contador_id = contador[msg.sender];
 
         lista[msg.sender][contador_id] = MateriaPrima(
             contador_id,
@@ -34,12 +32,12 @@ contract MateriaPrimaContrac {
             false,
             block.timestamp
         );
-       contador[msg.sender]++;
+        contador[msg.sender]++;
     }
 
     function atualizar(
-        uint _id,
-        uint _nro_cosecha,
+        uint256 _id,
+        uint256 _nro_cosecha,
         string memory _lugar_procedencia,
         string memory _nombre_propietario,
         string memory _grados_brix
@@ -54,7 +52,7 @@ contract MateriaPrimaContrac {
         }
     }
 
-    function aprobarProceso(uint _id) public {
+    function aprobarProceso(uint256 _id) public {
         MateriaPrima memory _item = lista[msg.sender][_id];
         _item.aprobado = true;
         lista[msg.sender][_id] = _item;
