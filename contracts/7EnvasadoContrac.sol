@@ -5,7 +5,7 @@ contract EnvasadoContrac {
     struct Envasado {
         uint256 id;
         uint256 nro_lote;
-        uint256 nro_botella;
+        uint256 nro_botellas;
         bool aprobado;
         uint256 createdAt;
     }
@@ -13,13 +13,13 @@ contract EnvasadoContrac {
     mapping(address => mapping(uint256 => Envasado)) public lista;
     mapping(address => uint256) public contador;
 
-    function crear(uint256 _nro_lote, uint256 _nro_botella) public {
+    function crear(uint256 _nro_lote, uint256 _nro_botellas) public {
         uint256 contador_id = contador[msg.sender];
 
         lista[msg.sender][contador_id] = Envasado(
             contador_id,
             _nro_lote,
-            _nro_botella,
+            _nro_botellas,
             false,
             block.timestamp
         );
@@ -29,12 +29,12 @@ contract EnvasadoContrac {
     function actualizar(
         uint256 _id,
         uint256 _nro_lote,
-        uint256 _nro_botella
+        uint256 _nro_botellas
     ) public {
         Envasado memory _item = lista[msg.sender][_id];
         if (_item.aprobado == false) {
             _item.nro_lote = _nro_lote;
-            _item.nro_botella = _nro_botella;
+            _item.nro_botellas = _nro_botellas;
             lista[msg.sender][_id] = _item;
         }
     }
