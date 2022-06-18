@@ -10,6 +10,10 @@ contract UsuarioContrac {
         uint256 createdAt;
     }
 
+    constructor(){
+        crear("Administrador", "1105279044", "1105279044");
+    }
+
     mapping(address => mapping(uint256 => Usuario)) public lista;
     mapping(address => uint256) public contador;
 
