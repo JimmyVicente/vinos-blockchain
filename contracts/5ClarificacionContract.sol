@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.11;
 
-contract ClarificacionContrac {
+contract ClarificacionContract {
     struct Clarificacion {
         uint256 id;
         string turbidez;

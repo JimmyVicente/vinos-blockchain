@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.11;
 
-contract ExtraccionMostoContrac {
+contract ExtraccionMostoContract {
     struct ExtraccionMosto {
         uint256 id;
         string tipo;

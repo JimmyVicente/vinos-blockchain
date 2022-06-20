@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.11;
 
-contract UsuarioContrac {
+contract UsuarioContract {
     struct Usuario {
         uint256 id;
         string nombre;

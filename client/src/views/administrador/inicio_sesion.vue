@@ -5,13 +5,23 @@
       <v-row justify="center" class="text-center" style="margin-top: -200px" align="center">
         <v-col cols="12" md="4" sm="12" align-self="center" class="text-center">
           <v-container>
-            <v-card elevation="26" outlined shaped tile class="header-main " color="secondary_app" style="color: #fff"
+            <v-card elevation="26" outlined shaped tile class="header-main " color="primary_app" style="color: #fff"
               width="100%">
               <v-avatar style="margin-top: -200px" size="200">
                 <img src="@/assets/imagen/inicio_sesion/logo.png" />
               </v-avatar>
               <h1>Iniciar Sesión</h1>
               <br />
+
+              <v-btn x-large color="success" dark @click="conectarMetamask">
+                Conectar
+                <v-avatar style="margin-left: 5px" size="40">
+                  <img src="@/assets/imagen/iconos/metamask.png" />
+                </v-avatar>
+              </v-btn>
+
+
+
               <v-row>
                 <v-col>
                   <v-text-field dark append-icon="mdi-email" v-model="email" label="Identificación" required
@@ -24,7 +34,7 @@
                   <v-overlay :value="overlay" color="primary" fixed>
                     <v-progress-circular :size="70" :width="7" color="white" indeterminate></v-progress-circular>
                   </v-overlay>
-                  <v-btn tile color="primary_app " x-large @click="login" outlined width="100%">
+                  <v-btn tile color="sencondary_app" x-large @click="login" outlined width="100%">
                     <v-icon left> mdi-export </v-icon>
                     Ingresar
                   </v-btn>
@@ -38,7 +48,7 @@
   </v-app>
 </template>
  <script>
-// import { load } from "../../../contracs_web3.0/web3";
+import { getCuentas } from "../../contracs_web3/getWeb3";
 export default {
   name: "Inicio_sesion",
   data: () => ({
@@ -47,30 +57,32 @@ export default {
     email: "",
     password: "",
   }),
-
   methods: {
     async login() {
       this.$router.push({ name: 'Inicio' }).catch(() => { });
     },
+    async conectarMetamask() {
+      try {
+        await getCuentas();
+        this.$toast.open({
+          message: "Conectado correctramente",
+          type: "success",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      } catch (error) {
+        this.$toast.open({
+          message: error.message,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+
+    }
   },
-  mounted() {
-    // load({
-    //   success: () => {
-
-    //   },
-    //   error: (message) => {
-    //     console.log(message);
-    //     this.$toast.open({
-    //       message: message,
-    //       type: "error",
-    //       duration: 5000,
-    //       position: "top-right",
-    //       pauseOnHover: true,
-    //     });
-
-    //   }
-    // });
-  }
 };
 </script>
 <style scoped>

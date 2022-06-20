@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.11;
 
-contract PasteurizacionMostoContrac {
+contract PasteurizacionMostoContract {
     struct Pasteurizacion {
         uint256 id;
         string temperatura_caliente;

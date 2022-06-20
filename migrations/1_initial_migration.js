@@ -1,13 +1,13 @@
 const Migrations = artifacts.require("Migrations");
-const proceso1 = artifacts.require("MateriaPrimaContrac");
-const proceso2 = artifacts.require("ExtraccionMostoContrac");
-const proceso3 = artifacts.require("PasteurizacionMostoContrac");
-const proceso4 = artifacts.require("FermentacionContrac");
-const proceso5 = artifacts.require("ClarificacionContrac");
-const proceso6 = artifacts.require("TrasiegoContrac");
-const proceso7 = artifacts.require("EnvasadoContrac");
-const usuario = artifacts.require("ProcesoContrac");
-const proceso = artifacts.require("UsuarioContrac");
+const proceso1 = artifacts.require("MateriaPrimaContract");
+const proceso2 = artifacts.require("ExtraccionMostoContract");
+const proceso3 = artifacts.require("PasteurizacionMostoContract");
+const proceso4 = artifacts.require("FermentacionContract");
+const proceso5 = artifacts.require("ClarificacionContract");
+const proceso6 = artifacts.require("TrasiegoContract");
+const proceso7 = artifacts.require("EnvasadoContract");
+const usuario = artifacts.require("ProcesoContract");
+const proceso = artifacts.require("UsuarioContract");
 
 module.exports = function (deployer) {
   deployer.deploy(Migrations);

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.11;
 
-contract MateriaPrimaContrac {
+contract MateriaPrimaContract {
     struct MateriaPrima {
         uint256 id;
         uint256 nro_cosecha;

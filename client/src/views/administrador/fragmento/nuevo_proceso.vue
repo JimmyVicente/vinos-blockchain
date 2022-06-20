@@ -143,17 +143,17 @@ export default {
       },
       {
         color: "#500617",
-        icon: "mdi-star",
+        icon: "mdi-glass-tulip",
         nombre: "Trasiego",
       },
       {
         color: "#500617",
-        icon: "mdi-star",
+        icon: "mdi-cup-water",
         nombre: "Clarificación",
       },
       {
         color: "#500617",
-        icon: "mdi-star",
+        icon: "mdi-cup",
         nombre: "Fermentación",
       },
       {
@@ -163,11 +163,11 @@ export default {
       },
       {
         color: "#500617",
-        icon: "mdi-airballoon", 
+        icon: "mdi-glass-tulip", 
         nombre: "Extración del mosto",
       },
       {
-        color: "#500617",
+        color: "#50C87C",
         icon: "mdi-car-estate",
         nombre: "Materia prima",
       },

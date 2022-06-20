@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.11;
 
-contract FermentacionContrac {
+contract FermentacionContract {
     struct Fermentacion {
         uint256 id;
         uint256 fecha_inicio;
