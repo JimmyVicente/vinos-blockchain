@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { cargarUsuarios } from "../../../contracs_web3/usuario";
+import { cargarUsuarios } from "../../../conexion_web3/usuario";
 export default {
   name: "_usuario",
   components: {},

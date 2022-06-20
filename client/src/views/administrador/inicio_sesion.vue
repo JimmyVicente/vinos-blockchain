@@ -48,7 +48,7 @@
   </v-app>
 </template>
  <script>
-import { getCuentas } from "../../contracs_web3/getWeb3";
+import { getCuentas } from "../../conexion_web3/getWeb3";
 export default {
   name: "Inicio_sesion",
   data: () => ({
