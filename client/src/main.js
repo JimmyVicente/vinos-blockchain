@@ -5,6 +5,12 @@ import router from './router'
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 window.Buffer = window.Buffer || require("buffer").Buffer;
+// window.process = {
+//   env: { DEBUG: undefined },
+//   nextTick: function() {
+//     return null;
+//   }
+// };
 
 
 Vue.use(VueToast);

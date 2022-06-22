@@ -48,7 +48,7 @@
   </v-app>
 </template>
  <script>
-import { getCuentas } from "../../conexion_web3/getWeb3";
+import { infoCuenta } from "../../conexion_web3/getWeb3";
 export default {
   name: "Inicio_sesion",
   data: () => ({
@@ -63,7 +63,7 @@ export default {
     },
     async conectarMetamask() {
       try {
-        await getCuentas();
+        await infoCuenta();
         this.$toast.open({
           message: "Conectado correctramente",
           type: "success",

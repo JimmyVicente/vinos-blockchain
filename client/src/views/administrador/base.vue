@@ -9,8 +9,8 @@
               <v-list-item-title class="text-h6">
                 Marcus Obrien
               </v-list-item-title>
-              <v-list-item-subtitle>Cuentas</v-list-item-subtitle>
-              <v-list-item-subtitle v-for="(cuenta, i) in cuentas" :key="i">{{ cuenta }}</v-list-item-subtitle>
+              <v-list-item-subtitle>Balance</v-list-item-subtitle>
+              <v-list-item-subtitle style="color: green;">{{ balanceETHER }} ETH</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-flex>
@@ -31,22 +31,13 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar fixed dark color="primary_app" elevate-on-scroll scroll-target="#scrolling-techniques-7">
-      <v-toolbar-title style="width: 10%">Vinos Ambrosia</v-toolbar-title>
+      <v-toolbar-title style="width: 10%">VA</v-toolbar-title>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <v-list-item-subtitle>Direccioón de cuenta: {{ cuenta }}</v-list-item-subtitle>
+      
     </v-app-bar>
     <v-main style="margin-left : 3%;margin-right: 3%;">
       <v-container>
@@ -60,14 +51,15 @@
 </template>
 
 <script>
-import { getCuentas } from "../../conexion_web3/getWeb3";
+import { infoCuenta } from "../../conexion_web3/getWeb3";
 export default {
   name: "Base_",
   data: () => ({
     drawer: true,
     loading: true,
-    cuentas: [],
+    cuenta: '',
     web3: null,
+    balanceETHER: 0.0,
     menu: [
       { title: "Inicio", icon: "mdi-view-dashboard", to: { name: "Inicio" } },
       { title: "Perfil", icon: "mdi-account-box", to: { name: "Perfil" } },
@@ -80,9 +72,10 @@ export default {
   },
   async mounted() {
     try {
-      var cuentas = await getCuentas();
-      this.cuentas = cuentas;
-      console.log(cuentas);
+      let { web3, cuenta, balanceETHER } = await infoCuenta();
+      this.web3 = web3;
+      this.cuenta = cuenta;
+      this.balanceETHER = balanceETHER;
     } catch (error) {
       console.log(error);
     }
