@@ -2,7 +2,7 @@
 pragma solidity ^0.8.11;
 
 contract MateriaPrimaContract {
-    struct MateriaPrima {
+    struct Model {
         uint256 id;
         uint256 nro_cosecha;
         string lugar_procedencia;
@@ -12,7 +12,7 @@ contract MateriaPrimaContract {
         uint256 createdAt;
     }
 
-    mapping(address => mapping(uint256 => MateriaPrima)) public lista;
+    mapping(address => mapping(uint256 => Model)) public lista;
     mapping(address => uint256) public contador;
 
     function crear(
@@ -22,8 +22,7 @@ contract MateriaPrimaContract {
         string memory _grados_brix
     ) public {
         uint256 contador_id = contador[msg.sender];
-
-        lista[msg.sender][contador_id] = MateriaPrima(
+        lista[msg.sender][contador_id] = Model(
             contador_id,
             _nro_cosecha,
             _lugar_procedencia,
@@ -35,6 +34,10 @@ contract MateriaPrimaContract {
         contador[msg.sender]++;
     }
 
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[msg.sender][_id];
+    }
+
     function atualizar(
         uint256 _id,
         uint256 _nro_cosecha,
@@ -42,7 +45,7 @@ contract MateriaPrimaContract {
         string memory _nombre_propietario,
         string memory _grados_brix
     ) public {
-        MateriaPrima memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[msg.sender][_id];
         if (_item.aprobado == false) {
             _item.nro_cosecha = _nro_cosecha;
             _item.lugar_procedencia = _lugar_procedencia;
@@ -53,7 +56,7 @@ contract MateriaPrimaContract {
     }
 
     function aprobarProceso(uint256 _id) public {
-        MateriaPrima memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[msg.sender][_id];
         _item.aprobado = true;
         lista[msg.sender][_id] = _item;
     }

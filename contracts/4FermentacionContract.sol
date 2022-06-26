@@ -2,8 +2,8 @@
 pragma solidity ^0.8.11;
 
 contract FermentacionContract {
-    struct Fermentacion {
-        uint256 id;
+    struct Model {
+        uint256 hash_anterior;
         uint256 fecha_inicio;
         uint256 fecha_final;
         uint256 grados_invertidos;
@@ -11,25 +11,26 @@ contract FermentacionContract {
         uint256 createdAt;
     }
 
-    mapping(address => mapping(uint256 => Fermentacion)) public lista;
-    mapping(address => uint256) public contador;
+    mapping(address => mapping(uint256 => Model)) public lista;
 
     function crear(
+        uint256 _hash_anterior,
         uint256 _fecha_inicio,
         uint256 _fecha_final,
         uint256 _grados_invertidos
     ) public {
-        uint256 contador_id = contador[msg.sender];
-
-        lista[msg.sender][contador_id] = Fermentacion(
-            contador_id,
+        lista[msg.sender][_hash_anterior] = Model(
+            _hash_anterior,
             _fecha_inicio,
             _fecha_final,
             _grados_invertidos,
             false,
             block.timestamp
         );
-        contador[msg.sender]++;
+    }
+
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[msg.sender][_id];
     }
 
     function actualizar(
@@ -38,7 +39,7 @@ contract FermentacionContract {
         uint256 _fecha_final,
         uint256 _grados_invertidos
     ) public {
-        Fermentacion memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[msg.sender][_id];
         if (_item.aprobado == false) {
             _item.fecha_inicio = _fecha_inicio;
             _item.fecha_final = _fecha_final;
@@ -48,7 +49,7 @@ contract FermentacionContract {
     }
 
     function aprobarProceso(uint256 _id) public {
-        Fermentacion memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[msg.sender][_id];
         _item.aprobado = true;
         lista[msg.sender][_id] = _item;
     }

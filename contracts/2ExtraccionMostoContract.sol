@@ -2,30 +2,30 @@
 pragma solidity ^0.8.11;
 
 contract ExtraccionMostoContract {
-    struct ExtraccionMosto {
-        uint256 id;
+    struct Model {
+        uint256 hash_anterior;
         string tipo;
         bool aprobado;
         uint256 createdAt;
     }
 
-    mapping(address => mapping(uint256 => ExtraccionMosto)) public lista;
-    mapping(address => uint256) public contador;
+    mapping(address => mapping(uint256 => Model)) public lista;
 
-    function crear(string memory _tipo) public {
-        uint256 contador_id = contador[msg.sender];
-
-        lista[msg.sender][contador_id] = ExtraccionMosto(
-            contador_id,
+    function crear(uint256 _hash_anterior, string memory _tipo) public {
+        lista[msg.sender][_hash_anterior] = Model(
+            _hash_anterior,
             _tipo,
             false,
             block.timestamp
         );
-        contador[msg.sender]++;
+    }
+
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[msg.sender][_id];
     }
 
     function actualizar(uint256 _id, string memory _tipo) public {
-        ExtraccionMosto memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[msg.sender][_id];
         if (_item.aprobado == false) {
             _item.tipo = _tipo;
             lista[msg.sender][_id] = _item;
@@ -33,7 +33,7 @@ contract ExtraccionMostoContract {
     }
 
     function aprobarProceso(uint256 _id) public {
-        ExtraccionMosto memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[msg.sender][_id];
         _item.aprobado = true;
         lista[msg.sender][_id] = _item;
     }

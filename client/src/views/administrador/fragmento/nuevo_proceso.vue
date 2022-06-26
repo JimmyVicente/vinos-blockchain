@@ -113,8 +113,10 @@ import FormFermentacion from '@/components/form_fermentacion.vue'
 import FormClarificacion from '@/components/form_clarificacion.vue'
 import FormTrasiego from '@/components/form_trasiego.vue'
 import FormEnvasado from '@/components/form_envasado.vue'
+//importaciones web3
+// import { crearMateriaPrima } from "../../../conexion_web3/procesos";
 export default {
-  name: "_nuevo_proceso",
+  name: "Nuevo_proceso_",
   components: {
     FormMateriaPrima,
     FormExtraccionMosto,
@@ -136,7 +138,7 @@ export default {
     proceso_f: 6,
     proceso_g: 7,
     items: [
-       {
+      {
         color: "#500617",
         icon: "mdi-barcode-scan",
         nombre: "Envasado",
@@ -163,7 +165,7 @@ export default {
       },
       {
         color: "#500617",
-        icon: "mdi-glass-tulip", 
+        icon: "mdi-glass-tulip",
         nombre: "Extración del mosto",
       },
       {
@@ -173,6 +175,44 @@ export default {
       },
     ],
   }),
+  props: {
+    id_materia: [Number],
+  },
+  methods: {
+    async crearmateria() {
+      try {
+        // await crearMateriaPrima();
+        this.$toast.open({
+          message: "Conectado correctramente",
+          type: "success",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      } catch (error) {
+        this.$toast.open({
+          message: error.message,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+
+    }
+  },
+  async mounted() {
+    try {
+      console.log(this.id_materia);
+      if (this.id_materia != -1) {
+        console.log(this.id_materia);
+      } else {
+        console.log(this.id_materia);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 };
 </script>
 <style scoped>

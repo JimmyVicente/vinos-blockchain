@@ -1,4 +1,5 @@
 import Web3 from 'web3';
+var TruffleContract = require('@truffle/contract');
 
 const getWeb3 = async () => {
   if (window.ethereum) {
@@ -35,6 +36,12 @@ export const infoCuenta = async () => {
   }
 };
 
+export const cargarContatrato = async (web3, contrato_json) => {
+  const contrato_instancia = TruffleContract(contrato_json);
+  contrato_instancia.setProvider(web3.eth.currentProvider);
+  const contrato = await contrato_instancia.deployed();
+  return contrato;
+};
 
 
 

@@ -19,7 +19,7 @@
 
 <script>
 export default {
-    name: "_perfil",
+    name: "Perfil_",
     components: {},
 data: () => ({
     nombres: "Jimmy Leonel Vicente Guayanay",

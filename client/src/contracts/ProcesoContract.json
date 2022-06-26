@@ -18,8 +18,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -83,8 +82,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -1764,20 +1762,20 @@
   "sourceMap": "61:1160:8:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "61:1160:8:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;411:60;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;822:25:10;;;878:2;863:18;;856:34;;;;906:18;;;899:34;;;;964:2;949:18;;942:34;;;;1007:3;992:19;;985:35;;;;1051:3;1036:19;;1029:35;1095:3;1080:19;;1073:35;1139:3;1124:19;;1117:35;1183:3;1168:19;;1161:35;809:3;794:19;411:60:8;;;;;;;;530:391;;;;;;:::i;:::-;;:::i;:::-;;929:289;;;;;;:::i;:::-;;:::i;478:43::-;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;1982:25:10;;;1970:2;1955:18;478:43:8;1836:177:10;530:391:8;590:19;612:8;:20;621:10;-1:-1:-1;;;;;612:20:8;-1:-1:-1;;;;;612:20:8;;;;;;;;;;;;;590:42;;678:202;;;;;;;;700:11;678:202;;;;726:17;678:202;;;;758:1;678:202;;;;774:1;678:202;;;;790:1;678:202;;;;806:1;678:202;;;;822:1;678:202;;;;838:1;678:202;;;;854:15;678:202;;;645:5;:17;651:10;-1:-1:-1;;;;;645:17:8;-1:-1:-1;;;;;645:17:8;;;;;;;;;;;;:30;663:11;645:30;;;;;;;;;;;:235;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;891:8;:20;900:10;-1:-1:-1;;;;;891:20:8;-1:-1:-1;;;;;891:20:8;;;;;;;;;;;;;:22;;;;;;;;;:::i;:::-;;;;;;579:342;530:391;:::o;929:289::-;1037:10;1008:20;1031:17;;;;;;;;;;;:22;;;;;;;;;1008:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1068:30;1064:147;;1115:25;;;;:39;;;1175:10;1169:5;:17;;;;;;;;;;:22;;;;;;;;:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1064:147;997:221;929:289;;:::o;14:173:10:-;82:20;;-1:-1:-1;;;;;131:31:10;;121:42;;111:70;;177:1;174;167:12;111:70;14:173;;;:::o;192:254::-;260:6;268;321:2;309:9;300:7;296:23;292:32;289:52;;;337:1;334;327:12;289:52;360:29;379:9;360:29;:::i;:::-;350:39;436:2;421:18;;;;408:32;;-1:-1:-1;;;192:254:10:o;1207:180::-;1266:6;1319:2;1307:9;1298:7;1294:23;1290:32;1287:52;;;1335:1;1332;1325:12;1287:52;-1:-1:-1;1358:23:10;;1207:180;-1:-1:-1;1207:180:10:o;1392:248::-;1460:6;1468;1521:2;1509:9;1500:7;1496:23;1492:32;1489:52;;;1537:1;1534;1527:12;1489:52;-1:-1:-1;;1560:23:10;;;1630:2;1615:18;;;1602:32;;-1:-1:-1;1392:248:10:o;1645:186::-;1704:6;1757:2;1745:9;1736:7;1732:23;1728:32;1725:52;;;1773:1;1770;1763:12;1725:52;1796:29;1815:9;1796:29;:::i;:::-;1786:39;1645:186;-1:-1:-1;;;1645:186:10:o;2018:232::-;2057:3;-1:-1:-1;;2078:17:10;;2075:140;;;2137:10;2132:3;2128:20;2125:1;2118:31;2172:4;2169:1;2162:15;2200:4;2197:1;2190:15;2075:140;-1:-1:-1;2242:1:10;2231:13;;2018:232::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.11;\r\n\r\ncontract ProcesoContract {\r\n    struct Proceso {\r\n        uint256 id;\r\n        uint256 id_materia_prima;\r\n        uint256 id_extraccion_mosto;\r\n        uint256 id_pasteurizacion;\r\n        uint256 id_fermentacion;\r\n        uint256 id_clarificacion;\r\n        uint256 id_trasiego;\r\n        uint256 id_envasado;\r\n        uint256 createdAt;\r\n    }\r\n\r\n    mapping(address => mapping(uint256 => Proceso)) public lista;\r\n    mapping(address => uint256) public contador;\r\n\r\n    function crear(uint256 _id_materia_prima) public {\r\n        uint256 contador_id = contador[msg.sender];\r\n\r\n        lista[msg.sender][contador_id] = Proceso(\r\n            contador_id,\r\n            _id_materia_prima,\r\n            0,\r\n            0,\r\n            0,\r\n            0,\r\n            0,\r\n            0,\r\n            block.timestamp\r\n        );\r\n        contador[msg.sender]++;\r\n    }\r\n\r\n    function actualizarProceso(uint256 _id, uint256 _id_proceso) public {\r\n        Proceso memory _item = lista[msg.sender][_id];\r\n        if (_item.id_extraccion_mosto != 0) {\r\n            _item.id_extraccion_mosto = _id_proceso;\r\n            lista[msg.sender][_id] = _item;\r\n        }\r\n    }\r\n}\r\n",
-  "sourcePath": "E:\\UNL\\CICLO X\\PTT\\vinos-blockchain\\contracts\\ProcesoContract.sol",
+  "sourcePath": "E:\\UNL\\CICLO X\\vinos-blockchain\\contracts\\ProcesoContract.sol",
   "ast": {
     "absolutePath": "project:/contracts/ProcesoContract.sol",
     "exportedSymbols": {
       "ProcesoContract": [
-        1149
+        1181
       ]
     },
-    "id": 1150,
+    "id": 1182,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1040,
+        "id": 1072,
         "literals": [
           "solidity",
           "^",
@@ -1794,9 +1792,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1149,
+        "id": 1181,
         "linearizedBaseContracts": [
-          1149
+          1181
         ],
         "name": "ProcesoContract",
         "nameLocation": "70:15:8",
@@ -1804,16 +1802,16 @@
         "nodes": [
           {
             "canonicalName": "ProcesoContract.Proceso",
-            "id": 1059,
+            "id": 1091,
             "members": [
               {
                 "constant": false,
-                "id": 1042,
+                "id": 1074,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "127:2:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "119:10:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1822,7 +1820,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1041,
+                  "id": 1073,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "119:7:8",
@@ -1835,12 +1833,12 @@
               },
               {
                 "constant": false,
-                "id": 1044,
+                "id": 1076,
                 "mutability": "mutable",
                 "name": "id_materia_prima",
                 "nameLocation": "148:16:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "140:24:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1849,7 +1847,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1043,
+                  "id": 1075,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "140:7:8",
@@ -1862,12 +1860,12 @@
               },
               {
                 "constant": false,
-                "id": 1046,
+                "id": 1078,
                 "mutability": "mutable",
                 "name": "id_extraccion_mosto",
                 "nameLocation": "183:19:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "175:27:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1876,7 +1874,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1045,
+                  "id": 1077,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "175:7:8",
@@ -1889,12 +1887,12 @@
               },
               {
                 "constant": false,
-                "id": 1048,
+                "id": 1080,
                 "mutability": "mutable",
                 "name": "id_pasteurizacion",
                 "nameLocation": "221:17:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "213:25:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1903,7 +1901,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1047,
+                  "id": 1079,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "213:7:8",
@@ -1916,12 +1914,12 @@
               },
               {
                 "constant": false,
-                "id": 1050,
+                "id": 1082,
                 "mutability": "mutable",
                 "name": "id_fermentacion",
                 "nameLocation": "257:15:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "249:23:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1930,7 +1928,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1049,
+                  "id": 1081,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "249:7:8",
@@ -1943,12 +1941,12 @@
               },
               {
                 "constant": false,
-                "id": 1052,
+                "id": 1084,
                 "mutability": "mutable",
                 "name": "id_clarificacion",
                 "nameLocation": "291:16:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "283:24:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1957,7 +1955,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1051,
+                  "id": 1083,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "283:7:8",
@@ -1970,12 +1968,12 @@
               },
               {
                 "constant": false,
-                "id": 1054,
+                "id": 1086,
                 "mutability": "mutable",
                 "name": "id_trasiego",
                 "nameLocation": "326:11:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "318:19:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1984,7 +1982,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1053,
+                  "id": 1085,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "318:7:8",
@@ -1997,12 +1995,12 @@
               },
               {
                 "constant": false,
-                "id": 1056,
+                "id": 1088,
                 "mutability": "mutable",
                 "name": "id_envasado",
                 "nameLocation": "356:11:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "348:19:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2011,7 +2009,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1055,
+                  "id": 1087,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "348:7:8",
@@ -2024,12 +2022,12 @@
               },
               {
                 "constant": false,
-                "id": 1058,
+                "id": 1090,
                 "mutability": "mutable",
                 "name": "createdAt",
                 "nameLocation": "386:9:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "378:17:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2038,7 +2036,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1057,
+                  "id": 1089,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "378:7:8",
@@ -2053,30 +2051,30 @@
             "name": "Proceso",
             "nameLocation": "100:7:8",
             "nodeType": "StructDefinition",
-            "scope": 1149,
+            "scope": 1181,
             "src": "93:310:8",
             "visibility": "public"
           },
           {
             "constant": false,
             "functionSelector": "31caa9e1",
-            "id": 1066,
+            "id": 1098,
             "mutability": "mutable",
             "name": "lista",
             "nameLocation": "466:5:8",
             "nodeType": "VariableDeclaration",
-            "scope": 1149,
+            "scope": 1181,
             "src": "411:60:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
               "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso))"
             },
             "typeName": {
-              "id": 1065,
+              "id": 1097,
               "keyType": {
-                "id": 1060,
+                "id": 1092,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "419:7:8",
@@ -2088,13 +2086,13 @@
               "nodeType": "Mapping",
               "src": "411:47:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
                 "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso))"
               },
               "valueType": {
-                "id": 1064,
+                "id": 1096,
                 "keyType": {
-                  "id": 1061,
+                  "id": 1093,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "438:7:8",
@@ -2106,23 +2104,23 @@
                 "nodeType": "Mapping",
                 "src": "430:27:8",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$",
                   "typeString": "mapping(uint256 => struct ProcesoContract.Proceso)"
                 },
                 "valueType": {
-                  "id": 1063,
+                  "id": 1095,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1062,
+                    "id": 1094,
                     "name": "Proceso",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1059,
+                    "referencedDeclaration": 1091,
                     "src": "449:7:8"
                   },
-                  "referencedDeclaration": 1059,
+                  "referencedDeclaration": 1091,
                   "src": "449:7:8",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Proceso_$1059_storage_ptr",
+                    "typeIdentifier": "t_struct$_Proceso_$1091_storage_ptr",
                     "typeString": "struct ProcesoContract.Proceso"
                   }
                 }
@@ -2133,12 +2131,12 @@
           {
             "constant": false,
             "functionSelector": "aedb974b",
-            "id": 1070,
+            "id": 1102,
             "mutability": "mutable",
             "name": "contador",
             "nameLocation": "513:8:8",
             "nodeType": "VariableDeclaration",
-            "scope": 1149,
+            "scope": 1181,
             "src": "478:43:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2147,9 +2145,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 1069,
+              "id": 1101,
               "keyType": {
-                "id": 1067,
+                "id": 1099,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "486:7:8",
@@ -2165,7 +2163,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 1068,
+                "id": 1100,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "497:7:8",
@@ -2179,23 +2177,23 @@
           },
           {
             "body": {
-              "id": 1108,
+              "id": 1140,
               "nodeType": "Block",
               "src": "579:342:8",
               "statements": [
                 {
                   "assignments": [
-                    1076
+                    1108
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1076,
+                      "id": 1108,
                       "mutability": "mutable",
                       "name": "contador_id",
                       "nameLocation": "598:11:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1108,
+                      "scope": 1140,
                       "src": "590:19:8",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2204,7 +2202,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1075,
+                        "id": 1107,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "590:7:8",
@@ -2216,24 +2214,24 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1081,
+                  "id": 1113,
                   "initialValue": {
                     "baseExpression": {
-                      "id": 1077,
+                      "id": 1109,
                       "name": "contador",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1070,
+                      "referencedDeclaration": 1102,
                       "src": "612:8:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                         "typeString": "mapping(address => uint256)"
                       }
                     },
-                    "id": 1080,
+                    "id": 1112,
                     "indexExpression": {
                       "expression": {
-                        "id": 1078,
+                        "id": 1110,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -2244,7 +2242,7 @@
                           "typeString": "msg"
                         }
                       },
-                      "id": 1079,
+                      "id": 1111,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2273,7 +2271,7 @@
                 },
                 {
                   "expression": {
-                    "id": 1100,
+                    "id": 1132,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2281,21 +2279,21 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 1082,
+                          "id": 1114,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1066,
+                          "referencedDeclaration": 1098,
                           "src": "645:5:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
                             "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso storage ref))"
                           }
                         },
-                        "id": 1086,
+                        "id": 1118,
                         "indexExpression": {
                           "expression": {
-                            "id": 1083,
+                            "id": 1115,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -2306,7 +2304,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 1084,
+                          "id": 1116,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2326,17 +2324,17 @@
                         "nodeType": "IndexAccess",
                         "src": "645:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$",
                           "typeString": "mapping(uint256 => struct ProcesoContract.Proceso storage ref)"
                         }
                       },
-                      "id": 1087,
+                      "id": 1119,
                       "indexExpression": {
-                        "id": 1085,
+                        "id": 1117,
                         "name": "contador_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1076,
+                        "referencedDeclaration": 1108,
                         "src": "663:11:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2350,7 +2348,7 @@
                       "nodeType": "IndexAccess",
                       "src": "645:30:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                        "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                         "typeString": "struct ProcesoContract.Proceso storage ref"
                       }
                     },
@@ -2359,11 +2357,11 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 1089,
+                          "id": 1121,
                           "name": "contador_id",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1076,
+                          "referencedDeclaration": 1108,
                           "src": "700:11:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2371,11 +2369,11 @@
                           }
                         },
                         {
-                          "id": 1090,
+                          "id": 1122,
                           "name": "_id_materia_prima",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1072,
+                          "referencedDeclaration": 1104,
                           "src": "726:17:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2384,7 +2382,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1091,
+                          "id": 1123,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2400,7 +2398,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1092,
+                          "id": 1124,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2416,7 +2414,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1093,
+                          "id": 1125,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2432,7 +2430,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1094,
+                          "id": 1126,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2448,7 +2446,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1095,
+                          "id": 1127,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2464,7 +2462,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1096,
+                          "id": 1128,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2480,7 +2478,7 @@
                         },
                         {
                           "expression": {
-                            "id": 1097,
+                            "id": 1129,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -2491,7 +2489,7 @@
                               "typeString": "block"
                             }
                           },
-                          "id": 1098,
+                          "id": 1130,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2544,18 +2542,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 1088,
+                        "id": 1120,
                         "name": "Proceso",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1059,
+                        "referencedDeclaration": 1091,
                         "src": "678:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Proceso_$1059_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Proceso_$1091_storage_ptr_$",
                           "typeString": "type(struct ProcesoContract.Proceso storage pointer)"
                         }
                       },
-                      "id": 1099,
+                      "id": 1131,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2566,23 +2564,23 @@
                       "src": "678:202:8",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                        "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                         "typeString": "struct ProcesoContract.Proceso memory"
                       }
                     },
                     "src": "645:235:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                      "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                       "typeString": "struct ProcesoContract.Proceso storage ref"
                     }
                   },
-                  "id": 1101,
+                  "id": 1133,
                   "nodeType": "ExpressionStatement",
                   "src": "645:235:8"
                 },
                 {
                   "expression": {
-                    "id": 1106,
+                    "id": 1138,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2593,21 +2591,21 @@
                     "src": "891:22:8",
                     "subExpression": {
                       "baseExpression": {
-                        "id": 1102,
+                        "id": 1134,
                         "name": "contador",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1070,
+                        "referencedDeclaration": 1102,
                         "src": "891:8:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1105,
+                      "id": 1137,
                       "indexExpression": {
                         "expression": {
-                          "id": 1103,
+                          "id": 1135,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -2618,7 +2616,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1104,
+                        "id": 1136,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2647,14 +2645,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1107,
+                  "id": 1139,
                   "nodeType": "ExpressionStatement",
                   "src": "891:22:8"
                 }
               ]
             },
             "functionSelector": "8cee8778",
-            "id": 1109,
+            "id": 1141,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2662,17 +2660,17 @@
             "nameLocation": "539:5:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1073,
+              "id": 1105,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1072,
+                  "id": 1104,
                   "mutability": "mutable",
                   "name": "_id_materia_prima",
                   "nameLocation": "553:17:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1109,
+                  "scope": 1141,
                   "src": "545:25:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2681,7 +2679,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1071,
+                    "id": 1103,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "545:7:8",
@@ -2696,12 +2694,12 @@
               "src": "544:27:8"
             },
             "returnParameters": {
-              "id": 1074,
+              "id": 1106,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "579:0:8"
             },
-            "scope": 1149,
+            "scope": 1181,
             "src": "530:391:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2709,69 +2707,69 @@
           },
           {
             "body": {
-              "id": 1147,
+              "id": 1179,
               "nodeType": "Block",
               "src": "997:221:8",
               "statements": [
                 {
                   "assignments": [
-                    1118
+                    1150
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1118,
+                      "id": 1150,
                       "mutability": "mutable",
                       "name": "_item",
                       "nameLocation": "1023:5:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1147,
+                      "scope": 1179,
                       "src": "1008:20:8",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                        "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                         "typeString": "struct ProcesoContract.Proceso"
                       },
                       "typeName": {
-                        "id": 1117,
+                        "id": 1149,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 1116,
+                          "id": 1148,
                           "name": "Proceso",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 1059,
+                          "referencedDeclaration": 1091,
                           "src": "1008:7:8"
                         },
-                        "referencedDeclaration": 1059,
+                        "referencedDeclaration": 1091,
                         "src": "1008:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Proceso_$1059_storage_ptr",
+                          "typeIdentifier": "t_struct$_Proceso_$1091_storage_ptr",
                           "typeString": "struct ProcesoContract.Proceso"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1125,
+                  "id": 1157,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 1119,
+                        "id": 1151,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1066,
+                        "referencedDeclaration": 1098,
                         "src": "1031:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
                           "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso storage ref))"
                         }
                       },
-                      "id": 1122,
+                      "id": 1154,
                       "indexExpression": {
                         "expression": {
-                          "id": 1120,
+                          "id": 1152,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -2782,7 +2780,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1121,
+                        "id": 1153,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2802,17 +2800,17 @@
                       "nodeType": "IndexAccess",
                       "src": "1031:17:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$",
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$",
                         "typeString": "mapping(uint256 => struct ProcesoContract.Proceso storage ref)"
                       }
                     },
-                    "id": 1124,
+                    "id": 1156,
                     "indexExpression": {
-                      "id": 1123,
+                      "id": 1155,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1111,
+                      "referencedDeclaration": 1143,
                       "src": "1049:3:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2826,7 +2824,7 @@
                     "nodeType": "IndexAccess",
                     "src": "1031:22:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                      "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                       "typeString": "struct ProcesoContract.Proceso storage ref"
                     }
                   },
@@ -2839,32 +2837,32 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1129,
+                    "id": 1161,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "expression": {
-                        "id": 1126,
+                        "id": 1158,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1118,
+                        "referencedDeclaration": 1150,
                         "src": "1068:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                          "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                           "typeString": "struct ProcesoContract.Proceso memory"
                         }
                       },
-                      "id": 1127,
+                      "id": 1159,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "id_extraccion_mosto",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1046,
+                      "referencedDeclaration": 1078,
                       "src": "1068:25:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2875,7 +2873,7 @@
                     "operator": "!=",
                     "rightExpression": {
                       "hexValue": "30",
-                      "id": 1128,
+                      "id": 1160,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2895,42 +2893,42 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1146,
+                  "id": 1178,
                   "nodeType": "IfStatement",
                   "src": "1064:147:8",
                   "trueBody": {
-                    "id": 1145,
+                    "id": 1177,
                     "nodeType": "Block",
                     "src": "1100:111:8",
                     "statements": [
                       {
                         "expression": {
-                          "id": 1134,
+                          "id": 1166,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "expression": {
-                              "id": 1130,
+                              "id": 1162,
                               "name": "_item",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1118,
+                              "referencedDeclaration": 1150,
                               "src": "1115:5:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                                "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                                 "typeString": "struct ProcesoContract.Proceso memory"
                               }
                             },
-                            "id": 1132,
+                            "id": 1164,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "id_extraccion_mosto",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1046,
+                            "referencedDeclaration": 1078,
                             "src": "1115:25:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2940,11 +2938,11 @@
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 1133,
+                            "id": 1165,
                             "name": "_id_proceso",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1113,
+                            "referencedDeclaration": 1145,
                             "src": "1143:11:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2957,13 +2955,13 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1135,
+                        "id": 1167,
                         "nodeType": "ExpressionStatement",
                         "src": "1115:39:8"
                       },
                       {
                         "expression": {
-                          "id": 1143,
+                          "id": 1175,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2971,21 +2969,21 @@
                           "leftHandSide": {
                             "baseExpression": {
                               "baseExpression": {
-                                "id": 1136,
+                                "id": 1168,
                                 "name": "lista",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1066,
+                                "referencedDeclaration": 1098,
                                 "src": "1169:5:8",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
                                   "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso storage ref))"
                                 }
                               },
-                              "id": 1140,
+                              "id": 1172,
                               "indexExpression": {
                                 "expression": {
-                                  "id": 1137,
+                                  "id": 1169,
                                   "name": "msg",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
@@ -2996,7 +2994,7 @@
                                     "typeString": "msg"
                                   }
                                 },
-                                "id": 1138,
+                                "id": 1170,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -3016,17 +3014,17 @@
                               "nodeType": "IndexAccess",
                               "src": "1169:17:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$",
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$",
                                 "typeString": "mapping(uint256 => struct ProcesoContract.Proceso storage ref)"
                               }
                             },
-                            "id": 1141,
+                            "id": 1173,
                             "indexExpression": {
-                              "id": 1139,
+                              "id": 1171,
                               "name": "_id",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1111,
+                              "referencedDeclaration": 1143,
                               "src": "1187:3:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -3040,31 +3038,31 @@
                             "nodeType": "IndexAccess",
                             "src": "1169:22:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                              "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                               "typeString": "struct ProcesoContract.Proceso storage ref"
                             }
                           },
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 1142,
+                            "id": 1174,
                             "name": "_item",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1118,
+                            "referencedDeclaration": 1150,
                             "src": "1194:5:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                              "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                               "typeString": "struct ProcesoContract.Proceso memory"
                             }
                           },
                           "src": "1169:30:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                            "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                             "typeString": "struct ProcesoContract.Proceso storage ref"
                           }
                         },
-                        "id": 1144,
+                        "id": 1176,
                         "nodeType": "ExpressionStatement",
                         "src": "1169:30:8"
                       }
@@ -3074,7 +3072,7 @@
               ]
             },
             "functionSelector": "adc4f0a6",
-            "id": 1148,
+            "id": 1180,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -3082,17 +3080,17 @@
             "nameLocation": "938:17:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1114,
+              "id": 1146,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1111,
+                  "id": 1143,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "964:3:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1148,
+                  "scope": 1180,
                   "src": "956:11:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3101,7 +3099,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1110,
+                    "id": 1142,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "956:7:8",
@@ -3114,12 +3112,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1113,
+                  "id": 1145,
                   "mutability": "mutable",
                   "name": "_id_proceso",
                   "nameLocation": "977:11:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1148,
+                  "scope": 1180,
                   "src": "969:19:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3128,7 +3126,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1112,
+                    "id": 1144,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "969:7:8",
@@ -3143,19 +3141,19 @@
               "src": "955:34:8"
             },
             "returnParameters": {
-              "id": 1115,
+              "id": 1147,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "997:0:8"
             },
-            "scope": 1149,
+            "scope": 1181,
             "src": "929:289:8",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1150,
+        "scope": 1182,
         "src": "61:1160:8",
         "usedErrors": []
       }
@@ -3166,15 +3164,15 @@
     "absolutePath": "project:/contracts/ProcesoContract.sol",
     "exportedSymbols": {
       "ProcesoContract": [
-        1149
+        1181
       ]
     },
-    "id": 1150,
+    "id": 1182,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1040,
+        "id": 1072,
         "literals": [
           "solidity",
           "^",
@@ -3191,9 +3189,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1149,
+        "id": 1181,
         "linearizedBaseContracts": [
-          1149
+          1181
         ],
         "name": "ProcesoContract",
         "nameLocation": "70:15:8",
@@ -3201,16 +3199,16 @@
         "nodes": [
           {
             "canonicalName": "ProcesoContract.Proceso",
-            "id": 1059,
+            "id": 1091,
             "members": [
               {
                 "constant": false,
-                "id": 1042,
+                "id": 1074,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "127:2:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "119:10:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3219,7 +3217,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1041,
+                  "id": 1073,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "119:7:8",
@@ -3232,12 +3230,12 @@
               },
               {
                 "constant": false,
-                "id": 1044,
+                "id": 1076,
                 "mutability": "mutable",
                 "name": "id_materia_prima",
                 "nameLocation": "148:16:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "140:24:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3246,7 +3244,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1043,
+                  "id": 1075,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "140:7:8",
@@ -3259,12 +3257,12 @@
               },
               {
                 "constant": false,
-                "id": 1046,
+                "id": 1078,
                 "mutability": "mutable",
                 "name": "id_extraccion_mosto",
                 "nameLocation": "183:19:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "175:27:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3273,7 +3271,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1045,
+                  "id": 1077,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "175:7:8",
@@ -3286,12 +3284,12 @@
               },
               {
                 "constant": false,
-                "id": 1048,
+                "id": 1080,
                 "mutability": "mutable",
                 "name": "id_pasteurizacion",
                 "nameLocation": "221:17:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "213:25:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3300,7 +3298,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1047,
+                  "id": 1079,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "213:7:8",
@@ -3313,12 +3311,12 @@
               },
               {
                 "constant": false,
-                "id": 1050,
+                "id": 1082,
                 "mutability": "mutable",
                 "name": "id_fermentacion",
                 "nameLocation": "257:15:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "249:23:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3327,7 +3325,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1049,
+                  "id": 1081,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "249:7:8",
@@ -3340,12 +3338,12 @@
               },
               {
                 "constant": false,
-                "id": 1052,
+                "id": 1084,
                 "mutability": "mutable",
                 "name": "id_clarificacion",
                 "nameLocation": "291:16:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "283:24:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3354,7 +3352,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1051,
+                  "id": 1083,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "283:7:8",
@@ -3367,12 +3365,12 @@
               },
               {
                 "constant": false,
-                "id": 1054,
+                "id": 1086,
                 "mutability": "mutable",
                 "name": "id_trasiego",
                 "nameLocation": "326:11:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "318:19:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3381,7 +3379,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1053,
+                  "id": 1085,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "318:7:8",
@@ -3394,12 +3392,12 @@
               },
               {
                 "constant": false,
-                "id": 1056,
+                "id": 1088,
                 "mutability": "mutable",
                 "name": "id_envasado",
                 "nameLocation": "356:11:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "348:19:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3408,7 +3406,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1055,
+                  "id": 1087,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "348:7:8",
@@ -3421,12 +3419,12 @@
               },
               {
                 "constant": false,
-                "id": 1058,
+                "id": 1090,
                 "mutability": "mutable",
                 "name": "createdAt",
                 "nameLocation": "386:9:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 1059,
+                "scope": 1091,
                 "src": "378:17:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3435,7 +3433,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1057,
+                  "id": 1089,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "378:7:8",
@@ -3450,30 +3448,30 @@
             "name": "Proceso",
             "nameLocation": "100:7:8",
             "nodeType": "StructDefinition",
-            "scope": 1149,
+            "scope": 1181,
             "src": "93:310:8",
             "visibility": "public"
           },
           {
             "constant": false,
             "functionSelector": "31caa9e1",
-            "id": 1066,
+            "id": 1098,
             "mutability": "mutable",
             "name": "lista",
             "nameLocation": "466:5:8",
             "nodeType": "VariableDeclaration",
-            "scope": 1149,
+            "scope": 1181,
             "src": "411:60:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
               "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso))"
             },
             "typeName": {
-              "id": 1065,
+              "id": 1097,
               "keyType": {
-                "id": 1060,
+                "id": 1092,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "419:7:8",
@@ -3485,13 +3483,13 @@
               "nodeType": "Mapping",
               "src": "411:47:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
                 "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso))"
               },
               "valueType": {
-                "id": 1064,
+                "id": 1096,
                 "keyType": {
-                  "id": 1061,
+                  "id": 1093,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "438:7:8",
@@ -3503,23 +3501,23 @@
                 "nodeType": "Mapping",
                 "src": "430:27:8",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$",
                   "typeString": "mapping(uint256 => struct ProcesoContract.Proceso)"
                 },
                 "valueType": {
-                  "id": 1063,
+                  "id": 1095,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1062,
+                    "id": 1094,
                     "name": "Proceso",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1059,
+                    "referencedDeclaration": 1091,
                     "src": "449:7:8"
                   },
-                  "referencedDeclaration": 1059,
+                  "referencedDeclaration": 1091,
                   "src": "449:7:8",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Proceso_$1059_storage_ptr",
+                    "typeIdentifier": "t_struct$_Proceso_$1091_storage_ptr",
                     "typeString": "struct ProcesoContract.Proceso"
                   }
                 }
@@ -3530,12 +3528,12 @@
           {
             "constant": false,
             "functionSelector": "aedb974b",
-            "id": 1070,
+            "id": 1102,
             "mutability": "mutable",
             "name": "contador",
             "nameLocation": "513:8:8",
             "nodeType": "VariableDeclaration",
-            "scope": 1149,
+            "scope": 1181,
             "src": "478:43:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -3544,9 +3542,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 1069,
+              "id": 1101,
               "keyType": {
-                "id": 1067,
+                "id": 1099,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "486:7:8",
@@ -3562,7 +3560,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 1068,
+                "id": 1100,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "497:7:8",
@@ -3576,23 +3574,23 @@
           },
           {
             "body": {
-              "id": 1108,
+              "id": 1140,
               "nodeType": "Block",
               "src": "579:342:8",
               "statements": [
                 {
                   "assignments": [
-                    1076
+                    1108
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1076,
+                      "id": 1108,
                       "mutability": "mutable",
                       "name": "contador_id",
                       "nameLocation": "598:11:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1108,
+                      "scope": 1140,
                       "src": "590:19:8",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3601,7 +3599,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1075,
+                        "id": 1107,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "590:7:8",
@@ -3613,24 +3611,24 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1081,
+                  "id": 1113,
                   "initialValue": {
                     "baseExpression": {
-                      "id": 1077,
+                      "id": 1109,
                       "name": "contador",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1070,
+                      "referencedDeclaration": 1102,
                       "src": "612:8:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                         "typeString": "mapping(address => uint256)"
                       }
                     },
-                    "id": 1080,
+                    "id": 1112,
                     "indexExpression": {
                       "expression": {
-                        "id": 1078,
+                        "id": 1110,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -3641,7 +3639,7 @@
                           "typeString": "msg"
                         }
                       },
-                      "id": 1079,
+                      "id": 1111,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3670,7 +3668,7 @@
                 },
                 {
                   "expression": {
-                    "id": 1100,
+                    "id": 1132,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3678,21 +3676,21 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 1082,
+                          "id": 1114,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1066,
+                          "referencedDeclaration": 1098,
                           "src": "645:5:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
                             "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso storage ref))"
                           }
                         },
-                        "id": 1086,
+                        "id": 1118,
                         "indexExpression": {
                           "expression": {
-                            "id": 1083,
+                            "id": 1115,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -3703,7 +3701,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 1084,
+                          "id": 1116,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3723,17 +3721,17 @@
                         "nodeType": "IndexAccess",
                         "src": "645:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$",
                           "typeString": "mapping(uint256 => struct ProcesoContract.Proceso storage ref)"
                         }
                       },
-                      "id": 1087,
+                      "id": 1119,
                       "indexExpression": {
-                        "id": 1085,
+                        "id": 1117,
                         "name": "contador_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1076,
+                        "referencedDeclaration": 1108,
                         "src": "663:11:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3747,7 +3745,7 @@
                       "nodeType": "IndexAccess",
                       "src": "645:30:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                        "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                         "typeString": "struct ProcesoContract.Proceso storage ref"
                       }
                     },
@@ -3756,11 +3754,11 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 1089,
+                          "id": 1121,
                           "name": "contador_id",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1076,
+                          "referencedDeclaration": 1108,
                           "src": "700:11:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -3768,11 +3766,11 @@
                           }
                         },
                         {
-                          "id": 1090,
+                          "id": 1122,
                           "name": "_id_materia_prima",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1072,
+                          "referencedDeclaration": 1104,
                           "src": "726:17:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -3781,7 +3779,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1091,
+                          "id": 1123,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3797,7 +3795,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1092,
+                          "id": 1124,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3813,7 +3811,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1093,
+                          "id": 1125,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3829,7 +3827,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1094,
+                          "id": 1126,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3845,7 +3843,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1095,
+                          "id": 1127,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3861,7 +3859,7 @@
                         },
                         {
                           "hexValue": "30",
-                          "id": 1096,
+                          "id": 1128,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3877,7 +3875,7 @@
                         },
                         {
                           "expression": {
-                            "id": 1097,
+                            "id": 1129,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -3888,7 +3886,7 @@
                               "typeString": "block"
                             }
                           },
-                          "id": 1098,
+                          "id": 1130,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3941,18 +3939,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 1088,
+                        "id": 1120,
                         "name": "Proceso",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1059,
+                        "referencedDeclaration": 1091,
                         "src": "678:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Proceso_$1059_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Proceso_$1091_storage_ptr_$",
                           "typeString": "type(struct ProcesoContract.Proceso storage pointer)"
                         }
                       },
-                      "id": 1099,
+                      "id": 1131,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3963,23 +3961,23 @@
                       "src": "678:202:8",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                        "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                         "typeString": "struct ProcesoContract.Proceso memory"
                       }
                     },
                     "src": "645:235:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                      "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                       "typeString": "struct ProcesoContract.Proceso storage ref"
                     }
                   },
-                  "id": 1101,
+                  "id": 1133,
                   "nodeType": "ExpressionStatement",
                   "src": "645:235:8"
                 },
                 {
                   "expression": {
-                    "id": 1106,
+                    "id": 1138,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3990,21 +3988,21 @@
                     "src": "891:22:8",
                     "subExpression": {
                       "baseExpression": {
-                        "id": 1102,
+                        "id": 1134,
                         "name": "contador",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1070,
+                        "referencedDeclaration": 1102,
                         "src": "891:8:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1105,
+                      "id": 1137,
                       "indexExpression": {
                         "expression": {
-                          "id": 1103,
+                          "id": 1135,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -4015,7 +4013,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1104,
+                        "id": 1136,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -4044,14 +4042,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1107,
+                  "id": 1139,
                   "nodeType": "ExpressionStatement",
                   "src": "891:22:8"
                 }
               ]
             },
             "functionSelector": "8cee8778",
-            "id": 1109,
+            "id": 1141,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4059,17 +4057,17 @@
             "nameLocation": "539:5:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1073,
+              "id": 1105,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1072,
+                  "id": 1104,
                   "mutability": "mutable",
                   "name": "_id_materia_prima",
                   "nameLocation": "553:17:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1109,
+                  "scope": 1141,
                   "src": "545:25:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4078,7 +4076,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1071,
+                    "id": 1103,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "545:7:8",
@@ -4093,12 +4091,12 @@
               "src": "544:27:8"
             },
             "returnParameters": {
-              "id": 1074,
+              "id": 1106,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "579:0:8"
             },
-            "scope": 1149,
+            "scope": 1181,
             "src": "530:391:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4106,69 +4104,69 @@
           },
           {
             "body": {
-              "id": 1147,
+              "id": 1179,
               "nodeType": "Block",
               "src": "997:221:8",
               "statements": [
                 {
                   "assignments": [
-                    1118
+                    1150
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1118,
+                      "id": 1150,
                       "mutability": "mutable",
                       "name": "_item",
                       "nameLocation": "1023:5:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1147,
+                      "scope": 1179,
                       "src": "1008:20:8",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                        "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                         "typeString": "struct ProcesoContract.Proceso"
                       },
                       "typeName": {
-                        "id": 1117,
+                        "id": 1149,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 1116,
+                          "id": 1148,
                           "name": "Proceso",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 1059,
+                          "referencedDeclaration": 1091,
                           "src": "1008:7:8"
                         },
-                        "referencedDeclaration": 1059,
+                        "referencedDeclaration": 1091,
                         "src": "1008:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Proceso_$1059_storage_ptr",
+                          "typeIdentifier": "t_struct$_Proceso_$1091_storage_ptr",
                           "typeString": "struct ProcesoContract.Proceso"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1125,
+                  "id": 1157,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 1119,
+                        "id": 1151,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1066,
+                        "referencedDeclaration": 1098,
                         "src": "1031:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
                           "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso storage ref))"
                         }
                       },
-                      "id": 1122,
+                      "id": 1154,
                       "indexExpression": {
                         "expression": {
-                          "id": 1120,
+                          "id": 1152,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -4179,7 +4177,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1121,
+                        "id": 1153,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -4199,17 +4197,17 @@
                       "nodeType": "IndexAccess",
                       "src": "1031:17:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$",
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$",
                         "typeString": "mapping(uint256 => struct ProcesoContract.Proceso storage ref)"
                       }
                     },
-                    "id": 1124,
+                    "id": 1156,
                     "indexExpression": {
-                      "id": 1123,
+                      "id": 1155,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1111,
+                      "referencedDeclaration": 1143,
                       "src": "1049:3:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4223,7 +4221,7 @@
                     "nodeType": "IndexAccess",
                     "src": "1031:22:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                      "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                       "typeString": "struct ProcesoContract.Proceso storage ref"
                     }
                   },
@@ -4236,32 +4234,32 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1129,
+                    "id": 1161,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "expression": {
-                        "id": 1126,
+                        "id": 1158,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1118,
+                        "referencedDeclaration": 1150,
                         "src": "1068:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                          "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                           "typeString": "struct ProcesoContract.Proceso memory"
                         }
                       },
-                      "id": 1127,
+                      "id": 1159,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "id_extraccion_mosto",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1046,
+                      "referencedDeclaration": 1078,
                       "src": "1068:25:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4272,7 +4270,7 @@
                     "operator": "!=",
                     "rightExpression": {
                       "hexValue": "30",
-                      "id": 1128,
+                      "id": 1160,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4292,42 +4290,42 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1146,
+                  "id": 1178,
                   "nodeType": "IfStatement",
                   "src": "1064:147:8",
                   "trueBody": {
-                    "id": 1145,
+                    "id": 1177,
                     "nodeType": "Block",
                     "src": "1100:111:8",
                     "statements": [
                       {
                         "expression": {
-                          "id": 1134,
+                          "id": 1166,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "expression": {
-                              "id": 1130,
+                              "id": 1162,
                               "name": "_item",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1118,
+                              "referencedDeclaration": 1150,
                               "src": "1115:5:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                                "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                                 "typeString": "struct ProcesoContract.Proceso memory"
                               }
                             },
-                            "id": 1132,
+                            "id": 1164,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "id_extraccion_mosto",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 1046,
+                            "referencedDeclaration": 1078,
                             "src": "1115:25:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4337,11 +4335,11 @@
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 1133,
+                            "id": 1165,
                             "name": "_id_proceso",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1113,
+                            "referencedDeclaration": 1145,
                             "src": "1143:11:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4354,13 +4352,13 @@
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1135,
+                        "id": 1167,
                         "nodeType": "ExpressionStatement",
                         "src": "1115:39:8"
                       },
                       {
                         "expression": {
-                          "id": 1143,
+                          "id": 1175,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4368,21 +4366,21 @@
                           "leftHandSide": {
                             "baseExpression": {
                               "baseExpression": {
-                                "id": 1136,
+                                "id": 1168,
                                 "name": "lista",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1066,
+                                "referencedDeclaration": 1098,
                                 "src": "1169:5:8",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$_$",
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$_$",
                                   "typeString": "mapping(address => mapping(uint256 => struct ProcesoContract.Proceso storage ref))"
                                 }
                               },
-                              "id": 1140,
+                              "id": 1172,
                               "indexExpression": {
                                 "expression": {
-                                  "id": 1137,
+                                  "id": 1169,
                                   "name": "msg",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
@@ -4393,7 +4391,7 @@
                                     "typeString": "msg"
                                   }
                                 },
-                                "id": 1138,
+                                "id": 1170,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -4413,17 +4411,17 @@
                               "nodeType": "IndexAccess",
                               "src": "1169:17:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1059_storage_$",
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Proceso_$1091_storage_$",
                                 "typeString": "mapping(uint256 => struct ProcesoContract.Proceso storage ref)"
                               }
                             },
-                            "id": 1141,
+                            "id": 1173,
                             "indexExpression": {
-                              "id": 1139,
+                              "id": 1171,
                               "name": "_id",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1111,
+                              "referencedDeclaration": 1143,
                               "src": "1187:3:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -4437,31 +4435,31 @@
                             "nodeType": "IndexAccess",
                             "src": "1169:22:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                              "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                               "typeString": "struct ProcesoContract.Proceso storage ref"
                             }
                           },
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 1142,
+                            "id": 1174,
                             "name": "_item",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1118,
+                            "referencedDeclaration": 1150,
                             "src": "1194:5:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Proceso_$1059_memory_ptr",
+                              "typeIdentifier": "t_struct$_Proceso_$1091_memory_ptr",
                               "typeString": "struct ProcesoContract.Proceso memory"
                             }
                           },
                           "src": "1169:30:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Proceso_$1059_storage",
+                            "typeIdentifier": "t_struct$_Proceso_$1091_storage",
                             "typeString": "struct ProcesoContract.Proceso storage ref"
                           }
                         },
-                        "id": 1144,
+                        "id": 1176,
                         "nodeType": "ExpressionStatement",
                         "src": "1169:30:8"
                       }
@@ -4471,7 +4469,7 @@
               ]
             },
             "functionSelector": "adc4f0a6",
-            "id": 1148,
+            "id": 1180,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4479,17 +4477,17 @@
             "nameLocation": "938:17:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1114,
+              "id": 1146,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1111,
+                  "id": 1143,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "964:3:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1148,
+                  "scope": 1180,
                   "src": "956:11:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4498,7 +4496,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1110,
+                    "id": 1142,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "956:7:8",
@@ -4511,12 +4509,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1113,
+                  "id": 1145,
                   "mutability": "mutable",
                   "name": "_id_proceso",
                   "nameLocation": "977:11:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1148,
+                  "scope": 1180,
                   "src": "969:19:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4525,7 +4523,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1112,
+                    "id": 1144,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "969:7:8",
@@ -4540,19 +4538,19 @@
               "src": "955:34:8"
             },
             "returnParameters": {
-              "id": 1115,
+              "id": 1147,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "997:0:8"
             },
-            "scope": 1149,
+            "scope": 1181,
             "src": "929:289:8",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1150,
+        "scope": 1182,
         "src": "61:1160:8",
         "usedErrors": []
       }
@@ -4567,13 +4565,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x8a976A06C2eF16457F698eD173a65246B8E23770",
-      "transactionHash": "0x11ec28ed64aa773e4d857ddd30a4811c05d4b4f64b464740714e2a027641db5e"
+      "address": "0x041C7A0fB040bc33BaAaDbc6C2F2A1893B57690F",
+      "transactionHash": "0x30e261e2184704d859fc19a9e2b7de7829770957ecdb9920e48614ddcd5385ba"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-06-20T16:34:47.700Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-06-26T17:08:56.126Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
