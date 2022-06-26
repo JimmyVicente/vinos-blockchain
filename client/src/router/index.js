@@ -43,7 +43,7 @@ const routes = [
         component: () => import('../views/administrador/fragmento/proceso.vue')
       },
       {
-        path: '/proceso/nuevo/:id_materia',
+        path: '/proceso/nuevo/:hash',
         name: 'Nuevo Proceso',
         props: true,
         //meta: {

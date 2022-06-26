@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { crearPasteurizacion } from "../conexion_web3/procesos";
 export default {
   name: "FormPasteurizacion",
   components: {},
@@ -46,10 +47,37 @@ export default {
   }),
   props: {
     n_proceso: [Number],
+    hash_anterior: [String],
     agregar_proceso: [Boolean],
   },
   methods: {
-    guardar() {
+    async guardar() {
+      try {
+        var data = {};
+        data.hash_anterior = this.hash_anterior;
+        data.temperatura_caliente = this.temperatura_caliente;
+        data.temperatura_fria = this.temperatura_fria;
+        data.tiempo_proceso = this.tiempo_proceso;
+        await crearPasteurizacion(data);
+        this.$toast.open({
+          message: "Guardado correctramente",
+          type: "success",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+        this.cerrar();
+      } catch (error) {
+        this.$toast.open({
+          message: error.message,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+    },
+    siguiente() {
       this.$emit("update:n_proceso", 4);
     },
     cerrar() {

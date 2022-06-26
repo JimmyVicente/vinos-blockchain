@@ -50,11 +50,10 @@ export default {
         data.nro_cosecha = this.nro_cosecha;
         data.lugar_procedencia = this.lugar_procedencia;
         data.nombre_propietario = this.nombre_propietario;
-        data.gadros_brix = this.gadros_brix;
-        
+        data.gadros_brix = this.gadros_brix;        
         await crearMateriaPrima(data);
         this.$toast.open({
-          message: "Conectado correctramente",
+          message: "Guardado correctramente",
           type: "success",
           duration: 5000,
           position: "top-right",

@@ -4,8 +4,9 @@ pragma solidity ^0.8.11;
 contract EnvasadoContract {
     struct Model {
         uint256 hash_anterior;
-        uint256 nro_lote;
+        string nro_lote;
         uint256 nro_botellas;
+        string[] botellas;
         bool aprobado;
         uint256 createdAt;
     }
@@ -14,21 +15,27 @@ contract EnvasadoContract {
 
     function crear(
         uint256 _hash_anterior,
-        uint256 _nro_lote,
-        uint256 _nro_botellas
+        string memory _nro_lote,
+        uint256 _nro_botellas,
+        string[] memory _botellas
     ) public {
         lista[msg.sender][_hash_anterior] = Model(
             _hash_anterior,
             _nro_lote,
             _nro_botellas,
+            _botellas,
             false,
             block.timestamp
         );
     }
 
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[msg.sender][_id];
+    }
+
     function actualizar(
         uint256 _id,
-        uint256 _nro_lote,
+        string memory _nro_lote,
         uint256 _nro_botellas
     ) public {
         Model memory _item = lista[msg.sender][_id];

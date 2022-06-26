@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { crearClarificacion } from "../conexion_web3/procesos";
 export default {
   name: "FormClarificacion",
   components: {},
@@ -28,10 +29,36 @@ export default {
   }),
   props: {
     n_proceso: [Number],
+    hash_anterior: [String],
     agregar_proceso: [Boolean],
   },
   methods: {
-    guardar() {
+    async guardar() {
+      try {
+        var data = {};
+        data.hash_anterior = this.hash_anterior;
+        data.turbidez = this.turbidez;
+        console.log(data);
+        await crearClarificacion(data);
+        this.$toast.open({
+          message: "Guardado correctramente",
+          type: "success",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+        this.cerrar();
+      } catch (error) {
+        this.$toast.open({
+          message: error.message,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+    },
+    siguiente() {
       this.$emit("update:n_proceso", 6);
     },
     cerrar() {

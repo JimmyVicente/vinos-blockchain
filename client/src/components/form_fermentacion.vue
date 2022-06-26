@@ -14,7 +14,7 @@
         <v-col cols="12" sm="12" md="6">
           <v-text-field
           type="datetime-local"
-            v-model="fecha_fin"
+            v-model="fecha_final"
             label="Fecha De Finalización De Fermentación"
             placeholder="Ingrese fecha de finalización de fermentación"
             outlined
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import { crearFermentacion } from "../conexion_web3/procesos";
 export default {
   name: "FormFermentacion",
   components: {},
@@ -48,10 +49,41 @@ export default {
   }),
   props: {
     n_proceso: [Number],
+    hash_anterior: [String],
     agregar_proceso: [Boolean],
   },
   methods: {
-    guardar() {
+    async guardar() {
+      try {
+        var data = {};
+        var fecha_inicio = new Date(this.fecha_inicio);
+        var fecha_final = new Date(this.fecha_final);
+        fecha_inicio = fecha_inicio.getTime();
+        fecha_final = fecha_final.getTime();
+        data.hash_anterior = this.hash_anterior;
+        data.fecha_inicio = fecha_inicio;
+        data.fecha_final = fecha_final;
+        data.grados_invertidos = this.grados_invertidos;
+        await crearFermentacion(data);
+        this.$toast.open({
+          message: "Guardado correctramente",
+          type: "success",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+        this.cerrar();
+      } catch (error) {
+        this.$toast.open({
+          message: error.message,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+    },
+    siguiente() {
       this.$emit("update:n_proceso", 5);
     },
     cerrar() {

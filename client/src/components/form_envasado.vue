@@ -3,20 +3,12 @@
     <v-container>
       <v-row justify="center">
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field
-            v-model="nro_lote"
-            label="Número De Lote"
-            placeholder="Ingrese número de lote"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="nro_lote" label="Número De Lote" placeholder="Ingrese número de lote" outlined>
+          </v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field
-            v-model="nro_botellas"
-            label="Total De Botellas Producidas"
-            placeholder="Ingrese total de botellas producidas"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="nro_botellas" label="Total De Botellas Producidas"
+            placeholder="Ingrese total de botellas producidas" outlined></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -39,8 +31,33 @@ export default {
     agregar_proceso: [Boolean],
   },
   methods: {
-    guardar() {
-      this.$emit("update:agregar_proceso", false);
+    async guardar() {
+      try {
+        var data = {};
+        data.hash_anterior = this.hash_anterior;
+        data.nro_lote = this.nro_lote;
+        data.nro_botellas = this.nro_botellas * 1;
+        // await crearTrasiego(data);
+        this.$toast.open({
+          message: "Guardado correctramente",
+          type: "success",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+        this.$emit("update:agregar_proceso", false);
+        this.cerrar();
+      } catch (error) {
+        this.$toast.open({
+          message: error.message,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+    },
+    siguiente() {
       this.$emit("update:n_proceso", 8);
     },
     cerrar() {

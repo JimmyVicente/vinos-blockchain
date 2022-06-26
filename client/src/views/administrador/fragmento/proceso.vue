@@ -6,7 +6,7 @@
           <h1>Procesos</h1>
           <v-spacer></v-spacer>
           <v-btn dark color="primary_app" x-large style="margin-right: 2%;"
-            :to="{ name: 'Nuevo Proceso', params: { id_materia: -1 }, }">
+            :to="{ name: 'Nuevo Proceso', params: { hash: -1 }, }">
             <v-icon left large> mdi-glass-tulip </v-icon>
             Nuevo Proceso
           </v-btn>
@@ -18,7 +18,7 @@
           <template v-slot:[`item.accion`]="{ item }">
             <v-btn icon color="pink" :to="{
               name: 'Nuevo Proceso',
-              params: { id_materia: item.materia_prima_obj.id },
+              params: { hash: item.materia_prima.id },
             }">
               <v-icon>mdi-eye</v-icon>
             </v-btn>
@@ -30,27 +30,27 @@
 </template>
 
 <script>
-import { cargarMateria } from "../../../conexion_web3/procesos";
+import { listarProcesos } from "../../../conexion_web3/procesos";
 export default {
   name: "Proceso_",
   components: {},
   data: () => ({
     search: "",
     headers: [
-      { text: "Materia Prima", sortable: false, value: "materia_prima" },
-      { text: "Extracción Del Mosto", sortable: false, value: "extarccion_mosto" },
-      { text: "Pasteurización", sortable: false, value: "pasteurizacion" },
-      { text: "Fermentación", sortable: false, value: "fermentacion" },
-      { text: "Clarificación", sortable: false, value: "clarificacion" },
-      { text: "Trasiego", sortable: false, value: "trasiego" },
-      { text: "Envasado", sortable: false, value: "envasado" },
+      { text: "Materia Prima", sortable: false, value: "titulo1" },
+      { text: "Extracción Del Mosto", sortable: false, value: "titulo2" },
+      { text: "Pasteurización", sortable: false, value: "titulo3" },
+      { text: "Fermentación", sortable: false, value: "titulo4" },
+      { text: "Clarificación", sortable: false, value: "titulo5" },
+      { text: "Trasiego", sortable: false, value: "titulo6" },
+      { text: "Envasado", sortable: false, value: "titulo7" },
       { text: "Acción", sortable: false, value: "accion" },
     ],
     desserts: [],
   }),
   async mounted() {
     try {
-      this.desserts = await cargarMateria();
+      this.desserts = await listarProcesos();
     } catch (error) {
       console.log(error);
     }

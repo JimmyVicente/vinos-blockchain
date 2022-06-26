@@ -3,10 +3,10 @@
     <v-container class="margin">
       <v-card>
         <v-card-title>
-          <h1>Proceso De {{ nombre_proceso }}</h1>
+          <h1>{{ nombre_proceso }}</h1>
           <v-spacer></v-spacer>
           <v-btn v-if="n_proceso < 8 && n_proceso > 0" dark color="primary_app" x-large style="margin-right: 2%"
-            @click="agregar_proceso = true">
+            @click="agregar_proceso = true;">
             <v-icon left large> mdi-glass-tulip </v-icon>
             Agregar
           </v-btn>
@@ -17,13 +17,10 @@
             <v-timeline-item v-for="(item, i) in items" :key="i" :color="item.color" :icon="item.icon" fill-dot>
               <v-card :color="item.color" dark>
                 <v-card-title class="text-h6" v-text="item.nombre"></v-card-title>
-                <v-card-text class="white text--primary">
-                  <p>
-                    Lorem ipsum dolor sit amet, no nam oblique veritus. Commune
-                    scaevola imperdiet nec ut, sed euismod convenire principes
-                    at. Est et nobis iisque percipit, an vim zril disputando
-                    voluptatibus, vix an salutandi sententiae.
-                  </p>
+                <v-card-text class="white text--primary" style="align-items: start;">
+                  <br>
+                  <p v-html="item.informacion"> </p>
+                  <p v-text="item.fecha_creacion"> </p>
                   <v-btn :color="item.color" class="mx-0" outlined>
                     Editar
                   </v-btn>
@@ -80,23 +77,28 @@
             </v-stepper-content>
 
             <v-stepper-content :step="proceso_b" style="height: 300px;">
-              <FormExtraccionMosto :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso" />
+              <FormExtraccionMosto :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
+                :hash_anterior="hash_anterior" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_c" style="height: 300px;">
-              <FormPasteurizacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso" />
-
+              <FormPasteurizacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
+                :hash_anterior="hash_anterior" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_d" style="height: 300px;">
-              <FormFermentacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso" />
+              <FormFermentacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
+                :hash_anterior="hash_anterior" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_e" style="height: 300px;">
-              <FormClarificacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso" />
+              <FormClarificacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
+                :hash_anterior="hash_anterior" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_f" style="height: 300px;">
-              <FormTrasiego :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso" />
+              <FormTrasiego :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
+                :hash_anterior="hash_anterior" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_g" style="height: 300px;">
-              <FormEnvasado :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso" />
+              <FormEnvasado :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
+                :hash_anterior="hash_anterior" />
             </v-stepper-content>
           </v-stepper-items>
         </v-stepper>
@@ -114,7 +116,7 @@ import FormClarificacion from '@/components/form_clarificacion.vue'
 import FormTrasiego from '@/components/form_trasiego.vue'
 import FormEnvasado from '@/components/form_envasado.vue'
 //importaciones web3
-// import { crearMateriaPrima } from "../../../conexion_web3/procesos";
+import { listarItemProceso } from "../../../conexion_web3/util_procesos";
 export default {
   name: "Nuevo_proceso_",
   components: {
@@ -127,8 +129,9 @@ export default {
     FormEnvasado,
   },
   data: () => ({
-    nombre_proceso: "Nombre Del Proceso",
+    nombre_proceso: "Nuevo proceso",
     agregar_proceso: false,
+    hash_anterior: null,
     n_proceso: 1,
     proceso_a: 1,
     proceso_b: 2,
@@ -137,81 +140,27 @@ export default {
     proceso_e: 5,
     proceso_f: 6,
     proceso_g: 7,
-    items: [
-      {
-        color: "#500617",
-        icon: "mdi-barcode-scan",
-        nombre: "Envasado",
-      },
-      {
-        color: "#500617",
-        icon: "mdi-glass-tulip",
-        nombre: "Trasiego",
-      },
-      {
-        color: "#500617",
-        icon: "mdi-cup-water",
-        nombre: "Clarificación",
-      },
-      {
-        color: "#500617",
-        icon: "mdi-cup",
-        nombre: "Fermentación",
-      },
-      {
-        color: "#500617",
-        icon: "mdi-book-variant",
-        nombre: "Pasteurización del mosto",
-      },
-      {
-        color: "#500617",
-        icon: "mdi-glass-tulip",
-        nombre: "Extración del mosto",
-      },
-      {
-        color: "#50C87C",
-        icon: "mdi-car-estate",
-        nombre: "Materia prima",
-      },
-    ],
+    items: [],
   }),
   props: {
-    id_materia: [Number],
+    hash: [String],
   },
   methods: {
-    async crearmateria() {
+    async generarProceso() {
       try {
-        // await crearMateriaPrima();
-        this.$toast.open({
-          message: "Conectado correctramente",
-          type: "success",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
-        });
+        var { nombre_proceso, n_proceso, items } = await listarItemProceso(this.hash);
+        //setVariables
+        this.hash_anterior = this.hash;
+        this.nombre_proceso = nombre_proceso;
+        this.n_proceso = n_proceso;
+        this.items = items;
       } catch (error) {
-        this.$toast.open({
-          message: error.message,
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
-        });
+        console.log(error);
       }
-
     }
   },
   async mounted() {
-    try {
-      console.log(this.id_materia);
-      if (this.id_materia != -1) {
-        console.log(this.id_materia);
-      } else {
-        console.log(this.id_materia);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    this.generarProceso();
   }
 };
 </script>

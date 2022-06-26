@@ -4,8 +4,8 @@ pragma solidity ^0.8.11;
 contract TrasiegoContract {
     struct Model {
         uint256 hash_anterior;
-        uint256 liquido_claro;
-        uint256 liquido_oscuro;
+        string liquido_claro;
+        string liquido_oscuro;
         bool aprobado;
         uint256 createdAt;
     }
@@ -14,8 +14,8 @@ contract TrasiegoContract {
 
     function crear(
         uint256 _hash_anterior,
-        uint256 _liquido_claro,
-        uint256 _liquido_oscuro
+        string memory _liquido_claro,
+        string memory _liquido_oscuro
     ) public {
         lista[msg.sender][_hash_anterior] = Model(
             _hash_anterior,
@@ -26,10 +26,14 @@ contract TrasiegoContract {
         );
     }
 
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[msg.sender][_id];
+    }
+
     function actualizar(
         uint256 _id,
-        uint256 _liquido_claro,
-        uint256 _liquido_oscuro
+        string memory _liquido_claro,
+        string memory _liquido_oscuro
     ) public {
         Model memory _item = lista[msg.sender][_id];
         if (_item.aprobado == false) {
