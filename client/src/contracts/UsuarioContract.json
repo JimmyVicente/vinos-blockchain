@@ -23,7 +23,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -67,7 +68,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -5984,15 +5986,15 @@
     "absolutePath": "project:/contracts/UsuarioContract.sol",
     "exportedSymbols": {
       "UsuarioContract": [
-        1146
+        1194
       ]
     },
-    "id": 1147,
+    "id": 1195,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 982,
+        "id": 1030,
         "literals": [
           "solidity",
           "^",
@@ -6009,9 +6011,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1146,
+        "id": 1194,
         "linearizedBaseContracts": [
-          1146
+          1194
         ],
         "name": "UsuarioContract",
         "nameLocation": "70:15:8",
@@ -6019,16 +6021,16 @@
         "nodes": [
           {
             "canonicalName": "UsuarioContract.Usuario",
-            "id": 993,
+            "id": 1041,
             "members": [
               {
                 "constant": false,
-                "id": 984,
+                "id": 1032,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "127:2:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "119:10:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -6037,7 +6039,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 983,
+                  "id": 1031,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "119:7:8",
@@ -6050,12 +6052,12 @@
               },
               {
                 "constant": false,
-                "id": 986,
+                "id": 1034,
                 "mutability": "mutable",
                 "name": "nombre",
                 "nameLocation": "147:6:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "140:13:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -6064,7 +6066,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 985,
+                  "id": 1033,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "140:6:8",
@@ -6077,12 +6079,12 @@
               },
               {
                 "constant": false,
-                "id": 988,
+                "id": 1036,
                 "mutability": "mutable",
                 "name": "identificacion",
                 "nameLocation": "171:14:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "164:21:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -6091,7 +6093,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 987,
+                  "id": 1035,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "164:6:8",
@@ -6104,12 +6106,12 @@
               },
               {
                 "constant": false,
-                "id": 990,
+                "id": 1038,
                 "mutability": "mutable",
                 "name": "clave",
                 "nameLocation": "204:5:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "196:13:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -6118,7 +6120,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 989,
+                  "id": 1037,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "196:7:8",
@@ -6131,12 +6133,12 @@
               },
               {
                 "constant": false,
-                "id": 992,
+                "id": 1040,
                 "mutability": "mutable",
                 "name": "createdAt",
                 "nameLocation": "228:9:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "220:17:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -6145,7 +6147,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 991,
+                  "id": 1039,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "220:7:8",
@@ -6160,13 +6162,13 @@
             "name": "Usuario",
             "nameLocation": "100:7:8",
             "nodeType": "StructDefinition",
-            "scope": 1146,
+            "scope": 1194,
             "src": "93:152:8",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1002,
+              "id": 1050,
               "nodeType": "Block",
               "src": "266:69:8",
               "statements": [
@@ -6175,7 +6177,7 @@
                     "arguments": [
                       {
                         "hexValue": "41646d696e6973747261646f72",
-                        "id": 997,
+                        "id": 1045,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -6191,7 +6193,7 @@
                       },
                       {
                         "hexValue": "31313035323739303434",
-                        "id": 998,
+                        "id": 1046,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -6207,7 +6209,7 @@
                       },
                       {
                         "hexValue": "31313035323739303434",
-                        "id": 999,
+                        "id": 1047,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -6237,18 +6239,18 @@
                           "typeString": "literal_string \"1105279044\""
                         }
                       ],
-                      "id": 996,
+                      "id": 1044,
                       "name": "crear",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1062,
+                      "referencedDeclaration": 1110,
                       "src": "277:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory,string memory,string memory)"
                       }
                     },
-                    "id": 1000,
+                    "id": 1048,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6263,13 +6265,13 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1001,
+                  "id": 1049,
                   "nodeType": "ExpressionStatement",
                   "src": "277:50:8"
                 }
               ]
             },
-            "id": 1003,
+            "id": 1051,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -6277,18 +6279,18 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 994,
+              "id": 1042,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "264:2:8"
             },
             "returnParameters": {
-              "id": 995,
+              "id": 1043,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "266:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "253:82:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -6297,23 +6299,23 @@
           {
             "constant": false,
             "functionSelector": "31caa9e1",
-            "id": 1010,
+            "id": 1058,
             "mutability": "mutable",
             "name": "lista",
             "nameLocation": "398:5:8",
             "nodeType": "VariableDeclaration",
-            "scope": 1146,
+            "scope": 1194,
             "src": "343:60:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
               "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario))"
             },
             "typeName": {
-              "id": 1009,
+              "id": 1057,
               "keyType": {
-                "id": 1004,
+                "id": 1052,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "351:7:8",
@@ -6325,13 +6327,13 @@
               "nodeType": "Mapping",
               "src": "343:47:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                 "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario))"
               },
               "valueType": {
-                "id": 1008,
+                "id": 1056,
                 "keyType": {
-                  "id": 1005,
+                  "id": 1053,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "370:7:8",
@@ -6343,23 +6345,23 @@
                 "nodeType": "Mapping",
                 "src": "362:27:8",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                   "typeString": "mapping(uint256 => struct UsuarioContract.Usuario)"
                 },
                 "valueType": {
-                  "id": 1007,
+                  "id": 1055,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1006,
+                    "id": 1054,
                     "name": "Usuario",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 993,
+                    "referencedDeclaration": 1041,
                     "src": "381:7:8"
                   },
-                  "referencedDeclaration": 993,
+                  "referencedDeclaration": 1041,
                   "src": "381:7:8",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Usuario_$993_storage_ptr",
+                    "typeIdentifier": "t_struct$_Usuario_$1041_storage_ptr",
                     "typeString": "struct UsuarioContract.Usuario"
                   }
                 }
@@ -6370,12 +6372,12 @@
           {
             "constant": false,
             "functionSelector": "aedb974b",
-            "id": 1014,
+            "id": 1062,
             "mutability": "mutable",
             "name": "contador",
             "nameLocation": "445:8:8",
             "nodeType": "VariableDeclaration",
-            "scope": 1146,
+            "scope": 1194,
             "src": "410:43:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -6384,9 +6386,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 1013,
+              "id": 1061,
               "keyType": {
-                "id": 1011,
+                "id": 1059,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "418:7:8",
@@ -6402,7 +6404,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 1012,
+                "id": 1060,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "429:7:8",
@@ -6416,23 +6418,23 @@
           },
           {
             "body": {
-              "id": 1061,
+              "id": 1109,
               "nodeType": "Block",
               "src": "594:355:8",
               "statements": [
                 {
                   "assignments": [
-                    1024
+                    1072
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1024,
+                      "id": 1072,
                       "mutability": "mutable",
                       "name": "contador_id",
                       "nameLocation": "613:11:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1061,
+                      "scope": 1109,
                       "src": "605:19:8",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -6441,7 +6443,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1023,
+                        "id": 1071,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "605:7:8",
@@ -6453,24 +6455,24 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1029,
+                  "id": 1077,
                   "initialValue": {
                     "baseExpression": {
-                      "id": 1025,
+                      "id": 1073,
                       "name": "contador",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1014,
+                      "referencedDeclaration": 1062,
                       "src": "627:8:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                         "typeString": "mapping(address => uint256)"
                       }
                     },
-                    "id": 1028,
+                    "id": 1076,
                     "indexExpression": {
                       "expression": {
-                        "id": 1026,
+                        "id": 1074,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -6481,7 +6483,7 @@
                           "typeString": "msg"
                         }
                       },
-                      "id": 1027,
+                      "id": 1075,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -6510,17 +6512,17 @@
                 },
                 {
                   "assignments": [
-                    1031
+                    1079
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1031,
+                      "id": 1079,
                       "mutability": "mutable",
                       "name": "_hash_clave",
                       "nameLocation": "666:11:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1061,
+                      "scope": 1109,
                       "src": "658:19:8",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -6529,7 +6531,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1030,
+                        "id": 1078,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "658:7:8",
@@ -6541,17 +6543,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1038,
+                  "id": 1086,
                   "initialValue": {
                     "arguments": [
                       {
                         "arguments": [
                           {
-                            "id": 1035,
+                            "id": 1083,
                             "name": "_clave",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1020,
+                            "referencedDeclaration": 1068,
                             "src": "704:6:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -6567,7 +6569,7 @@
                             }
                           ],
                           "expression": {
-                            "id": 1033,
+                            "id": 1081,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -6578,7 +6580,7 @@
                               "typeString": "abi"
                             }
                           },
-                          "id": 1034,
+                          "id": 1082,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -6591,7 +6593,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 1036,
+                        "id": 1084,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -6614,7 +6616,7 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 1032,
+                      "id": 1080,
                       "name": "sha256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -6625,7 +6627,7 @@
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 1037,
+                    "id": 1085,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6645,7 +6647,7 @@
                 },
                 {
                   "expression": {
-                    "id": 1053,
+                    "id": 1101,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6653,21 +6655,21 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 1039,
+                          "id": 1087,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1010,
+                          "referencedDeclaration": 1058,
                           "src": "723:5:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                             "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                           }
                         },
-                        "id": 1043,
+                        "id": 1091,
                         "indexExpression": {
                           "expression": {
-                            "id": 1040,
+                            "id": 1088,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -6678,7 +6680,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 1041,
+                          "id": 1089,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -6698,17 +6700,17 @@
                         "nodeType": "IndexAccess",
                         "src": "723:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                           "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                         }
                       },
-                      "id": 1044,
+                      "id": 1092,
                       "indexExpression": {
-                        "id": 1042,
+                        "id": 1090,
                         "name": "contador_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1024,
+                        "referencedDeclaration": 1072,
                         "src": "741:11:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -6722,7 +6724,7 @@
                       "nodeType": "IndexAccess",
                       "src": "723:30:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                         "typeString": "struct UsuarioContract.Usuario storage ref"
                       }
                     },
@@ -6731,11 +6733,11 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 1046,
+                          "id": 1094,
                           "name": "contador_id",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1024,
+                          "referencedDeclaration": 1072,
                           "src": "778:11:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -6743,11 +6745,11 @@
                           }
                         },
                         {
-                          "id": 1047,
+                          "id": 1095,
                           "name": "_nombre",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1016,
+                          "referencedDeclaration": 1064,
                           "src": "804:7:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -6755,11 +6757,11 @@
                           }
                         },
                         {
-                          "id": 1048,
+                          "id": 1096,
                           "name": "_identificacion",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1018,
+                          "referencedDeclaration": 1066,
                           "src": "826:15:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -6767,11 +6769,11 @@
                           }
                         },
                         {
-                          "id": 1049,
+                          "id": 1097,
                           "name": "_hash_clave",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1031,
+                          "referencedDeclaration": 1079,
                           "src": "856:11:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -6780,7 +6782,7 @@
                         },
                         {
                           "expression": {
-                            "id": 1050,
+                            "id": 1098,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -6791,7 +6793,7 @@
                               "typeString": "block"
                             }
                           },
-                          "id": 1051,
+                          "id": 1099,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -6828,18 +6830,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 1045,
+                        "id": 1093,
                         "name": "Usuario",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 993,
+                        "referencedDeclaration": 1041,
                         "src": "756:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Usuario_$993_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Usuario_$1041_storage_ptr_$",
                           "typeString": "type(struct UsuarioContract.Usuario storage pointer)"
                         }
                       },
-                      "id": 1052,
+                      "id": 1100,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -6850,23 +6852,23 @@
                       "src": "756:152:8",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario memory"
                       }
                     },
                     "src": "723:185:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
-                  "id": 1054,
+                  "id": 1102,
                   "nodeType": "ExpressionStatement",
                   "src": "723:185:8"
                 },
                 {
                   "expression": {
-                    "id": 1059,
+                    "id": 1107,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6877,21 +6879,21 @@
                     "src": "919:22:8",
                     "subExpression": {
                       "baseExpression": {
-                        "id": 1055,
+                        "id": 1103,
                         "name": "contador",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1014,
+                        "referencedDeclaration": 1062,
                         "src": "919:8:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1058,
+                      "id": 1106,
                       "indexExpression": {
                         "expression": {
-                          "id": 1056,
+                          "id": 1104,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -6902,7 +6904,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1057,
+                        "id": 1105,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -6931,14 +6933,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1060,
+                  "id": 1108,
                   "nodeType": "ExpressionStatement",
                   "src": "919:22:8"
                 }
               ]
             },
             "functionSelector": "d05c6b71",
-            "id": 1062,
+            "id": 1110,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -6946,17 +6948,17 @@
             "nameLocation": "471:5:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1021,
+              "id": 1069,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1016,
+                  "id": 1064,
                   "mutability": "mutable",
                   "name": "_nombre",
                   "nameLocation": "501:7:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1062,
+                  "scope": 1110,
                   "src": "487:21:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -6965,7 +6967,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1015,
+                    "id": 1063,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "487:6:8",
@@ -6978,12 +6980,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1018,
+                  "id": 1066,
                   "mutability": "mutable",
                   "name": "_identificacion",
                   "nameLocation": "533:15:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1062,
+                  "scope": 1110,
                   "src": "519:29:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -6992,7 +6994,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1017,
+                    "id": 1065,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "519:6:8",
@@ -7005,12 +7007,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1020,
+                  "id": 1068,
                   "mutability": "mutable",
                   "name": "_clave",
                   "nameLocation": "573:6:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1062,
+                  "scope": 1110,
                   "src": "559:20:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -7019,7 +7021,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1019,
+                    "id": 1067,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "559:6:8",
@@ -7034,12 +7036,12 @@
               "src": "476:110:8"
             },
             "returnParameters": {
-              "id": 1022,
+              "id": 1070,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "594:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "462:487:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -7047,69 +7049,69 @@
           },
           {
             "body": {
-              "id": 1094,
+              "id": 1142,
               "nodeType": "Block",
               "src": "1020:138:8",
               "statements": [
                 {
                   "assignments": [
-                    1071
+                    1119
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1071,
+                      "id": 1119,
                       "mutability": "mutable",
                       "name": "_item",
                       "nameLocation": "1046:5:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1094,
+                      "scope": 1142,
                       "src": "1031:20:8",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario"
                       },
                       "typeName": {
-                        "id": 1070,
+                        "id": 1118,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 1069,
+                          "id": 1117,
                           "name": "Usuario",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 993,
+                          "referencedDeclaration": 1041,
                           "src": "1031:7:8"
                         },
-                        "referencedDeclaration": 993,
+                        "referencedDeclaration": 1041,
                         "src": "1031:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Usuario_$993_storage_ptr",
+                          "typeIdentifier": "t_struct$_Usuario_$1041_storage_ptr",
                           "typeString": "struct UsuarioContract.Usuario"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1078,
+                  "id": 1126,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 1072,
+                        "id": 1120,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1010,
+                        "referencedDeclaration": 1058,
                         "src": "1054:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                           "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                         }
                       },
-                      "id": 1075,
+                      "id": 1123,
                       "indexExpression": {
                         "expression": {
-                          "id": 1073,
+                          "id": 1121,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -7120,7 +7122,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1074,
+                        "id": 1122,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -7140,17 +7142,17 @@
                       "nodeType": "IndexAccess",
                       "src": "1054:17:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                         "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                       }
                     },
-                    "id": 1077,
+                    "id": 1125,
                     "indexExpression": {
-                      "id": 1076,
+                      "id": 1124,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1064,
+                      "referencedDeclaration": 1112,
                       "src": "1072:3:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -7164,7 +7166,7 @@
                     "nodeType": "IndexAccess",
                     "src": "1054:22:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
@@ -7173,32 +7175,32 @@
                 },
                 {
                   "expression": {
-                    "id": 1083,
+                    "id": 1131,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 1079,
+                        "id": 1127,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1071,
+                        "referencedDeclaration": 1119,
                         "src": "1087:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                          "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                           "typeString": "struct UsuarioContract.Usuario memory"
                         }
                       },
-                      "id": 1081,
+                      "id": 1129,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "nombre",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 986,
+                      "referencedDeclaration": 1034,
                       "src": "1087:12:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -7208,11 +7210,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1082,
+                      "id": 1130,
                       "name": "_nombre",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1066,
+                      "referencedDeclaration": 1114,
                       "src": "1102:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -7225,13 +7227,13 @@
                       "typeString": "string memory"
                     }
                   },
-                  "id": 1084,
+                  "id": 1132,
                   "nodeType": "ExpressionStatement",
                   "src": "1087:22:8"
                 },
                 {
                   "expression": {
-                    "id": 1092,
+                    "id": 1140,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -7239,21 +7241,21 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 1085,
+                          "id": 1133,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1010,
+                          "referencedDeclaration": 1058,
                           "src": "1120:5:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                             "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                           }
                         },
-                        "id": 1089,
+                        "id": 1137,
                         "indexExpression": {
                           "expression": {
-                            "id": 1086,
+                            "id": 1134,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -7264,7 +7266,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 1087,
+                          "id": 1135,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -7284,17 +7286,17 @@
                         "nodeType": "IndexAccess",
                         "src": "1120:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                           "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                         }
                       },
-                      "id": 1090,
+                      "id": 1138,
                       "indexExpression": {
-                        "id": 1088,
+                        "id": 1136,
                         "name": "_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1064,
+                        "referencedDeclaration": 1112,
                         "src": "1138:3:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -7308,38 +7310,38 @@
                       "nodeType": "IndexAccess",
                       "src": "1120:22:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                         "typeString": "struct UsuarioContract.Usuario storage ref"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1091,
+                      "id": 1139,
                       "name": "_item",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1071,
+                      "referencedDeclaration": 1119,
                       "src": "1145:5:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario memory"
                       }
                     },
                     "src": "1120:30:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
-                  "id": 1093,
+                  "id": 1141,
                   "nodeType": "ExpressionStatement",
                   "src": "1120:30:8"
                 }
               ]
             },
             "functionSelector": "535c4196",
-            "id": 1095,
+            "id": 1143,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -7347,17 +7349,17 @@
             "nameLocation": "966:10:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1067,
+              "id": 1115,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1064,
+                  "id": 1112,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "985:3:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1143,
                   "src": "977:11:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -7366,7 +7368,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1063,
+                    "id": 1111,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "977:7:8",
@@ -7379,12 +7381,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1066,
+                  "id": 1114,
                   "mutability": "mutable",
                   "name": "_nombre",
                   "nameLocation": "1004:7:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1143,
                   "src": "990:21:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -7393,7 +7395,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1065,
+                    "id": 1113,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "990:6:8",
@@ -7408,12 +7410,12 @@
               "src": "976:36:8"
             },
             "returnParameters": {
-              "id": 1068,
+              "id": 1116,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1020:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "957:201:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -7421,69 +7423,69 @@
           },
           {
             "body": {
-              "id": 1136,
+              "id": 1184,
               "nodeType": "Block",
               "src": "1233:206:8",
               "statements": [
                 {
                   "assignments": [
-                    1104
+                    1152
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1104,
+                      "id": 1152,
                       "mutability": "mutable",
                       "name": "_item",
                       "nameLocation": "1259:5:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1136,
+                      "scope": 1184,
                       "src": "1244:20:8",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario"
                       },
                       "typeName": {
-                        "id": 1103,
+                        "id": 1151,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 1102,
+                          "id": 1150,
                           "name": "Usuario",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 993,
+                          "referencedDeclaration": 1041,
                           "src": "1244:7:8"
                         },
-                        "referencedDeclaration": 993,
+                        "referencedDeclaration": 1041,
                         "src": "1244:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Usuario_$993_storage_ptr",
+                          "typeIdentifier": "t_struct$_Usuario_$1041_storage_ptr",
                           "typeString": "struct UsuarioContract.Usuario"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1111,
+                  "id": 1159,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 1105,
+                        "id": 1153,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1010,
+                        "referencedDeclaration": 1058,
                         "src": "1267:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                           "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                         }
                       },
-                      "id": 1108,
+                      "id": 1156,
                       "indexExpression": {
                         "expression": {
-                          "id": 1106,
+                          "id": 1154,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -7494,7 +7496,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1107,
+                        "id": 1155,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -7514,17 +7516,17 @@
                       "nodeType": "IndexAccess",
                       "src": "1267:17:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                         "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                       }
                     },
-                    "id": 1110,
+                    "id": 1158,
                     "indexExpression": {
-                      "id": 1109,
+                      "id": 1157,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1097,
+                      "referencedDeclaration": 1145,
                       "src": "1285:3:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -7538,7 +7540,7 @@
                     "nodeType": "IndexAccess",
                     "src": "1267:22:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
@@ -7547,17 +7549,17 @@
                 },
                 {
                   "assignments": [
-                    1113
+                    1161
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1113,
+                      "id": 1161,
                       "mutability": "mutable",
                       "name": "_hash_clave",
                       "nameLocation": "1308:11:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1136,
+                      "scope": 1184,
                       "src": "1300:19:8",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -7566,7 +7568,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1112,
+                        "id": 1160,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1300:7:8",
@@ -7578,17 +7580,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1120,
+                  "id": 1168,
                   "initialValue": {
                     "arguments": [
                       {
                         "arguments": [
                           {
-                            "id": 1117,
+                            "id": 1165,
                             "name": "_clave",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1099,
+                            "referencedDeclaration": 1147,
                             "src": "1346:6:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -7604,7 +7606,7 @@
                             }
                           ],
                           "expression": {
-                            "id": 1115,
+                            "id": 1163,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -7615,7 +7617,7 @@
                               "typeString": "abi"
                             }
                           },
-                          "id": 1116,
+                          "id": 1164,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -7628,7 +7630,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 1118,
+                        "id": 1166,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -7651,7 +7653,7 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 1114,
+                      "id": 1162,
                       "name": "sha256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -7662,7 +7664,7 @@
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 1119,
+                    "id": 1167,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -7682,32 +7684,32 @@
                 },
                 {
                   "expression": {
-                    "id": 1125,
+                    "id": 1173,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 1121,
+                        "id": 1169,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1104,
+                        "referencedDeclaration": 1152,
                         "src": "1365:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                          "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                           "typeString": "struct UsuarioContract.Usuario memory"
                         }
                       },
-                      "id": 1123,
+                      "id": 1171,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "clave",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 990,
+                      "referencedDeclaration": 1038,
                       "src": "1365:11:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -7717,11 +7719,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1124,
+                      "id": 1172,
                       "name": "_hash_clave",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1113,
+                      "referencedDeclaration": 1161,
                       "src": "1379:11:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -7734,13 +7736,13 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 1126,
+                  "id": 1174,
                   "nodeType": "ExpressionStatement",
                   "src": "1365:25:8"
                 },
                 {
                   "expression": {
-                    "id": 1134,
+                    "id": 1182,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -7748,21 +7750,21 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 1127,
+                          "id": 1175,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1010,
+                          "referencedDeclaration": 1058,
                           "src": "1401:5:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                             "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                           }
                         },
-                        "id": 1131,
+                        "id": 1179,
                         "indexExpression": {
                           "expression": {
-                            "id": 1128,
+                            "id": 1176,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -7773,7 +7775,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 1129,
+                          "id": 1177,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -7793,17 +7795,17 @@
                         "nodeType": "IndexAccess",
                         "src": "1401:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                           "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                         }
                       },
-                      "id": 1132,
+                      "id": 1180,
                       "indexExpression": {
-                        "id": 1130,
+                        "id": 1178,
                         "name": "_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1097,
+                        "referencedDeclaration": 1145,
                         "src": "1419:3:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -7817,38 +7819,38 @@
                       "nodeType": "IndexAccess",
                       "src": "1401:22:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                         "typeString": "struct UsuarioContract.Usuario storage ref"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1133,
+                      "id": 1181,
                       "name": "_item",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1104,
+                      "referencedDeclaration": 1152,
                       "src": "1426:5:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario memory"
                       }
                     },
                     "src": "1401:30:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
-                  "id": 1135,
+                  "id": 1183,
                   "nodeType": "ExpressionStatement",
                   "src": "1401:30:8"
                 }
               ]
             },
             "functionSelector": "a58a2286",
-            "id": 1137,
+            "id": 1185,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -7856,17 +7858,17 @@
             "nameLocation": "1175:15:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1100,
+              "id": 1148,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1097,
+                  "id": 1145,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "1199:3:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1137,
+                  "scope": 1185,
                   "src": "1191:11:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -7875,7 +7877,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1096,
+                    "id": 1144,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1191:7:8",
@@ -7888,12 +7890,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1099,
+                  "id": 1147,
                   "mutability": "mutable",
                   "name": "_clave",
                   "nameLocation": "1218:6:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1137,
+                  "scope": 1185,
                   "src": "1204:20:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -7902,7 +7904,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1098,
+                    "id": 1146,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1204:6:8",
@@ -7917,12 +7919,12 @@
               "src": "1190:35:8"
             },
             "returnParameters": {
-              "id": 1101,
+              "id": 1149,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1233:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "1166:273:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -7930,13 +7932,13 @@
           },
           {
             "body": {
-              "id": 1144,
+              "id": 1192,
               "nodeType": "Block",
               "src": "1544:194:8",
               "statements": []
             },
             "functionSelector": "c6ce03d6",
-            "id": 1145,
+            "id": 1193,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -7944,17 +7946,17 @@
             "nameLocation": "1456:13:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1142,
+              "id": 1190,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1139,
+                  "id": 1187,
                   "mutability": "mutable",
                   "name": "_identificacion",
                   "nameLocation": "1484:15:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1145,
+                  "scope": 1193,
                   "src": "1470:29:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -7963,7 +7965,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1138,
+                    "id": 1186,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1470:6:8",
@@ -7976,12 +7978,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1141,
+                  "id": 1189,
                   "mutability": "mutable",
                   "name": "_clave",
                   "nameLocation": "1515:6:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1145,
+                  "scope": 1193,
                   "src": "1501:20:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -7990,7 +7992,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1140,
+                    "id": 1188,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1501:6:8",
@@ -8005,19 +8007,19 @@
               "src": "1469:53:8"
             },
             "returnParameters": {
-              "id": 1143,
+              "id": 1191,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1544:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "1447:291:8",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1147,
+        "scope": 1195,
         "src": "61:1680:8",
         "usedErrors": []
       }
@@ -8028,15 +8030,15 @@
     "absolutePath": "project:/contracts/UsuarioContract.sol",
     "exportedSymbols": {
       "UsuarioContract": [
-        1146
+        1194
       ]
     },
-    "id": 1147,
+    "id": 1195,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 982,
+        "id": 1030,
         "literals": [
           "solidity",
           "^",
@@ -8053,9 +8055,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1146,
+        "id": 1194,
         "linearizedBaseContracts": [
-          1146
+          1194
         ],
         "name": "UsuarioContract",
         "nameLocation": "70:15:8",
@@ -8063,16 +8065,16 @@
         "nodes": [
           {
             "canonicalName": "UsuarioContract.Usuario",
-            "id": 993,
+            "id": 1041,
             "members": [
               {
                 "constant": false,
-                "id": 984,
+                "id": 1032,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "127:2:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "119:10:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8081,7 +8083,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 983,
+                  "id": 1031,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "119:7:8",
@@ -8094,12 +8096,12 @@
               },
               {
                 "constant": false,
-                "id": 986,
+                "id": 1034,
                 "mutability": "mutable",
                 "name": "nombre",
                 "nameLocation": "147:6:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "140:13:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8108,7 +8110,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 985,
+                  "id": 1033,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "140:6:8",
@@ -8121,12 +8123,12 @@
               },
               {
                 "constant": false,
-                "id": 988,
+                "id": 1036,
                 "mutability": "mutable",
                 "name": "identificacion",
                 "nameLocation": "171:14:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "164:21:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8135,7 +8137,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 987,
+                  "id": 1035,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "164:6:8",
@@ -8148,12 +8150,12 @@
               },
               {
                 "constant": false,
-                "id": 990,
+                "id": 1038,
                 "mutability": "mutable",
                 "name": "clave",
                 "nameLocation": "204:5:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "196:13:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8162,7 +8164,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 989,
+                  "id": 1037,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "196:7:8",
@@ -8175,12 +8177,12 @@
               },
               {
                 "constant": false,
-                "id": 992,
+                "id": 1040,
                 "mutability": "mutable",
                 "name": "createdAt",
                 "nameLocation": "228:9:8",
                 "nodeType": "VariableDeclaration",
-                "scope": 993,
+                "scope": 1041,
                 "src": "220:17:8",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -8189,7 +8191,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 991,
+                  "id": 1039,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "220:7:8",
@@ -8204,13 +8206,13 @@
             "name": "Usuario",
             "nameLocation": "100:7:8",
             "nodeType": "StructDefinition",
-            "scope": 1146,
+            "scope": 1194,
             "src": "93:152:8",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1002,
+              "id": 1050,
               "nodeType": "Block",
               "src": "266:69:8",
               "statements": [
@@ -8219,7 +8221,7 @@
                     "arguments": [
                       {
                         "hexValue": "41646d696e6973747261646f72",
-                        "id": 997,
+                        "id": 1045,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -8235,7 +8237,7 @@
                       },
                       {
                         "hexValue": "31313035323739303434",
-                        "id": 998,
+                        "id": 1046,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -8251,7 +8253,7 @@
                       },
                       {
                         "hexValue": "31313035323739303434",
-                        "id": 999,
+                        "id": 1047,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -8281,18 +8283,18 @@
                           "typeString": "literal_string \"1105279044\""
                         }
                       ],
-                      "id": 996,
+                      "id": 1044,
                       "name": "crear",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1062,
+                      "referencedDeclaration": 1110,
                       "src": "277:5:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory,string memory,string memory)"
                       }
                     },
-                    "id": 1000,
+                    "id": 1048,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -8307,13 +8309,13 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1001,
+                  "id": 1049,
                   "nodeType": "ExpressionStatement",
                   "src": "277:50:8"
                 }
               ]
             },
-            "id": 1003,
+            "id": 1051,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -8321,18 +8323,18 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 994,
+              "id": 1042,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "264:2:8"
             },
             "returnParameters": {
-              "id": 995,
+              "id": 1043,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "266:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "253:82:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -8341,23 +8343,23 @@
           {
             "constant": false,
             "functionSelector": "31caa9e1",
-            "id": 1010,
+            "id": 1058,
             "mutability": "mutable",
             "name": "lista",
             "nameLocation": "398:5:8",
             "nodeType": "VariableDeclaration",
-            "scope": 1146,
+            "scope": 1194,
             "src": "343:60:8",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
               "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario))"
             },
             "typeName": {
-              "id": 1009,
+              "id": 1057,
               "keyType": {
-                "id": 1004,
+                "id": 1052,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "351:7:8",
@@ -8369,13 +8371,13 @@
               "nodeType": "Mapping",
               "src": "343:47:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                 "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario))"
               },
               "valueType": {
-                "id": 1008,
+                "id": 1056,
                 "keyType": {
-                  "id": 1005,
+                  "id": 1053,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "370:7:8",
@@ -8387,23 +8389,23 @@
                 "nodeType": "Mapping",
                 "src": "362:27:8",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                   "typeString": "mapping(uint256 => struct UsuarioContract.Usuario)"
                 },
                 "valueType": {
-                  "id": 1007,
+                  "id": 1055,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1006,
+                    "id": 1054,
                     "name": "Usuario",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 993,
+                    "referencedDeclaration": 1041,
                     "src": "381:7:8"
                   },
-                  "referencedDeclaration": 993,
+                  "referencedDeclaration": 1041,
                   "src": "381:7:8",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Usuario_$993_storage_ptr",
+                    "typeIdentifier": "t_struct$_Usuario_$1041_storage_ptr",
                     "typeString": "struct UsuarioContract.Usuario"
                   }
                 }
@@ -8414,12 +8416,12 @@
           {
             "constant": false,
             "functionSelector": "aedb974b",
-            "id": 1014,
+            "id": 1062,
             "mutability": "mutable",
             "name": "contador",
             "nameLocation": "445:8:8",
             "nodeType": "VariableDeclaration",
-            "scope": 1146,
+            "scope": 1194,
             "src": "410:43:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -8428,9 +8430,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 1013,
+              "id": 1061,
               "keyType": {
-                "id": 1011,
+                "id": 1059,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "418:7:8",
@@ -8446,7 +8448,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 1012,
+                "id": 1060,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "429:7:8",
@@ -8460,23 +8462,23 @@
           },
           {
             "body": {
-              "id": 1061,
+              "id": 1109,
               "nodeType": "Block",
               "src": "594:355:8",
               "statements": [
                 {
                   "assignments": [
-                    1024
+                    1072
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1024,
+                      "id": 1072,
                       "mutability": "mutable",
                       "name": "contador_id",
                       "nameLocation": "613:11:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1061,
+                      "scope": 1109,
                       "src": "605:19:8",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -8485,7 +8487,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 1023,
+                        "id": 1071,
                         "name": "uint256",
                         "nodeType": "ElementaryTypeName",
                         "src": "605:7:8",
@@ -8497,24 +8499,24 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1029,
+                  "id": 1077,
                   "initialValue": {
                     "baseExpression": {
-                      "id": 1025,
+                      "id": 1073,
                       "name": "contador",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1014,
+                      "referencedDeclaration": 1062,
                       "src": "627:8:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                         "typeString": "mapping(address => uint256)"
                       }
                     },
-                    "id": 1028,
+                    "id": 1076,
                     "indexExpression": {
                       "expression": {
-                        "id": 1026,
+                        "id": 1074,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -8525,7 +8527,7 @@
                           "typeString": "msg"
                         }
                       },
-                      "id": 1027,
+                      "id": 1075,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -8554,17 +8556,17 @@
                 },
                 {
                   "assignments": [
-                    1031
+                    1079
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1031,
+                      "id": 1079,
                       "mutability": "mutable",
                       "name": "_hash_clave",
                       "nameLocation": "666:11:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1061,
+                      "scope": 1109,
                       "src": "658:19:8",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -8573,7 +8575,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1030,
+                        "id": 1078,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "658:7:8",
@@ -8585,17 +8587,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1038,
+                  "id": 1086,
                   "initialValue": {
                     "arguments": [
                       {
                         "arguments": [
                           {
-                            "id": 1035,
+                            "id": 1083,
                             "name": "_clave",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1020,
+                            "referencedDeclaration": 1068,
                             "src": "704:6:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -8611,7 +8613,7 @@
                             }
                           ],
                           "expression": {
-                            "id": 1033,
+                            "id": 1081,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -8622,7 +8624,7 @@
                               "typeString": "abi"
                             }
                           },
-                          "id": 1034,
+                          "id": 1082,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -8635,7 +8637,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 1036,
+                        "id": 1084,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -8658,7 +8660,7 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 1032,
+                      "id": 1080,
                       "name": "sha256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -8669,7 +8671,7 @@
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 1037,
+                    "id": 1085,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -8689,7 +8691,7 @@
                 },
                 {
                   "expression": {
-                    "id": 1053,
+                    "id": 1101,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -8697,21 +8699,21 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 1039,
+                          "id": 1087,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1010,
+                          "referencedDeclaration": 1058,
                           "src": "723:5:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                             "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                           }
                         },
-                        "id": 1043,
+                        "id": 1091,
                         "indexExpression": {
                           "expression": {
-                            "id": 1040,
+                            "id": 1088,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -8722,7 +8724,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 1041,
+                          "id": 1089,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -8742,17 +8744,17 @@
                         "nodeType": "IndexAccess",
                         "src": "723:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                           "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                         }
                       },
-                      "id": 1044,
+                      "id": 1092,
                       "indexExpression": {
-                        "id": 1042,
+                        "id": 1090,
                         "name": "contador_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1024,
+                        "referencedDeclaration": 1072,
                         "src": "741:11:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -8766,7 +8768,7 @@
                       "nodeType": "IndexAccess",
                       "src": "723:30:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                         "typeString": "struct UsuarioContract.Usuario storage ref"
                       }
                     },
@@ -8775,11 +8777,11 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 1046,
+                          "id": 1094,
                           "name": "contador_id",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1024,
+                          "referencedDeclaration": 1072,
                           "src": "778:11:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -8787,11 +8789,11 @@
                           }
                         },
                         {
-                          "id": 1047,
+                          "id": 1095,
                           "name": "_nombre",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1016,
+                          "referencedDeclaration": 1064,
                           "src": "804:7:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -8799,11 +8801,11 @@
                           }
                         },
                         {
-                          "id": 1048,
+                          "id": 1096,
                           "name": "_identificacion",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1018,
+                          "referencedDeclaration": 1066,
                           "src": "826:15:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -8811,11 +8813,11 @@
                           }
                         },
                         {
-                          "id": 1049,
+                          "id": 1097,
                           "name": "_hash_clave",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1031,
+                          "referencedDeclaration": 1079,
                           "src": "856:11:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -8824,7 +8826,7 @@
                         },
                         {
                           "expression": {
-                            "id": 1050,
+                            "id": 1098,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -8835,7 +8837,7 @@
                               "typeString": "block"
                             }
                           },
-                          "id": 1051,
+                          "id": 1099,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -8872,18 +8874,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 1045,
+                        "id": 1093,
                         "name": "Usuario",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 993,
+                        "referencedDeclaration": 1041,
                         "src": "756:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Usuario_$993_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Usuario_$1041_storage_ptr_$",
                           "typeString": "type(struct UsuarioContract.Usuario storage pointer)"
                         }
                       },
-                      "id": 1052,
+                      "id": 1100,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -8894,23 +8896,23 @@
                       "src": "756:152:8",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario memory"
                       }
                     },
                     "src": "723:185:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
-                  "id": 1054,
+                  "id": 1102,
                   "nodeType": "ExpressionStatement",
                   "src": "723:185:8"
                 },
                 {
                   "expression": {
-                    "id": 1059,
+                    "id": 1107,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -8921,21 +8923,21 @@
                     "src": "919:22:8",
                     "subExpression": {
                       "baseExpression": {
-                        "id": 1055,
+                        "id": 1103,
                         "name": "contador",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1014,
+                        "referencedDeclaration": 1062,
                         "src": "919:8:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 1058,
+                      "id": 1106,
                       "indexExpression": {
                         "expression": {
-                          "id": 1056,
+                          "id": 1104,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -8946,7 +8948,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1057,
+                        "id": 1105,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -8975,14 +8977,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1060,
+                  "id": 1108,
                   "nodeType": "ExpressionStatement",
                   "src": "919:22:8"
                 }
               ]
             },
             "functionSelector": "d05c6b71",
-            "id": 1062,
+            "id": 1110,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -8990,17 +8992,17 @@
             "nameLocation": "471:5:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1021,
+              "id": 1069,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1016,
+                  "id": 1064,
                   "mutability": "mutable",
                   "name": "_nombre",
                   "nameLocation": "501:7:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1062,
+                  "scope": 1110,
                   "src": "487:21:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9009,7 +9011,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1015,
+                    "id": 1063,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "487:6:8",
@@ -9022,12 +9024,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1018,
+                  "id": 1066,
                   "mutability": "mutable",
                   "name": "_identificacion",
                   "nameLocation": "533:15:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1062,
+                  "scope": 1110,
                   "src": "519:29:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9036,7 +9038,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1017,
+                    "id": 1065,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "519:6:8",
@@ -9049,12 +9051,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1020,
+                  "id": 1068,
                   "mutability": "mutable",
                   "name": "_clave",
                   "nameLocation": "573:6:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1062,
+                  "scope": 1110,
                   "src": "559:20:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9063,7 +9065,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1019,
+                    "id": 1067,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "559:6:8",
@@ -9078,12 +9080,12 @@
               "src": "476:110:8"
             },
             "returnParameters": {
-              "id": 1022,
+              "id": 1070,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "594:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "462:487:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -9091,69 +9093,69 @@
           },
           {
             "body": {
-              "id": 1094,
+              "id": 1142,
               "nodeType": "Block",
               "src": "1020:138:8",
               "statements": [
                 {
                   "assignments": [
-                    1071
+                    1119
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1071,
+                      "id": 1119,
                       "mutability": "mutable",
                       "name": "_item",
                       "nameLocation": "1046:5:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1094,
+                      "scope": 1142,
                       "src": "1031:20:8",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario"
                       },
                       "typeName": {
-                        "id": 1070,
+                        "id": 1118,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 1069,
+                          "id": 1117,
                           "name": "Usuario",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 993,
+                          "referencedDeclaration": 1041,
                           "src": "1031:7:8"
                         },
-                        "referencedDeclaration": 993,
+                        "referencedDeclaration": 1041,
                         "src": "1031:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Usuario_$993_storage_ptr",
+                          "typeIdentifier": "t_struct$_Usuario_$1041_storage_ptr",
                           "typeString": "struct UsuarioContract.Usuario"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1078,
+                  "id": 1126,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 1072,
+                        "id": 1120,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1010,
+                        "referencedDeclaration": 1058,
                         "src": "1054:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                           "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                         }
                       },
-                      "id": 1075,
+                      "id": 1123,
                       "indexExpression": {
                         "expression": {
-                          "id": 1073,
+                          "id": 1121,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -9164,7 +9166,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1074,
+                        "id": 1122,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -9184,17 +9186,17 @@
                       "nodeType": "IndexAccess",
                       "src": "1054:17:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                         "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                       }
                     },
-                    "id": 1077,
+                    "id": 1125,
                     "indexExpression": {
-                      "id": 1076,
+                      "id": 1124,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1064,
+                      "referencedDeclaration": 1112,
                       "src": "1072:3:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -9208,7 +9210,7 @@
                     "nodeType": "IndexAccess",
                     "src": "1054:22:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
@@ -9217,32 +9219,32 @@
                 },
                 {
                   "expression": {
-                    "id": 1083,
+                    "id": 1131,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 1079,
+                        "id": 1127,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1071,
+                        "referencedDeclaration": 1119,
                         "src": "1087:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                          "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                           "typeString": "struct UsuarioContract.Usuario memory"
                         }
                       },
-                      "id": 1081,
+                      "id": 1129,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "nombre",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 986,
+                      "referencedDeclaration": 1034,
                       "src": "1087:12:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -9252,11 +9254,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1082,
+                      "id": 1130,
                       "name": "_nombre",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1066,
+                      "referencedDeclaration": 1114,
                       "src": "1102:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -9269,13 +9271,13 @@
                       "typeString": "string memory"
                     }
                   },
-                  "id": 1084,
+                  "id": 1132,
                   "nodeType": "ExpressionStatement",
                   "src": "1087:22:8"
                 },
                 {
                   "expression": {
-                    "id": 1092,
+                    "id": 1140,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -9283,21 +9285,21 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 1085,
+                          "id": 1133,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1010,
+                          "referencedDeclaration": 1058,
                           "src": "1120:5:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                             "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                           }
                         },
-                        "id": 1089,
+                        "id": 1137,
                         "indexExpression": {
                           "expression": {
-                            "id": 1086,
+                            "id": 1134,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -9308,7 +9310,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 1087,
+                          "id": 1135,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -9328,17 +9330,17 @@
                         "nodeType": "IndexAccess",
                         "src": "1120:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                           "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                         }
                       },
-                      "id": 1090,
+                      "id": 1138,
                       "indexExpression": {
-                        "id": 1088,
+                        "id": 1136,
                         "name": "_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1064,
+                        "referencedDeclaration": 1112,
                         "src": "1138:3:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -9352,38 +9354,38 @@
                       "nodeType": "IndexAccess",
                       "src": "1120:22:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                         "typeString": "struct UsuarioContract.Usuario storage ref"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1091,
+                      "id": 1139,
                       "name": "_item",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1071,
+                      "referencedDeclaration": 1119,
                       "src": "1145:5:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario memory"
                       }
                     },
                     "src": "1120:30:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
-                  "id": 1093,
+                  "id": 1141,
                   "nodeType": "ExpressionStatement",
                   "src": "1120:30:8"
                 }
               ]
             },
             "functionSelector": "535c4196",
-            "id": 1095,
+            "id": 1143,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9391,17 +9393,17 @@
             "nameLocation": "966:10:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1067,
+              "id": 1115,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1064,
+                  "id": 1112,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "985:3:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1143,
                   "src": "977:11:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9410,7 +9412,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1063,
+                    "id": 1111,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "977:7:8",
@@ -9423,12 +9425,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1066,
+                  "id": 1114,
                   "mutability": "mutable",
                   "name": "_nombre",
                   "nameLocation": "1004:7:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1095,
+                  "scope": 1143,
                   "src": "990:21:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9437,7 +9439,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1065,
+                    "id": 1113,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "990:6:8",
@@ -9452,12 +9454,12 @@
               "src": "976:36:8"
             },
             "returnParameters": {
-              "id": 1068,
+              "id": 1116,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1020:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "957:201:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -9465,69 +9467,69 @@
           },
           {
             "body": {
-              "id": 1136,
+              "id": 1184,
               "nodeType": "Block",
               "src": "1233:206:8",
               "statements": [
                 {
                   "assignments": [
-                    1104
+                    1152
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1104,
+                      "id": 1152,
                       "mutability": "mutable",
                       "name": "_item",
                       "nameLocation": "1259:5:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1136,
+                      "scope": 1184,
                       "src": "1244:20:8",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario"
                       },
                       "typeName": {
-                        "id": 1103,
+                        "id": 1151,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 1102,
+                          "id": 1150,
                           "name": "Usuario",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 993,
+                          "referencedDeclaration": 1041,
                           "src": "1244:7:8"
                         },
-                        "referencedDeclaration": 993,
+                        "referencedDeclaration": 1041,
                         "src": "1244:7:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Usuario_$993_storage_ptr",
+                          "typeIdentifier": "t_struct$_Usuario_$1041_storage_ptr",
                           "typeString": "struct UsuarioContract.Usuario"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1111,
+                  "id": 1159,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 1105,
+                        "id": 1153,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1010,
+                        "referencedDeclaration": 1058,
                         "src": "1267:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                           "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                         }
                       },
-                      "id": 1108,
+                      "id": 1156,
                       "indexExpression": {
                         "expression": {
-                          "id": 1106,
+                          "id": 1154,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
@@ -9538,7 +9540,7 @@
                             "typeString": "msg"
                           }
                         },
-                        "id": 1107,
+                        "id": 1155,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -9558,17 +9560,17 @@
                       "nodeType": "IndexAccess",
                       "src": "1267:17:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                         "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                       }
                     },
-                    "id": 1110,
+                    "id": 1158,
                     "indexExpression": {
-                      "id": 1109,
+                      "id": 1157,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1097,
+                      "referencedDeclaration": 1145,
                       "src": "1285:3:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -9582,7 +9584,7 @@
                     "nodeType": "IndexAccess",
                     "src": "1267:22:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
@@ -9591,17 +9593,17 @@
                 },
                 {
                   "assignments": [
-                    1113
+                    1161
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1113,
+                      "id": 1161,
                       "mutability": "mutable",
                       "name": "_hash_clave",
                       "nameLocation": "1308:11:8",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1136,
+                      "scope": 1184,
                       "src": "1300:19:8",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -9610,7 +9612,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 1112,
+                        "id": 1160,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1300:7:8",
@@ -9622,17 +9624,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1120,
+                  "id": 1168,
                   "initialValue": {
                     "arguments": [
                       {
                         "arguments": [
                           {
-                            "id": 1117,
+                            "id": 1165,
                             "name": "_clave",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1099,
+                            "referencedDeclaration": 1147,
                             "src": "1346:6:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -9648,7 +9650,7 @@
                             }
                           ],
                           "expression": {
-                            "id": 1115,
+                            "id": 1163,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -9659,7 +9661,7 @@
                               "typeString": "abi"
                             }
                           },
-                          "id": 1116,
+                          "id": 1164,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -9672,7 +9674,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 1118,
+                        "id": 1166,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -9695,7 +9697,7 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 1114,
+                      "id": 1162,
                       "name": "sha256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -9706,7 +9708,7 @@
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 1119,
+                    "id": 1167,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -9726,32 +9728,32 @@
                 },
                 {
                   "expression": {
-                    "id": 1125,
+                    "id": 1173,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 1121,
+                        "id": 1169,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1104,
+                        "referencedDeclaration": 1152,
                         "src": "1365:5:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                          "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                           "typeString": "struct UsuarioContract.Usuario memory"
                         }
                       },
-                      "id": 1123,
+                      "id": 1171,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "clave",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 990,
+                      "referencedDeclaration": 1038,
                       "src": "1365:11:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -9761,11 +9763,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1124,
+                      "id": 1172,
                       "name": "_hash_clave",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1113,
+                      "referencedDeclaration": 1161,
                       "src": "1379:11:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -9778,13 +9780,13 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 1126,
+                  "id": 1174,
                   "nodeType": "ExpressionStatement",
                   "src": "1365:25:8"
                 },
                 {
                   "expression": {
-                    "id": 1134,
+                    "id": 1182,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -9792,21 +9794,21 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 1127,
+                          "id": 1175,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1010,
+                          "referencedDeclaration": 1058,
                           "src": "1401:5:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$_$",
                             "typeString": "mapping(address => mapping(uint256 => struct UsuarioContract.Usuario storage ref))"
                           }
                         },
-                        "id": 1131,
+                        "id": 1179,
                         "indexExpression": {
                           "expression": {
-                            "id": 1128,
+                            "id": 1176,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
@@ -9817,7 +9819,7 @@
                               "typeString": "msg"
                             }
                           },
-                          "id": 1129,
+                          "id": 1177,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -9837,17 +9839,17 @@
                         "nodeType": "IndexAccess",
                         "src": "1401:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$993_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Usuario_$1041_storage_$",
                           "typeString": "mapping(uint256 => struct UsuarioContract.Usuario storage ref)"
                         }
                       },
-                      "id": 1132,
+                      "id": 1180,
                       "indexExpression": {
-                        "id": 1130,
+                        "id": 1178,
                         "name": "_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1097,
+                        "referencedDeclaration": 1145,
                         "src": "1419:3:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -9861,38 +9863,38 @@
                       "nodeType": "IndexAccess",
                       "src": "1401:22:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                         "typeString": "struct UsuarioContract.Usuario storage ref"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1133,
+                      "id": 1181,
                       "name": "_item",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1104,
+                      "referencedDeclaration": 1152,
                       "src": "1426:5:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Usuario_$993_memory_ptr",
+                        "typeIdentifier": "t_struct$_Usuario_$1041_memory_ptr",
                         "typeString": "struct UsuarioContract.Usuario memory"
                       }
                     },
                     "src": "1401:30:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Usuario_$993_storage",
+                      "typeIdentifier": "t_struct$_Usuario_$1041_storage",
                       "typeString": "struct UsuarioContract.Usuario storage ref"
                     }
                   },
-                  "id": 1135,
+                  "id": 1183,
                   "nodeType": "ExpressionStatement",
                   "src": "1401:30:8"
                 }
               ]
             },
             "functionSelector": "a58a2286",
-            "id": 1137,
+            "id": 1185,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9900,17 +9902,17 @@
             "nameLocation": "1175:15:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1100,
+              "id": 1148,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1097,
+                  "id": 1145,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "1199:3:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1137,
+                  "scope": 1185,
                   "src": "1191:11:8",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9919,7 +9921,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1096,
+                    "id": 1144,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1191:7:8",
@@ -9932,12 +9934,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1099,
+                  "id": 1147,
                   "mutability": "mutable",
                   "name": "_clave",
                   "nameLocation": "1218:6:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1137,
+                  "scope": 1185,
                   "src": "1204:20:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -9946,7 +9948,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1098,
+                    "id": 1146,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1204:6:8",
@@ -9961,12 +9963,12 @@
               "src": "1190:35:8"
             },
             "returnParameters": {
-              "id": 1101,
+              "id": 1149,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1233:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "1166:273:8",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -9974,13 +9976,13 @@
           },
           {
             "body": {
-              "id": 1144,
+              "id": 1192,
               "nodeType": "Block",
               "src": "1544:194:8",
               "statements": []
             },
             "functionSelector": "c6ce03d6",
-            "id": 1145,
+            "id": 1193,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -9988,17 +9990,17 @@
             "nameLocation": "1456:13:8",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1142,
+              "id": 1190,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1139,
+                  "id": 1187,
                   "mutability": "mutable",
                   "name": "_identificacion",
                   "nameLocation": "1484:15:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1145,
+                  "scope": 1193,
                   "src": "1470:29:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -10007,7 +10009,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1138,
+                    "id": 1186,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1470:6:8",
@@ -10020,12 +10022,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1141,
+                  "id": 1189,
                   "mutability": "mutable",
                   "name": "_clave",
                   "nameLocation": "1515:6:8",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1145,
+                  "scope": 1193,
                   "src": "1501:20:8",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -10034,7 +10036,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1140,
+                    "id": 1188,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1501:6:8",
@@ -10049,19 +10051,19 @@
               "src": "1469:53:8"
             },
             "returnParameters": {
-              "id": 1143,
+              "id": 1191,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1544:0:8"
             },
-            "scope": 1146,
+            "scope": 1194,
             "src": "1447:291:8",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1147,
+        "scope": 1195,
         "src": "61:1680:8",
         "usedErrors": []
       }
@@ -10076,12 +10078,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x4D3e078e667FAf9688314683860D5b8aF1C7FFaF",
-      "transactionHash": "0x8c4790b5f88c28331a77811cd263970187c7efe6cf50c5493b6519de2506f5c4"
+      "address": "0xdf23d150f5E906DF3cEa8c880a548DE96F0B3a15",
+      "transactionHash": "0x568f640c4e7c7fe6577cc1d721984bd7b4f4eecfa52299275672ec323a97cc40"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-06-26T18:57:21.463Z",
+  "updatedAt": "2022-06-26T19:05:17.575Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

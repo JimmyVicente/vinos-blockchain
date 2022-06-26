@@ -43,7 +43,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -105,9 +106,9 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_liquido_claro\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_liquido_oscuro\",\"type\":\"uint256\"}],\"name\":\"actualizar\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"aprobarProceso\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_hash_anterior\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_liquido_claro\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_liquido_oscuro\",\"type\":\"uint256\"}],\"name\":\"crear\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"lista\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"hash_anterior\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquido_claro\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquido_oscuro\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"aprobado\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"createdAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/6TrasiegoContract.sol\":\"TrasiegoContract\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/6TrasiegoContract.sol\":{\"keccak256\":\"0xb2c2197c7e263c222fb556356323f6cf5a6a120f7c57fcfaf1cab0e7f7d9171d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://407d2e7f82c1c2fe8e22dc9306e7ad7316e108a7004136669dae25dd7b039055\",\"dweb:/ipfs/QmWYiMHDEeJP3cubvAP57jpdJXuNACyutyEEXjWCSh8Nzu\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610356806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806331caa9e1146100515780637a00b8a9146100c75780639aea014d14610159578063de9a9c32146101d7575b600080fd5b61009961005f3660046102a3565b60006020818152928152604080822090935290815220805460018201546002830154600384015460049094015492939192909160ff169085565b6040805195865260208601949094529284019190915215156060830152608082015260a00160405180910390f35b6101576100d53660046102db565b33600090815260208181526040808320848452808352818420825160a081018452815481526001808301805483880190815260028501805497850197885260038601805460048801805460808901908152606089019788529d909c52979099529351909455925190925592519092559051151560ff1990911617905590519055565b005b6101576101673660046102f4565b6040805160a0810182528481526020808201948552818301938452600060608301818152426080850190815233835282845285832098835297909252929092209051815592516001840155905160028301555160038201805460ff19169115159190911790559051600490910155565b6101576101e53660046102f4565b33600090815260208181526040808320868452825291829020825160a08101845281548152600182015492810192909252600281015492820192909252600382015460ff1615156060820181905260049092015460808201529061029d57602081810184815260408084018581523360009081528085528281208982529094529220835181559051600182015590516002820155606082015160038201805460ff191691151591909117905560808201516004909101555b50505050565b600080604083850312156102b657600080fd5b82356001600160a01b03811681146102cd57600080fd5b946020939093013593505050565b6000602082840312156102ed57600080fd5b5035919050565b60008060006060848603121561030957600080fd5b50508135936020830135935060409092013591905056fea2646970667358221220b6f2cc8f61bce726e96ad6c93948bd074ce9224bc9300a7532882da7cbd9d0ea64736f6c634300080b0033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806331caa9e1146100515780637a00b8a9146100c75780639aea014d14610159578063de9a9c32146101d7575b600080fd5b61009961005f3660046102a3565b60006020818152928152604080822090935290815220805460018201546002830154600384015460049094015492939192909160ff169085565b6040805195865260208601949094529284019190915215156060830152608082015260a00160405180910390f35b6101576100d53660046102db565b33600090815260208181526040808320848452808352818420825160a081018452815481526001808301805483880190815260028501805497850197885260038601805460048801805460808901908152606089019788529d909c52979099529351909455925190925592519092559051151560ff1990911617905590519055565b005b6101576101673660046102f4565b6040805160a0810182528481526020808201948552818301938452600060608301818152426080850190815233835282845285832098835297909252929092209051815592516001840155905160028301555160038201805460ff19169115159190911790559051600490910155565b6101576101e53660046102f4565b33600090815260208181526040808320868452825291829020825160a08101845281548152600182015492810192909252600281015492820192909252600382015460ff1615156060820181905260049092015460808201529061029d57602081810184815260408084018581523360009081528085528281208982529094529220835181559051600182015590516002820155606082015160038201805460ff191691151591909117905560808201516004909101555b50505050565b600080604083850312156102b657600080fd5b82356001600160a01b03811681146102cd57600080fd5b946020939093013593505050565b6000602082840312156102ed57600080fd5b5035919050565b60008060006060848603121561030957600080fd5b50508135936020830135935060409092013591905056fea2646970667358221220b6f2cc8f61bce726e96ad6c93948bd074ce9224bc9300a7532882da7cbd9d0ea64736f6c634300080b0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_liquido_claro\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_liquido_oscuro\",\"type\":\"uint256\"}],\"name\":\"actualizar\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"aprobarProceso\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_hash_anterior\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_liquido_claro\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_liquido_oscuro\",\"type\":\"uint256\"}],\"name\":\"crear\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"lista\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"hash_anterior\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquido_claro\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquido_oscuro\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"aprobado\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"createdAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/6TrasiegoContract.sol\":\"TrasiegoContract\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/6TrasiegoContract.sol\":{\"keccak256\":\"0xeee230e472b21f4b51c984763105579ddfeaec348e389d4da896569a26657930\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6475a3e6a1410811a1caf3a8329fe636db574b37aed3ae9c57a8ee11bf15ba95\",\"dweb:/ipfs/QmRUnRA1cNFqygQtWqzKorfqWik4wcHGzw8nN4cxXjJVNt\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610356806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806331caa9e1146100515780637a00b8a9146100c75780639aea014d14610159578063de9a9c32146101d7575b600080fd5b61009961005f3660046102a3565b60006020818152928152604080822090935290815220805460018201546002830154600384015460049094015492939192909160ff169085565b6040805195865260208601949094529284019190915215156060830152608082015260a00160405180910390f35b6101576100d53660046102db565b33600090815260208181526040808320848452808352818420825160a081018452815481526001808301805483880190815260028501805497850197885260038601805460048801805460808901908152606089019788529d909c52979099529351909455925190925592519092559051151560ff1990911617905590519055565b005b6101576101673660046102f4565b6040805160a0810182528481526020808201948552818301938452600060608301818152426080850190815233835282845285832098835297909252929092209051815592516001840155905160028301555160038201805460ff19169115159190911790559051600490910155565b6101576101e53660046102f4565b33600090815260208181526040808320868452825291829020825160a08101845281548152600182015492810192909252600281015492820192909252600382015460ff1615156060820181905260049092015460808201529061029d57602081810184815260408084018581523360009081528085528281208982529094529220835181559051600182015590516002820155606082015160038201805460ff191691151591909117905560808201516004909101555b50505050565b600080604083850312156102b657600080fd5b82356001600160a01b03811681146102cd57600080fd5b946020939093013593505050565b6000602082840312156102ed57600080fd5b5035919050565b60008060006060848603121561030957600080fd5b50508135936020830135935060409092013591905056fea2646970667358221220dd6f0cf3a377c1adc260183dd5ec4d6bdaec37cf4b175f2c82e3c5211e14b9bc64736f6c634300080b0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806331caa9e1146100515780637a00b8a9146100c75780639aea014d14610159578063de9a9c32146101d7575b600080fd5b61009961005f3660046102a3565b60006020818152928152604080822090935290815220805460018201546002830154600384015460049094015492939192909160ff169085565b6040805195865260208601949094529284019190915215156060830152608082015260a00160405180910390f35b6101576100d53660046102db565b33600090815260208181526040808320848452808352818420825160a081018452815481526001808301805483880190815260028501805497850197885260038601805460048801805460808901908152606089019788529d909c52979099529351909455925190925592519092559051151560ff1990911617905590519055565b005b6101576101673660046102f4565b6040805160a0810182528481526020808201948552818301938452600060608301818152426080850190815233835282845285832098835297909252929092209051815592516001840155905160028301555160038201805460ff19169115159190911790559051600490910155565b6101576101e53660046102f4565b33600090815260208181526040808320868452825291829020825160a08101845281548152600182015492810192909252600281015492820192909252600382015460ff1615156060820181905260049092015460808201529061029d57602081810184815260408084018581523360009081528085528281208982529094529220835181559051600182015590516002820155606082015160038201805460ff191691151591909117905560808201516004909101555b50505050565b600080604083850312156102b657600080fd5b82356001600160a01b03811681146102cd57600080fd5b946020939093013593505050565b6000602082840312156102ed57600080fd5b5035919050565b60008060006060848603121561030957600080fd5b50508135936020830135935060409092013591905056fea2646970667358221220dd6f0cf3a377c1adc260183dd5ec4d6bdaec37cf4b175f2c82e3c5211e14b9bc64736f6c634300080b0033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [
@@ -1148,23 +1149,23 @@
       "name": "#utility.yul"
     }
   ],
-  "sourceMap": "61:1214:5:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "61:1214:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;275:61;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;626:25:9;;;682:2;667:18;;660:34;;;;710:18;;;703:34;;;;780:14;773:22;768:2;753:18;;746:50;827:3;812:19;;805:35;613:3;598:19;275:61:5;;;;;;;1090:182;;;;;;:::i;:::-;1175:10;1145:21;1169:17;;;;;;;;;;;:22;;;;;;;;;1145:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1202:21;;;1234:22;;;;;;;;:30;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1234:30:5;;;;;;;;;;1090:182;;;345:341;;;;;;:::i;:::-;521:157;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;521:157:5;;;;;;652:15;521:157;;;;;;491:10;485:17;;;;;;;;:33;;;;;;;;;;;:193;;;;;;521:157;485:193;;;;;;;;;;;;;;;-1:-1:-1;;485:193:5;;;;;;;;;;;;;;;;;345:341;694:388;;;;;;:::i;:::-;858:10;828:21;852:17;;;;;;;;;;;:22;;;;;;;;;828:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;885:190;;929:19;;;;:36;;;980:20;;;;:38;;;1039:10;-1:-1:-1;1033:17:5;;;;;;;;;:22;;;;;;;;:30;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1033:30:5;;;;;;;;;;;;;;;;;;;885:190;817:265;694:388;;;:::o;14:354:9:-;82:6;90;143:2;131:9;122:7;118:23;114:32;111:52;;;159:1;156;149:12;111:52;185:23;;-1:-1:-1;;;;;237:31:9;;227:42;;217:70;;283:1;280;273:12;217:70;306:5;358:2;343:18;;;;330:32;;-1:-1:-1;;;14:354:9:o;851:180::-;910:6;963:2;951:9;942:7;938:23;934:32;931:52;;;979:1;976;969:12;931:52;-1:-1:-1;1002:23:9;;851:180;-1:-1:-1;851:180:9:o;1036:316::-;1113:6;1121;1129;1182:2;1170:9;1161:7;1157:23;1153:32;1150:52;;;1198:1;1195;1188:12;1150:52;-1:-1:-1;;1221:23:9;;;1291:2;1276:18;;1263:32;;-1:-1:-1;1342:2:9;1327:18;;;1314:32;;1036:316;-1:-1:-1;1036:316:9:o",
-  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.11;\r\n\r\ncontract TrasiegoContract {\r\n    struct Trasiego {\r\n        uint256 hash_anterior;\r\n        uint256 liquido_claro;\r\n        uint256 liquido_oscuro;\r\n        bool aprobado;\r\n        uint256 createdAt;\r\n    }\r\n\r\n    mapping(address => mapping(uint256 => Trasiego)) public lista;\r\n\r\n    function crear(\r\n        uint256 _hash_anterior,\r\n        uint256 _liquido_claro,\r\n        uint256 _liquido_oscuro\r\n    ) public {\r\n        lista[msg.sender][_hash_anterior] = Trasiego(\r\n            _hash_anterior,\r\n            _liquido_claro,\r\n            _liquido_oscuro,\r\n            false,\r\n            block.timestamp\r\n        );\r\n    }\r\n\r\n    function actualizar(\r\n        uint256 _id,\r\n        uint256 _liquido_claro,\r\n        uint256 _liquido_oscuro\r\n    ) public {\r\n        Trasiego memory _item = lista[msg.sender][_id];\r\n        if (_item.aprobado == false) {\r\n            _item.liquido_claro = _liquido_claro;\r\n            _item.liquido_oscuro = _liquido_oscuro;\r\n            lista[msg.sender][_id] = _item;\r\n        }\r\n    }\r\n\r\n    function aprobarProceso(uint256 _id) public {\r\n        Trasiego memory _item = lista[msg.sender][_id];\r\n        _item.aprobado = true;\r\n        lista[msg.sender][_id] = _item;\r\n    }\r\n}\r\n",
+  "sourceMap": "61:1199:5:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "61:1199:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;272:58;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;626:25:9;;;682:2;667:18;;660:34;;;;710:18;;;703:34;;;;780:14;773:22;768:2;753:18;;746:50;827:3;812:19;;805:35;613:3;598:19;272:58:5;;;;;;;1078:179;;;;;;:::i;:::-;1160:10;1133:18;1154:17;;;;;;;;;;;:22;;;;;;;;;1133:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1187:21;;;1219:22;;;;;;;;:30;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1219:30:5;;;;;;;;;;1078:179;;;339:338;;;;;;:::i;:::-;515:154;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;515:154:5;;;;;;643:15;515:154;;;;;;485:10;479:17;;;;;;;;:33;;;;;;;;;;;:190;;;;;;515:154;479:190;;;;;;;;;;;;;;;-1:-1:-1;;479:190:5;;;;;;;;;;;;;;;;;339:338;685:385;;;;;;:::i;:::-;846:10;819:18;840:17;;;;;;;;;;;:22;;;;;;;;;819:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;873:190;;917:19;;;;:36;;;968:20;;;;:38;;;1027:10;-1:-1:-1;1021:17:5;;;;;;;;;:22;;;;;;;;:30;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1021:30:5;;;;;;;;;;;;;;;;;;;873:190;808:262;685:385;;;:::o;14:354:9:-;82:6;90;143:2;131:9;122:7;118:23;114:32;111:52;;;159:1;156;149:12;111:52;185:23;;-1:-1:-1;;;;;237:31:9;;227:42;;217:70;;283:1;280;273:12;217:70;306:5;358:2;343:18;;;;330:32;;-1:-1:-1;;;14:354:9:o;851:180::-;910:6;963:2;951:9;942:7;938:23;934:32;931:52;;;979:1;976;969:12;931:52;-1:-1:-1;1002:23:9;;851:180;-1:-1:-1;851:180:9:o;1036:316::-;1113:6;1121;1129;1182:2;1170:9;1161:7;1157:23;1153:32;1150:52;;;1198:1;1195;1188:12;1150:52;-1:-1:-1;;1221:23:9;;;1291:2;1276:18;;1263:32;;-1:-1:-1;1342:2:9;1327:18;;;1314:32;;1036:316;-1:-1:-1;1036:316:9:o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.11;\r\n\r\ncontract TrasiegoContract {\r\n    struct Model {\r\n        uint256 hash_anterior;\r\n        uint256 liquido_claro;\r\n        uint256 liquido_oscuro;\r\n        bool aprobado;\r\n        uint256 createdAt;\r\n    }\r\n\r\n    mapping(address => mapping(uint256 => Model)) public lista;\r\n\r\n    function crear(\r\n        uint256 _hash_anterior,\r\n        uint256 _liquido_claro,\r\n        uint256 _liquido_oscuro\r\n    ) public {\r\n        lista[msg.sender][_hash_anterior] = Model(\r\n            _hash_anterior,\r\n            _liquido_claro,\r\n            _liquido_oscuro,\r\n            false,\r\n            block.timestamp\r\n        );\r\n    }\r\n\r\n    function actualizar(\r\n        uint256 _id,\r\n        uint256 _liquido_claro,\r\n        uint256 _liquido_oscuro\r\n    ) public {\r\n        Model memory _item = lista[msg.sender][_id];\r\n        if (_item.aprobado == false) {\r\n            _item.liquido_claro = _liquido_claro;\r\n            _item.liquido_oscuro = _liquido_oscuro;\r\n            lista[msg.sender][_id] = _item;\r\n        }\r\n    }\r\n\r\n    function aprobarProceso(uint256 _id) public {\r\n        Model memory _item = lista[msg.sender][_id];\r\n        _item.aprobado = true;\r\n        lista[msg.sender][_id] = _item;\r\n    }\r\n}\r\n",
   "sourcePath": "E:\\UNL\\CICLO X\\vinos-blockchain\\contracts\\6TrasiegoContract.sol",
   "ast": {
     "absolutePath": "project:/contracts/6TrasiegoContract.sol",
     "exportedSymbols": {
       "TrasiegoContract": [
-        822
+        870
       ]
     },
-    "id": 823,
+    "id": 871,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 699,
+        "id": 747,
         "literals": [
           "solidity",
           "^",
@@ -1181,27 +1182,27 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 822,
+        "id": 870,
         "linearizedBaseContracts": [
-          822
+          870
         ],
         "name": "TrasiegoContract",
         "nameLocation": "70:16:5",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "canonicalName": "TrasiegoContract.Trasiego",
-            "id": 710,
+            "canonicalName": "TrasiegoContract.Model",
+            "id": 758,
             "members": [
               {
                 "constant": false,
-                "id": 701,
+                "id": 749,
                 "mutability": "mutable",
                 "name": "hash_anterior",
-                "nameLocation": "129:13:5",
+                "nameLocation": "126:13:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "121:21:5",
+                "scope": 758,
+                "src": "118:21:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1209,10 +1210,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 700,
+                  "id": 748,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "121:7:5",
+                  "src": "118:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1222,13 +1223,13 @@
               },
               {
                 "constant": false,
-                "id": 703,
+                "id": 751,
                 "mutability": "mutable",
                 "name": "liquido_claro",
-                "nameLocation": "161:13:5",
+                "nameLocation": "158:13:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "153:21:5",
+                "scope": 758,
+                "src": "150:21:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1236,10 +1237,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 702,
+                  "id": 750,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "153:7:5",
+                  "src": "150:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1249,13 +1250,13 @@
               },
               {
                 "constant": false,
-                "id": 705,
+                "id": 753,
                 "mutability": "mutable",
                 "name": "liquido_oscuro",
-                "nameLocation": "193:14:5",
+                "nameLocation": "190:14:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "185:22:5",
+                "scope": 758,
+                "src": "182:22:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1263,10 +1264,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 704,
+                  "id": 752,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "185:7:5",
+                  "src": "182:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1276,13 +1277,13 @@
               },
               {
                 "constant": false,
-                "id": 707,
+                "id": 755,
                 "mutability": "mutable",
                 "name": "aprobado",
-                "nameLocation": "223:8:5",
+                "nameLocation": "220:8:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "218:13:5",
+                "scope": 758,
+                "src": "215:13:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1290,10 +1291,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 706,
+                  "id": 754,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "218:4:5",
+                  "src": "215:4:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1303,13 +1304,13 @@
               },
               {
                 "constant": false,
-                "id": 709,
+                "id": 757,
                 "mutability": "mutable",
                 "name": "createdAt",
-                "nameLocation": "250:9:5",
+                "nameLocation": "247:9:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "242:17:5",
+                "scope": 758,
+                "src": "239:17:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1317,10 +1318,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 708,
+                  "id": 756,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "242:7:5",
+                  "src": "239:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1329,80 +1330,80 @@
                 "visibility": "internal"
               }
             ],
-            "name": "Trasiego",
-            "nameLocation": "101:8:5",
+            "name": "Model",
+            "nameLocation": "101:5:5",
             "nodeType": "StructDefinition",
-            "scope": 822,
-            "src": "94:173:5",
+            "scope": 870,
+            "src": "94:170:5",
             "visibility": "public"
           },
           {
             "constant": false,
             "functionSelector": "31caa9e1",
-            "id": 717,
+            "id": 765,
             "mutability": "mutable",
             "name": "lista",
-            "nameLocation": "331:5:5",
+            "nameLocation": "325:5:5",
             "nodeType": "VariableDeclaration",
-            "scope": 822,
-            "src": "275:61:5",
+            "scope": 870,
+            "src": "272:58:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-              "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego))"
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+              "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model))"
             },
             "typeName": {
-              "id": 716,
+              "id": 764,
               "keyType": {
-                "id": 711,
+                "id": 759,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "283:7:5",
+                "src": "280:7:5",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "275:48:5",
+              "src": "272:45:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego))"
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model))"
               },
               "valueType": {
-                "id": 715,
+                "id": 763,
                 "keyType": {
-                  "id": 712,
+                  "id": 760,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "302:7:5",
+                  "src": "299:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "294:28:5",
+                "src": "291:25:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                  "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego)"
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                  "typeString": "mapping(uint256 => struct TrasiegoContract.Model)"
                 },
                 "valueType": {
-                  "id": 714,
+                  "id": 762,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 713,
-                    "name": "Trasiego",
+                    "id": 761,
+                    "name": "Model",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 710,
-                    "src": "313:8:5"
+                    "referencedDeclaration": 758,
+                    "src": "310:5:5"
                   },
-                  "referencedDeclaration": 710,
-                  "src": "313:8:5",
+                  "referencedDeclaration": 758,
+                  "src": "310:5:5",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Trasiego_$710_storage_ptr",
-                    "typeString": "struct TrasiegoContract.Trasiego"
+                    "typeIdentifier": "t_struct$_Model_$758_storage_ptr",
+                    "typeString": "struct TrasiegoContract.Model"
                   }
                 }
               }
@@ -1411,13 +1412,13 @@
           },
           {
             "body": {
-              "id": 742,
+              "id": 790,
               "nodeType": "Block",
-              "src": "474:212:5",
+              "src": "468:209:5",
               "statements": [
                 {
                   "expression": {
-                    "id": 740,
+                    "id": 788,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1425,39 +1426,39 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 726,
+                          "id": 774,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 717,
-                          "src": "485:5:5",
+                          "referencedDeclaration": 765,
+                          "src": "479:5:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                            "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                            "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                           }
                         },
-                        "id": 730,
+                        "id": 778,
                         "indexExpression": {
                           "expression": {
-                            "id": 727,
+                            "id": 775,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 4294967281,
-                            "src": "491:3:5",
+                            "src": "485:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 728,
+                          "id": 776,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
-                          "src": "491:10:5",
+                          "src": "485:10:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1468,20 +1469,20 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "485:17:5",
+                        "src": "479:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                          "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                          "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                         }
                       },
-                      "id": 731,
+                      "id": 779,
                       "indexExpression": {
-                        "id": 729,
+                        "id": 777,
                         "name": "_hash_anterior",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 719,
-                        "src": "503:14:5",
+                        "referencedDeclaration": 767,
+                        "src": "497:14:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1492,10 +1493,10 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "485:33:5",
+                      "src": "479:33:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                        "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                        "typeIdentifier": "t_struct$_Model_$758_storage",
+                        "typeString": "struct TrasiegoContract.Model storage ref"
                       }
                     },
                     "nodeType": "Assignment",
@@ -1503,36 +1504,36 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 733,
+                          "id": 781,
                           "name": "_hash_anterior",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 719,
-                          "src": "544:14:5",
+                          "referencedDeclaration": 767,
+                          "src": "535:14:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         {
-                          "id": 734,
+                          "id": 782,
                           "name": "_liquido_claro",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 721,
-                          "src": "573:14:5",
+                          "referencedDeclaration": 769,
+                          "src": "564:14:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         {
-                          "id": 735,
+                          "id": 783,
                           "name": "_liquido_oscuro",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 723,
-                          "src": "602:15:5",
+                          "referencedDeclaration": 771,
+                          "src": "593:15:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1540,14 +1541,14 @@
                         },
                         {
                           "hexValue": "66616c7365",
-                          "id": 736,
+                          "id": 784,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "632:5:5",
+                          "src": "623:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -1556,25 +1557,25 @@
                         },
                         {
                           "expression": {
-                            "id": 737,
+                            "id": 785,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 4294967292,
-                            "src": "652:5:5",
+                            "src": "643:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
                               "typeString": "block"
                             }
                           },
-                          "id": 738,
+                          "id": 786,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "timestamp",
                           "nodeType": "MemberAccess",
-                          "src": "652:15:5",
+                          "src": "643:15:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1604,18 +1605,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 732,
-                        "name": "Trasiego",
+                        "id": 780,
+                        "name": "Model",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 710,
-                        "src": "521:8:5",
+                        "referencedDeclaration": 758,
+                        "src": "515:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Trasiego_$710_storage_ptr_$",
-                          "typeString": "type(struct TrasiegoContract.Trasiego storage pointer)"
+                          "typeIdentifier": "t_type$_t_struct$_Model_$758_storage_ptr_$",
+                          "typeString": "type(struct TrasiegoContract.Model storage pointer)"
                         }
                       },
-                      "id": 739,
+                      "id": 787,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1623,46 +1624,46 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "521:157:5",
+                      "src": "515:154:5",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                        "typeString": "struct TrasiegoContract.Trasiego memory"
+                        "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                        "typeString": "struct TrasiegoContract.Model memory"
                       }
                     },
-                    "src": "485:193:5",
+                    "src": "479:190:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                      "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                      "typeIdentifier": "t_struct$_Model_$758_storage",
+                      "typeString": "struct TrasiegoContract.Model storage ref"
                     }
                   },
-                  "id": 741,
+                  "id": 789,
                   "nodeType": "ExpressionStatement",
-                  "src": "485:193:5"
+                  "src": "479:190:5"
                 }
               ]
             },
             "functionSelector": "9aea014d",
-            "id": 743,
+            "id": 791,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "crear",
-            "nameLocation": "354:5:5",
+            "nameLocation": "348:5:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 724,
+              "id": 772,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 719,
+                  "id": 767,
                   "mutability": "mutable",
                   "name": "_hash_anterior",
-                  "nameLocation": "378:14:5",
+                  "nameLocation": "372:14:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "370:22:5",
+                  "scope": 791,
+                  "src": "364:22:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1670,10 +1671,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 718,
+                    "id": 766,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "370:7:5",
+                    "src": "364:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1683,13 +1684,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 721,
+                  "id": 769,
                   "mutability": "mutable",
                   "name": "_liquido_claro",
-                  "nameLocation": "411:14:5",
+                  "nameLocation": "405:14:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "403:22:5",
+                  "scope": 791,
+                  "src": "397:22:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1697,10 +1698,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 720,
+                    "id": 768,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "403:7:5",
+                    "src": "397:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1710,13 +1711,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 723,
+                  "id": 771,
                   "mutability": "mutable",
                   "name": "_liquido_oscuro",
-                  "nameLocation": "444:15:5",
+                  "nameLocation": "438:15:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "436:23:5",
+                  "scope": 791,
+                  "src": "430:23:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1724,10 +1725,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 722,
+                    "id": 770,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "436:7:5",
+                    "src": "430:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1736,103 +1737,103 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "359:107:5"
+              "src": "353:107:5"
             },
             "returnParameters": {
-              "id": 725,
+              "id": 773,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "474:0:5"
+              "src": "468:0:5"
             },
-            "scope": 822,
-            "src": "345:341:5",
+            "scope": 870,
+            "src": "339:338:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 789,
+              "id": 837,
               "nodeType": "Block",
-              "src": "817:265:5",
+              "src": "808:262:5",
               "statements": [
                 {
                   "assignments": [
-                    754
+                    802
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 754,
+                      "id": 802,
                       "mutability": "mutable",
                       "name": "_item",
-                      "nameLocation": "844:5:5",
+                      "nameLocation": "832:5:5",
                       "nodeType": "VariableDeclaration",
-                      "scope": 789,
-                      "src": "828:21:5",
+                      "scope": 837,
+                      "src": "819:18:5",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                        "typeString": "struct TrasiegoContract.Trasiego"
+                        "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                        "typeString": "struct TrasiegoContract.Model"
                       },
                       "typeName": {
-                        "id": 753,
+                        "id": 801,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 752,
-                          "name": "Trasiego",
+                          "id": 800,
+                          "name": "Model",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 710,
-                          "src": "828:8:5"
+                          "referencedDeclaration": 758,
+                          "src": "819:5:5"
                         },
-                        "referencedDeclaration": 710,
-                        "src": "828:8:5",
+                        "referencedDeclaration": 758,
+                        "src": "819:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Trasiego_$710_storage_ptr",
-                          "typeString": "struct TrasiegoContract.Trasiego"
+                          "typeIdentifier": "t_struct$_Model_$758_storage_ptr",
+                          "typeString": "struct TrasiegoContract.Model"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 761,
+                  "id": 809,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 755,
+                        "id": 803,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 717,
-                        "src": "852:5:5",
+                        "referencedDeclaration": 765,
+                        "src": "840:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                          "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                          "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                         }
                       },
-                      "id": 758,
+                      "id": 806,
                       "indexExpression": {
                         "expression": {
-                          "id": 756,
+                          "id": 804,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967281,
-                          "src": "858:3:5",
+                          "src": "846:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 757,
+                        "id": 805,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
-                        "src": "858:10:5",
+                        "src": "846:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1843,20 +1844,20 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "852:17:5",
+                      "src": "840:17:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                        "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                        "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                       }
                     },
-                    "id": 760,
+                    "id": 808,
                     "indexExpression": {
-                      "id": 759,
+                      "id": 807,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 745,
-                      "src": "870:3:5",
+                      "referencedDeclaration": 793,
+                      "src": "858:3:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1867,14 +1868,14 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "852:22:5",
+                    "src": "840:22:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                      "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                      "typeIdentifier": "t_struct$_Model_$758_storage",
+                      "typeString": "struct TrasiegoContract.Model storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "828:46:5"
+                  "src": "819:43:5"
                 },
                 {
                   "condition": {
@@ -1882,33 +1883,33 @@
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
-                    "id": 765,
+                    "id": 813,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "expression": {
-                        "id": 762,
+                        "id": 810,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 754,
-                        "src": "889:5:5",
+                        "referencedDeclaration": 802,
+                        "src": "877:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                          "typeString": "struct TrasiegoContract.Trasiego memory"
+                          "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                          "typeString": "struct TrasiegoContract.Model memory"
                         }
                       },
-                      "id": 763,
+                      "id": 811,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "aprobado",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 707,
-                      "src": "889:14:5",
+                      "referencedDeclaration": 755,
+                      "src": "877:14:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -1918,63 +1919,63 @@
                     "operator": "==",
                     "rightExpression": {
                       "hexValue": "66616c7365",
-                      "id": 764,
+                      "id": 812,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "907:5:5",
+                      "src": "895:5:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "false"
                     },
-                    "src": "889:23:5",
+                    "src": "877:23:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 788,
+                  "id": 836,
                   "nodeType": "IfStatement",
-                  "src": "885:190:5",
+                  "src": "873:190:5",
                   "trueBody": {
-                    "id": 787,
+                    "id": 835,
                     "nodeType": "Block",
-                    "src": "914:161:5",
+                    "src": "902:161:5",
                     "statements": [
                       {
                         "expression": {
-                          "id": 770,
+                          "id": 818,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "expression": {
-                              "id": 766,
+                              "id": 814,
                               "name": "_item",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 754,
-                              "src": "929:5:5",
+                              "referencedDeclaration": 802,
+                              "src": "917:5:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                                "typeString": "struct TrasiegoContract.Trasiego memory"
+                                "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                                "typeString": "struct TrasiegoContract.Model memory"
                               }
                             },
-                            "id": 768,
+                            "id": 816,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "liquido_claro",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 703,
-                            "src": "929:19:5",
+                            "referencedDeclaration": 751,
+                            "src": "917:19:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -1983,56 +1984,56 @@
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 769,
+                            "id": 817,
                             "name": "_liquido_claro",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 747,
-                            "src": "951:14:5",
+                            "referencedDeclaration": 795,
+                            "src": "939:14:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "929:36:5",
+                          "src": "917:36:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 771,
+                        "id": 819,
                         "nodeType": "ExpressionStatement",
-                        "src": "929:36:5"
+                        "src": "917:36:5"
                       },
                       {
                         "expression": {
-                          "id": 776,
+                          "id": 824,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "expression": {
-                              "id": 772,
+                              "id": 820,
                               "name": "_item",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 754,
-                              "src": "980:5:5",
+                              "referencedDeclaration": 802,
+                              "src": "968:5:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                                "typeString": "struct TrasiegoContract.Trasiego memory"
+                                "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                                "typeString": "struct TrasiegoContract.Model memory"
                               }
                             },
-                            "id": 774,
+                            "id": 822,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "liquido_oscuro",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 705,
-                            "src": "980:20:5",
+                            "referencedDeclaration": 753,
+                            "src": "968:20:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -2041,30 +2042,30 @@
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 775,
+                            "id": 823,
                             "name": "_liquido_oscuro",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 749,
-                            "src": "1003:15:5",
+                            "referencedDeclaration": 797,
+                            "src": "991:15:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "980:38:5",
+                          "src": "968:38:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 777,
+                        "id": 825,
                         "nodeType": "ExpressionStatement",
-                        "src": "980:38:5"
+                        "src": "968:38:5"
                       },
                       {
                         "expression": {
-                          "id": 785,
+                          "id": 833,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2072,39 +2073,39 @@
                           "leftHandSide": {
                             "baseExpression": {
                               "baseExpression": {
-                                "id": 778,
+                                "id": 826,
                                 "name": "lista",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 717,
-                                "src": "1033:5:5",
+                                "referencedDeclaration": 765,
+                                "src": "1021:5:5",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                                  "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                                  "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                                 }
                               },
-                              "id": 782,
+                              "id": 830,
                               "indexExpression": {
                                 "expression": {
-                                  "id": 779,
+                                  "id": 827,
                                   "name": "msg",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 4294967281,
-                                  "src": "1039:3:5",
+                                  "src": "1027:3:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_message",
                                     "typeString": "msg"
                                   }
                                 },
-                                "id": 780,
+                                "id": 828,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "sender",
                                 "nodeType": "MemberAccess",
-                                "src": "1039:10:5",
+                                "src": "1027:10:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
                                   "typeString": "address"
@@ -2115,20 +2116,20 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "1033:17:5",
+                              "src": "1021:17:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                                "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                                "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                               }
                             },
-                            "id": 783,
+                            "id": 831,
                             "indexExpression": {
-                              "id": 781,
+                              "id": 829,
                               "name": "_id",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 745,
-                              "src": "1051:3:5",
+                              "referencedDeclaration": 793,
+                              "src": "1039:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -2139,35 +2140,35 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "1033:22:5",
+                            "src": "1021:22:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                              "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                              "typeIdentifier": "t_struct$_Model_$758_storage",
+                              "typeString": "struct TrasiegoContract.Model storage ref"
                             }
                           },
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 784,
+                            "id": 832,
                             "name": "_item",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 754,
-                            "src": "1058:5:5",
+                            "referencedDeclaration": 802,
+                            "src": "1046:5:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                              "typeString": "struct TrasiegoContract.Trasiego memory"
+                              "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                              "typeString": "struct TrasiegoContract.Model memory"
                             }
                           },
-                          "src": "1033:30:5",
+                          "src": "1021:30:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                            "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                            "typeIdentifier": "t_struct$_Model_$758_storage",
+                            "typeString": "struct TrasiegoContract.Model storage ref"
                           }
                         },
-                        "id": 786,
+                        "id": 834,
                         "nodeType": "ExpressionStatement",
-                        "src": "1033:30:5"
+                        "src": "1021:30:5"
                       }
                     ]
                   }
@@ -2175,26 +2176,26 @@
               ]
             },
             "functionSelector": "de9a9c32",
-            "id": 790,
+            "id": 838,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "actualizar",
-            "nameLocation": "703:10:5",
+            "nameLocation": "694:10:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 750,
+              "id": 798,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 745,
+                  "id": 793,
                   "mutability": "mutable",
                   "name": "_id",
-                  "nameLocation": "732:3:5",
+                  "nameLocation": "723:3:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 790,
-                  "src": "724:11:5",
+                  "scope": 838,
+                  "src": "715:11:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2202,10 +2203,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 744,
+                    "id": 792,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "724:7:5",
+                    "src": "715:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2215,13 +2216,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 747,
+                  "id": 795,
                   "mutability": "mutable",
                   "name": "_liquido_claro",
-                  "nameLocation": "754:14:5",
+                  "nameLocation": "745:14:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 790,
-                  "src": "746:22:5",
+                  "scope": 838,
+                  "src": "737:22:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2229,10 +2230,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 746,
+                    "id": 794,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "746:7:5",
+                    "src": "737:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2242,13 +2243,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 749,
+                  "id": 797,
                   "mutability": "mutable",
                   "name": "_liquido_oscuro",
-                  "nameLocation": "787:15:5",
+                  "nameLocation": "778:15:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 790,
-                  "src": "779:23:5",
+                  "scope": 838,
+                  "src": "770:23:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2256,10 +2257,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 748,
+                    "id": 796,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "779:7:5",
+                    "src": "770:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2268,103 +2269,103 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "713:96:5"
+              "src": "704:96:5"
             },
             "returnParameters": {
-              "id": 751,
+              "id": 799,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "817:0:5"
+              "src": "808:0:5"
             },
-            "scope": 822,
-            "src": "694:388:5",
+            "scope": 870,
+            "src": "685:385:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 820,
+              "id": 868,
               "nodeType": "Block",
-              "src": "1134:138:5",
+              "src": "1122:135:5",
               "statements": [
                 {
                   "assignments": [
-                    797
+                    845
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 797,
+                      "id": 845,
                       "mutability": "mutable",
                       "name": "_item",
-                      "nameLocation": "1161:5:5",
+                      "nameLocation": "1146:5:5",
                       "nodeType": "VariableDeclaration",
-                      "scope": 820,
-                      "src": "1145:21:5",
+                      "scope": 868,
+                      "src": "1133:18:5",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                        "typeString": "struct TrasiegoContract.Trasiego"
+                        "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                        "typeString": "struct TrasiegoContract.Model"
                       },
                       "typeName": {
-                        "id": 796,
+                        "id": 844,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 795,
-                          "name": "Trasiego",
+                          "id": 843,
+                          "name": "Model",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 710,
-                          "src": "1145:8:5"
+                          "referencedDeclaration": 758,
+                          "src": "1133:5:5"
                         },
-                        "referencedDeclaration": 710,
-                        "src": "1145:8:5",
+                        "referencedDeclaration": 758,
+                        "src": "1133:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Trasiego_$710_storage_ptr",
-                          "typeString": "struct TrasiegoContract.Trasiego"
+                          "typeIdentifier": "t_struct$_Model_$758_storage_ptr",
+                          "typeString": "struct TrasiegoContract.Model"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 804,
+                  "id": 852,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 798,
+                        "id": 846,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 717,
-                        "src": "1169:5:5",
+                        "referencedDeclaration": 765,
+                        "src": "1154:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                          "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                          "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                         }
                       },
-                      "id": 801,
+                      "id": 849,
                       "indexExpression": {
                         "expression": {
-                          "id": 799,
+                          "id": 847,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967281,
-                          "src": "1175:3:5",
+                          "src": "1160:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 800,
+                        "id": 848,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
-                        "src": "1175:10:5",
+                        "src": "1160:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2375,20 +2376,20 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "1169:17:5",
+                      "src": "1154:17:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                        "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                        "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                       }
                     },
-                    "id": 803,
+                    "id": 851,
                     "indexExpression": {
-                      "id": 802,
+                      "id": 850,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 792,
-                      "src": "1187:3:5",
+                      "referencedDeclaration": 840,
+                      "src": "1172:3:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2399,44 +2400,44 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "1169:22:5",
+                    "src": "1154:22:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                      "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                      "typeIdentifier": "t_struct$_Model_$758_storage",
+                      "typeString": "struct TrasiegoContract.Model storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1145:46:5"
+                  "src": "1133:43:5"
                 },
                 {
                   "expression": {
-                    "id": 809,
+                    "id": 857,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 805,
+                        "id": 853,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 797,
-                        "src": "1202:5:5",
+                        "referencedDeclaration": 845,
+                        "src": "1187:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                          "typeString": "struct TrasiegoContract.Trasiego memory"
+                          "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                          "typeString": "struct TrasiegoContract.Model memory"
                         }
                       },
-                      "id": 807,
+                      "id": 855,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "aprobado",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 707,
-                      "src": "1202:14:5",
+                      "referencedDeclaration": 755,
+                      "src": "1187:14:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -2446,33 +2447,33 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 808,
+                      "id": 856,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1219:4:5",
+                      "src": "1204:4:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "true"
                     },
-                    "src": "1202:21:5",
+                    "src": "1187:21:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 810,
+                  "id": 858,
                   "nodeType": "ExpressionStatement",
-                  "src": "1202:21:5"
+                  "src": "1187:21:5"
                 },
                 {
                   "expression": {
-                    "id": 818,
+                    "id": 866,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2480,39 +2481,39 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 811,
+                          "id": 859,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 717,
-                          "src": "1234:5:5",
+                          "referencedDeclaration": 765,
+                          "src": "1219:5:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                            "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                            "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                           }
                         },
-                        "id": 815,
+                        "id": 863,
                         "indexExpression": {
                           "expression": {
-                            "id": 812,
+                            "id": 860,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 4294967281,
-                            "src": "1240:3:5",
+                            "src": "1225:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 813,
+                          "id": 861,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
-                          "src": "1240:10:5",
+                          "src": "1225:10:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -2523,20 +2524,20 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1234:17:5",
+                        "src": "1219:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                          "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                          "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                         }
                       },
-                      "id": 816,
+                      "id": 864,
                       "indexExpression": {
-                        "id": 814,
+                        "id": 862,
                         "name": "_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 792,
-                        "src": "1252:3:5",
+                        "referencedDeclaration": 840,
+                        "src": "1237:3:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2547,59 +2548,59 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "1234:22:5",
+                      "src": "1219:22:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                        "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                        "typeIdentifier": "t_struct$_Model_$758_storage",
+                        "typeString": "struct TrasiegoContract.Model storage ref"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 817,
+                      "id": 865,
                       "name": "_item",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 797,
-                      "src": "1259:5:5",
+                      "referencedDeclaration": 845,
+                      "src": "1244:5:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                        "typeString": "struct TrasiegoContract.Trasiego memory"
+                        "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                        "typeString": "struct TrasiegoContract.Model memory"
                       }
                     },
-                    "src": "1234:30:5",
+                    "src": "1219:30:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                      "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                      "typeIdentifier": "t_struct$_Model_$758_storage",
+                      "typeString": "struct TrasiegoContract.Model storage ref"
                     }
                   },
-                  "id": 819,
+                  "id": 867,
                   "nodeType": "ExpressionStatement",
-                  "src": "1234:30:5"
+                  "src": "1219:30:5"
                 }
               ]
             },
             "functionSelector": "7a00b8a9",
-            "id": 821,
+            "id": 869,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "aprobarProceso",
-            "nameLocation": "1099:14:5",
+            "nameLocation": "1087:14:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 793,
+              "id": 841,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 792,
+                  "id": 840,
                   "mutability": "mutable",
                   "name": "_id",
-                  "nameLocation": "1122:3:5",
+                  "nameLocation": "1110:3:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 821,
-                  "src": "1114:11:5",
+                  "scope": 869,
+                  "src": "1102:11:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2607,10 +2608,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 791,
+                    "id": 839,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1114:7:5",
+                    "src": "1102:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2619,41 +2620,41 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1113:13:5"
+              "src": "1101:13:5"
             },
             "returnParameters": {
-              "id": 794,
+              "id": 842,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1134:0:5"
+              "src": "1122:0:5"
             },
-            "scope": 822,
-            "src": "1090:182:5",
+            "scope": 870,
+            "src": "1078:179:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 823,
-        "src": "61:1214:5",
+        "scope": 871,
+        "src": "61:1199:5",
         "usedErrors": []
       }
     ],
-    "src": "33:1244:5"
+    "src": "33:1229:5"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/6TrasiegoContract.sol",
     "exportedSymbols": {
       "TrasiegoContract": [
-        822
+        870
       ]
     },
-    "id": 823,
+    "id": 871,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 699,
+        "id": 747,
         "literals": [
           "solidity",
           "^",
@@ -2670,27 +2671,27 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 822,
+        "id": 870,
         "linearizedBaseContracts": [
-          822
+          870
         ],
         "name": "TrasiegoContract",
         "nameLocation": "70:16:5",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "canonicalName": "TrasiegoContract.Trasiego",
-            "id": 710,
+            "canonicalName": "TrasiegoContract.Model",
+            "id": 758,
             "members": [
               {
                 "constant": false,
-                "id": 701,
+                "id": 749,
                 "mutability": "mutable",
                 "name": "hash_anterior",
-                "nameLocation": "129:13:5",
+                "nameLocation": "126:13:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "121:21:5",
+                "scope": 758,
+                "src": "118:21:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2698,10 +2699,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 700,
+                  "id": 748,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "121:7:5",
+                  "src": "118:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2711,13 +2712,13 @@
               },
               {
                 "constant": false,
-                "id": 703,
+                "id": 751,
                 "mutability": "mutable",
                 "name": "liquido_claro",
-                "nameLocation": "161:13:5",
+                "nameLocation": "158:13:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "153:21:5",
+                "scope": 758,
+                "src": "150:21:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2725,10 +2726,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 702,
+                  "id": 750,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "153:7:5",
+                  "src": "150:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2738,13 +2739,13 @@
               },
               {
                 "constant": false,
-                "id": 705,
+                "id": 753,
                 "mutability": "mutable",
                 "name": "liquido_oscuro",
-                "nameLocation": "193:14:5",
+                "nameLocation": "190:14:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "185:22:5",
+                "scope": 758,
+                "src": "182:22:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2752,10 +2753,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 704,
+                  "id": 752,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "185:7:5",
+                  "src": "182:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2765,13 +2766,13 @@
               },
               {
                 "constant": false,
-                "id": 707,
+                "id": 755,
                 "mutability": "mutable",
                 "name": "aprobado",
-                "nameLocation": "223:8:5",
+                "nameLocation": "220:8:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "218:13:5",
+                "scope": 758,
+                "src": "215:13:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2779,10 +2780,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 706,
+                  "id": 754,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "218:4:5",
+                  "src": "215:4:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -2792,13 +2793,13 @@
               },
               {
                 "constant": false,
-                "id": 709,
+                "id": 757,
                 "mutability": "mutable",
                 "name": "createdAt",
-                "nameLocation": "250:9:5",
+                "nameLocation": "247:9:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 710,
-                "src": "242:17:5",
+                "scope": 758,
+                "src": "239:17:5",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2806,10 +2807,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 708,
+                  "id": 756,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "242:7:5",
+                  "src": "239:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2818,80 +2819,80 @@
                 "visibility": "internal"
               }
             ],
-            "name": "Trasiego",
-            "nameLocation": "101:8:5",
+            "name": "Model",
+            "nameLocation": "101:5:5",
             "nodeType": "StructDefinition",
-            "scope": 822,
-            "src": "94:173:5",
+            "scope": 870,
+            "src": "94:170:5",
             "visibility": "public"
           },
           {
             "constant": false,
             "functionSelector": "31caa9e1",
-            "id": 717,
+            "id": 765,
             "mutability": "mutable",
             "name": "lista",
-            "nameLocation": "331:5:5",
+            "nameLocation": "325:5:5",
             "nodeType": "VariableDeclaration",
-            "scope": 822,
-            "src": "275:61:5",
+            "scope": 870,
+            "src": "272:58:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-              "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego))"
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+              "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model))"
             },
             "typeName": {
-              "id": 716,
+              "id": 764,
               "keyType": {
-                "id": 711,
+                "id": 759,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "283:7:5",
+                "src": "280:7:5",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "275:48:5",
+              "src": "272:45:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego))"
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model))"
               },
               "valueType": {
-                "id": 715,
+                "id": 763,
                 "keyType": {
-                  "id": 712,
+                  "id": 760,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "302:7:5",
+                  "src": "299:7:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "294:28:5",
+                "src": "291:25:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                  "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego)"
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                  "typeString": "mapping(uint256 => struct TrasiegoContract.Model)"
                 },
                 "valueType": {
-                  "id": 714,
+                  "id": 762,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 713,
-                    "name": "Trasiego",
+                    "id": 761,
+                    "name": "Model",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 710,
-                    "src": "313:8:5"
+                    "referencedDeclaration": 758,
+                    "src": "310:5:5"
                   },
-                  "referencedDeclaration": 710,
-                  "src": "313:8:5",
+                  "referencedDeclaration": 758,
+                  "src": "310:5:5",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Trasiego_$710_storage_ptr",
-                    "typeString": "struct TrasiegoContract.Trasiego"
+                    "typeIdentifier": "t_struct$_Model_$758_storage_ptr",
+                    "typeString": "struct TrasiegoContract.Model"
                   }
                 }
               }
@@ -2900,13 +2901,13 @@
           },
           {
             "body": {
-              "id": 742,
+              "id": 790,
               "nodeType": "Block",
-              "src": "474:212:5",
+              "src": "468:209:5",
               "statements": [
                 {
                   "expression": {
-                    "id": 740,
+                    "id": 788,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2914,39 +2915,39 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 726,
+                          "id": 774,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 717,
-                          "src": "485:5:5",
+                          "referencedDeclaration": 765,
+                          "src": "479:5:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                            "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                            "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                           }
                         },
-                        "id": 730,
+                        "id": 778,
                         "indexExpression": {
                           "expression": {
-                            "id": 727,
+                            "id": 775,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 4294967281,
-                            "src": "491:3:5",
+                            "src": "485:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 728,
+                          "id": 776,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
-                          "src": "491:10:5",
+                          "src": "485:10:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -2957,20 +2958,20 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "485:17:5",
+                        "src": "479:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                          "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                          "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                         }
                       },
-                      "id": 731,
+                      "id": 779,
                       "indexExpression": {
-                        "id": 729,
+                        "id": 777,
                         "name": "_hash_anterior",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 719,
-                        "src": "503:14:5",
+                        "referencedDeclaration": 767,
+                        "src": "497:14:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2981,10 +2982,10 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "485:33:5",
+                      "src": "479:33:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                        "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                        "typeIdentifier": "t_struct$_Model_$758_storage",
+                        "typeString": "struct TrasiegoContract.Model storage ref"
                       }
                     },
                     "nodeType": "Assignment",
@@ -2992,36 +2993,36 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 733,
+                          "id": 781,
                           "name": "_hash_anterior",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 719,
-                          "src": "544:14:5",
+                          "referencedDeclaration": 767,
+                          "src": "535:14:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         {
-                          "id": 734,
+                          "id": 782,
                           "name": "_liquido_claro",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 721,
-                          "src": "573:14:5",
+                          "referencedDeclaration": 769,
+                          "src": "564:14:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         {
-                          "id": 735,
+                          "id": 783,
                           "name": "_liquido_oscuro",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 723,
-                          "src": "602:15:5",
+                          "referencedDeclaration": 771,
+                          "src": "593:15:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3029,14 +3030,14 @@
                         },
                         {
                           "hexValue": "66616c7365",
-                          "id": 736,
+                          "id": 784,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "632:5:5",
+                          "src": "623:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -3045,25 +3046,25 @@
                         },
                         {
                           "expression": {
-                            "id": 737,
+                            "id": 785,
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 4294967292,
-                            "src": "652:5:5",
+                            "src": "643:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
                               "typeString": "block"
                             }
                           },
-                          "id": 738,
+                          "id": 786,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "timestamp",
                           "nodeType": "MemberAccess",
-                          "src": "652:15:5",
+                          "src": "643:15:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3093,18 +3094,18 @@
                             "typeString": "uint256"
                           }
                         ],
-                        "id": 732,
-                        "name": "Trasiego",
+                        "id": 780,
+                        "name": "Model",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 710,
-                        "src": "521:8:5",
+                        "referencedDeclaration": 758,
+                        "src": "515:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Trasiego_$710_storage_ptr_$",
-                          "typeString": "type(struct TrasiegoContract.Trasiego storage pointer)"
+                          "typeIdentifier": "t_type$_t_struct$_Model_$758_storage_ptr_$",
+                          "typeString": "type(struct TrasiegoContract.Model storage pointer)"
                         }
                       },
-                      "id": 739,
+                      "id": 787,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3112,46 +3113,46 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "521:157:5",
+                      "src": "515:154:5",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                        "typeString": "struct TrasiegoContract.Trasiego memory"
+                        "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                        "typeString": "struct TrasiegoContract.Model memory"
                       }
                     },
-                    "src": "485:193:5",
+                    "src": "479:190:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                      "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                      "typeIdentifier": "t_struct$_Model_$758_storage",
+                      "typeString": "struct TrasiegoContract.Model storage ref"
                     }
                   },
-                  "id": 741,
+                  "id": 789,
                   "nodeType": "ExpressionStatement",
-                  "src": "485:193:5"
+                  "src": "479:190:5"
                 }
               ]
             },
             "functionSelector": "9aea014d",
-            "id": 743,
+            "id": 791,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "crear",
-            "nameLocation": "354:5:5",
+            "nameLocation": "348:5:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 724,
+              "id": 772,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 719,
+                  "id": 767,
                   "mutability": "mutable",
                   "name": "_hash_anterior",
-                  "nameLocation": "378:14:5",
+                  "nameLocation": "372:14:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "370:22:5",
+                  "scope": 791,
+                  "src": "364:22:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3159,10 +3160,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 718,
+                    "id": 766,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "370:7:5",
+                    "src": "364:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3172,13 +3173,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 721,
+                  "id": 769,
                   "mutability": "mutable",
                   "name": "_liquido_claro",
-                  "nameLocation": "411:14:5",
+                  "nameLocation": "405:14:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "403:22:5",
+                  "scope": 791,
+                  "src": "397:22:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3186,10 +3187,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 720,
+                    "id": 768,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "403:7:5",
+                    "src": "397:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3199,13 +3200,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 723,
+                  "id": 771,
                   "mutability": "mutable",
                   "name": "_liquido_oscuro",
-                  "nameLocation": "444:15:5",
+                  "nameLocation": "438:15:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "436:23:5",
+                  "scope": 791,
+                  "src": "430:23:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3213,10 +3214,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 722,
+                    "id": 770,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "436:7:5",
+                    "src": "430:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3225,103 +3226,103 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "359:107:5"
+              "src": "353:107:5"
             },
             "returnParameters": {
-              "id": 725,
+              "id": 773,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "474:0:5"
+              "src": "468:0:5"
             },
-            "scope": 822,
-            "src": "345:341:5",
+            "scope": 870,
+            "src": "339:338:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 789,
+              "id": 837,
               "nodeType": "Block",
-              "src": "817:265:5",
+              "src": "808:262:5",
               "statements": [
                 {
                   "assignments": [
-                    754
+                    802
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 754,
+                      "id": 802,
                       "mutability": "mutable",
                       "name": "_item",
-                      "nameLocation": "844:5:5",
+                      "nameLocation": "832:5:5",
                       "nodeType": "VariableDeclaration",
-                      "scope": 789,
-                      "src": "828:21:5",
+                      "scope": 837,
+                      "src": "819:18:5",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                        "typeString": "struct TrasiegoContract.Trasiego"
+                        "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                        "typeString": "struct TrasiegoContract.Model"
                       },
                       "typeName": {
-                        "id": 753,
+                        "id": 801,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 752,
-                          "name": "Trasiego",
+                          "id": 800,
+                          "name": "Model",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 710,
-                          "src": "828:8:5"
+                          "referencedDeclaration": 758,
+                          "src": "819:5:5"
                         },
-                        "referencedDeclaration": 710,
-                        "src": "828:8:5",
+                        "referencedDeclaration": 758,
+                        "src": "819:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Trasiego_$710_storage_ptr",
-                          "typeString": "struct TrasiegoContract.Trasiego"
+                          "typeIdentifier": "t_struct$_Model_$758_storage_ptr",
+                          "typeString": "struct TrasiegoContract.Model"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 761,
+                  "id": 809,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 755,
+                        "id": 803,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 717,
-                        "src": "852:5:5",
+                        "referencedDeclaration": 765,
+                        "src": "840:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                          "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                          "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                         }
                       },
-                      "id": 758,
+                      "id": 806,
                       "indexExpression": {
                         "expression": {
-                          "id": 756,
+                          "id": 804,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967281,
-                          "src": "858:3:5",
+                          "src": "846:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 757,
+                        "id": 805,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
-                        "src": "858:10:5",
+                        "src": "846:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -3332,20 +3333,20 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "852:17:5",
+                      "src": "840:17:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                        "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                        "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                       }
                     },
-                    "id": 760,
+                    "id": 808,
                     "indexExpression": {
-                      "id": 759,
+                      "id": 807,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 745,
-                      "src": "870:3:5",
+                      "referencedDeclaration": 793,
+                      "src": "858:3:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -3356,14 +3357,14 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "852:22:5",
+                    "src": "840:22:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                      "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                      "typeIdentifier": "t_struct$_Model_$758_storage",
+                      "typeString": "struct TrasiegoContract.Model storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "828:46:5"
+                  "src": "819:43:5"
                 },
                 {
                   "condition": {
@@ -3371,33 +3372,33 @@
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
-                    "id": 765,
+                    "id": 813,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "expression": {
-                        "id": 762,
+                        "id": 810,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 754,
-                        "src": "889:5:5",
+                        "referencedDeclaration": 802,
+                        "src": "877:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                          "typeString": "struct TrasiegoContract.Trasiego memory"
+                          "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                          "typeString": "struct TrasiegoContract.Model memory"
                         }
                       },
-                      "id": 763,
+                      "id": 811,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "aprobado",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 707,
-                      "src": "889:14:5",
+                      "referencedDeclaration": 755,
+                      "src": "877:14:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -3407,63 +3408,63 @@
                     "operator": "==",
                     "rightExpression": {
                       "hexValue": "66616c7365",
-                      "id": 764,
+                      "id": 812,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "907:5:5",
+                      "src": "895:5:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "false"
                     },
-                    "src": "889:23:5",
+                    "src": "877:23:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 788,
+                  "id": 836,
                   "nodeType": "IfStatement",
-                  "src": "885:190:5",
+                  "src": "873:190:5",
                   "trueBody": {
-                    "id": 787,
+                    "id": 835,
                     "nodeType": "Block",
-                    "src": "914:161:5",
+                    "src": "902:161:5",
                     "statements": [
                       {
                         "expression": {
-                          "id": 770,
+                          "id": 818,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "expression": {
-                              "id": 766,
+                              "id": 814,
                               "name": "_item",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 754,
-                              "src": "929:5:5",
+                              "referencedDeclaration": 802,
+                              "src": "917:5:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                                "typeString": "struct TrasiegoContract.Trasiego memory"
+                                "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                                "typeString": "struct TrasiegoContract.Model memory"
                               }
                             },
-                            "id": 768,
+                            "id": 816,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "liquido_claro",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 703,
-                            "src": "929:19:5",
+                            "referencedDeclaration": 751,
+                            "src": "917:19:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -3472,56 +3473,56 @@
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 769,
+                            "id": 817,
                             "name": "_liquido_claro",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 747,
-                            "src": "951:14:5",
+                            "referencedDeclaration": 795,
+                            "src": "939:14:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "929:36:5",
+                          "src": "917:36:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 771,
+                        "id": 819,
                         "nodeType": "ExpressionStatement",
-                        "src": "929:36:5"
+                        "src": "917:36:5"
                       },
                       {
                         "expression": {
-                          "id": 776,
+                          "id": 824,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "expression": {
-                              "id": 772,
+                              "id": 820,
                               "name": "_item",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 754,
-                              "src": "980:5:5",
+                              "referencedDeclaration": 802,
+                              "src": "968:5:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                                "typeString": "struct TrasiegoContract.Trasiego memory"
+                                "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                                "typeString": "struct TrasiegoContract.Model memory"
                               }
                             },
-                            "id": 774,
+                            "id": 822,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": true,
                             "memberName": "liquido_oscuro",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 705,
-                            "src": "980:20:5",
+                            "referencedDeclaration": 753,
+                            "src": "968:20:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -3530,30 +3531,30 @@
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 775,
+                            "id": 823,
                             "name": "_liquido_oscuro",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 749,
-                            "src": "1003:15:5",
+                            "referencedDeclaration": 797,
+                            "src": "991:15:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "980:38:5",
+                          "src": "968:38:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 777,
+                        "id": 825,
                         "nodeType": "ExpressionStatement",
-                        "src": "980:38:5"
+                        "src": "968:38:5"
                       },
                       {
                         "expression": {
-                          "id": 785,
+                          "id": 833,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3561,39 +3562,39 @@
                           "leftHandSide": {
                             "baseExpression": {
                               "baseExpression": {
-                                "id": 778,
+                                "id": 826,
                                 "name": "lista",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 717,
-                                "src": "1033:5:5",
+                                "referencedDeclaration": 765,
+                                "src": "1021:5:5",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                                  "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                                  "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                                 }
                               },
-                              "id": 782,
+                              "id": 830,
                               "indexExpression": {
                                 "expression": {
-                                  "id": 779,
+                                  "id": 827,
                                   "name": "msg",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 4294967281,
-                                  "src": "1039:3:5",
+                                  "src": "1027:3:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_message",
                                     "typeString": "msg"
                                   }
                                 },
-                                "id": 780,
+                                "id": 828,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "sender",
                                 "nodeType": "MemberAccess",
-                                "src": "1039:10:5",
+                                "src": "1027:10:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
                                   "typeString": "address"
@@ -3604,20 +3605,20 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "1033:17:5",
+                              "src": "1021:17:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                                "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                                "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                               }
                             },
-                            "id": 783,
+                            "id": 831,
                             "indexExpression": {
-                              "id": 781,
+                              "id": 829,
                               "name": "_id",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 745,
-                              "src": "1051:3:5",
+                              "referencedDeclaration": 793,
+                              "src": "1039:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -3628,35 +3629,35 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "1033:22:5",
+                            "src": "1021:22:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                              "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                              "typeIdentifier": "t_struct$_Model_$758_storage",
+                              "typeString": "struct TrasiegoContract.Model storage ref"
                             }
                           },
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 784,
+                            "id": 832,
                             "name": "_item",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 754,
-                            "src": "1058:5:5",
+                            "referencedDeclaration": 802,
+                            "src": "1046:5:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                              "typeString": "struct TrasiegoContract.Trasiego memory"
+                              "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                              "typeString": "struct TrasiegoContract.Model memory"
                             }
                           },
-                          "src": "1033:30:5",
+                          "src": "1021:30:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                            "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                            "typeIdentifier": "t_struct$_Model_$758_storage",
+                            "typeString": "struct TrasiegoContract.Model storage ref"
                           }
                         },
-                        "id": 786,
+                        "id": 834,
                         "nodeType": "ExpressionStatement",
-                        "src": "1033:30:5"
+                        "src": "1021:30:5"
                       }
                     ]
                   }
@@ -3664,26 +3665,26 @@
               ]
             },
             "functionSelector": "de9a9c32",
-            "id": 790,
+            "id": 838,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "actualizar",
-            "nameLocation": "703:10:5",
+            "nameLocation": "694:10:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 750,
+              "id": 798,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 745,
+                  "id": 793,
                   "mutability": "mutable",
                   "name": "_id",
-                  "nameLocation": "732:3:5",
+                  "nameLocation": "723:3:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 790,
-                  "src": "724:11:5",
+                  "scope": 838,
+                  "src": "715:11:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3691,10 +3692,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 744,
+                    "id": 792,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "724:7:5",
+                    "src": "715:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3704,13 +3705,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 747,
+                  "id": 795,
                   "mutability": "mutable",
                   "name": "_liquido_claro",
-                  "nameLocation": "754:14:5",
+                  "nameLocation": "745:14:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 790,
-                  "src": "746:22:5",
+                  "scope": 838,
+                  "src": "737:22:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3718,10 +3719,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 746,
+                    "id": 794,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "746:7:5",
+                    "src": "737:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3731,13 +3732,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 749,
+                  "id": 797,
                   "mutability": "mutable",
                   "name": "_liquido_oscuro",
-                  "nameLocation": "787:15:5",
+                  "nameLocation": "778:15:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 790,
-                  "src": "779:23:5",
+                  "scope": 838,
+                  "src": "770:23:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3745,10 +3746,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 748,
+                    "id": 796,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "779:7:5",
+                    "src": "770:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3757,103 +3758,103 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "713:96:5"
+              "src": "704:96:5"
             },
             "returnParameters": {
-              "id": 751,
+              "id": 799,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "817:0:5"
+              "src": "808:0:5"
             },
-            "scope": 822,
-            "src": "694:388:5",
+            "scope": 870,
+            "src": "685:385:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 820,
+              "id": 868,
               "nodeType": "Block",
-              "src": "1134:138:5",
+              "src": "1122:135:5",
               "statements": [
                 {
                   "assignments": [
-                    797
+                    845
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 797,
+                      "id": 845,
                       "mutability": "mutable",
                       "name": "_item",
-                      "nameLocation": "1161:5:5",
+                      "nameLocation": "1146:5:5",
                       "nodeType": "VariableDeclaration",
-                      "scope": 820,
-                      "src": "1145:21:5",
+                      "scope": 868,
+                      "src": "1133:18:5",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                        "typeString": "struct TrasiegoContract.Trasiego"
+                        "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                        "typeString": "struct TrasiegoContract.Model"
                       },
                       "typeName": {
-                        "id": 796,
+                        "id": 844,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 795,
-                          "name": "Trasiego",
+                          "id": 843,
+                          "name": "Model",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 710,
-                          "src": "1145:8:5"
+                          "referencedDeclaration": 758,
+                          "src": "1133:5:5"
                         },
-                        "referencedDeclaration": 710,
-                        "src": "1145:8:5",
+                        "referencedDeclaration": 758,
+                        "src": "1133:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Trasiego_$710_storage_ptr",
-                          "typeString": "struct TrasiegoContract.Trasiego"
+                          "typeIdentifier": "t_struct$_Model_$758_storage_ptr",
+                          "typeString": "struct TrasiegoContract.Model"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 804,
+                  "id": 852,
                   "initialValue": {
                     "baseExpression": {
                       "baseExpression": {
-                        "id": 798,
+                        "id": 846,
                         "name": "lista",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 717,
-                        "src": "1169:5:5",
+                        "referencedDeclaration": 765,
+                        "src": "1154:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                          "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                          "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                         }
                       },
-                      "id": 801,
+                      "id": 849,
                       "indexExpression": {
                         "expression": {
-                          "id": 799,
+                          "id": 847,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967281,
-                          "src": "1175:3:5",
+                          "src": "1160:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 800,
+                        "id": 848,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
-                        "src": "1175:10:5",
+                        "src": "1160:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -3864,20 +3865,20 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "1169:17:5",
+                      "src": "1154:17:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                        "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                        "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                       }
                     },
-                    "id": 803,
+                    "id": 851,
                     "indexExpression": {
-                      "id": 802,
+                      "id": 850,
                       "name": "_id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 792,
-                      "src": "1187:3:5",
+                      "referencedDeclaration": 840,
+                      "src": "1172:3:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -3888,44 +3889,44 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "1169:22:5",
+                    "src": "1154:22:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                      "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                      "typeIdentifier": "t_struct$_Model_$758_storage",
+                      "typeString": "struct TrasiegoContract.Model storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1145:46:5"
+                  "src": "1133:43:5"
                 },
                 {
                   "expression": {
-                    "id": 809,
+                    "id": 857,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 805,
+                        "id": 853,
                         "name": "_item",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 797,
-                        "src": "1202:5:5",
+                        "referencedDeclaration": 845,
+                        "src": "1187:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                          "typeString": "struct TrasiegoContract.Trasiego memory"
+                          "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                          "typeString": "struct TrasiegoContract.Model memory"
                         }
                       },
-                      "id": 807,
+                      "id": 855,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "aprobado",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 707,
-                      "src": "1202:14:5",
+                      "referencedDeclaration": 755,
+                      "src": "1187:14:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -3935,33 +3936,33 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 808,
+                      "id": 856,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1219:4:5",
+                      "src": "1204:4:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "true"
                     },
-                    "src": "1202:21:5",
+                    "src": "1187:21:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 810,
+                  "id": 858,
                   "nodeType": "ExpressionStatement",
-                  "src": "1202:21:5"
+                  "src": "1187:21:5"
                 },
                 {
                   "expression": {
-                    "id": 818,
+                    "id": 866,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3969,39 +3970,39 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "baseExpression": {
-                          "id": 811,
+                          "id": 859,
                           "name": "lista",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 717,
-                          "src": "1234:5:5",
+                          "referencedDeclaration": 765,
+                          "src": "1219:5:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$_$",
-                            "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Trasiego storage ref))"
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$_$",
+                            "typeString": "mapping(address => mapping(uint256 => struct TrasiegoContract.Model storage ref))"
                           }
                         },
-                        "id": 815,
+                        "id": 863,
                         "indexExpression": {
                           "expression": {
-                            "id": 812,
+                            "id": 860,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 4294967281,
-                            "src": "1240:3:5",
+                            "src": "1225:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 813,
+                          "id": 861,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
-                          "src": "1240:10:5",
+                          "src": "1225:10:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -4012,20 +4013,20 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1234:17:5",
+                        "src": "1219:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trasiego_$710_storage_$",
-                          "typeString": "mapping(uint256 => struct TrasiegoContract.Trasiego storage ref)"
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Model_$758_storage_$",
+                          "typeString": "mapping(uint256 => struct TrasiegoContract.Model storage ref)"
                         }
                       },
-                      "id": 816,
+                      "id": 864,
                       "indexExpression": {
-                        "id": 814,
+                        "id": 862,
                         "name": "_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 792,
-                        "src": "1252:3:5",
+                        "referencedDeclaration": 840,
+                        "src": "1237:3:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -4036,59 +4037,59 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "1234:22:5",
+                      "src": "1219:22:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                        "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                        "typeIdentifier": "t_struct$_Model_$758_storage",
+                        "typeString": "struct TrasiegoContract.Model storage ref"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 817,
+                      "id": 865,
                       "name": "_item",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 797,
-                      "src": "1259:5:5",
+                      "referencedDeclaration": 845,
+                      "src": "1244:5:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Trasiego_$710_memory_ptr",
-                        "typeString": "struct TrasiegoContract.Trasiego memory"
+                        "typeIdentifier": "t_struct$_Model_$758_memory_ptr",
+                        "typeString": "struct TrasiegoContract.Model memory"
                       }
                     },
-                    "src": "1234:30:5",
+                    "src": "1219:30:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Trasiego_$710_storage",
-                      "typeString": "struct TrasiegoContract.Trasiego storage ref"
+                      "typeIdentifier": "t_struct$_Model_$758_storage",
+                      "typeString": "struct TrasiegoContract.Model storage ref"
                     }
                   },
-                  "id": 819,
+                  "id": 867,
                   "nodeType": "ExpressionStatement",
-                  "src": "1234:30:5"
+                  "src": "1219:30:5"
                 }
               ]
             },
             "functionSelector": "7a00b8a9",
-            "id": 821,
+            "id": 869,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "aprobarProceso",
-            "nameLocation": "1099:14:5",
+            "nameLocation": "1087:14:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 793,
+              "id": 841,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 792,
+                  "id": 840,
                   "mutability": "mutable",
                   "name": "_id",
-                  "nameLocation": "1122:3:5",
+                  "nameLocation": "1110:3:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 821,
-                  "src": "1114:11:5",
+                  "scope": 869,
+                  "src": "1102:11:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4096,10 +4097,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 791,
+                    "id": 839,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1114:7:5",
+                    "src": "1102:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -4108,27 +4109,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1113:13:5"
+              "src": "1101:13:5"
             },
             "returnParameters": {
-              "id": 794,
+              "id": 842,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1134:0:5"
+              "src": "1122:0:5"
             },
-            "scope": 822,
-            "src": "1090:182:5",
+            "scope": 870,
+            "src": "1078:179:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 823,
-        "src": "61:1214:5",
+        "scope": 871,
+        "src": "61:1199:5",
         "usedErrors": []
       }
     ],
-    "src": "33:1244:5"
+    "src": "33:1229:5"
   },
   "compiler": {
     "name": "solc",
@@ -4138,12 +4139,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x7f4d4c1E903be2B138E54C46820A0ED117732d52",
-      "transactionHash": "0xfc15ea54172f9252d940133413569facd2d1e6b5dc3ac0e0318cb03bed7982af"
+      "address": "0xe879A1F56e72c842aB8FC4D9b1cCb3EC281C8AF2",
+      "transactionHash": "0xac3400c645aa2479a8808385d13754385c53a199a194698d7dfa57834987ae75"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-06-26T18:57:21.421Z",
+  "updatedAt": "2022-06-26T19:05:17.509Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
