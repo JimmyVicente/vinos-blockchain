@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { crearProceso } from "../conexion_web3/procesos";
+import { crearProceso, editarProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormTrasiego",
   components: {},
@@ -31,6 +31,8 @@ export default {
   props: {
     n_proceso: [Number],
     hash_anterior: [String],
+    editar_proceso: [Boolean],
+    elemento_editar: [Object],
     agregar_proceso: [Boolean],
   },
   methods: {
@@ -40,7 +42,11 @@ export default {
         data.hash_anterior = this.hash_anterior;
         data.liquido_claro = this.liquido_claro;
         data.liquido_oscuro = this.liquido_oscuro;
-        await crearProceso(6, data);
+        if (this.editar_proceso) {
+          await editarProceso(6, data);
+        } else {
+          await crearProceso(6, data);
+        }
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -65,6 +71,15 @@ export default {
     cerrar() {
       this.$emit("update:agregar_proceso", false);
     },
+  },
+  async mounted() {
+    if (this.editar_proceso) {
+      this.liquido_claro = this.elemento_editar.liquido_claro;
+      this.liquido_oscuro = this.elemento_editar.liquido_oscuro;
+    } else {
+      this.liquido_claro = null;
+      this.liquido_oscuro = null;
+    }
   },
 };
 </script>

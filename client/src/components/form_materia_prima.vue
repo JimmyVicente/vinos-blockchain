@@ -29,7 +29,7 @@
 
 <script>
 //importaciones web3
-import { crearProceso } from "../conexion_web3/procesos";
+import { crearProceso, editarProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormMateriaPrima",
   components: {},
@@ -42,17 +42,24 @@ export default {
   props: {
     n_proceso: [Number],
     hash_anterior: [String],
+    editar_proceso: [Boolean],
+    elemento_editar: [Object],
     agregar_proceso: [Boolean],
   },
   methods: {
     async guardar() {
       try {
         var data = {};
+        data.hash_anterior = this.hash_anterior;
         data.nro_cosecha = this.nro_cosecha;
         data.lugar_procedencia = this.lugar_procedencia;
         data.nombre_propietario = this.nombre_propietario;
-        data.gadros_brix = this.gadros_brix;        
-        await crearProceso(1, data);
+        data.gadros_brix = this.gadros_brix;
+        if (this.editar_proceso) {
+          await editarProceso(1, data);
+        } else {
+          await crearProceso(1, data);
+        }
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -77,6 +84,19 @@ export default {
     cerrar() {
       this.$emit("update:agregar_proceso", false);
     },
+  },
+  async mounted() {
+    if (this.editar_proceso) {
+      this.nro_cosecha = this.elemento_editar.nro_cosecha;
+      this.lugar_procedencia = this.elemento_editar.lugar_procedencia;
+      this.nombre_propietario = this.elemento_editar.nombre_propietario;
+      this.gadros_brix = this.elemento_editar.gadros_brix;
+    } else {
+      this.nro_cosecha = null;
+      this.lugar_procedencia = null;
+      this.nombre_propietario = null;
+      this.gadros_brix = null;
+    }
   },
 };
 </script>

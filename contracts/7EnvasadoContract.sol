@@ -59,16 +59,31 @@ contract EnvasadoContract {
         }
     }
 
-    function bytes32ToString(bytes32 _b) public pure returns (string memory) {
-        uint8 i = 0;
-        while (i < 32 && _b[i] != 0) {
-            i++;
+    function bytes32ToString(bytes32 x) public pure returns (string memory) {
+        bytes memory bytesString = new bytes(32);
+        uint256 charCount = 0;
+        for (uint256 j = 0; j < 32; j++) {
+            bytes1 char = bytes1(bytes32(uint256(x) * 2**(8 * j)));
+            if (char != 0) {
+                bytesString[charCount] = char;
+                charCount++;
+            }
         }
-        bytes memory bytesArray = new bytes(i);
-        for (i = 0; i < 32 && _b[i] != 0; i++) {
-            bytesArray[i] = _b[i];
+        bytes memory bytesStringTrimmed = new bytes(charCount);
+        for (uint256 j = 0; j < charCount; j++) {
+            bytesStringTrimmed[j] = bytesString[j];
         }
-        return string(bytesArray);
+        return string(bytesStringTrimmed);
+    }
+
+    function sha256F1(string memory x) public pure returns (string memory) {
+        bytes32 _hash1 = sha256(abi.encodePacked(x));
+        string memory has = bytes32ToString(_hash1);
+        return has;
+    }
+
+    function testA() public pure returns (bytes32) {
+        return keccak256(abi.encodePacked(uint256(2), uint256(0)));
     }
 
     function encryptarInfo(string memory _info, uint256 _i)
@@ -76,9 +91,7 @@ contract EnvasadoContract {
         pure
         returns (string memory)
     {
-        bytes32 _hash1 = sha256(abi.encodePacked(_info));
-        bytes32 _hash2 = sha256(abi.encodePacked(_i));
-        bytes32 _hash = sha256(abi.encodePacked(_hash1 ^ _hash2));
+        bytes32 _hash = keccak256(abi.encodePacked(_info, _i));
         return bytes32ToString(_hash);
     }
 

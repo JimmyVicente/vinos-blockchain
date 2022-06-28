@@ -21,7 +21,7 @@
 
 <script>
 
-import { crearProceso } from "../conexion_web3/procesos";
+import { crearProceso, editarProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormEnvasado",
   components: {},
@@ -32,6 +32,8 @@ export default {
   props: {
     agregar_proceso: [Boolean],
     hash_anterior: [String],
+    editar_proceso: [Boolean],
+    elemento_editar: [Object],
     hash_info: [String],
   },
   methods: {
@@ -41,7 +43,11 @@ export default {
         data.hash_anterior = this.hash_anterior;
         data.nro_lote = this.nro_lote;
         data.nro_botellas = this.nro_botellas * 1;
-        await crearProceso(7, data);
+        if (this.editar_proceso) {
+          await editarProceso(7, data);
+        } else {
+          await crearProceso(7, data);
+        }
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -68,6 +74,15 @@ export default {
     cerrar() {
       this.$emit("update:agregar_proceso", false);
     },
+  },
+    async mounted() {
+    if (this.editar_proceso) {
+      this.nro_lote = this.elemento_editar.nro_lote;
+      this.nro_botellas = this.elemento_editar.nro_botellas;
+    } else {
+      this.nro_lote = null;
+      this.nro_botellas = null;
+    }
   },
 };
 </script>

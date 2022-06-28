@@ -24,7 +24,8 @@
 </template>
 
 <script>
-import { crearProceso } from "../conexion_web3/procesos";
+import { crearProceso, editarProceso } from "../conexion_web3/procesos";
+const moment = require("moment");
 export default {
   name: "FormFermentacion",
   components: {},
@@ -36,6 +37,8 @@ export default {
   props: {
     n_proceso: [Number],
     hash_anterior: [String],
+    editar_proceso: [Boolean],
+    elemento_editar: [Object],
     agregar_proceso: [Boolean],
   },
   methods: {
@@ -50,7 +53,11 @@ export default {
         data.fecha_inicio = fecha_inicio;
         data.fecha_final = fecha_final;
         data.grados_invertidos = this.grados_invertidos;
-        await crearProceso(4, data);
+        if (this.editar_proceso) {
+          await editarProceso(4, data);
+        } else {
+          await crearProceso(4, data);
+        }
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -75,6 +82,19 @@ export default {
     cerrar() {
       this.$emit("update:agregar_proceso", false);
     },
+  },
+  async mounted() {
+    if (this.editar_proceso) {
+      var fecha_inicio = new Date(this.elemento_editar.fecha_inicio * 1000);
+      var fecha_final = new Date(this.elemento_editar.fecha_final * 1000);
+      this.fecha_inicio = moment(fecha_inicio).format("YYYY-MM-DDTkk:mm");
+      this.fecha_final = moment(fecha_final).format("YYYY-MM-DDTkk:mm");
+      this.grados_invertidos = this.elemento_editar.grados_invertidos;
+    } else {
+      this.fecha_inicio = null;
+      this.fecha_final = null;
+      this.grados_invertidos = null;
+    }
   },
 };
 </script>

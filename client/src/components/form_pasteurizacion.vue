@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { crearProceso } from "../conexion_web3/procesos";
+import { crearProceso, editarProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormPasteurizacion",
   components: {},
@@ -36,6 +36,8 @@ export default {
   props: {
     n_proceso: [Number],
     hash_anterior: [String],
+    editar_proceso: [Boolean],
+    elemento_editar: [Object],
     agregar_proceso: [Boolean],
   },
   methods: {
@@ -46,7 +48,11 @@ export default {
         data.temperatura_caliente = this.temperatura_caliente;
         data.temperatura_fria = this.temperatura_fria;
         data.tiempo_proceso = this.tiempo_proceso;
-        await crearProceso(3, data);
+        if (this.editar_proceso) {
+          await editarProceso(3, data);
+        } else {
+          await crearProceso(3, data);
+        }
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -71,6 +77,17 @@ export default {
     cerrar() {
       this.$emit("update:agregar_proceso", false);
     },
+  },
+  async mounted() {
+    if (this.editar_proceso) {
+      this.temperatura_caliente = this.elemento_editar.temperatura_caliente;
+      this.temperatura_fria = this.elemento_editar.temperatura_fria;
+      this.tiempo_proceso = this.elemento_editar.tiempo_proceso;
+    } else {
+      this.temperatura_caliente = null;
+      this.temperatura_fria = null;
+      this.tiempo_proceso = null;
+    }
   },
 };
 </script>

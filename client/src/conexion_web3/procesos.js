@@ -116,10 +116,14 @@ export const aprobarProceso = async (proceso, data) => {
   if (proceso == 4) await contrato4.aprobarProceso(data.id, config);
   if (proceso == 5) await contrato5.aprobarProceso(data.id, config);
   if (proceso == 6) await contrato6.aprobarProceso(data.id, config);
-  var info = web3.utils.asciiToHex(data.info);
-  console.log(info);
-  // info = web3.utils.hexToAscii(info);
-  // console.log(info);
-  console.log(data);
-  if (proceso == 7) await contrato7.aprobarProceso(data.id, info, config);
+  if (proceso == 7) {
+    console.log(data);
+    console.log(contrato7);
+    // const model = await contrato7.encryptarInfo("hola como estas", 1);
+    // const model = await contrato7.bytes32ToString(web3.utils.asciiToHex("hola como que haces")); 
+    // const model = await contrato7.bytes32ToString(web3.utils.hexToAscii("hola como que haces")); 
+    const model = await contrato7.testA();
+    console.log(model);
+  }
+  // if (proceso == 7) await contrato7.aprobarProceso(data.id, data.info, config);
 };

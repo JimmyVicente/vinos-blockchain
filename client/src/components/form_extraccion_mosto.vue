@@ -16,26 +16,28 @@
 </template>
 
 <script>
-import { crearProceso } from "../conexion_web3/procesos";
+import { crearProceso, editarProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormMateriaPrima",
   components: {},
   data: () => ({
-    tipo: "licuado",
+    tipo: "Licuado",
     tipo_extraccion: [
       {
         txt: "Licuado",
-        val: "licuado",
+        val: "Licuado",
       },
       {
         txt: "Pulpatado",
-        val: "pulpatado",
+        val: "Pulpatado",
       },
     ],
   }),
   props: {
     n_proceso: [Number],
     hash_anterior: [String],
+    editar_proceso: [Boolean],
+    elemento_editar: [Object],
     agregar_proceso: [Boolean],
   },
   methods: {
@@ -44,7 +46,11 @@ export default {
         var data = {};
         data.hash_anterior = this.hash_anterior;
         data.tipo = this.tipo;
-        await crearProceso(2, data);
+        if (this.editar_proceso) {
+          await editarProceso(2, data);
+        } else {
+          await crearProceso(2, data);
+        }
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -69,6 +75,13 @@ export default {
     cerrar() {
       this.$emit("update:agregar_proceso", false);
     },
+  },
+  async mounted() {
+    if (this.elemento_editar) {
+      this.tipo = this.elemento_editar.tipo;
+    } else {
+      this.tipo = "Licuado";
+    }
   },
 };
 </script>

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { crearProceso } from "../conexion_web3/procesos";
+import { crearProceso, editarProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormClarificacion",
   components: {},
@@ -26,6 +26,8 @@ export default {
   props: {
     n_proceso: [Number],
     hash_anterior: [String],
+    editar_proceso: [Boolean],
+    elemento_editar: [Object],
     agregar_proceso: [Boolean],
   },
   methods: {
@@ -34,8 +36,11 @@ export default {
         var data = {};
         data.hash_anterior = this.hash_anterior;
         data.turbidez = this.turbidez;
-        console.log(data);
-        await crearProceso(5, data);
+        if (this.editar_proceso) {
+          await editarProceso(5, data);
+        } else {
+          await crearProceso(5, data);
+        }
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -60,6 +65,13 @@ export default {
     cerrar() {
       this.$emit("update:agregar_proceso", false);
     },
+  },
+  async mounted() {
+    if (this.editar_proceso) {
+      this.turbidez = this.elemento_editar.turbidez;
+    } else {
+      this.turbidez = null;
+    }
   },
 };
 </script>
