@@ -39,7 +39,7 @@ export default {
     async guardar() {
       try {
         var data = {};
-        data.hash_anterior = this.hash_anterior;
+        data.hash_anterior = this.hash_anterior * 1;
         data.liquido_claro = this.liquido_claro;
         data.liquido_oscuro = this.liquido_oscuro;
         if (this.editar_proceso) {

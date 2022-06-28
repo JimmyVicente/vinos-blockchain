@@ -34,7 +34,7 @@ export default {
     async guardar() {
       try {
         var data = {};
-        data.hash_anterior = this.hash_anterior;
+        data.hash_anterior = this.hash_anterior * 1;
         data.turbidez = this.turbidez;
         if (this.editar_proceso) {
           await editarProceso(5, data);

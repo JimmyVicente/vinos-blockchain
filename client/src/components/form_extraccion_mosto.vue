@@ -44,7 +44,7 @@ export default {
     async guardar() {
       try {
         var data = {};
-        data.hash_anterior = this.hash_anterior;
+        data.hash_anterior = this.hash_anterior * 1;
         data.tipo = this.tipo;
         if (this.editar_proceso) {
           await editarProceso(2, data);

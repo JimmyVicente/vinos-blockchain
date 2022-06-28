@@ -192,20 +192,19 @@ export default {
     },
 
     async siguienteProceso() {
-      // if (this.siguiente_proceso) {
-      this.editar_proceso = false;
-      this.elemento_editar = null;
-      this.n_proceso = 7;
-      this.agregar_proceso = true;
-      // } else {
-      //   this.$toast.open({
-      //     message: "Todos los procesos deben estar aceptados para poder crear el siguiente proceso",
-      //     type: "error",
-      //     duration: 5000,
-      //     position: "top-right",
-      //     pauseOnHover: true,
-      //   });
-      // }
+      if (this.siguiente_proceso) {
+        this.editar_proceso = false;
+        this.elemento_editar = null;
+        this.agregar_proceso = true;
+      } else {
+        this.$toast.open({
+          message: "Todos los procesos deben estar aceptados para poder crear el siguiente proceso",
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
     },
 
     async generarProceso(hash) {

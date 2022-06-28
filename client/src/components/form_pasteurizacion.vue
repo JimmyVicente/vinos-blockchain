@@ -44,7 +44,7 @@ export default {
     async guardar() {
       try {
         var data = {};
-        data.hash_anterior = this.hash_anterior;
+        data.hash_anterior = this.hash_anterior * 1;
         data.temperatura_caliente = this.temperatura_caliente;
         data.temperatura_fria = this.temperatura_fria;
         data.tiempo_proceso = this.tiempo_proceso;

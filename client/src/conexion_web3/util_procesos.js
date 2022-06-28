@@ -160,5 +160,5 @@ export const listarItemProceso = async (hash) => {
 
     //setVariables
     items = items.reverse();
-    return { nombre_proceso, n_proceso, items, hash_info, siguiente_proceso };
+    return { nombre_proceso, n_proceso, items, hash_info, siguiente_proceso, proceso };
 };

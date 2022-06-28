@@ -52,6 +52,15 @@ const routes = [
         component: () => import('../views/administrador/fragmento/nuevo_proceso.vue')
       },
       {
+        path: '/proceso/botellas/:hash',
+        name: 'Botellas',
+        props: true,
+        //meta: {
+        //  requiresAuth: true
+        //},
+        component: () => import('../views/administrador/fragmento/botellas.vue')
+      },
+      {
         path: '/usuario',
         name: 'Usuario',
         props: true,

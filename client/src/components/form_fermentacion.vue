@@ -49,7 +49,7 @@ export default {
         var fecha_final = new Date(this.fecha_final);
         fecha_inicio = fecha_inicio.getTime() / 1000;
         fecha_final = fecha_final.getTime() / 1000;
-        data.hash_anterior = this.hash_anterior;
+        data.hash_anterior = this.hash_anterior * 1;
         data.fecha_inicio = fecha_inicio;
         data.fecha_final = fecha_final;
         data.grados_invertidos = this.grados_invertidos;

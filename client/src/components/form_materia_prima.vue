@@ -50,7 +50,7 @@ export default {
     async guardar() {
       try {
         var data = {};
-        data.hash_anterior = this.hash_anterior;
+        data.hash_anterior = this.hash_anterior * 1;
         data.nro_cosecha = this.nro_cosecha;
         data.lugar_procedencia = this.lugar_procedencia;
         data.nombre_propietario = this.nombre_propietario;

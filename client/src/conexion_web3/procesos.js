@@ -25,7 +25,7 @@ export const listarProcesos = async () => {
 
 export const generarProceso = async (_id) => {
   const { web3 } = await infoCuenta();
-  var titulo1, titulo2, titulo3, titulo4, titulo5, titulo6, titulo7 = "";
+  var titulo1 = "---------", titulo2 = "---------", titulo3 = "---------", titulo4 = "---------", titulo5 = "---------", titulo6 = "---------", titulo7 = "---------";
   var materia_prima = await encontrarProceso(web3, MateriaPrimaContract, _id);
   var extraccion_mosto = await encontrarProceso(web3, ExtraccionMostoContract, _id);
   var pasteurizacion = await encontrarProceso(web3, PasteurizacionMostoContract, _id);
@@ -116,14 +116,12 @@ export const aprobarProceso = async (proceso, data) => {
   if (proceso == 4) await contrato4.aprobarProceso(data.id, config);
   if (proceso == 5) await contrato5.aprobarProceso(data.id, config);
   if (proceso == 6) await contrato6.aprobarProceso(data.id, config);
-  if (proceso == 7) {
-    console.log(data);
-    console.log(contrato7);
-    // const model = await contrato7.encryptarInfo("hola como estas", 1);
-    // const model = await contrato7.bytes32ToString(web3.utils.asciiToHex("hola como que haces")); 
-    // const model = await contrato7.bytes32ToString(web3.utils.hexToAscii("hola como que haces")); 
-    const model = await contrato7.testA();
-    console.log(model);
-  }
-  // if (proceso == 7) await contrato7.aprobarProceso(data.id, data.info, config);
+  if (proceso == 7) await contrato7.aprobarProceso(data.id, data.info, config);
 };
+
+export const encontrarBotella = async (hash) => {
+  const { web3} = await infoCuenta();
+  const contrato7 = await cargarContatrato(web3, EnvasadoContract);
+  var botella = await contrato7.encontrarBotella(hash);
+  console.log(botella);
+}

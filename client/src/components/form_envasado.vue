@@ -40,7 +40,7 @@ export default {
     async guardar() {
       try {
         var data = {};
-        data.hash_anterior = this.hash_anterior;
+        data.hash_anterior = this.hash_anterior * 1;
         data.nro_lote = this.nro_lote;
         data.nro_botellas = this.nro_botellas * 1;
         if (this.editar_proceso) {

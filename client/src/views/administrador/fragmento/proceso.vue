@@ -22,6 +22,14 @@
             }">
               <v-icon>mdi-eye</v-icon>
             </v-btn>
+
+            <v-btn icon color="pink" :to="{
+              name: 'Botellas',
+              params: { hash: item.materia_prima.id },
+            }">
+              <v-icon>mdi-eye</v-icon>
+            </v-btn>
+
           </template>>
         </v-data-table>
       </v-card>
