@@ -37,7 +37,7 @@
       <v-spacer></v-spacer>
 
       <v-list-item-subtitle>Direccioón de cuenta: {{ cuenta }}</v-list-item-subtitle>
-      
+
     </v-app-bar>
     <v-main style="margin-left : 3%;margin-right: 3%;">
       <v-container>
@@ -52,13 +52,13 @@
 
 <script>
 import { infoCuenta } from "../../conexion_web3/getWeb3";
+import { escucharEventos } from "../../conexion_web3/procesos";
 export default {
   name: "Base_",
   data: () => ({
     drawer: true,
     loading: true,
     cuenta: '',
-    web3: null,
     balanceETHER: 0.0,
     menu: [
       { title: "Inicio", icon: "mdi-view-dashboard", to: { name: "Inicio" } },
@@ -68,17 +68,21 @@ export default {
     ],
   }),
   methods: {
-
+    async getBalance() {
+      try {
+        let { cuenta, balanceETHER } = await infoCuenta();
+        this.cuenta = cuenta;
+        this.balanceETHER = balanceETHER;
+      } catch (error) {
+        console.log(error);
+      }
+    }
   },
   async mounted() {
-    try {
-      let { web3, cuenta, balanceETHER } = await infoCuenta();
-      this.web3 = web3;
-      this.cuenta = cuenta;
-      this.balanceETHER = balanceETHER;
-    } catch (error) {
-      console.log(error);
-    }
+    this.getBalance();
+    escucharEventos(() => {
+      this.getBalance();
+    });
 
   }
 };

@@ -20,6 +20,8 @@
 </template>
 
 <script>
+
+import { crearProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormEnvasado",
   components: {},
@@ -29,6 +31,8 @@ export default {
   }),
   props: {
     agregar_proceso: [Boolean],
+    hash_anterior: [String],
+    hash_info: [String],
   },
   methods: {
     async guardar() {
@@ -37,7 +41,7 @@ export default {
         data.hash_anterior = this.hash_anterior;
         data.nro_lote = this.nro_lote;
         data.nro_botellas = this.nro_botellas * 1;
-        // await crearTrasiego(data);
+        await crearProceso(7, data);
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -46,6 +50,7 @@ export default {
           pauseOnHover: true,
         });
         this.$emit("update:agregar_proceso", false);
+        this.siguiente();
         this.cerrar();
       } catch (error) {
         this.$toast.open({

@@ -9,7 +9,7 @@ contract TrasiegoContract {
         bool aprobado;
         uint256 createdAt;
     }
-
+    event Id(uint256 id);
     mapping(address => mapping(uint256 => Model)) public lista;
 
     function crear(
@@ -24,13 +24,14 @@ contract TrasiegoContract {
             false,
             block.timestamp
         );
+        emit Id(_hash_anterior);
     }
 
     function encontrar(uint256 _id) public view returns (Model memory) {
         return lista[msg.sender][_id];
     }
 
-    function actualizar(
+    function editar(
         uint256 _id,
         string memory _liquido_claro,
         string memory _liquido_oscuro
@@ -40,6 +41,7 @@ contract TrasiegoContract {
             _item.liquido_claro = _liquido_claro;
             _item.liquido_oscuro = _liquido_oscuro;
             lista[msg.sender][_id] = _item;
+            emit Id(_id);
         }
     }
 
@@ -47,5 +49,6 @@ contract TrasiegoContract {
         Model memory _item = lista[msg.sender][_id];
         _item.aprobado = true;
         lista[msg.sender][_id] = _item;
+        emit Id(_id);
     }
 }

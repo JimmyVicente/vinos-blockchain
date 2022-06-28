@@ -3,12 +3,8 @@
     <v-container>
       <v-row justify="center">
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field
-            v-model="turbidez"
-            label="Turbidez (ppm)"
-            placeholder="Ingrese turbidex"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="turbidez" label="Turbidez (ppm)" placeholder="Ingrese turbidex" outlined>
+          </v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -20,7 +16,7 @@
 </template>
 
 <script>
-import { crearClarificacion } from "../conexion_web3/procesos";
+import { crearProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormClarificacion",
   components: {},
@@ -39,7 +35,7 @@ export default {
         data.hash_anterior = this.hash_anterior;
         data.turbidez = this.turbidez;
         console.log(data);
-        await crearClarificacion(data);
+        await crearProceso(5, data);
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",

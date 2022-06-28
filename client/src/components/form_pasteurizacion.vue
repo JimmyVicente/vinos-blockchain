@@ -3,28 +3,16 @@
     <v-container>
       <v-row>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field
-          v-model="temperatura_caliente"
-            label="Temperatura Caliente (°C)"
-            placeholder="Ingrese temperatura caliente"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="temperatura_caliente" label="Temperatura Caliente (°C)"
+            placeholder="Ingrese temperatura caliente" outlined></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field
-          v-model="temperatura_fria"
-            label="Temperatura Fria (°C)"
-            placeholder="Ingrese temperatura fria"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="temperatura_fria" label="Temperatura Fria (°C)" placeholder="Ingrese temperatura fria"
+            outlined></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field
-          v-model="tiempo_proceso"
-            label="Tiempo De Proceso (min)"
-            placeholder="Ingrese tiempo de proceso"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="tiempo_proceso" label="Tiempo De Proceso (min)" placeholder="Ingrese tiempo de proceso"
+            outlined></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -36,7 +24,7 @@
 </template>
 
 <script>
-import { crearPasteurizacion } from "../conexion_web3/procesos";
+import { crearProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormPasteurizacion",
   components: {},
@@ -58,7 +46,7 @@ export default {
         data.temperatura_caliente = this.temperatura_caliente;
         data.temperatura_fria = this.temperatura_fria;
         data.tiempo_proceso = this.tiempo_proceso;
-        await crearPasteurizacion(data);
+        await crearProceso(3, data);
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",

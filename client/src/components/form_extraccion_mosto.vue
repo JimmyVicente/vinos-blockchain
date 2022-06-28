@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { crearExtraccionMosto } from "../conexion_web3/procesos";
+import { crearProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormMateriaPrima",
   components: {},
@@ -44,7 +44,7 @@ export default {
         var data = {};
         data.hash_anterior = this.hash_anterior;
         data.tipo = this.tipo;
-        await crearExtraccionMosto(data);
+        await crearProceso(2, data);
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
@@ -53,11 +53,6 @@ export default {
           pauseOnHover: true,
         });
         this.cerrar();
-        this.$router.push({
-          name: 'Nuevo Proceso', params: {
-            hash: this.hash_anterior,
-          }
-        }).catch(() => { });
       } catch (error) {
         this.$toast.open({
           message: error.message,

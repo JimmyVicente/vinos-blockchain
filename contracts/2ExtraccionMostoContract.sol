@@ -8,6 +8,7 @@ contract ExtraccionMostoContract {
         bool aprobado;
         uint256 createdAt;
     }
+    event Id(uint256 id);
 
     mapping(address => mapping(uint256 => Model)) public lista;
 
@@ -18,17 +19,19 @@ contract ExtraccionMostoContract {
             false,
             block.timestamp
         );
+        emit Id(_hash_anterior);
     }
 
     function encontrar(uint256 _id) public view returns (Model memory) {
         return lista[msg.sender][_id];
     }
 
-    function actualizar(uint256 _id, string memory _tipo) public {
+    function editar(uint256 _id, string memory _tipo) public {
         Model memory _item = lista[msg.sender][_id];
         if (_item.aprobado == false) {
             _item.tipo = _tipo;
             lista[msg.sender][_id] = _item;
+            emit Id(_id);
         }
     }
 
@@ -36,5 +39,6 @@ contract ExtraccionMostoContract {
         Model memory _item = lista[msg.sender][_id];
         _item.aprobado = true;
         lista[msg.sender][_id] = _item;
+        emit Id(_id);
     }
 }

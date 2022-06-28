@@ -3,20 +3,12 @@
     <v-container>
       <v-row justify="center">
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field
-            v-model="liquido_claro"
-            label="Porcentaje De Liquido Claro (%)"
-            placeholder="Ingrese porcentaje de liquido oscuro"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="liquido_claro" label="Porcentaje De Liquido Claro (%)"
+            placeholder="Ingrese porcentaje de liquido oscuro" outlined></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field
-            v-model="liquido_oscuro"
-            label="Porcentaje De Liquido Oscuro (%)"
-            placeholder="Ingrese porcentaje de liquido oscuro"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="liquido_oscuro" label="Porcentaje De Liquido Oscuro (%)"
+            placeholder="Ingrese porcentaje de liquido oscuro" outlined></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -28,7 +20,7 @@
 </template>
 
 <script>
-import { crearTrasiego } from "../conexion_web3/procesos";
+import { crearProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormTrasiego",
   components: {},
@@ -48,7 +40,7 @@ export default {
         data.hash_anterior = this.hash_anterior;
         data.liquido_claro = this.liquido_claro;
         data.liquido_oscuro = this.liquido_oscuro;
-        await crearTrasiego(data);
+        await crearProceso(6, data);
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",

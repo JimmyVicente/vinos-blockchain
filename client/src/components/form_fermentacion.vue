@@ -3,30 +3,16 @@
     <v-container>
       <v-row>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field
-          type="datetime-local"
-            v-model="fecha_inicio"
-            label="Fecha De Inicio De Fermentación"
-            placeholder="Ingrese fecha de inicio de fermentación"
-            outlined
-          ></v-text-field>
+          <v-text-field type="datetime-local" v-model="fecha_inicio" label="Fecha De Inicio De Fermentación"
+            placeholder="Ingrese fecha de inicio de fermentación" outlined></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field
-          type="datetime-local"
-            v-model="fecha_final"
-            label="Fecha De Finalización De Fermentación"
-            placeholder="Ingrese fecha de finalización de fermentación"
-            outlined
-          ></v-text-field>
+          <v-text-field type="datetime-local" v-model="fecha_final" label="Fecha De Finalización De Fermentación"
+            placeholder="Ingrese fecha de finalización de fermentación" outlined></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field
-            v-model="grados_invertidos"
-            label="Porcentaje De Grados invertidos"
-            placeholder="Ingrese porcentaje de grados invertidos"
-            outlined
-          ></v-text-field>
+          <v-text-field v-model="grados_invertidos" label="Porcentaje De Grados invertidos"
+            placeholder="Ingrese porcentaje de grados invertidos" outlined></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -38,7 +24,7 @@
 </template>
 
 <script>
-import { crearFermentacion } from "../conexion_web3/procesos";
+import { crearProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormFermentacion",
   components: {},
@@ -58,13 +44,13 @@ export default {
         var data = {};
         var fecha_inicio = new Date(this.fecha_inicio);
         var fecha_final = new Date(this.fecha_final);
-        fecha_inicio = fecha_inicio.getTime();
-        fecha_final = fecha_final.getTime();
+        fecha_inicio = fecha_inicio.getTime() / 1000;
+        fecha_final = fecha_final.getTime() / 1000;
         data.hash_anterior = this.hash_anterior;
         data.fecha_inicio = fecha_inicio;
         data.fecha_final = fecha_final;
         data.grados_invertidos = this.grados_invertidos;
-        await crearFermentacion(data);
+        await crearProceso(4, data);
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",

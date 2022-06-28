@@ -11,6 +11,7 @@ contract MateriaPrimaContract {
         bool aprobado;
         uint256 createdAt;
     }
+    event Id(uint256 id);
 
     mapping(address => mapping(uint256 => Model)) public lista;
     mapping(address => uint256) public contador;
@@ -31,6 +32,7 @@ contract MateriaPrimaContract {
             false,
             block.timestamp
         );
+        emit Id(contador_id);
         contador[msg.sender]++;
     }
 
@@ -38,7 +40,7 @@ contract MateriaPrimaContract {
         return lista[msg.sender][_id];
     }
 
-    function atualizar(
+    function editar(
         uint256 _id,
         uint256 _nro_cosecha,
         string memory _lugar_procedencia,
@@ -52,6 +54,7 @@ contract MateriaPrimaContract {
             _item.nombre_propietario = _nombre_propietario;
             _item.gadros_brix = _grados_brix;
             lista[msg.sender][_id] = _item;
+            emit Id(_id);
         }
     }
 
@@ -59,5 +62,6 @@ contract MateriaPrimaContract {
         Model memory _item = lista[msg.sender][_id];
         _item.aprobado = true;
         lista[msg.sender][_id] = _item;
+        emit Id(_id);
     }
 }

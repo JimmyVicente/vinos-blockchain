@@ -6,7 +6,7 @@
           <h1>{{ nombre_proceso }}</h1>
           <v-spacer></v-spacer>
           <v-btn v-if="n_proceso < 8 && n_proceso > 0" dark color="primary_app" x-large style="margin-right: 2%"
-            @click="agregar_proceso = true;">
+            @click="siguienteProceso()">
             <v-icon left large> mdi-glass-tulip </v-icon>
             Agregar
           </v-btn>
@@ -17,13 +17,18 @@
             <v-timeline-item v-for="(item, i) in items" :key="i" :color="item.color" :icon="item.icon" fill-dot>
               <v-card :color="item.color" dark>
                 <v-card-title class="text-h6" v-text="item.nombre"></v-card-title>
-                <v-card-text class="white text--primary" style="align-items: start;">
+                <v-card-text class="white text--primary">
                   <br>
-                  <p v-html="item.informacion"> </p>
-                  <p v-text="item.fecha_creacion"> </p>
-                  <v-btn :color="item.color" class="mx-0" outlined>
-                    Editar
-                  </v-btn>
+                  <p style="text-align: start;" v-html="item.informacion"> </p>
+                  <p style="font-size: 11px; text-align: start;">Fecha de creación: {{ item.fecha_creacion }} </p>
+                  <div v-if="item.model.aprobado == false">
+                    <v-btn :color="item.color" class="mx-0" outlined @click="editar(item.index, item.model)">
+                      Editar
+                    </v-btn>
+                    <v-btn class="mx-0" outlined style="color: green;" @click="aprobarProceso(item.index, item.model)">
+                      Aprobar
+                    </v-btn>
+                  </div>
                 </v-card-text>
               </v-card>
             </v-timeline-item>
@@ -117,6 +122,7 @@ import FormTrasiego from '@/components/form_trasiego.vue'
 import FormEnvasado from '@/components/form_envasado.vue'
 //importaciones web3
 import { listarItemProceso } from "../../../conexion_web3/util_procesos";
+import { escucharEventos, aprobarProceso } from "../../../conexion_web3/procesos";
 export default {
   name: "Nuevo_proceso_",
   components: {
@@ -132,6 +138,8 @@ export default {
     nombre_proceso: "Nuevo proceso",
     agregar_proceso: false,
     hash_anterior: null,
+    hash_info: null,
+    siguiente_proceso: true,
     n_proceso: 1,
     proceso_a: 1,
     proceso_b: 2,
@@ -146,21 +154,73 @@ export default {
     hash: [String],
   },
   methods: {
-    async generarProceso() {
+
+    async aprobarProceso(index, item) {
       try {
-        var { nombre_proceso, n_proceso, items } = await listarItemProceso(this.hash);
+        var data = {};
+        data.id = item.hash_anterior * 1;
+        if (index == 1) data.id = item.id * 1;
+        data.info = this.hash_info;
+        await aprobarProceso(index, data);
+        this.$toast.open({
+          message: "Aprobado correctramente",
+          type: "success",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      } catch (error) {
+        this.$toast.open({
+          message: error.message,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+
+    },
+
+    async editar(index, item) {
+      // this.agregar_proceso = true;
+      console.log(index);
+      console.log(item);
+    },
+
+    async siguienteProceso() {
+      if (this.siguiente_proceso) {
+        this.agregar_proceso = true;
+      } else {
+        this.$toast.open({
+          message: "Todos los procesos deben estar aceptados para poder crear el siguiente proceso",
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+    },
+
+    async generarProceso(hash) {
+      try {
+        var { nombre_proceso, n_proceso, items, hash_info, siguiente_proceso } = await listarItemProceso(hash);
         //setVariables
-        this.hash_anterior = this.hash;
+        this.hash_anterior = hash;
         this.nombre_proceso = nombre_proceso;
         this.n_proceso = n_proceso;
         this.items = items;
+        this.hash_info = hash_info;
+        this.siguiente_proceso = siguiente_proceso;
       } catch (error) {
         console.log(error);
       }
     }
   },
   async mounted() {
-    this.generarProceso();
+    this.generarProceso(this.hash);
+    escucharEventos((id) => {
+      this.generarProceso(id);
+    });
   }
 };
 </script>

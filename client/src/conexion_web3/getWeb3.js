@@ -54,5 +54,19 @@ export const encontrarProceso = async (web3, contrato_json, _id) => {
   }
 };
 
+export const escucharEvento = async (contrato_json, call) => {
+  const { web3 } = await infoCuenta();
+  const networkId = await web3.eth.net.getId();
+  const deployedNetwork = contrato_json.networks[networkId];
+  const contrato = new web3.eth.Contract(
+    contrato_json.abi,
+    deployedNetwork && deployedNetwork.address,
+  );
+  contrato.events.Id(function (error, result) {
+    if (!error) {
+      call(result.returnValues.id);
+    }
+  });
+};
 
 

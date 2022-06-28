@@ -29,7 +29,7 @@
 
 <script>
 //importaciones web3
-import { crearMateriaPrima } from "../conexion_web3/procesos";
+import { crearProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormMateriaPrima",
   components: {},
@@ -41,6 +41,7 @@ export default {
   }),
   props: {
     n_proceso: [Number],
+    hash_anterior: [String],
     agregar_proceso: [Boolean],
   },
   methods: {
@@ -51,7 +52,7 @@ export default {
         data.lugar_procedencia = this.lugar_procedencia;
         data.nombre_propietario = this.nombre_propietario;
         data.gadros_brix = this.gadros_brix;        
-        await crearMateriaPrima(data);
+        await crearProceso(1, data);
         this.$toast.open({
           message: "Guardado correctramente",
           type: "success",
