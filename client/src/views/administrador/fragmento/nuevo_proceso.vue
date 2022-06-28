@@ -10,13 +10,20 @@
             <v-icon left large> mdi-glass-tulip </v-icon>
             Agregar
           </v-btn>
+          <v-btn v-if="n_proceso == 8" dark color="primary_app" x-large style="margin-right: 2%" :to="{
+            name: 'Botellas',
+            params: { hash: hash },
+          }">
+            <v-icon left large> mdi-glass-tulip </v-icon>
+            Botellas producidas
+          </v-btn>
         </v-card-title>
         <v-divider></v-divider>
         <v-container>
           <v-timeline align-top :dense="$vuetify.breakpoint.smAndDown">
             <v-timeline-item v-for="(item, i) in items" :key="i" :color="item.color" :icon="item.icon" fill-dot>
               <v-card :color="item.color" dark>
-                <v-card-title class="text-h6" v-text="item.nombre"></v-card-title>
+                <v-card-title class="text-h6" v-text="item.index +' '+ item.nombre"></v-card-title>
                 <v-card-text class="white text--primary">
                   <br>
                   <p style="text-align: start;" v-html="item.informacion"> </p>
@@ -214,6 +221,7 @@ export default {
         this.hash_anterior = hash;
         this.nombre_proceso = nombre_proceso;
         this.n_proceso = n_proceso;
+        // this.n_proceso = 7;
         this.items = items;
         this.hash_info = hash_info;
         this.siguiente_proceso = siguiente_proceso;

@@ -52,7 +52,7 @@
 
 <script>
 import { infoCuenta } from "../../conexion_web3/getWeb3";
-import { escucharEventos } from "../../conexion_web3/procesos";
+import { escucharEventos, cargarContratos } from "../../conexion_web3/procesos";
 export default {
   name: "Base_",
   data: () => ({
@@ -80,6 +80,7 @@ export default {
   },
   async mounted() {
     this.getBalance();
+    cargarContratos();
     escucharEventos(() => {
       this.getBalance();
     });

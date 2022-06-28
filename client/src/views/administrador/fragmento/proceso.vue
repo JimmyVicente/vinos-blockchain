@@ -16,18 +16,18 @@
         </v-card-title>
         <v-data-table :headers="headers" :items="desserts" :search="search">
           <template v-slot:[`item.accion`]="{ item }">
-            <v-btn icon color="pink" :to="{
+            <v-btn icon color="green" :to="{
               name: 'Nuevo Proceso',
               params: { hash: item.materia_prima.id },
             }">
               <v-icon>mdi-eye</v-icon>
             </v-btn>
 
-            <v-btn icon color="pink" :to="{
+            <v-btn v-if="item.envasado != undefined && item.envasado.aprobado == true" icon color="pink" :to="{
               name: 'Botellas',
               params: { hash: item.materia_prima.id },
             }">
-              <v-icon>mdi-eye</v-icon>
+              <v-icon>mdi-barcode-scan</v-icon>
             </v-btn>
 
           </template>>

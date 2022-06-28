@@ -67,10 +67,10 @@ contract EnvasadoContract {
     {
         for (uint256 i = 0; i < contador[msg.sender]; i++) {
             Model memory _item = lista[msg.sender][i];
-            for (uint256 j = 1; j <= _item.nro_botellas; j++) {
+            for (uint256 j = 0; j < _item.nro_botellas; j++) {
                 bytes32 _hash_botella = _item.botellas[j];
                 if (_hash_botella == _hash) {
-                    _item.i_botella = j;
+                    _item.i_botella = j + 1;
                     _item.hash_botella = _hash_botella;
                     return _item;
                 }
