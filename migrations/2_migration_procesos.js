@@ -1,4 +1,3 @@
-const Migrations = artifacts.require("Migrations");
 const proceso1 = artifacts.require("MateriaPrimaContract");
 const proceso2 = artifacts.require("ExtraccionMostoContract");
 const proceso3 = artifacts.require("PasteurizacionMostoContract");
@@ -9,7 +8,6 @@ const proceso7 = artifacts.require("EnvasadoContract");
 const usuario = artifacts.require("UsuarioContract");
 
 module.exports = function (deployer) {
-  deployer.deploy(Migrations);
   deployer.deploy(proceso1);
   deployer.deploy(proceso2);
   deployer.deploy(proceso3);
