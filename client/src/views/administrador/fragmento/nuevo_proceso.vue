@@ -23,7 +23,7 @@
           <v-timeline align-top :dense="$vuetify.breakpoint.smAndDown">
             <v-timeline-item v-for="(item, i) in items" :key="i" :color="item.color" :icon="item.icon" fill-dot>
               <v-card :color="item.color" dark>
-                <v-card-title class="text-h6" v-text="item.index +' '+ item.nombre"></v-card-title>
+                <v-card-title class="text-h6" v-text="item.index + ' ' + item.nombre"></v-card-title>
                 <v-card-text class="white text--primary">
                   <br>
                   <p style="text-align: start;" v-html="item.informacion"> </p>
@@ -181,9 +181,9 @@ export default {
         });
       } catch (error) {
         this.$toast.open({
-          message: error.message,
+          message: "Error en la transacción para aprobar proceso",
           type: "error",
-          duration: 50000,
+          duration: 5000,
           position: "top-right",
           pauseOnHover: true,
         });
@@ -233,6 +233,9 @@ export default {
   async mounted() {
     this.generarProceso(this.hash);
     escucharEventos((id) => {
+      if (id != this.hash) {
+        this.$router.push({ name: 'Nuevo Proceso', params: { hash: id } }).catch(() => { });
+      }
       this.generarProceso(id);
     });
   }

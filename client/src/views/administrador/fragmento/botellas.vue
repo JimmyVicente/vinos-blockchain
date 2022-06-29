@@ -3,7 +3,7 @@
     <v-container class="margin">
       <v-card>
         <v-card-title>
-          <h1>Botellas producidas</h1>
+          <h1>Botellas producidas {{botellas.length}}</h1>
         </v-card-title>
         <v-divider></v-divider>
         <v-container>

@@ -7,9 +7,11 @@ contract EnvasadoContract {
         string nro_lote;
         uint256 nro_botellas;
         bytes32[] botellas;
+        uint256[] estado_botellas;
         bytes32 info;
         uint256 i_botella;
         bytes32 hash_botella;
+        uint256 estado_botella;
         bool aprobado;
         uint256 createdAt;
     }
@@ -24,17 +26,21 @@ contract EnvasadoContract {
         uint256 _nro_botellas
     ) public {
         bytes32[] memory _botellas;
+        uint256[] memory _estado_botellas;
         bytes32 _info;
         uint256 _i_botella;
         bytes32 _hash_botella;
+        uint256 _estado_botella;
         lista[msg.sender][_hash_anterior] = Model(
             _hash_anterior,
             _nro_lote,
             _nro_botellas,
             _botellas,
+            _estado_botellas,
             _info,
             _i_botella,
             _hash_botella,
+            _estado_botella,
             false,
             block.timestamp
         );
@@ -69,9 +75,11 @@ contract EnvasadoContract {
             Model memory _item = lista[msg.sender][i];
             for (uint256 j = 0; j < _item.nro_botellas; j++) {
                 bytes32 _hash_botella = _item.botellas[j];
+                uint256 _estado_botella = _item.estado_botellas[j];
                 if (_hash_botella == _hash) {
                     _item.i_botella = j + 1;
                     _item.hash_botella = _hash_botella;
+                    _item.estado_botella = _estado_botella;
                     return _item;
                 }
             }
@@ -79,14 +87,28 @@ contract EnvasadoContract {
         revert("Hash de botella no encontrada");
     }
 
+    function cambiarEstadoBotella(
+        uint256 _id,
+        uint256 _index,
+        uint256 _estado
+    ) public {
+        Model memory _item = lista[msg.sender][_id];
+        _item.estado_botellas[_index] = _estado;
+        lista[msg.sender][_id] = _item;
+        emit Id(_item.hash_anterior);
+    }
+
     function aprobarProceso(uint256 _id, string memory _info) public {
         Model memory _item = lista[msg.sender][_id];
         bytes32[] memory _botellas = new bytes32[](_item.nro_botellas);
+        uint256[] memory _estado_botellas = new uint256[](_item.nro_botellas);
         for (uint256 index = 0; index < _item.nro_botellas; index++) {
             _botellas[index] = keccak256(abi.encodePacked(_info, index));
+            _estado_botellas[index] = 0;
         }
         _item.aprobado = true;
         _item.botellas = _botellas;
+        _item.estado_botellas = _estado_botellas;
         _item.info = keccak256(abi.encodePacked(_info, _id));
         lista[msg.sender][_id] = _item;
         emit Id(_item.hash_anterior);

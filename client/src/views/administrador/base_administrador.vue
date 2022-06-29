@@ -54,14 +54,14 @@
 import { infoCuenta } from "../../conexion_web3/getWeb3";
 import { escucharEventos, cargarContratos } from "../../conexion_web3/procesos";
 export default {
-  name: "Base_",
+  name: "Base_Administrador",
   data: () => ({
     drawer: true,
     loading: true,
     cuenta: '',
     balanceETHER: 0.0,
     menu: [
-      { title: "Inicio", icon: "mdi-view-dashboard", to: { name: "Inicio" } },
+      { title: "Inicio", icon: "mdi-view-dashboard", to: { name: "Inicio Administrador" } },
       { title: "Perfil", icon: "mdi-account-box", to: { name: "Perfil" } },
       { title: "Procesos", icon: "mdi-shape-circle-plus", to: { name: "Proceso" } },
       { title: "Usuarios", icon: "mdi-account-multiple-outline", to: { name: "Usuario" } },

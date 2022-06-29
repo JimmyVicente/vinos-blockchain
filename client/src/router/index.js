@@ -6,18 +6,44 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/inicio_sesion',
     name: 'Iniciar Sesion',
     component: () => import('../views/administrador/inicio_sesion.vue'),
   },
   {
+    path: '/',
+    name: 'Cliente',
+    component: () => import('../views/cliente/base_cliente.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'Inicio',
+        props: true,
+        component: () => import('../views/cliente/fragmento/inicio.vue')
+      },
+      {
+        path: '/leer_qr',
+        name: 'Leer Qr',
+        props: true,
+        component: () => import('../views/cliente/fragmento/leer_qr.vue')
+      },
+      {
+        path: '/trazabilidad/:hash_botella',
+        name: 'Trazabilidad',
+        props: true,
+        component: () => import('../views/cliente/fragmento/trazabilidad.vue')
+      },
+
+    ]
+  },
+  {
     path: '/administrador',
     name: 'Administrador',
-    component: () => import('../views/administrador/base.vue'),
+    component: () => import('../views/administrador/base_administrador.vue'),
     children: [
       {
         path: '/inicio',
-        name: 'Inicio',
+        name: 'Inicio Administrador',
         props: true,
         //meta: {
         //  requiresAuth: true

@@ -75,13 +75,6 @@ export const escucharEventos = async (call) => {
 
 export const crearProceso = async (proceso, data) => {
   const { cuenta } = await infoCuenta();
-  // const contrato1 = await cargarContatrato(web3, MateriaPrimaContract);
-  // const contrato2 = await cargarContatrato(web3, ExtraccionMostoContract);
-  // const contrato3 = await cargarContatrato(web3, PasteurizacionMostoContract);
-  // const contrato4 = await cargarContatrato(web3, FermentacionContract);
-  // const contrato5 = await cargarContatrato(web3, ClarificacionContract);
-  // const contrato6 = await cargarContatrato(web3, TrasiegoContract);
-  // const contrato7 = await cargarContatrato(web3, EnvasadoContract);
   const config = { from: cuenta };
   if (proceso == 1) await contrato1.crear(data.nro_cosecha, data.lugar_procedencia, data.nombre_propietario, data.gadros_brix, config);
   if (proceso == 2) await contrato2.crear(data.hash_anterior, data.tipo, config);
@@ -94,13 +87,6 @@ export const crearProceso = async (proceso, data) => {
 
 export const editarProceso = async (proceso, data) => {
   const { cuenta } = await infoCuenta();
-  // const contrato1 = await cargarContatrato(web3, MateriaPrimaContract);
-  // const contrato2 = await cargarContatrato(web3, ExtraccionMostoContract);
-  // const contrato3 = await cargarContatrato(web3, PasteurizacionMostoContract);
-  // const contrato4 = await cargarContatrato(web3, FermentacionContract);
-  // const contrato5 = await cargarContatrato(web3, ClarificacionContract);
-  // const contrato6 = await cargarContatrato(web3, TrasiegoContract);
-  // const contrato7 = await cargarContatrato(web3, EnvasadoContract);
   const config = { from: cuenta };
   if (proceso == 1) await contrato1.editar(data.hash_anterior, data.nro_cosecha, data.lugar_procedencia, data.nombre_propietario, data.gadros_brix, config);
   if (proceso == 2) await contrato2.editar(data.hash_anterior, data.tipo, config);
@@ -113,13 +99,6 @@ export const editarProceso = async (proceso, data) => {
 
 export const aprobarProceso = async (proceso, data) => {
   const { cuenta } = await infoCuenta();
-  // const contrato1 = await cargarContatrato(web3, MateriaPrimaContract);
-  // const contrato2 = await cargarContatrato(web3, ExtraccionMostoContract);
-  // const contrato3 = await cargarContatrato(web3, PasteurizacionMostoContract);
-  // const contrato4 = await cargarContatrato(web3, FermentacionContract);
-  // const contrato5 = await cargarContatrato(web3, ClarificacionContract);
-  // const contrato6 = await cargarContatrato(web3, TrasiegoContract);
-  // const contrato7 = await cargarContatrato(web3, EnvasadoContract);
   const config = { from: cuenta };
   if (proceso == 1) await contrato1.aprobarProceso(data.id, config);
   if (proceso == 2) await contrato2.aprobarProceso(data.id, config);
@@ -131,8 +110,8 @@ export const aprobarProceso = async (proceso, data) => {
 };
 
 export const encontrarBotella = async (hash) => {
-  // const { web3 } = await infoCuenta();
-  // const contrato7 = await cargarContatrato(web3, EnvasadoContract);
+  const { web3 } = await infoCuenta();
+  const contrato7 = await cargarContatrato(web3, EnvasadoContract);
   var botella = await contrato7.encontrarBotella(hash);
   return botella;
 }

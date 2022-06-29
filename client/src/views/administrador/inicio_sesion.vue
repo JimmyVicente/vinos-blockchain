@@ -59,7 +59,7 @@ export default {
   }),
   methods: {
     async login() {
-      this.$router.push({ name: 'Inicio' }).catch(() => { });
+      this.$router.push({ name: 'Inicio Administrador' }).catch(() => { });
     },
     async conectarMetamask() {
       try {

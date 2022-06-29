@@ -4,7 +4,8 @@
     <v-card style="padding: 10px;">
 
       <h4>Trazabilidad de la botella Nro: {{ botella.i_botella }}</h4>
-      <h4>Cosecha: {{ proceso.materia_prima.nro_cosecha }}</h4><br>
+      <h4>Cosecha: {{ proceso.materia_prima.nro_cosecha }}</h4>
+      <h4 v-if="botella.estado_botella==0">Estado botella: Empacado</h4><br>
 
       <center>
         <v-img src="@/assets/imagen/galeria/vino_qr.png" max-width="170" style="align-items: center;">
