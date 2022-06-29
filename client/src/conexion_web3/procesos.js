@@ -7,6 +7,7 @@ import TrasiegoContract from '../contracts/TrasiegoContract.json';
 import EnvasadoContract from '../contracts/EnvasadoContract.json';
 import { infoCuenta, cargarContatrato, encontrarProceso, escucharEvento } from "./getWeb3";
 var contrato1, contrato2, contrato3, contrato4, contrato5, contrato6, contrato7;
+
 export const cargarContratos = async () => {
   const { web3 } = await infoCuenta();
   contrato1 = await cargarContatrato(web3, MateriaPrimaContract);
@@ -20,16 +21,18 @@ export const cargarContratos = async () => {
 
 
 export const listarProcesos = async () => {
-  const { web3, cuenta } = await infoCuenta();
-  const contrato = await cargarContatrato(web3, MateriaPrimaContract);
-  const contador = await contrato.contador(cuenta);
+  const { web3 } = await infoCuenta();
+  contrato1 = await cargarContatrato(web3, MateriaPrimaContract);
+  // const contador = await contrato.contador(cuenta);
+  const contador = await contrato1.contador();
   const lista = [];
   for (var i = 0; i < contador; i++) {
-    const item = await contrato.lista(cuenta, i);
-    var materia_prima_obj = item;
-    var _id = materia_prima_obj.id;
-    var proceso = await generarProceso(_id);
-    lista.push(proceso);
+    const item = await contrato1.lista(i);
+    console.log(item);
+    // var materia_prima_obj = item;
+    // var _id = materia_prima_obj.id;
+    // var proceso = await generarProceso(_id);
+    // lista.push(proceso);
   }
   return lista;
 };
@@ -37,13 +40,14 @@ export const listarProcesos = async () => {
 export const generarProceso = async (_id) => {
   const { web3 } = await infoCuenta();
   var titulo1 = "---------", titulo2 = "---------", titulo3 = "---------", titulo4 = "---------", titulo5 = "---------", titulo6 = "---------", titulo7 = "---------";
-  var materia_prima = await encontrarProceso(web3, MateriaPrimaContract, _id);
-  var extraccion_mosto = await encontrarProceso(web3, ExtraccionMostoContract, _id);
-  var pasteurizacion = await encontrarProceso(web3, PasteurizacionMostoContract, _id);
-  var fermentacion = await encontrarProceso(web3, FermentacionContract, _id);
-  var clarificacion = await encontrarProceso(web3, ClarificacionContract, _id);
-  var trasiego = await encontrarProceso(web3, TrasiegoContract, _id);
-  var envasado = await encontrarProceso(web3, EnvasadoContract, _id);
+  var materia_prima, extraccion_mosto, pasteurizacion, fermentacion, clarificacion, trasiego, envasado;
+  materia_prima = await encontrarProceso(web3, MateriaPrimaContract, _id);
+  if (materia_prima != undefined) extraccion_mosto = await encontrarProceso(web3, ExtraccionMostoContract, _id);
+  if (materia_prima != undefined) pasteurizacion = await encontrarProceso(web3, PasteurizacionMostoContract, _id);
+  if (materia_prima != undefined) fermentacion = await encontrarProceso(web3, FermentacionContract, _id);
+  if (materia_prima != undefined) clarificacion = await encontrarProceso(web3, ClarificacionContract, _id);
+  if (materia_prima != undefined) trasiego = await encontrarProceso(web3, TrasiegoContract, _id);
+  if (materia_prima != undefined) envasado = await encontrarProceso(web3, EnvasadoContract, _id);
   //titulos
   if (materia_prima != undefined) titulo1 = "Nro cosecha " + materia_prima.nro_cosecha;
   if (extraccion_mosto != undefined) titulo2 = "tipo " + extraccion_mosto.tipo;

@@ -180,6 +180,7 @@ export default {
           pauseOnHover: true,
         });
       } catch (error) {
+        console.log(error);
         this.$toast.open({
           message: "Error en la transacción para aprobar proceso",
           type: "error",

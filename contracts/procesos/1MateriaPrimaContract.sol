@@ -12,9 +12,8 @@ contract MateriaPrimaContract {
         uint256 createdAt;
     }
     event Id(uint256 id);
-
-    mapping(address => mapping(uint256 => Model)) public lista;
-    mapping(address => uint256) public contador;
+    mapping(uint256 => Model) public lista;
+    uint256 public contador;
 
     function crear(
         uint256 _nro_cosecha,
@@ -22,9 +21,8 @@ contract MateriaPrimaContract {
         string memory _nombre_propietario,
         string memory _grados_brix
     ) public {
-        uint256 contador_id = contador[msg.sender];
-        lista[msg.sender][contador_id] = Model(
-            contador_id,
+        lista[contador] = Model(
+            contador,
             _nro_cosecha,
             _lugar_procedencia,
             _nombre_propietario,
@@ -32,12 +30,8 @@ contract MateriaPrimaContract {
             false,
             block.timestamp
         );
-        emit Id(contador_id);
-        contador[msg.sender]++;
-    }
-
-    function encontrar(uint256 _id) public view returns (Model memory) {
-        return lista[msg.sender][_id];
+        emit Id(contador);
+        contador++;
     }
 
     function editar(
@@ -47,21 +41,21 @@ contract MateriaPrimaContract {
         string memory _nombre_propietario,
         string memory _grados_brix
     ) public {
-        Model memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[_id];
         if (_item.aprobado == false) {
             _item.nro_cosecha = _nro_cosecha;
             _item.lugar_procedencia = _lugar_procedencia;
             _item.nombre_propietario = _nombre_propietario;
             _item.gadros_brix = _grados_brix;
-            lista[msg.sender][_id] = _item;
+            lista[_id] = _item;
             emit Id(_id);
         }
     }
 
     function aprobarProceso(uint256 _id) public {
-        Model memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[_id];
         _item.aprobado = true;
-        lista[msg.sender][_id] = _item;
+        lista[_id] = _item;
         emit Id(_id);
     }
 }

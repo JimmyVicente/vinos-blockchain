@@ -1,57 +1,55 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.11;
 
-contract UsuarioContract {
-    struct Usuario {
+contract ModelContract {
+    struct Model {
         uint256 id;
         string nombre;
         string identificacion;
-        bytes32 clave;
+        string billetera;
+        uint256[] permisos;
         uint256 createdAt;
     }
-
-    constructor(){
-        crear("Administrador", "1105279044", "1105279044");
+    event Id(uint256 id);
+    constructor() {
+        // crear("Administrador", "1105279044", "1105279044");
     }
 
-    mapping(address => mapping(uint256 => Usuario)) public lista;
-    mapping(address => uint256) public contador;
+    mapping(uint256 => Model) public lista;
+    uint256 public contador;
 
     function crear(
         string memory _nombre,
         string memory _identificacion,
-        string memory _clave
+        string memory _billetera,
+        uint256[] memory _permisos
     ) public {
-        uint256 contador_id = contador[msg.sender];
-        bytes32 _hash_clave = sha256(abi.encodePacked(_clave));
-        lista[msg.sender][contador_id] = Usuario(
+        uint256 contador_id = contador;
+        lista[contador_id] = Model(
             contador_id,
             _nombre,
             _identificacion,
-            _hash_clave,
+            _billetera,
+            _permisos,
             block.timestamp
         );
-        contador[msg.sender]++;
+        emit Id(contador_id);
+        contador++;
     }
 
-    function actualizar(uint256 _id, string memory _nombre) public {
-        Usuario memory _item = lista[msg.sender][_id];
+    function actualizar(
+        uint256 _id,
+        string memory _nombre,
+        string memory _identificacion,
+        string memory _billetera,
+        uint256[] memory _permisos
+    ) public {
+        Model memory _item = lista[_id];
         _item.nombre = _nombre;
-        lista[msg.sender][_id] = _item;
-    }
-
-    function actualizarClave(uint256 _id, string memory _clave) public {
-        Usuario memory _item = lista[msg.sender][_id];
-        bytes32 _hash_clave = sha256(abi.encodePacked(_clave));
-        _item.clave = _hash_clave;
-        lista[msg.sender][_id] = _item;
-    }
-
-    function iniciarSesion(string memory _identificacion, string memory _clave)
-        public
-    {
-        // Usuario memory _item = lista[msg.sender][_identificacion];
-        // bytes32 _hash_clave = sha256(abi.encodePacked(_clave));
-        // if (_item.clave == _hash_clave) {}
+        _item.billetera = _billetera;
+        _item.identificacion = _identificacion;
+        _item.permisos = _permisos;
+        lista[_id] = _item;
+        emit Id(_id);
     }
 }

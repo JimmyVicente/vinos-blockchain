@@ -46,7 +46,7 @@ export const cargarContatrato = async (web3, contrato_json) => {
 
 export const encontrarProceso = async (web3, contrato_json, _id) => {
   const contrato = await cargarContatrato(web3, contrato_json);
-  const model = await contrato.encontrar(_id);
+  const model = await contrato.lista(_id);
   if (model.createdAt != "0") {
     return model;
   } else {

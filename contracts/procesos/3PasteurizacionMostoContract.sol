@@ -12,7 +12,8 @@ contract PasteurizacionMostoContract {
     }
     event Id(uint256 id);
 
-    mapping(address => mapping(uint256 => Model)) public lista;
+    mapping(uint256 => Model) public lista;
+    uint256 public contador;
 
     function crear(
         uint256 _hash_anterior,
@@ -20,7 +21,7 @@ contract PasteurizacionMostoContract {
         string memory _temperatura_fria,
         string memory _tiempo_proceso
     ) public {
-        lista[msg.sender][_hash_anterior] = Model(
+        lista[_hash_anterior] = Model(
             _hash_anterior,
             _temperatura_caliente,
             _temperatura_fria,
@@ -29,10 +30,7 @@ contract PasteurizacionMostoContract {
             block.timestamp
         );
         emit Id(_hash_anterior);
-    }
-
-    function encontrar(uint256 _id) public view returns (Model memory) {
-        return lista[msg.sender][_id];
+        contador++;
     }
 
     function editar(
@@ -41,20 +39,20 @@ contract PasteurizacionMostoContract {
         string memory _temperatura_fria,
         string memory _tiempo_proceso
     ) public {
-        Model memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[_id];
         if (_item.aprobado == false) {
             _item.temperatura_caliente = _temperatura_caliente;
             _item.temperatura_fria = _temperatura_fria;
             _item.tiempo_proceso = _tiempo_proceso;
-            lista[msg.sender][_id] = _item;
+            lista[_id] = _item;
             emit Id(_id);
         }
     }
 
     function aprobarProceso(uint256 _id) public {
-        Model memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[_id];
         _item.aprobado = true;
-        lista[msg.sender][_id] = _item;
+        lista[_id] = _item;
         emit Id(_id);
     }
 }

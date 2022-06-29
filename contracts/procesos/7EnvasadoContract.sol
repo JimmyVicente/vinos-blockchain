@@ -17,8 +17,8 @@ contract EnvasadoContract {
     }
 
     event Id(uint256 id);
-    mapping(address => mapping(uint256 => Model)) public lista;
-    mapping(address => uint256) public contador;
+    mapping(uint256 => Model) public lista;
+    uint256 public contador;
 
     function crear(
         uint256 _hash_anterior,
@@ -31,7 +31,7 @@ contract EnvasadoContract {
         uint256 _i_botella;
         bytes32 _hash_botella;
         uint256 _estado_botella;
-        lista[msg.sender][_hash_anterior] = Model(
+        lista[_hash_anterior] = Model(
             _hash_anterior,
             _nro_lote,
             _nro_botellas,
@@ -45,11 +45,11 @@ contract EnvasadoContract {
             block.timestamp
         );
         emit Id(_hash_anterior);
-        contador[msg.sender]++;
+        contador++;
     }
 
     function encontrar(uint256 _id) public view returns (Model memory) {
-        return lista[msg.sender][_id];
+        return lista[_id];
     }
 
     function editar(
@@ -57,11 +57,11 @@ contract EnvasadoContract {
         string memory _nro_lote,
         uint256 _nro_botellas
     ) public {
-        Model memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[_id];
         if (_item.aprobado == false) {
             _item.nro_lote = _nro_lote;
             _item.nro_botellas = _nro_botellas;
-            lista[msg.sender][_id] = _item;
+            lista[_id] = _item;
             emit Id(_item.hash_anterior);
         }
     }
@@ -71,8 +71,8 @@ contract EnvasadoContract {
         view
         returns (Model memory)
     {
-        for (uint256 i = 0; i < contador[msg.sender]; i++) {
-            Model memory _item = lista[msg.sender][i];
+        for (uint256 i = 0; i < contador; i++) {
+            Model memory _item = lista[i];
             for (uint256 j = 0; j < _item.nro_botellas; j++) {
                 bytes32 _hash_botella = _item.botellas[j];
                 uint256 _estado_botella = _item.estado_botellas[j];
@@ -92,14 +92,14 @@ contract EnvasadoContract {
         uint256 _index,
         uint256 _estado
     ) public {
-        Model memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[_id];
         _item.estado_botellas[_index] = _estado;
-        lista[msg.sender][_id] = _item;
+        lista[_id] = _item;
         emit Id(_item.hash_anterior);
     }
 
     function aprobarProceso(uint256 _id, string memory _info) public {
-        Model memory _item = lista[msg.sender][_id];
+        Model memory _item = lista[_id];
         bytes32[] memory _botellas = new bytes32[](_item.nro_botellas);
         uint256[] memory _estado_botellas = new uint256[](_item.nro_botellas);
         for (uint256 index = 0; index < _item.nro_botellas; index++) {
@@ -110,7 +110,7 @@ contract EnvasadoContract {
         _item.botellas = _botellas;
         _item.estado_botellas = _estado_botellas;
         _item.info = keccak256(abi.encodePacked(_info, _id));
-        lista[msg.sender][_id] = _item;
+        lista[_id] = _item;
         emit Id(_item.hash_anterior);
     }
 }
