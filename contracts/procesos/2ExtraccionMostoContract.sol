@@ -24,6 +24,10 @@ contract ExtraccionMostoContract {
         contador++;
     }
 
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[_id];
+    }
+
     function editar(uint256 _id, string memory _tipo) public {
         Model memory _item = lista[_id];
         if (_item.aprobado == false) {

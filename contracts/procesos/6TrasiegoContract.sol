@@ -28,6 +28,11 @@ contract TrasiegoContract {
         emit Id(_hash_anterior);
         contador++;
     }
+
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[_id];
+    }
+
     function editar(
         uint256 _id,
         string memory _liquido_claro,

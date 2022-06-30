@@ -20,21 +20,15 @@ export const cargarContratos = async () => {
 };
 
 
-export const listarProcesos = async () => {
+export const listarProcesos = async (call) => {
   const { web3 } = await infoCuenta();
   contrato1 = await cargarContatrato(web3, MateriaPrimaContract);
   // const contador = await contrato.contador(cuenta);
   const contador = await contrato1.contador();
-  const lista = [];
   for (var i = 0; i < contador; i++) {
-    const item = await contrato1.lista(i);
-    console.log(item);
-    // var materia_prima_obj = item;
-    // var _id = materia_prima_obj.id;
-    // var proceso = await generarProceso(_id);
-    // lista.push(proceso);
+    var proceso = await generarProceso(i);
+    call(proceso);
   }
-  return lista;
 };
 
 export const generarProceso = async (_id) => {
@@ -49,13 +43,13 @@ export const generarProceso = async (_id) => {
   if (materia_prima != undefined) trasiego = await encontrarProceso(web3, TrasiegoContract, _id);
   if (materia_prima != undefined) envasado = await encontrarProceso(web3, EnvasadoContract, _id);
   //titulos
-  if (materia_prima != undefined) titulo1 = "Nro cosecha " + materia_prima.nro_cosecha;
-  if (extraccion_mosto != undefined) titulo2 = "tipo " + extraccion_mosto.tipo;
+  if (materia_prima != undefined) titulo1 = "Nro cosecha: " + materia_prima.nro_cosecha;
+  if (extraccion_mosto != undefined) titulo2 = "Tipo: " + extraccion_mosto.tipo;
   if (pasteurizacion != undefined) titulo3 = pasteurizacion.temperatura_caliente + " ~C";
-  if (fermentacion != undefined) titulo4 = "Grados invertidos " + fermentacion.grados_invertidos;
-  if (clarificacion != undefined) titulo5 = "Turbidez " + clarificacion.turbidez;
-  if (trasiego != undefined) titulo6 = "Porcentaje " + trasiego.liquido_claro;
-  if (envasado != undefined) titulo7 = "Nro botellas " + envasado.nro_botellas;
+  if (fermentacion != undefined) titulo4 = "Grados invertidos: " + fermentacion.grados_invertidos;
+  if (clarificacion != undefined) titulo5 = "Turbidez: " + clarificacion.turbidez;
+  if (trasiego != undefined) titulo6 = "Porcentaje: " + trasiego.liquido_claro + "%";
+  if (envasado != undefined) titulo7 = "Nro botellas: " + envasado.nro_botellas;
   return {
     materia_prima, titulo1,
     extraccion_mosto, titulo2,

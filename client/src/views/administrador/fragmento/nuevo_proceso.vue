@@ -5,15 +5,16 @@
         <v-card-title>
           <h1>{{ nombre_proceso }}</h1>
           <v-spacer></v-spacer>
-          <v-btn v-if="n_proceso < 8 && n_proceso > 0" dark color="primary_app" x-large style="margin-right: 2%"
-            @click="siguienteProceso()">
+          <v-btn v-if="n_proceso < 8 && n_proceso > 0 && esta_completado == false" dark color="primary_app" x-large
+            style="margin-right: 2%" @click="siguienteProceso()">
             <v-icon left large> mdi-glass-tulip </v-icon>
             Agregar
           </v-btn>
-          <v-btn v-if="n_proceso == 8" dark color="primary_app" x-large style="margin-right: 2%" :to="{
-            name: 'Botellas',
-            params: { hash: hash },
-          }">
+          <v-btn v-if="n_proceso == 8 || esta_completado == true" dark color="primary_app" x-large
+            style="margin-right: 2%" :to="{
+              name: 'Botellas',
+              params: { hash: hash },
+            }">
             <v-icon left large> mdi-glass-tulip </v-icon>
             Botellas producidas
           </v-btn>
@@ -150,6 +151,7 @@ export default {
     siguiente_proceso: true,
     editar_proceso: false,
     elemento_editar: null,
+    esta_completado: false,
     n_proceso: 1,
     proceso_a: 1,
     proceso_b: 2,
@@ -217,15 +219,18 @@ export default {
 
     async generarProceso(hash) {
       try {
-        var { nombre_proceso, n_proceso, items, hash_info, siguiente_proceso } = await listarItemProceso(hash);
+        var { nombre_proceso, n_proceso, items, hash_info, siguiente_proceso, esta_completado } = await listarItemProceso(hash);
         //setVariables
         this.hash_anterior = hash;
         this.nombre_proceso = nombre_proceso;
         this.n_proceso = n_proceso;
-        // this.n_proceso = 7;
         this.items = items;
         this.hash_info = hash_info;
         this.siguiente_proceso = siguiente_proceso;
+        this.esta_completado = esta_completado;
+        //pruebas
+        // this.n_proceso = 7;
+        // this.esta_completado = false;
       } catch (error) {
         console.log(error);
       }

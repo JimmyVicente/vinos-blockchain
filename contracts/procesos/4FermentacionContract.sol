@@ -32,7 +32,11 @@ contract FermentacionContract {
         emit Id(_hash_anterior);
         contador++;
     }
-    
+
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[_id];
+    }
+
     function editar(
         uint256 _id,
         uint256 _fecha_inicio,

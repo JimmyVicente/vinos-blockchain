@@ -6,7 +6,7 @@
           <h1>Procesos</h1>
           <v-spacer></v-spacer>
           <v-btn dark color="primary_app" x-large style="margin-right: 2%;"
-            :to="{ name: 'Nuevo Proceso', params: { hash: 0 }, }">
+            :to="{ name: 'Nuevo Proceso', params: { hash: -1 }, }">
             <v-icon left large> mdi-glass-tulip </v-icon>
             Nuevo Proceso
           </v-btn>
@@ -15,6 +15,7 @@
 
         </v-card-title>
         <v-data-table :headers="headers" :items="desserts" :search="search">
+        
           <template v-slot:[`item.accion`]="{ item }">
             <v-btn icon color="green" :to="{
               name: 'Nuevo Proceso',
@@ -58,7 +59,9 @@ export default {
   }),
   async mounted() {
     try {
-      this.desserts = await listarProcesos();
+      await listarProcesos((item)=>{
+        this.desserts.push(item);
+      });
     } catch (error) {
       console.log(error);
     }

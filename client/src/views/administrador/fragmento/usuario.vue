@@ -28,13 +28,15 @@ export default {
     headers: [
       { text: "Nombres", sortable: false, value: "nombre" },
       { text: "Identificación", sortable: false, value: "identificacion" },
+      { text: "Billetera", sortable: false, value: "billetera" },
       { text: "Rol", sortable: false, value: "rol" },
     ],
     usuarios: [
       {
-        nombre: "Frozen Yogurt",
-        identificacion: 159,
-        rol: 6.0,
+        nombre: "Jimmy Vicente",
+        identificacion: "1105279044",
+        billetera: "0x3bc813bffBa52AeDb2bAE4F5e93Ccf07235dBA62",
+        rol: "Administración",
       }
     ],
   }),

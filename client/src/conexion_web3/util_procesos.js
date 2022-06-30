@@ -10,6 +10,7 @@ export const listarItemProceso = async (hash) => {
     var informacion;
     var hash_info = "";
     var siguiente_proceso = true;
+    var esta_completado = false;
     //materia_prima
     if (proceso.materia_prima != undefined) {
         nombre_proceso = "Siguiente proceso: Extracción Del Mosto";
@@ -142,6 +143,7 @@ export const listarItemProceso = async (hash) => {
         n_proceso = 8;
         model = proceso.envasado;
         siguiente_proceso = model.aprobado;
+        esta_completado = model.aprobado;
         informacion = `
         Nro. Lote: ${model.nro_lote}<br>
         Total de botellas: ${model.nro_botellas}<br>
@@ -160,5 +162,5 @@ export const listarItemProceso = async (hash) => {
 
     //setVariables
     items = items.reverse();
-    return { nombre_proceso, n_proceso, items, hash_info, siguiente_proceso, proceso };
+    return { nombre_proceso, n_proceso, items, hash_info, siguiente_proceso, proceso, esta_completado };
 };

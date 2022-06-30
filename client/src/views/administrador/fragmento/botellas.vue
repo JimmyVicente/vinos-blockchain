@@ -3,7 +3,7 @@
     <v-container class="margin">
       <v-card>
         <v-card-title>
-          <h1>Botellas producidas {{botellas.length}}</h1>
+          <h1>Botellas producidas {{ botellas.length }}</h1>
         </v-card-title>
         <v-divider></v-divider>
         <v-container>
@@ -32,7 +32,7 @@
           <v-dialog v-model="dialog_item" persistent>
             <v-card style="padding: 20px">
 
-              <InfoBotella :items="items" :botella="botella" :proceso="proceso"/>
+              <InfoBotella :items="items" :botella="botella" :proceso="proceso" />
               <br>
               <center>
                 <v-btn dark color="secondary_app" @click="dialog_item = false"> Salir </v-btn>
