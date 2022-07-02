@@ -2,16 +2,20 @@
 pragma solidity ^0.8.11;
 
 contract EnvasadoContract {
+    struct Botella {
+        uint256 nro_botella;
+        uint256 hash_anterior;
+        bytes32 hash_botella;
+        uint256[] estados;
+        uint256[] fecha_estados;
+        uint256 createdAt;
+    }
+
     struct Model {
         uint256 hash_anterior;
         string nro_lote;
         uint256 nro_botellas;
-        bytes32[] botellas;
-        uint256[] estado_botellas;
-        bytes32 info;
-        uint256 i_botella;
-        bytes32 hash_botella;
-        uint256 estado_botella;
+        Botella[] botellas;
         bool aprobado;
         uint256 createdAt;
     }
@@ -25,31 +29,18 @@ contract EnvasadoContract {
         string memory _nro_lote,
         uint256 _nro_botellas
     ) public {
-        bytes32[] memory _botellas;
-        uint256[] memory _estado_botellas;
-        bytes32 _info;
-        uint256 _i_botella;
-        bytes32 _hash_botella;
-        uint256 _estado_botella;
-        lista[_hash_anterior] = Model(
-            _hash_anterior,
-            _nro_lote,
-            _nro_botellas,
-            _botellas,
-            _estado_botellas,
-            _info,
-            _i_botella,
-            _hash_botella,
-            _estado_botella,
-            false,
-            block.timestamp
-        );
+        Model storage _item = lista[_hash_anterior];
+        _item.hash_anterior = _hash_anterior;
+        _item.nro_lote = _nro_lote;
+        _item.nro_botellas = _nro_botellas;
+        _item.createdAt = block.timestamp;
         emit Id(_hash_anterior);
         contador++;
     }
 
-    function encontrar(uint256 _id) public view returns (Model memory) {
-        return lista[_id];
+    function encontrar(uint256 _id) public payable returns (Model memory) {
+        Model memory _item = lista[_id];
+        return _item;
     }
 
     function editar(
@@ -57,11 +48,10 @@ contract EnvasadoContract {
         string memory _nro_lote,
         uint256 _nro_botellas
     ) public {
-        Model memory _item = lista[_id];
+        Model storage _item = lista[_id];
         if (_item.aprobado == false) {
             _item.nro_lote = _nro_lote;
             _item.nro_botellas = _nro_botellas;
-            lista[_id] = _item;
             emit Id(_item.hash_anterior);
         }
     }
@@ -69,18 +59,14 @@ contract EnvasadoContract {
     function encontrarBotella(bytes32 _hash)
         public
         view
-        returns (Model memory)
+        returns (Botella memory)
     {
         for (uint256 i = 0; i < contador; i++) {
-            Model memory _item = lista[i];
-            for (uint256 j = 0; j < _item.nro_botellas; j++) {
-                bytes32 _hash_botella = _item.botellas[j];
-                uint256 _estado_botella = _item.estado_botellas[j];
-                if (_hash_botella == _hash) {
-                    _item.i_botella = j + 1;
-                    _item.hash_botella = _hash_botella;
-                    _item.estado_botella = _estado_botella;
-                    return _item;
+            Botella[] memory _botellas = lista[i].botellas;
+            for (uint256 j = 0; j < _botellas.length; j++) {
+                Botella memory _botella = _botellas[j];
+                if (_botella.hash_botella == _hash) {
+                    return _botella;
                 }
             }
         }
@@ -92,25 +78,25 @@ contract EnvasadoContract {
         uint256 _index,
         uint256 _estado
     ) public {
-        Model memory _item = lista[_id];
-        _item.estado_botellas[_index] = _estado;
-        lista[_id] = _item;
-        emit Id(_item.hash_anterior);
+        Botella[] storage _botellas = lista[_id].botellas;
+        _botellas[_index].estados.push(_estado);
+        _botellas[_index].fecha_estados.push(block.timestamp);
+        emit Id(_id);
     }
 
-    function aprobarProceso(uint256 _id, string memory _info) public {
-        Model memory _item = lista[_id];
-        bytes32[] memory _botellas = new bytes32[](_item.nro_botellas);
-        uint256[] memory _estado_botellas = new uint256[](_item.nro_botellas);
-        for (uint256 index = 0; index < _item.nro_botellas; index++) {
-            _botellas[index] = keccak256(abi.encodePacked(_info, index));
-            _estado_botellas[index] = 0;
-        }
+    function aprobarProceso(uint256 _id) public {
+        Model storage _item = lista[_id];
         _item.aprobado = true;
-        _item.botellas = _botellas;
-        _item.estado_botellas = _estado_botellas;
-        _item.info = keccak256(abi.encodePacked(_info, _id));
-        lista[_id] = _item;
+        for (uint256 index = 0; index < _item.nro_botellas; index++) {
+            Botella memory _botella = lista[_id].botellas[_id];
+            _botella.nro_botella = index + 1;
+            _botella.hash_anterior = _id;
+            _botella.hash_botella = keccak256(abi.encodePacked(index));
+            _botella.estados[0] = 0;
+            _botella.fecha_estados[0] = block.timestamp;
+            _botella.createdAt = block.timestamp;
+            _item.botellas.push(_botella);
+        }
         emit Id(_item.hash_anterior);
     }
 }

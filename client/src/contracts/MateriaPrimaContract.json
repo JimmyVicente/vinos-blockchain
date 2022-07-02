@@ -8959,12 +8959,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x15af94Bb03BefdD4a5552a5Fea6CA4C74692CFE1",
-      "transactionHash": "0x06706f5e45f1fc3cbd9c19f5c32affa63a66f37444abbc8fe657edc71a8f0c4c"
+      "address": "0xc2924812dEa182cdC52DF74704A4f05a7251108C",
+      "transactionHash": "0x5c151b827850c2bfdc3177908004cb79fb751966a28b5f6f26fab98f13856d9b"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-06-30T00:20:48.506Z",
+  "updatedAt": "2022-07-01T02:39:50.818Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

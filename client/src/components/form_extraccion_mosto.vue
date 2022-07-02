@@ -23,14 +23,8 @@ export default {
   data: () => ({
     tipo: "Licuado",
     tipo_extraccion: [
-      {
-        txt: "Licuado",
-        val: "Licuado",
-      },
-      {
-        txt: "Pulpatado",
-        val: "Pulpatado",
-      },
+      { txt: "Licuado", val: "Licuado", },
+      { txt: "Pulpatado", val: "Pulpatado", },
     ],
   }),
   props: {
@@ -61,7 +55,7 @@ export default {
         this.cerrar();
       } catch (error) {
         this.$toast.open({
-          message: error.message,
+          message: "Error al guardar proceso",
           type: "error",
           duration: 5000,
           position: "top-right",

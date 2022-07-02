@@ -57,7 +57,7 @@ export default {
         this.cerrar();
       } catch (error) {
         this.$toast.open({
-          message: error.message,
+          message: "Error al guardar proceso",
           type: "error",
           duration: 5000,
           position: "top-right",
