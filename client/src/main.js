@@ -4,6 +4,9 @@ import vuetify from './plugins/vuetify'
 import router from './router'
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+
+import Vuelidate from 'vuelidate'
+
 window.Buffer = window.Buffer || require("buffer").Buffer;
 // window.process = {
 //   env: { DEBUG: undefined },
@@ -14,6 +17,7 @@ window.Buffer = window.Buffer || require("buffer").Buffer;
 
 
 Vue.use(VueToast);
+Vue.use(Vuelidate)
 Vue.config.productionTip = false;
 
 new Vue({
