@@ -10,7 +10,7 @@
             <v-icon left large> mdi-glass-tulip </v-icon>
             Nuevo Proceso
           </v-btn>
-          <v-text-field v-model="search" append-icon="mdi-magnify" label="Buscar" hide-details type="date">
+          <v-text-field v-model="search" append-icon="mdi-magnify" label="Buscar" hide-details type="text">
           </v-text-field>
 
         </v-card-title>

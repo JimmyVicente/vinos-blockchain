@@ -7,7 +7,8 @@
       <v-spacer></v-spacer>
       <v-list-item-subtitle>Trazabilidad Vinos Ambrosia</v-list-item-subtitle>
 
-      <v-btn x-large color="success" dark @click="login">
+      <v-btn v-if="usuario.esMiCuenta != undefined && usuario.esMiCuenta == true" x-large color="success" dark
+        @click="login">
         Administración
         <v-avatar style="margin-left: 5px" size="40">
           <img src="@/assets/imagen/iconos/metamask.png" />
@@ -28,12 +29,14 @@
 
 <script>
 import { cargarContratos } from "../../conexion_web3/procesos";
+import { encontrarMiUsuario } from "../../conexion_web3/usuarios";
 export default {
   name: "Base_Cliente",
   data: () => ({
     drawer: true,
     loading: true,
     cuenta: '',
+    usuario: {},
   }),
   methods: {
     async login() {
@@ -42,6 +45,7 @@ export default {
   },
   async mounted() {
     cargarContratos();
+    this.usuario = await encontrarMiUsuario() ?? {};
   }
 };
 </script>

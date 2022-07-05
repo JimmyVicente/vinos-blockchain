@@ -84,7 +84,6 @@ export default {
     escucharEventos(() => {
       this.getBalance();
     });
-
   }
 };
 </script>

@@ -6,6 +6,9 @@ module.exports = defineConfig({
       // fix "process is not defined" error:
       // (do "npm install process" before running the build)
       new webpack.ProvidePlugin({
+        Buffer: ['buffer', 'Buffer'],
+      }),
+      new webpack.ProvidePlugin({
         process: 'process/browser',
       }),
     ],

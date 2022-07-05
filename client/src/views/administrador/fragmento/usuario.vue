@@ -66,7 +66,7 @@
 <script>
 import { listarUsuarios, crearUsuario, escucharEventos, editarUsuario, eliminarUsuario } from "../../../conexion_web3/usuarios";
 export default {
-  name: "Usuarios_Administracion",
+  name: "Usuarios_Administracion_",
   components: {},
   data: () => ({
     search: "",
@@ -177,7 +177,6 @@ export default {
       try {
         this.usuarios = [];
         await listarUsuarios((item) => {
-          console.log(item);
           this.usuarios.push(item);
         });
       } catch (error) {

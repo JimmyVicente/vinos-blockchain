@@ -8,12 +8,6 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 import Vuelidate from 'vuelidate'
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
-// window.process = {
-//   env: { DEBUG: undefined },
-//   nextTick: function() {
-//     return null;
-//   }
-// };
 
 
 Vue.use(VueToast);
