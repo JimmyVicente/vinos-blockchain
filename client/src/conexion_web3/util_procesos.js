@@ -1,7 +1,7 @@
 import { generarProceso } from "./procesos";
 
 export const listarItemProceso = async (hash) => {
-
+    hash = hash * 1;
     var proceso = await generarProceso(hash);
     var items = [];
     var nombre_proceso = "Nuevo proceso";

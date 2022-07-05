@@ -111,5 +111,25 @@ export const encontrarBotella = async (hash) => {
   const { web3 } = await infoCuenta();
   const contrato7 = await cargarContatrato(web3, EnvasadoContract);
   var botella = await contrato7.encontrarBotella(hash);
+  return await generarInfoBotella(botella);
+}
+
+export const generarInfoBotella = async (item) => {
+  var botella = {};
+  botella.nro_botella = item.nro_botella;
+  botella.hash_anterior = item.hash_anterior;
+  botella.hash_botella = item.hash_botella;
+  botella.estados = item.estados;
+  botella.fecha_estados = item.fecha_estados;
+  botella.createdAt = new Date(item.createdAt * 1000).toLocaleDateString();
+  botella.estados_obj = [];
+  item.estados.forEach((e, i) => {
+    var estado = e;
+    var fecha_str = new Date(item.fecha_estados[i] * 1000).toLocaleDateString();
+    var estado_str = "";
+    if (e == 0) estado_str = "Empacado";
+    if (e == 1) estado_str = "Vendida";
+    botella.estados_obj.push({ estado, estado_str, fecha_str });
+  });
   return botella;
 }

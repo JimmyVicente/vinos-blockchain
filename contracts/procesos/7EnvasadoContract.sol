@@ -38,9 +38,8 @@ contract EnvasadoContract {
         contador++;
     }
 
-    function encontrar(uint256 _id) public payable returns (Model memory) {
-        Model memory _item = lista[_id];
-        return _item;
+    function encontrar(uint256 _id) public view returns (Model memory) {
+        return lista[_id];
     }
 
     function editar(
@@ -84,17 +83,22 @@ contract EnvasadoContract {
         emit Id(_id);
     }
 
-    function aprobarProceso(uint256 _id) public {
+    function aprobarProceso(uint256 _id, string memory _info) public {
         Model storage _item = lista[_id];
         _item.aprobado = true;
         for (uint256 index = 0; index < _item.nro_botellas; index++) {
-            Botella memory _botella = lista[_id].botellas[_id];
-            _botella.nro_botella = index + 1;
-            _botella.hash_anterior = _id;
-            _botella.hash_botella = keccak256(abi.encodePacked(index));
-            _botella.estados[0] = 0;
-            _botella.fecha_estados[0] = block.timestamp;
-            _botella.createdAt = block.timestamp;
+            uint256[] memory _estados = new uint256[](1);
+            uint256[] memory _fecha_estados = new uint256[](1);
+            _estados[0] = 0;
+            _fecha_estados[0] = block.timestamp;
+            Botella memory _botella = Botella(
+                index + 1,
+                _id,
+                keccak256(abi.encodePacked(_info, _id)),
+                _estados,
+                _fecha_estados,
+                block.timestamp
+            );
             _item.botellas.push(_botella);
         }
         emit Id(_item.hash_anterior);

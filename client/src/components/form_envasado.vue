@@ -3,14 +3,12 @@
     <v-container>
       <v-row justify="center">
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field v-model="nro_lote" label="Número De Lote" placeholder="Ingrese número de lote" outlined
-          :error-messages="nro_lote_errors" @input="$v.nro_lote.$touch()" @blur="$v.nro_lote.$touch()">
+          <v-text-field v-model="nro_lote" label="Número De Lote" placeholder="Ingrese número de lote" outlined>
           </v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6" align-self="center ">
           <v-text-field v-model="nro_botellas" label="Total De Botellas Producidas"
-            placeholder="Ingrese total de botellas producidas" outlined
-            :error-messages="nro_botellas_errors" @input="$v.nro_botellas.$touch()" @blur="$v.nro_botellas.$touch()"></v-text-field>
+            placeholder="Ingrese total de botellas producidas" outlined></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -67,8 +65,8 @@ export default {
         data.hash_anterior = this.hash_anterior * 1;
         data.nro_lote = this.nro_lote;
         data.nro_botellas = this.nro_botellas * 1;
-        this.$v.$touch();
-        if (!this.$v.$invalid) {
+        // this.$v.$touch();
+        // if (!this.$v.$invalid) {
           if (this.editar_proceso) {
             await editarProceso(7, data);
           } else {
@@ -84,7 +82,7 @@ export default {
           this.$emit("update:agregar_proceso", false);
           this.siguiente();
           this.cerrar();
-        }
+        // }
       } catch (error) {
         this.$toast.open({
           message: "Error al guardar proceso",

@@ -30,10 +30,11 @@
                   <p style="text-align: start;" v-html="item.informacion"> </p>
                   <p style="font-size: 11px; text-align: start;">Fecha de creación: {{ item.fecha_creacion }} </p>
                   <div v-if="item.model.aprobado == false">
-                    <v-btn :color="item.color" class="mx-0" outlined @click="editar(item.index, item.model)">
+                    <v-btn :color="item.color" class="mx-1" outlined @click="editar(item.index, item.model)">
                       Editar
                     </v-btn>
-                    <v-btn class="mx-0" outlined style="color: green;" @click="aprobarProceso(item.index, item.model)">
+                    <v-btn class="mx-1" outlined style="color: green;"
+                      @click="dialogAprobarProceso(item.index, item.model)">
                       Aprobar
                     </v-btn>
                   </div>
@@ -118,6 +119,34 @@
         </v-stepper>
       </v-card>
     </v-dialog>
+
+    <!-- DIALOGO PARA APROBAR PROCESO -->
+
+    <v-dialog v-model="dialog_aprobar_proceso" width="500">
+
+      <v-card>
+        <v-card-title class="text-h5 grey lighten-2">
+          ¿Estás seguro de aprobar el proceso?
+        </v-card-title>
+
+        <v-card-text>
+          Una vez aprobado el proceso no podrás eliminar, ni editar los datos guardados en la blockchain.
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="dialog_aprobar_proceso = false">
+            Cerrar
+          </v-btn>
+          <v-btn color="primary" text @click="aprobarProceso()">
+            Aprobar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </section>
 </template>
 
@@ -161,19 +190,29 @@ export default {
     proceso_f: 6,
     proceso_g: 7,
     items: [],
+    dialog_aprobar_proceso: false,
+    data_aprobar_proceso: {},
   }),
   props: {
     hash: [String],
   },
   methods: {
 
-    async aprobarProceso(index, item) {
+    async dialogAprobarProceso(index, item) {
+      var data = {};
+      data.id = item.hash_anterior * 1;
+      if (index == 1) data.id = item.id * 1;
+      data.info = this.hash_info;
+      data.index = index;
+      this.data_aprobar_proceso = data;
+      this.dialog_aprobar_proceso = true;
+    },
+
+    async aprobarProceso() {
       try {
-        var data = {};
-        data.id = item.hash_anterior * 1;
-        if (index == 1) data.id = item.id * 1;
-        data.info = this.hash_info;
-        await aprobarProceso(index, data);
+        this.dialog_aprobar_proceso = false;
+        var data = this.data_aprobar_proceso;
+        await aprobarProceso(data.index, data);
         this.$toast.open({
           message: "Aprobado correctramente",
           type: "success",
@@ -237,6 +276,7 @@ export default {
     }
   },
   async mounted() {
+    this.escuchar_eventos = false;
     this.generarProceso(this.hash);
     escucharEventos((id) => {
       if (id != this.hash) {

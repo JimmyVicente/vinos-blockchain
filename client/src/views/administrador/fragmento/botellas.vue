@@ -15,12 +15,12 @@
                   <v-card style="padding: 10px;" @click="encontrarBotella(item)">
                     <center>
                       <v-img src="@/assets/imagen/galeria/vino_qr.png" max-width="90" style="align-items: center;">
-                        <vue-qr class="vue-qr" :text="item" :size="75" style="margin-top: 30px;"> </vue-qr>
+                        <vue-qr class="vue-qr" :text="item.hash_botella" :size="75" style="margin-top: 30px;"> </vue-qr>
                       </v-img>
                     </center>
                     <br>
-                    <p> Nro botella: {{ i + 1 }} </p>
-                    <p style="font-size: 12px;"> Hash: {{ item }} </p>
+                    <p> Nro botella: {{ item.nro_botella }} </p>
+                    <p style="font-size: 12px;"> Hash: {{ item.hash_botella }} </p>
                   </v-card>
                 </v-col>
 
@@ -52,10 +52,10 @@
 //importaciones web3
 import VueQr from 'vue-qr';
 import InfoBotella from '@/components/info_botella.vue'
-import { encontrarBotella } from "../../../conexion_web3/procesos";
+import { generarInfoBotella } from "../../../conexion_web3/procesos";
 import { listarItemProceso } from "../../../conexion_web3/util_procesos";
 export default {
-  name: "Botellas_",
+  name: "Botellas_Envasado",
   components: {
     VueQr,
     InfoBotella
@@ -72,14 +72,14 @@ export default {
   },
   methods: {
 
-    async encontrarBotella(hash_botella) {
+    async encontrarBotella(botella) {
       try {
-        var botella = await encontrarBotella(hash_botella);
-        this.botella = botella;
+        // var botella = await encontrarBotella(hash_botella);
+        this.botella = await generarInfoBotella(botella);
         this.dialog_item = true;
       } catch (error) {
         this.$toast.open({
-          message: error.message,
+          message: "Error al generar botella",
           type: "error",
           duration: 5000,
           position: "top-right",
@@ -98,7 +98,13 @@ export default {
         this.proceso = proceso;
         this.items = items.reverse();
       } catch (error) {
-        console.log(error);
+        this.$toast.open({
+          message: "Error al generar procesos",
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
       }
     }
   },

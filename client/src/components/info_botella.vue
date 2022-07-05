@@ -3,9 +3,11 @@
 
     <v-card style="padding: 10px;">
 
-      <h4>Trazabilidad de la botella Nro: {{ botella.i_botella }}</h4>
+      <h4>Trazabilidad de la botella Nro: {{ botella.nro_botella }}</h4>
       <h4>Cosecha: {{ proceso.materia_prima.nro_cosecha }}</h4>
-      <h4 v-if="botella.estado_botella==0">Estado botella: Empacado</h4><br>
+      <div v-for="(item, i ) in botella.estados_obj" :key="i">
+        <h6>Fecha de {{ item.estado_str }}: {{ item.fecha_str }} </h6>
+      </div>
 
       <center>
         <v-img src="@/assets/imagen/galeria/vino_qr.png" max-width="170" style="align-items: center;">
