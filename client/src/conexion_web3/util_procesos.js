@@ -76,7 +76,7 @@ export const listarItemProceso = async (hash) => {
     }
     //fermentacion
     if (proceso.fermentacion != undefined) {
-        nombre_proceso = "Siguiente proceso: Clarificacion";
+        nombre_proceso = "Siguiente proceso: Clarificación";
         n_proceso = 5;
         model = proceso.fermentacion;
         siguiente_proceso = model.aprobado;

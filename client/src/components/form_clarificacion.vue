@@ -3,7 +3,7 @@
     <v-container>
       <v-row justify="center">
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field v-model="turbidez" label="Turbidez (ppm)" placeholder="Ingrese turbidex" outlined
+          <v-text-field v-model="turbidez" label="Turbidez (ppm)" placeholder="Ingrese turbidez" outlined
             :error-messages="turbidez_errors" @input="$v.turbidez.$touch()" @blur="$v.turbidez.$touch()">
           </v-text-field>
         </v-col>

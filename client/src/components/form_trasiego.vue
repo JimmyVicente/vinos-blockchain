@@ -3,14 +3,14 @@
     <v-container>
       <v-row justify="center">
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field v-model="liquido_claro" label="Porcentaje De Liquido Claro (%)"
-            placeholder="Ingrese porcentaje de liquido oscuro" outlined
-            :error-messages="liquido_claro_errors" @input="$v.liquido_claro.$touch()" @blur="$v.liquido_claro.$touch()"></v-text-field>
+          <v-text-field v-model="liquido_claro" label="Líquido Claro (%)" placeholder="Ingrese líquido oscuro" outlined
+            :error-messages="liquido_claro_errors" @input="$v.liquido_claro.$touch(); validar()"
+            @blur="$v.liquido_claro.$touch()" type="number"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6" align-self="center ">
-          <v-text-field v-model="liquido_oscuro" label="Porcentaje De Liquido Oscuro (%)"
-            placeholder="Ingrese porcentaje de liquido oscuro" outlined
-            :error-messages="liquido_oscuro_errors" @input="$v.liquido_oscuro.$touch()" @blur="$v.liquido_oscuro.$touch()"></v-text-field>
+          <v-text-field v-model="liquido_oscuro" label="Líquido Oscuro (%)" placeholder="Ingrese líquido oscuro"
+            outlined :error-messages="liquido_oscuro_errors" @input="$v.liquido_oscuro.$touch(); validar()"
+            @blur="$v.liquido_oscuro.$touch()" readonly type="number"></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -28,13 +28,21 @@ import {
 } from "vuelidate/lib/validators";
 
 import { crearProceso, editarProceso } from "../conexion_web3/procesos";
+const mayor_menor = (value) => {
+  if (value <= 100 && value >= 1) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 export default {
   name: "FormTrasiego",
   components: {},
   mixins: [validationMixin],
   validations: {
-    liquido_claro: { required, },
-    liquido_oscuro: { required, },
+    liquido_claro: { required, mayor_menor },
+    liquido_oscuro: { required, mayor_menor },
   },
   data: () => ({
     liquido_claro: null,
@@ -45,12 +53,14 @@ export default {
       const errors = [];
       if (!this.$v.liquido_claro.$dirty) return errors;
       !this.$v.liquido_claro.required && errors.push("Este campo es obligatorio.");
+      !this.$v.liquido_claro.mayor_menor && errors.push("El valor debe ser mayor a 1 y menor a 100.");
       return errors;
     },
     liquido_oscuro_errors() {
       const errors = [];
       if (!this.$v.liquido_oscuro.$dirty) return errors;
       !this.$v.liquido_oscuro.required && errors.push("Este campo es obligatorio.");
+      !this.$v.liquido_oscuro.mayor_menor && errors.push("El valor debe ser mayor a 1 y menor a 100.");
       return errors;
     },
   },
@@ -66,8 +76,8 @@ export default {
       try {
         var data = {};
         data.hash_anterior = this.hash_anterior * 1;
-        data.liquido_claro = this.liquido_claro;
-        data.liquido_oscuro = this.liquido_oscuro;
+        data.liquido_claro = (this.liquido_claro * 1).toFixed(2);
+        data.liquido_oscuro = (this.liquido_oscuro * 1).toFixed(2);
         this.$v.$touch();
         if (!this.$v.$invalid) {
           if (this.editar_proceso) {
@@ -101,6 +111,9 @@ export default {
       this.$emit("update:agregar_proceso", false);
       this.$v.$reset();
     },
+    validar() {
+      this.liquido_oscuro = 100 - (this.liquido_claro ?? 100);
+    }
   },
   async mounted() {
     if (this.editar_proceso) {

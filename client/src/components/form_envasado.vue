@@ -8,7 +8,7 @@
         </v-col>
         <v-col cols="12" sm="12" md="6" align-self="center ">
           <v-text-field v-model="nro_botellas" label="Total De Botellas Producidas"
-            placeholder="Ingrese total de botellas producidas" outlined></v-text-field>
+            placeholder="Ingrese total de botellas producidas" outlined type="number"></v-text-field>
         </v-col>
       </v-row>
     </v-container>

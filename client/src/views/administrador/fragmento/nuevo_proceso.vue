@@ -130,7 +130,7 @@
         </v-card-title>
 
         <v-card-text>
-          Una vez aprobado el proceso no podrás eliminar, ni editar los datos guardados en la blockchain.
+          Una vez aprobado el proceso no podrás eliminar o editar la información guardada en la blockchain.
         </v-card-text>
 
         <v-divider></v-divider>

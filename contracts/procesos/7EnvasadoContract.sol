@@ -86,15 +86,15 @@ contract EnvasadoContract {
     function aprobarProceso(uint256 _id, string memory _info) public {
         Model storage _item = lista[_id];
         _item.aprobado = true;
-        for (uint256 index = 0; index < _item.nro_botellas; index++) {
+        for (uint256 index = 1; index <= _item.nro_botellas; index++) {
             uint256[] memory _estados = new uint256[](1);
             uint256[] memory _fecha_estados = new uint256[](1);
             _estados[0] = 0;
             _fecha_estados[0] = block.timestamp;
             Botella memory _botella = Botella(
-                index + 1,
+                index,
                 _id,
-                keccak256(abi.encodePacked(_info, _id)),
+                keccak256(abi.encodePacked(_info, index)),
                 _estados,
                 _fecha_estados,
                 block.timestamp

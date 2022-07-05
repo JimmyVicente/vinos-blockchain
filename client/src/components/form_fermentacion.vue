@@ -8,13 +8,13 @@
             :error-messages="fecha_inicio_errors" @input="$v.fecha_inicio.$touch()" @blur="$v.fecha_inicio.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field type="datetime-local" v-model="fecha_final" label="Fecha De Finalización De Fermentación"
+          <v-text-field type="datetime-local" v-model="fecha_final" label="Fecha de Finalización De Fermentación"
             placeholder="Ingrese fecha de finalización de fermentación" outlined
             :error-messages="fecha_final_errors" @input="$v.fecha_final.$touch()" @blur="$v.fecha_final.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field v-model="grados_invertidos" label="Porcentaje De Grados invertidos"
-            placeholder="Ingrese porcentaje de grados invertidos" outlined
+          <v-text-field v-model="grados_invertidos" label="Grados invertidos(%)"
+            placeholder="Ingrese grados invertidos" outlined
             :error-messages="grados_invertidos_errors" @input="$v.grados_invertidos.$touch()" @blur="$v.grados_invertidos.$touch()"></v-text-field>
         </v-col>
       </v-row>
