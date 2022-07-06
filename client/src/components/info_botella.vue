@@ -10,7 +10,7 @@
       </div>
 
       <center>
-        <v-img src="@/assets/imagen/galeria/vino_qr.png" max-width="170" style="align-items: center;">
+        <v-img src="@/assets/galeria/vino_qr.png" max-width="170" style="align-items: center;">
           <vue-qr class="vue-qr" :text="botella.hash_botella" :size="145" style="margin-top: 60px;"> </vue-qr>
         </v-img>
       </center>

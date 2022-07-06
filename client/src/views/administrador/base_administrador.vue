@@ -6,9 +6,6 @@
           <br />
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title class="text-h6">
-                Jimmy Vicente
-              </v-list-item-title>
               <v-list-item-subtitle>Balance</v-list-item-subtitle>
               <v-list-item-subtitle style="color: green;">{{ balanceETHER }} ETH</v-list-item-subtitle>
             </v-list-item-content>
@@ -31,7 +28,11 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar fixed dark color="primary_app" elevate-on-scroll scroll-target="#scrolling-techniques-7">
-      <v-toolbar-title style="width: 10%">VA</v-toolbar-title>
+       <v-btn icon color="white" :to="{ name: 'Inicio Administrador' }">
+        <v-avatar style="margin-left: 5px" size="40">
+          <img src="@/assets/iconos/logo.png" />
+        </v-avatar>
+      </v-btn>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-spacer></v-spacer>

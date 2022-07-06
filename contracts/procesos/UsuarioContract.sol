@@ -53,13 +53,14 @@ contract UsuarioContract {
         view
         returns (Model memory)
     {
+        Model memory _item;
         for (uint256 i = 0; i < contador; i++) {
-            Model memory _item = lista[i];
+            _item = lista[i];
             if (_item.billetera == _billetera) {
                 return _item;
             }
         }
-        revert("Billetera no encontrada");
+        return _item;
     }
 
     function eliminar(uint256 _id) public {

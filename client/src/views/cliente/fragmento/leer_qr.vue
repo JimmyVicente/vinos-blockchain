@@ -36,7 +36,7 @@ export default {
     async encontrarBotella(hash_botella) {
       try {
         var botella = await encontrarBotella(hash_botella);
-        this.hash_botella = botella.hash_botella; 
+        this.hash_botella = botella.hash_botella;
         this.$toast.open({
           message: "Código qr leído correctamente",
           type: "success",
@@ -56,14 +56,34 @@ export default {
         });
       }
     },
+
+    async onInit(promise) {
+      try {
+        await promise
+      } catch (error) {
+        console.log(error);
+        var mensaje = "Error al utilizar cámara";
+        if (error.name === 'NotAllowedError') {
+          mensaje = "Usuario denegado permiso de acceso a la cámara";
+        } else if (error.name === 'NotFoundError') {
+          mensaje = "No hay ningún dispositivo de cámara adecuado instalado";
+        } else if (error.name === 'NotReadableError') {
+          mensaje = "Revisa si tal vez la cámara ya está en uso";
+        } else if (error.name === 'OverconstrainedError') {
+          mensaje = "¿Pediste la cámara frontal aunque no la hay?";
+        }
+        this.$toast.open({
+          message: mensaje,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      } finally {
+        // hide loading indicator
+      }
+    }
   },
-  async mounted() {
-    // try {
-    //   this.desserts = await listarProcesos();
-    // } catch (error) {
-    //   console.log(error);
-    // }
-  }
 };
 </script>
 <style scoped>

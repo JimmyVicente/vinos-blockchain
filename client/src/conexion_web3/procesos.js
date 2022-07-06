@@ -5,8 +5,9 @@ import FermentacionContract from '../contracts/FermentacionContract.json';
 import ClarificacionContract from '../contracts/ClarificacionContract.json';
 import TrasiegoContract from '../contracts/TrasiegoContract.json';
 import EnvasadoContract from '../contracts/EnvasadoContract.json';
+import TVAToken from '../contracts/TVAToken.json';
 import { infoCuenta, cargarContatrato, encontrarProceso, escucharEvento } from "./getWeb3";
-var contrato1, contrato2, contrato3, contrato4, contrato5, contrato6, contrato7;
+var contrato1, contrato2, contrato3, contrato4, contrato5, contrato6, contrato7, contratoTVAToken;
 
 export const cargarContratos = async () => {
   const { web3 } = await infoCuenta();
@@ -17,6 +18,7 @@ export const cargarContratos = async () => {
   contrato5 = await cargarContatrato(web3, ClarificacionContract);
   contrato6 = await cargarContatrato(web3, TrasiegoContract);
   contrato7 = await cargarContatrato(web3, EnvasadoContract);
+  contratoTVAToken = await cargarContatrato(web3, TVAToken);
 };
 
 
@@ -132,4 +134,11 @@ export const generarInfoBotella = async (item) => {
     botella.estados_obj.push({ estado, estado_str, fecha_str });
   });
   return botella;
+}
+
+
+export const enviarToken = async (hash) => {
+  const { cuenta } = await infoCuenta();
+  const config = { from: cuenta };
+  await contratoTVAToken.aprobarProceso(hash, config);
 }

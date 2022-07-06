@@ -24,6 +24,15 @@ const routes = [
         component: () => import('../views/cliente/fragmento/inicio.vue')
       },
       {
+        path: '/informacion',
+        name: 'Informacion',
+        props: true,
+        meta: {
+          requiresAuth: false
+        },
+        component: () => import('../views/cliente/fragmento/informacion.vue')
+      },
+      {
         path: '/leer_qr',
         name: 'Leer Qr',
         props: true,
@@ -46,9 +55,6 @@ const routes = [
   },
   {
     path: '/administrador',
-    name: 'Administrador', meta: {
-      requiresAuth: false
-    },
     component: () => import('../views/administrador/base_administrador.vue'),
     children: [
       {
@@ -119,10 +125,11 @@ const router = new VueRouter({
 router.beforeEach(async (to, from, next) => {
   var usuario = await encontrarMiUsuario() ?? {};
   var esMiCuenta = usuario.esMiCuenta ?? false;
-  if (to.path == "/" || esMiCuenta == true) {
-    next();
-  } else {
+  var requiresAuth = to.meta.requiresAuth;
+  if (requiresAuth == true && esMiCuenta == false) {
     next('/');
+  } else {
+    next();
   }
 })
 

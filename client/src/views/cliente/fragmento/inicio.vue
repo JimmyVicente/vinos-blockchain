@@ -4,18 +4,30 @@
 
     <v-row justify="center" class="margin container">
 
-      <v-col>
-        <v-btn icon color="pink" :to="{
-          name: 'Leer Qr',
-        }">
-          <v-icon>mdi-barcode-scan</v-icon>
+      <v-col cols="3" sm="12" md="2">
+        <v-btn x-large color="secondary" outlined :to="{ name: 'Leer Qr' }">
+          LEER QR
+          <v-btn icon color="secondary">
+            <v-icon>mdi-barcode-scan</v-icon>
+          </v-btn>
         </v-btn>
       </v-col>
+
+
+      <v-col cols="3" sm="12" md="2">
+        <v-btn x-large color="indigo" outlined :to="{ name: 'Informacion' }">
+          INFORMARCIÓN
+          <v-avatar style="margin-left: 5px" size="35">
+            <img src="@/assets/imagen/iconos/metamask.png" />
+          </v-avatar>
+        </v-btn>
+      </v-col>
+
     </v-row>
 
     <v-container class="container">
 
-      <h1>Tipos de vinos que produce Vinos Ambrosia</h1><br>
+      <h1>Catálogo de vinos que produce Vinos Ambrosia</h1><br>
 
       <VueSlickCarousel v-bind="settings">
         <div v-for="item in galeria" :key="item.id">

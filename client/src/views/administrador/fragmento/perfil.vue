@@ -1,10 +1,10 @@
 <template>
     <section class="container" style="padding-top: 10px;">
         <v-card class="mx-auto" max-width="800" tile>
-            <v-img height="300" src="@/assets/imagen/inicio_sesion/portada.jpg"></v-img>
+            <v-img height="300" src="@/assets/imagen/portada.jpg"></v-img>
             <v-col>
                 <v-avatar size="100" style="position:absolute; top: 250px; margin-left: -50px;">
-                    <v-img src="@/assets/imagen/inicio_sesion/logo.png"></v-img>
+                    <v-img src="@/assets/iconos/logo.png"></v-img>
                 </v-avatar>
             </v-col>
             <v-list-item color="rgba(0, 0, 0, .4)" style="margin-top: 30px; ">

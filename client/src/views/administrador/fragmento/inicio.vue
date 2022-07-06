@@ -1,27 +1,17 @@
 <template>
   <section class="container">
     <v-row justify="center" class="margin container">
-      <v-col v-for="i in 3" :key="i">
+      <!-- <v-col v-for="i in 2" :key="i">
         <v-card class="mt-4 mx-auto" max-width="350" min-width="300">
           <v-card-title> Product {{ i }} Sales </v-card-title>
           <v-card-text class="pt-0">
-            <v-row>
-              <v-col>
-                <div class="text-h6 font-weight-light mb-2">Monthly</div>
-                <div class="text-h4 font-weight-bold mb-3">85%</div>
-              </v-col>
-              <v-divider class="my-2" vertical></v-divider>
-              <v-col>
-                <div class="text-h6 font-weight-light mb-2">Daily</div>
-                <div class="text-h4 font-weight-bold mb-3">85%</div>
-              </v-col>
-            </v-row>
+            <div class="text-h4 font-weight-bold mb-3">85%</div>
           </v-card-text>
         </v-card>
-      </v-col>
+      </v-col> -->
     </v-row>
     <v-container class="container">
-      <h1>Tipos de vinos que produce Vinos Ambrosia</h1><br>
+      <h1>Catálogo de vinos que produce Vinos Ambrosia</h1><br>
       <VueSlickCarousel v-bind="settings">
         <div v-for="item in galeria" :key="item.id">
           <center>

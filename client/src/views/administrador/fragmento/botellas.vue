@@ -14,7 +14,7 @@
                 <v-col cols="3"  sm="12" md="3" v-for="(item, i) in botellas" :key="i" class="d-flex align-content-end flex-wrap">
                   <v-card style="padding: 10px;" @click="encontrarBotella(item)" >
                     <center>
-                      <v-img src="@/assets/imagen/galeria/vino_qr.png" max-width="90" style="align-items: center;">
+                      <v-img src="@/assets/galeria/vino_qr.png" max-width="90" style="align-items: center;">
                         <vue-qr class="vue-qr" :text="item.hash_botella" :size="75" style="margin-top: 30px;"> </vue-qr>
                       </v-img>
                     </center>

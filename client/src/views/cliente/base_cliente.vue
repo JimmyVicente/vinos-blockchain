@@ -2,7 +2,14 @@
   <v-app>
 
     <v-app-bar fixed dark color="primary_app" elevate-on-scroll scroll-target="#scrolling-techniques-7">
-      <v-toolbar-title style="width: 10%">VA</v-toolbar-title>
+
+      <v-btn icon color="white" :to="{ name: 'Inicio' }">
+        <v-avatar style="margin-left: 5px" size="40">
+          <img src="@/assets/iconos/logo.png" />
+        </v-avatar>
+      </v-btn>
+
+
 
       <v-spacer></v-spacer>
       <v-list-item-subtitle>Trazabilidad Vinos Ambrosia</v-list-item-subtitle>
@@ -11,7 +18,7 @@
         @click="login">
         Administración
         <v-avatar style="margin-left: 5px" size="40">
-          <img src="@/assets/imagen/iconos/metamask.png" />
+          <img src="@/assets/iconos/metamask.png" />
         </v-avatar>
       </v-btn>
 

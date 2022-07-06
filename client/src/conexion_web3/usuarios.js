@@ -33,8 +33,7 @@ export const encontrarUsuario = async (id, address) => {
         item.permisos = [];
         var permisos_array = [];
         usuario.permisos.forEach(e => {
-            e = e * 1;
-            item.permisos.push(e);
+            item.permisos.push(e * 1);
             if (e == 1) permisos_array.push(" Materia prima");
             if (e == 2) permisos_array.push(" Extracción del mosto");
             if (e == 3) permisos_array.push(" Pasteurización");
@@ -52,6 +51,7 @@ export const encontrarUsuario = async (id, address) => {
             return undefined;
         }
     } catch (error) {
+        console.log(error);
         return undefined;
     }
 };

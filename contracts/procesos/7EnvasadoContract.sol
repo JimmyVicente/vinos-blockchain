@@ -60,16 +60,17 @@ contract EnvasadoContract {
         view
         returns (Botella memory)
     {
+        Botella memory _botella;
         for (uint256 i = 0; i < contador; i++) {
             Botella[] memory _botellas = lista[i].botellas;
             for (uint256 j = 0; j < _botellas.length; j++) {
-                Botella memory _botella = _botellas[j];
+                _botella = _botellas[j];
                 if (_botella.hash_botella == _hash) {
                     return _botella;
                 }
             }
         }
-        revert("Hash de botella no encontrada");
+        return _botella;
     }
 
     function cambiarEstadoBotella(

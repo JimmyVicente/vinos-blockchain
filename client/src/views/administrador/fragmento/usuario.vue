@@ -40,8 +40,8 @@
                 </v-col>
                 <v-col cols="12" sm="12" md="6">
                   <v-row>
-                    <v-col cols="6" sm="6" md="3" v-for="item in tipo_permisos" :key="item">
-                      <v-checkbox v-model="permisos" :label="item.txt" :value="item.val">
+                    <v-col cols="6" sm="6" md="3" v-for="permiso in tipo_permisos" :key="permiso">
+                      <v-checkbox v-model="permisos" :label="permiso.txt" :value="permiso.val">
                       </v-checkbox>
                     </v-col>
                   </v-row>
@@ -110,7 +110,6 @@ export default {
         data.nombre = this.nombre;
         data.billetera = this.billetera;
         data.permisos = this.permisos;
-        console.log(data);
         if (data.id == -1) {
           await crearUsuario(data);
         } else {
