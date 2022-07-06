@@ -12,13 +12,16 @@
     </v-row>
     <v-container class="container">
       <h1>Catálogo de vinos que produce Vinos Ambrosia</h1><br>
-      <VueSlickCarousel v-bind="settings">
-        <div v-for="item in galeria" :key="item.id">
-          <center>
-            <img :src="item.src" width="90%" height="90%" />
-          </center>
-        </div>
-      </VueSlickCarousel>
+
+      <center>
+        <VueSlickCarousel v-bind="settings">
+          <div v-for="item in galeria" :key="item.id">
+            <center>
+              <img :src="item.src" width="90%" height="90%" />
+            </center>
+          </div>
+        </VueSlickCarousel>
+      </center>
 
 
     </v-container>
@@ -39,16 +42,16 @@ export default {
     value: [200, 675, 410, 390, 310, 460, 250, 240],
     galeria: [
       {
-        src: require("@/assets/imagen/galeria/vino_fresa.png"),
+        src: require("@/assets/galeria/vino_fresa.png"),
       },
       {
-        src: require("@/assets/imagen/galeria/vino_mandarina.png"),
+        src: require("@/assets/galeria/vino_mandarina.png"),
       },
       {
-        src: require("@/assets/imagen/galeria/vino_miel_abeja.png"),
+        src: require("@/assets/galeria/vino_miel_abeja.png"),
       },
       {
-        src: require("@/assets/imagen/galeria/vino_mora.png"),
+        src: require("@/assets/galeria/vino_mora.png"),
       },
     ],
     settings: {
