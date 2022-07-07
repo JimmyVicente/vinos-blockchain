@@ -14,7 +14,7 @@
         </v-col>
         <v-col cols="12" sm="12" md="6">
           <v-text-field v-model="grados_invertidos" label="Grados invertidos(%)"
-            placeholder="Ingrese grados invertidos" outlined
+            placeholder="Ingrese grados invertidos" outlined type="number"
             :error-messages="grados_invertidos_errors" @input="$v.grados_invertidos.$touch()" @blur="$v.grados_invertidos.$touch()"></v-text-field>
         </v-col>
       </v-row>

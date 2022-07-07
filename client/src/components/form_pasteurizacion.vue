@@ -4,17 +4,17 @@
       <v-row>
         <v-col cols="12" sm="12" md="6">
           <v-text-field v-model="temperatura_caliente" label="Temperatura Caliente (°C)"
-            placeholder="Ingrese temperatura caliente" outlined
+            placeholder="Ingrese temperatura caliente" outlined type="number"
             :error-messages="temperatura_caliente_errors" @input="$v.temperatura_caliente.$touch()" @blur="$v.temperatura_caliente.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
           <v-text-field v-model="temperatura_fria" label="Temperatura Fria (°C)" placeholder="Ingrese temperatura fria"
-            outlined
+            outlined type="number"
             :error-messages="temperatura_fria_errors" @input="$v.temperatura_fria.$touch()" @blur="$v.temperatura_fria.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
           <v-text-field v-model="tiempo_proceso" label="Tiempo De Proceso (min)" placeholder="Ingrese tiempo de proceso"
-            outlined
+            outlined type="number"
             :error-messages="tiempo_proceso_errors" @input="$v.tiempo_proceso.$touch()" @blur="$v.tiempo_proceso.$touch()"></v-text-field>
         </v-col>
       </v-row>

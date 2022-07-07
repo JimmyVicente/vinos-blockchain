@@ -21,7 +21,7 @@ export const listarItemProceso = async (hash) => {
         Nro cosecha: ${model.nro_cosecha}<br>
         Lugar de procedencia: ${model.lugar_procedencia}<br>
         Nombre del propietario: ${model.nombre_propietario}<br>
-        Grados brix: ${model.gadros_brix}<br>
+        Grados brix: ${model.gadros_brix} gramos<br>
         `;
         hash_info += model.nro_cosecha + model.lugar_procedencia + model.nombre_propietario + model.gadros_brix;
         items.push({
@@ -59,9 +59,9 @@ export const listarItemProceso = async (hash) => {
         model = proceso.pasteurizacion;
         siguiente_proceso = model.aprobado;
         informacion = `
-        Temperatura caliente: ${model.temperatura_caliente}<br>
-        Temperatura fria: ${model.temperatura_fria}<br>
-        Tiempo proceso: ${model.tiempo_proceso}<br>
+        Temperatura caliente: ${model.temperatura_caliente} °C<br>
+        Temperatura fria: ${model.temperatura_fria} °C<br>
+        Tiempo proceso: ${model.tiempo_proceso} min<br>
         `;
         hash_info += model.temperatura_caliente + model.temperatura_fria + model.tiempo_proceso;
         items.push({
@@ -83,7 +83,7 @@ export const listarItemProceso = async (hash) => {
         informacion = `
         Fecha inicio: ${new Date(model.fecha_inicio * 1000).toLocaleString()}<br>
         Fecha fin: ${new Date(model.fecha_final * 1000).toLocaleString()}<br>
-        Grados invertidos: ${model.grados_invertidos}<br>
+        Grados invertidos: ${model.grados_invertidos} %<br>
       `;
         hash_info += model.fecha_inicio + model.fecha_final + model.grados_invertidos;
         items.push({
@@ -103,7 +103,7 @@ export const listarItemProceso = async (hash) => {
         model = proceso.clarificacion;
         siguiente_proceso = model.aprobado;
         informacion = `
-        Turbidez: ${model.turbidez}<br>
+        Turbidez: ${model.turbidez} ppm<br>
       `;
         hash_info += model.turbidez;
         items.push({
@@ -123,8 +123,8 @@ export const listarItemProceso = async (hash) => {
         model = proceso.trasiego;
         siguiente_proceso = model.aprobado;
         informacion = `
-        Liquído claro: ${model.liquido_claro}<br>
-        Liquído oscuro: ${model.liquido_oscuro}<br>
+        Liquído claro: ${model.liquido_claro}%<br>
+        Liquído oscuro: ${model.liquido_oscuro}%<br>
       `;
         hash_info += model.liquido_claro + model.liquido_claro;
         items.push({
@@ -146,7 +146,7 @@ export const listarItemProceso = async (hash) => {
         esta_completado = model.aprobado;
         informacion = `
         Nro. Lote: ${model.nro_lote}<br>
-        Total de botellas: ${model.nro_botellas}<br>
+        Nro. Botellas producidas: ${model.nro_botellas}<br>
       `;
         hash_info += model.nro_lote + model.nro_botellas;
         items.push({

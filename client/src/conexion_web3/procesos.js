@@ -47,10 +47,10 @@ export const generarProceso = async (_id) => {
   //titulos
   if (materia_prima != undefined) titulo1 = "Nro cosecha: " + materia_prima.nro_cosecha;
   if (extraccion_mosto != undefined) titulo2 = "Tipo: " + extraccion_mosto.tipo;
-  if (pasteurizacion != undefined) titulo3 = pasteurizacion.temperatura_caliente + " ~C";
-  if (fermentacion != undefined) titulo4 = "Grados invertidos: " + fermentacion.grados_invertidos;
-  if (clarificacion != undefined) titulo5 = "Turbidez: " + clarificacion.turbidez;
-  if (trasiego != undefined) titulo6 = "Porcentaje: " + trasiego.liquido_claro + "%";
+  if (pasteurizacion != undefined) titulo3 = pasteurizacion.temperatura_caliente + " °C";
+  if (fermentacion != undefined) titulo4 = "Grados invertidos: " + fermentacion.grados_invertidos + "%";
+  if (clarificacion != undefined) titulo5 = "Turbidez: " + clarificacion.turbidez + " ppm";
+  if (trasiego != undefined) titulo6 = "Rendimineto: " + trasiego.liquido_claro + "%";
   if (envasado != undefined) titulo7 = "Nro botellas: " + envasado.nro_botellas;
   return {
     materia_prima, titulo1,
@@ -133,12 +133,20 @@ export const generarInfoBotella = async (item) => {
     if (e == 1) estado_str = "Vendida";
     botella.estados_obj.push({ estado, estado_str, fecha_str });
   });
+  botella.token_asignado = await encontrarBotellaVendida(botella.hash_botella);
   return botella;
 }
 
 
+export const encontrarBotellaVendida = async (hash) => {
+  const { web3 } = await infoCuenta();
+  const contratoTVAToken = await cargarContatrato(web3, TVAToken);
+  return await contratoTVAToken.encontrarBotellaVendida(hash);
+}
+
 export const enviarToken = async (hash) => {
   const { cuenta } = await infoCuenta();
   const config = { from: cuenta };
-  await contratoTVAToken.aprobarProceso(hash, config);
+  console.log(hash);
+  await contratoTVAToken.enviarToken(hash, config);
 }

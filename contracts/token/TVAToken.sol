@@ -11,7 +11,7 @@ contract TVAToken is ERC20 {
     Botella[] _botellas_vendidas;
 
     constructor() ERC20("TVA Token", "TVA") {
-        _mint(msg.sender, 1000000);
+        _mint(msg.sender, 100000 * 10**18);
         _addressOwner = msg.sender;
     }
 
@@ -28,7 +28,7 @@ contract TVAToken is ERC20 {
     function enviarToken(bytes32 _hash) public {
         bool token_asignado = encontrarBotellaVendida(_hash);
         if (token_asignado == false) {
-            if (_addressOwner == msg.sender) {
+            if (_addressOwner != msg.sender) {
                 _botellas_vendidas.push(Botella(_hash, block.timestamp));
                 _transfer(_addressOwner, msg.sender, 1);
             } else {

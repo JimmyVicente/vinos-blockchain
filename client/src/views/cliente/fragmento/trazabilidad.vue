@@ -7,7 +7,7 @@
       <br><br>
 
       <div v-if="presentar == true">
-         <InfoBotella :items="items" :botella="botella" :proceso="proceso"/>
+        <InfoBotella :items="items" :botella="botella" :proceso="proceso" :tipo="1" />
       </div>
 
     </v-container>

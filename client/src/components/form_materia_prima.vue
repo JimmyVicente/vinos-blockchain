@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field v-model="nro_cosecha" label="N° De Cosecha" placeholder="Ingrese número de cosecha" outlined
+          <v-text-field v-model="nro_cosecha" label="N° De Cosecha" placeholder="Ingrese número de cosecha" outlined type="number"
             :error-messages="nro_cosecha_errors" @input="$v.nro_cosecha.$touch()" @blur="$v.nro_cosecha.$touch()">
           </v-text-field>
         </v-col>
@@ -18,8 +18,8 @@
             @input="$v.nombre_propietario.$touch()" @blur="$v.nombre_propietario.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field v-model="gadros_brix" label="Gadros Brix (gramos)" placeholder="Ingrese grados brix" outlined
-            :error-messages="gadros_brix_errors" @input="$v.gadros_brix.$touch()" @blur="$v.gadros_brix.$touch()">
+          <v-text-field v-model="gadros_brix" label="Gadros Brix (gramos)" placeholder="Ingrese grados brix" outlined type="number"
+            :error-messages="gadros_brix_errors" @input="$v.gadros_brix.$touch()" @blur="$v.gadros_brix.$touch()" >
           </v-text-field>
         </v-col>
       </v-row>
