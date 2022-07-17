@@ -14,7 +14,7 @@
       </v-layout>
       <v-divider></v-divider>
       <v-list dense nav>
-        <v-list-item-group v-model="group" color="primary_app">
+        <v-list-item-group color="primary_app">
           <v-list-item v-for="item in menu" :key="item.title" link :to="item.to">
             <v-list-item-icon>
               <v-icon v-text="item.icon"></v-icon>
@@ -53,7 +53,6 @@
 
 <script>
 import { infoCuenta } from "../../conexion_web3/getWeb3";
-import { escucharEventos, cargarContratos } from "../../conexion_web3/procesos";
 export default {
   name: "Base_Administrador",
   data: () => ({
@@ -81,10 +80,6 @@ export default {
   },
   async mounted() {
     this.getBalance();
-    cargarContratos();
-    escucharEventos(() => {
-      this.getBalance();
-    });
   }
 };
 </script>

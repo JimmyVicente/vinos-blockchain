@@ -18,11 +18,8 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import {
-  required,
-} from "vuelidate/lib/validators";
-
-import { crearProceso, editarProceso } from "../conexion_web3/procesos";
+import { required } from "vuelidate/lib/validators";
+import controlador_proceso from "../controlador/controlador_proceso";
 
 export default {
   name: "FormClarificacion",
@@ -52,33 +49,24 @@ export default {
   },
   methods: {
     async guardar() {
-      try {
-        var data = {};
-        data.hash_anterior = this.hash_anterior * 1;
-        data.turbidez = this.turbidez;
-        this.$v.$touch();
-        if (!this.$v.$invalid) {
-          if (this.editar_proceso) {
-            await editarProceso(5, data);
-          } else {
-            await crearProceso(5, data);
-          }
+      var data = {};
+      data.proceso = 5;
+      data.id_proceso = this.hash_anterior;
+      data.turbidez = this.turbidez;
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        controlador_proceso.crear_editar_proceso(data, async (response) => {
           this.$toast.open({
-            message: "Guardado correctramente",
-            type: "success",
+            message: response.mensaje,
+            type: response.tipo,
             duration: 5000,
             position: "top-right",
             pauseOnHover: true,
           });
-          this.cerrar();
-        }
-      } catch (error) {
-        this.$toast.open({
-          message: "Error al guardar proceso",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
+          if (response.tipo == "success") {
+            this.$emit("generarProceso", response.data);
+            this.cerrar();
+          }
         });
       }
     },

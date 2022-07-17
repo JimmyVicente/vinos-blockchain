@@ -23,11 +23,9 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import {
-  required,
-} from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
+import controlador_proceso from "../controlador/controlador_proceso";
 
-import { crearProceso, editarProceso } from "../conexion_web3/procesos";
 const mayor_menor = (value) => {
   if (value <= 100 && value >= 1) {
     return true;
@@ -73,34 +71,25 @@ export default {
   },
   methods: {
     async guardar() {
-      try {
-        var data = {};
-        data.hash_anterior = this.hash_anterior * 1;
-        data.liquido_claro = (this.liquido_claro * 1).toFixed(2);
-        data.liquido_oscuro = (this.liquido_oscuro * 1).toFixed(2);
-        this.$v.$touch();
-        if (!this.$v.$invalid) {
-          if (this.editar_proceso) {
-            await editarProceso(6, data);
-          } else {
-            await crearProceso(6, data);
-          }
+      var data = {};
+      data.proceso = 6;
+      data.id_proceso = this.hash_anterior;
+      data.liquido_claro = (this.liquido_claro * 1).toFixed(2);
+      data.liquido_oscuro = (this.liquido_oscuro * 1).toFixed(2);
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        controlador_proceso.crear_editar_proceso(data, async (response) => {
           this.$toast.open({
-            message: "Guardado correctramente",
-            type: "success",
+            message: response.mensaje,
+            type: response.tipo,
             duration: 5000,
             position: "top-right",
             pauseOnHover: true,
           });
-          this.cerrar();
-        }
-      } catch (error) {
-        this.$toast.open({
-          message: "Error al guardar proceso",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
+          if (response.tipo == "success") {
+            this.$emit("generarProceso", response.data);
+            this.cerrar();
+          }
         });
       }
     },

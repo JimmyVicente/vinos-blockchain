@@ -86,8 +86,8 @@ export default {
     billetera: null,
     rol: 1,
     tipo_roles: [
-      { txt: "Administración", val: 0, },
-      { txt: "Empleado", val: 1, },
+      { txt: "Administración", val: 1, },
+      { txt: "Empleado", val: 2, },
     ],
     permisos: [1, 2, 3, 4, 5, 6, 7],
     tipo_permisos: [

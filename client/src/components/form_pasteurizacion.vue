@@ -5,17 +5,18 @@
         <v-col cols="12" sm="12" md="6">
           <v-text-field v-model="temperatura_caliente" label="Temperatura Caliente (°C)"
             placeholder="Ingrese temperatura caliente" outlined type="number"
-            :error-messages="temperatura_caliente_errors" @input="$v.temperatura_caliente.$touch()" @blur="$v.temperatura_caliente.$touch()"></v-text-field>
+            :error-messages="temperatura_caliente_errors" @input="$v.temperatura_caliente.$touch()"
+            @blur="$v.temperatura_caliente.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
           <v-text-field v-model="temperatura_fria" label="Temperatura Fria (°C)" placeholder="Ingrese temperatura fria"
-            outlined type="number"
-            :error-messages="temperatura_fria_errors" @input="$v.temperatura_fria.$touch()" @blur="$v.temperatura_fria.$touch()"></v-text-field>
+            outlined type="number" :error-messages="temperatura_fria_errors" @input="$v.temperatura_fria.$touch()"
+            @blur="$v.temperatura_fria.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
           <v-text-field v-model="tiempo_proceso" label="Tiempo De Proceso (min)" placeholder="Ingrese tiempo de proceso"
-            outlined type="number"
-            :error-messages="tiempo_proceso_errors" @input="$v.tiempo_proceso.$touch()" @blur="$v.tiempo_proceso.$touch()"></v-text-field>
+            outlined type="number" :error-messages="tiempo_proceso_errors" @input="$v.tiempo_proceso.$touch()"
+            @blur="$v.tiempo_proceso.$touch()"></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -28,11 +29,9 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import {
-  required,
-} from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
+import controlador_proceso from "../controlador/controlador_proceso";
 
-import { crearProceso, editarProceso } from "../conexion_web3/procesos";
 export default {
   name: "FormPasteurizacion",
   components: {},
@@ -76,35 +75,26 @@ export default {
   },
   methods: {
     async guardar() {
-      try {
-        var data = {};
-        data.hash_anterior = this.hash_anterior * 1;
-        data.temperatura_caliente = this.temperatura_caliente;
-        data.temperatura_fria = this.temperatura_fria;
-        data.tiempo_proceso = this.tiempo_proceso;
-        this.$v.$touch();
-        if (!this.$v.$invalid) {
-          if (this.editar_proceso) {
-            await editarProceso(3, data);
-          } else {
-            await crearProceso(3, data);
-          }
+      var data = {};
+      data.proceso = 3;
+      data.id_proceso = this.hash_anterior;
+      data.temperatura_caliente = this.temperatura_caliente;
+      data.temperatura_fria = this.temperatura_fria;
+      data.tiempo_proceso = this.tiempo_proceso;
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        controlador_proceso.crear_editar_proceso(data, async (response) => {
           this.$toast.open({
-            message: "Guardado correctramente",
-            type: "success",
+            message: response.mensaje,
+            type: response.tipo,
             duration: 5000,
             position: "top-right",
             pauseOnHover: true,
           });
-          this.cerrar();
-        }
-      } catch (error) {
-        this.$toast.open({
-          message: "Error al guardar proceso",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
+          if (response.tipo == "success") {
+            this.$emit("generarProceso", response.data);
+            this.cerrar();
+          }
         });
       }
     },

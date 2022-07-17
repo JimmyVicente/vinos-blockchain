@@ -72,7 +72,7 @@ _Iniciar subsistema de aplicaciones (en **otra consola**, no en la que se ejecut
 ```
 cd client
 npm install
-npm run start
+npm run serve
 ```
 **NOTA**: Es importante asegurarse que MetaMask este conectada a la **red localhost**
 _Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_

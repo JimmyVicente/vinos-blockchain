@@ -4,18 +4,18 @@
       <v-row>
         <v-col cols="12" sm="12" md="6">
           <v-text-field type="datetime-local" v-model="fecha_inicio" label="Fecha De Inicio De Fermentación"
-            placeholder="Ingrese fecha de inicio de fermentación" outlined
-            :error-messages="fecha_inicio_errors" @input="$v.fecha_inicio.$touch()" @blur="$v.fecha_inicio.$touch()"></v-text-field>
+            placeholder="Ingrese fecha de inicio de fermentación" outlined :error-messages="fecha_inicio_errors"
+            @input="$v.fecha_inicio.$touch()" @blur="$v.fecha_inicio.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
           <v-text-field type="datetime-local" v-model="fecha_final" label="Fecha de Finalización De Fermentación"
-            placeholder="Ingrese fecha de finalización de fermentación" outlined
-            :error-messages="fecha_final_errors" @input="$v.fecha_final.$touch()" @blur="$v.fecha_final.$touch()"></v-text-field>
+            placeholder="Ingrese fecha de finalización de fermentación" outlined :error-messages="fecha_final_errors"
+            @input="$v.fecha_final.$touch()" @blur="$v.fecha_final.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field v-model="grados_invertidos" label="Grados invertidos(%)"
-            placeholder="Ingrese grados invertidos" outlined type="number"
-            :error-messages="grados_invertidos_errors" @input="$v.grados_invertidos.$touch()" @blur="$v.grados_invertidos.$touch()"></v-text-field>
+          <v-text-field v-model="grados_invertidos" label="Grados invertidos(%)" placeholder="Ingrese grados invertidos"
+            outlined type="number" :error-messages="grados_invertidos_errors" @input="$v.grados_invertidos.$touch()"
+            @blur="$v.grados_invertidos.$touch()"></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -28,11 +28,8 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import {
-  required,
-} from "vuelidate/lib/validators";
-
-import { crearProceso, editarProceso } from "../conexion_web3/procesos";
+import { required } from "vuelidate/lib/validators";
+import controlador_proceso from "../controlador/controlador_proceso";
 const moment = require("moment");
 export default {
   name: "FormFermentacion",
@@ -77,39 +74,30 @@ export default {
   },
   methods: {
     async guardar() {
-      try {
-        var data = {};
-        var fecha_inicio = new Date(this.fecha_inicio);
-        var fecha_final = new Date(this.fecha_final);
-        fecha_inicio = fecha_inicio.getTime() / 1000;
-        fecha_final = fecha_final.getTime() / 1000;
-        data.hash_anterior = this.hash_anterior * 1;
-        data.fecha_inicio = fecha_inicio;
-        data.fecha_final = fecha_final;
-        data.grados_invertidos = this.grados_invertidos;
-        this.$v.$touch();
-        if (!this.$v.$invalid) {
-          if (this.editar_proceso) {
-            await editarProceso(4, data);
-          } else {
-            await crearProceso(4, data);
-          }
+      var data = {};
+      data.proceso = 4;
+      data.id_proceso = this.hash_anterior;
+      var fecha_inicio = new Date(this.fecha_inicio);
+      var fecha_final = new Date(this.fecha_final);
+      fecha_inicio = fecha_inicio.getTime() / 1000;
+      fecha_final = fecha_final.getTime() / 1000;
+      data.fecha_inicio = fecha_inicio;
+      data.fecha_final = fecha_final;
+      data.grados_invertidos = this.grados_invertidos;
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        controlador_proceso.crear_editar_proceso(data, async (response) => {
           this.$toast.open({
-            message: "Guardado correctramente",
-            type: "success",
+            message: response.mensaje,
+            type: response.tipo,
             duration: 5000,
             position: "top-right",
             pauseOnHover: true,
           });
-          this.cerrar();
-        }
-      } catch (error) {
-        this.$toast.open({
-          message: "Error al guardar proceso",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
+          if (response.tipo == "success") {
+            this.$emit("generarProceso", response.data);
+            this.cerrar();
+          }
         });
       }
     },

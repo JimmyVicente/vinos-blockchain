@@ -3,8 +3,9 @@
     <v-container>
       <v-row>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field v-model="nro_cosecha" label="N° De Cosecha" placeholder="Ingrese número de cosecha" outlined type="number"
-            :error-messages="nro_cosecha_errors" @input="$v.nro_cosecha.$touch()" @blur="$v.nro_cosecha.$touch()">
+          <v-text-field v-model="nro_cosecha" label="N° De Cosecha" placeholder="Ingrese número de cosecha" outlined
+            type="number" :error-messages="nro_cosecha_errors" @input="$v.nro_cosecha.$touch()"
+            @blur="$v.nro_cosecha.$touch()">
           </v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
@@ -18,8 +19,9 @@
             @input="$v.nombre_propietario.$touch()" @blur="$v.nombre_propietario.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field v-model="gadros_brix" label="Gadros Brix (gramos)" placeholder="Ingrese grados brix" outlined type="number"
-            :error-messages="gadros_brix_errors" @input="$v.gadros_brix.$touch()" @blur="$v.gadros_brix.$touch()" >
+          <v-text-field v-model="gadros_brix" label="Gadros Brix (gramos)" placeholder="Ingrese grados brix" outlined
+            type="number" :error-messages="gadros_brix_errors" @input="$v.gadros_brix.$touch()"
+            @blur="$v.gadros_brix.$touch()">
           </v-text-field>
         </v-col>
       </v-row>
@@ -34,11 +36,9 @@
 <script>
 //importaciones web3
 import { validationMixin } from "vuelidate";
-import {
-  required,
-} from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 
-import { crearProceso, editarProceso } from "../conexion_web3/procesos";
+import controlador_proceso from "../controlador/controlador_proceso";
 export default {
   name: "FormMateriaPrima",
   components: {},
@@ -90,39 +90,30 @@ export default {
   },
   methods: {
     async guardar() {
-      try {
-        var data = {};
-        data.hash_anterior = this.hash_anterior * 1;
-        data.nro_cosecha = this.nro_cosecha;
-        data.lugar_procedencia = this.lugar_procedencia;
-        data.nombre_propietario = this.nombre_propietario;
-        data.gadros_brix = this.gadros_brix;
-        this.$v.$touch();
-        if (!this.$v.$invalid) {
-          if (this.editar_proceso) {
-            await editarProceso(1, data);
-          } else {
-            await crearProceso(1, data);
-          }
+      var data = {};
+      data.proceso = 1;
+      data.nro_cosecha = this.nro_cosecha;
+      data.lugar_procedencia = this.lugar_procedencia;
+      data.nombre_propietario = this.nombre_propietario;
+      data.gadros_brix = this.gadros_brix;
+      if (this.editar_proceso) data.id_proceso = this.hash_anterior;
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        controlador_proceso.crear_editar_proceso(data, async (response) => {
           this.$toast.open({
-            message: "Guardado correctramente",
-            type: "success",
+            message: response.mensaje,
+            type: response.tipo,
             duration: 5000,
             position: "top-right",
             pauseOnHover: true,
           });
-          this.cerrar();
-        }
-        
-      } catch (error) {
-        this.$toast.open({
-          message: "Error al guardar proceso",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
+          if (response.tipo == "success") {
+            this.$emit("generarProceso", response.data);
+            this.cerrar();
+          }
         });
       }
+
     },
     siguiente() {
       this.$emit("update:n_proceso", 2);
@@ -133,7 +124,6 @@ export default {
     },
   },
   mounted() {
-
     if (this.editar_proceso) {
       this.nro_cosecha = this.elemento_editar.nro_cosecha;
       this.lugar_procedencia = this.elemento_editar.lugar_procedencia;

@@ -34,7 +34,7 @@
                       Editar
                     </v-btn>
                     <v-btn class="mx-1" outlined style="color: green;"
-                      @click="dialogAprobarProceso(item.index, item.model)">
+                      @click="dialogAprobarProceso(item.index, item.model.id_proceso)">
                       Aprobar
                     </v-btn>
                   </div>
@@ -87,33 +87,40 @@
 
           <v-stepper-items>
             <v-stepper-content :step="proceso_a" style="height: 300px;">
-              <FormMateriaPrima :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
-                :hash_anterior="hash_anterior" :editar_proceso="editar_proceso" :elemento_editar="elemento_editar" />
+              <FormMateriaPrima v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
+                :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
+                :elemento_editar="elemento_editar" />
             </v-stepper-content>
 
             <v-stepper-content :step="proceso_b" style="height: 300px;">
-              <FormExtraccionMosto :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
-                :hash_anterior="hash_anterior" :editar_proceso="editar_proceso" :elemento_editar="elemento_editar" />
+              <FormExtraccionMosto v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
+                :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
+                :elemento_editar="elemento_editar" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_c" style="height: 300px;">
-              <FormPasteurizacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
-                :hash_anterior="hash_anterior" :editar_proceso="editar_proceso" :elemento_editar="elemento_editar" />
+              <FormPasteurizacion v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
+                :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
+                :elemento_editar="elemento_editar" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_d" style="height: 300px;">
-              <FormFermentacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
-                :hash_anterior="hash_anterior" :editar_proceso="editar_proceso" :elemento_editar="elemento_editar" />
+              <FormFermentacion v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
+                :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
+                :elemento_editar="elemento_editar" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_e" style="height: 300px;">
-              <FormClarificacion :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
-                :hash_anterior="hash_anterior" :editar_proceso="editar_proceso" :elemento_editar="elemento_editar" />
+              <FormClarificacion v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
+                :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
+                :elemento_editar="elemento_editar" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_f" style="height: 300px;">
-              <FormTrasiego :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
-                :hash_anterior="hash_anterior" :editar_proceso="editar_proceso" :elemento_editar="elemento_editar" />
+              <FormTrasiego v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
+                :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
+                :elemento_editar="elemento_editar" />
             </v-stepper-content>
             <v-stepper-content :step="proceso_g" style="height: 300px;">
-              <FormEnvasado :n_proceso.sync="n_proceso" :agregar_proceso.sync="agregar_proceso"
-                :hash_anterior="hash_anterior" :editar_proceso="editar_proceso" :elemento_editar="elemento_editar" />
+              <FormEnvasado v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
+                :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
+                :elemento_editar="elemento_editar" />
             </v-stepper-content>
           </v-stepper-items>
         </v-stepper>
@@ -159,8 +166,9 @@ import FormClarificacion from '@/components/form_clarificacion.vue'
 import FormTrasiego from '@/components/form_trasiego.vue'
 import FormEnvasado from '@/components/form_envasado.vue'
 //importaciones web3
-import { listarItemProceso } from "../../../conexion_web3/util_procesos";
-import { escucharEventos, aprobarProceso } from "../../../conexion_web3/procesos";
+import { formato_proceso } from "../../../conexion_web3/util_procesos";
+import controlador_proceso from "../../../controlador/controlador_proceso";
+
 export default {
   name: "Nuevo_proceso_",
   components: {
@@ -176,7 +184,6 @@ export default {
     nombre_proceso: "Nuevo proceso",
     agregar_proceso: false,
     hash_anterior: null,
-    hash_info: null,
     siguiente_proceso: true,
     editar_proceso: false,
     elemento_editar: null,
@@ -198,38 +205,26 @@ export default {
   },
   methods: {
 
-    async dialogAprobarProceso(index, item) {
-      var data = {};
-      data.id = item.hash_anterior * 1;
-      if (index == 1) data.id = item.id * 1;
-      data.info = this.hash_info;
-      data.index = index;
+    async dialogAprobarProceso(proceso, id_proceso) {
+      var data = { proceso, id_proceso };
       this.data_aprobar_proceso = data;
       this.dialog_aprobar_proceso = true;
     },
 
     async aprobarProceso() {
-      try {
+      var data = this.data_aprobar_proceso;
+      controlador_proceso.aprobar_proceso(data, async (response) => {
         this.dialog_aprobar_proceso = false;
-        var data = this.data_aprobar_proceso;
-        await aprobarProceso(data.index, data);
         this.$toast.open({
-          message: "Aprobado correctramente",
-          type: "success",
+          message: response.mensaje,
+          type: response.tipo,
           duration: 5000,
           position: "top-right",
           pauseOnHover: true,
         });
-      } catch (error) {
-        console.log(error);
-        this.$toast.open({
-          message: "Error en la transacción para aprobar proceso",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
-        });
-      }
+        if (response.tipo == "success") this.generarProceso(response.data);
+
+      });
 
     },
 
@@ -257,33 +252,34 @@ export default {
     },
 
     async generarProceso(hash) {
-      try {
-        var { nombre_proceso, n_proceso, items, hash_info, siguiente_proceso, esta_completado } = await listarItemProceso(hash);
-        //setVariables
-        this.hash_anterior = hash;
-        this.nombre_proceso = nombre_proceso;
-        this.n_proceso = n_proceso;
-        this.items = items;
-        this.hash_info = hash_info;
-        this.siguiente_proceso = siguiente_proceso;
-        this.esta_completado = esta_completado;
-        //pruebas
-        // this.n_proceso = 7;
-        // this.esta_completado = false;
-      } catch (error) {
-        console.log(error);
-      }
+      controlador_proceso.encontrar_proceso(hash, async (response) => {
+        if (response.tipo == "success") {
+          var item = await formato_proceso(response.data);
+          //setVariables
+          this.hash_anterior = hash;
+          this.nombre_proceso = item.nombre_proceso;
+          this.n_proceso = item.n_proceso;
+          this.items = item.items;
+          this.siguiente_proceso = item.siguiente_proceso;
+          this.esta_completado = item.esta_completado;
+        } else {
+          this.hash_anterior = null;
+          if (hash != "agregar") {
+            this.$toast.open({
+              message: response.mensaje,
+              type: "error",
+              duration: 5000,
+              position: "top-right",
+              pauseOnHover: true,
+            });
+          }
+        }
+      });
+
     }
   },
   async mounted() {
-    this.escuchar_eventos = false;
     this.generarProceso(this.hash);
-    escucharEventos((id) => {
-      if (id != this.hash) {
-        this.$router.push({ name: 'Nuevo Proceso', params: { hash: id } }).catch(() => { });
-      }
-      this.generarProceso(id);
-    });
   }
 };
 </script>

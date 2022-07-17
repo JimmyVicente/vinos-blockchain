@@ -4,8 +4,7 @@
       <v-row justify="center">
         <v-col cols="12" sm="12" md="6" align-self="center">
           <v-select v-model="tipo" :items="tipo_extraccion" item-text="txt" item-value="val" label="Tipos De Extracción"
-            outlined
-            :error-messages="tipo_errors" @input="$v.tipo.$touch()" @blur="$v.tipo.$touch()"></v-select>
+            outlined :error-messages="tipo_errors" @input="$v.tipo.$touch()" @blur="$v.tipo.$touch()"></v-select>
         </v-col>
       </v-row>
     </v-container>
@@ -18,10 +17,9 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import {
-  required,
-} from "vuelidate/lib/validators";
-import { crearProceso, editarProceso } from "../conexion_web3/procesos";
+import { required } from "vuelidate/lib/validators";
+import controlador_proceso from "../controlador/controlador_proceso";
+
 export default {
   name: "FormMateriaPrima",
   components: {},
@@ -53,35 +51,27 @@ export default {
   },
   methods: {
     async guardar() {
-      try {
-        var data = {};
-        data.hash_anterior = this.hash_anterior * 1;
-        data.tipo = this.tipo;
-        this.$v.$touch();
-        if (!this.$v.$invalid) {
-          if (this.editar_proceso) {
-            await editarProceso(2, data);
-          } else {
-            await crearProceso(2, data);
-          }
+      var data = {};
+      data.proceso = 2;
+      data.id_proceso = this.hash_anterior;
+      data.tipo = this.tipo;
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        controlador_proceso.crear_editar_proceso(data, async (response) => {
           this.$toast.open({
-            message: "Guardado correctramente",
-            type: "success",
+            message: response.mensaje,
+            type: response.tipo,
             duration: 5000,
             position: "top-right",
             pauseOnHover: true,
           });
-          this.cerrar();
-        }
-      } catch (error) {
-        this.$toast.open({
-          message: "Error al guardar proceso",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
+          if (response.tipo == "success") {
+            this.$emit("generarProceso", response.data);
+            this.cerrar();
+          }
         });
       }
+
     },
     siguiente() {
       this.$emit("update:n_proceso", 3);
