@@ -15,14 +15,36 @@
         <v-data-table :headers="headers" :items="usuarios" :search="search">
 
           <template v-slot:[`item.accion`]="{ item }">
-            <v-btn icon color="green" @click="nuevoUsuarioDialog(item)" v-if="item.id != 0">
-              <v-icon>mdi-account-edit</v-icon>
-            </v-btn>
-            <v-btn icon color="red" @click="eliminarUsuario(item.id)" v-if="item.id != 0">
-              <v-icon>mdi-account-remove</v-icon>
-            </v-btn>
-            <p v-if="item.id == 0">Sin acción</p>
+            <v-menu bottom origin="center center" transition="scale-transition">
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon color="primary" v-bind="attrs" v-on="on">
+                  mdi-dots-vertical
+                </v-icon>
+              </template>
+              <v-list>
+                <v-list-item-group>
+                  <v-list-item @click="nuevoUsuarioDialog(item)">
+                    <v-list-item-icon>
+                      <v-icon v-text="'mdi-pencil'"></v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="'Editar'"></v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                  <!-- Boton para eliminar producto  -->
+                  <v-list-item @click="eliminarUsuario(item._id)">
+                    <v-list-item-icon>
+                      <v-icon v-text="'mdi-close'"></v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="'Eliminar'"></v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </v-menu>
           </template>>
+
         </v-data-table>
 
         <v-dialog v-model="dialog_usuario" persistent>
@@ -40,7 +62,7 @@
                 </v-col>
                 <v-col cols="12" sm="12" md="6">
                   <v-row>
-                    <v-col cols="6" sm="6" md="3" v-for="permiso in tipo_permisos" :key="permiso">
+                    <v-col cols="6" sm="6" md="3" v-for="(permiso, i) in tipo_permisos" :key="i">
                       <v-checkbox v-model="permisos" :label="permiso.txt" :value="permiso.val">
                       </v-checkbox>
                     </v-col>
@@ -48,6 +70,7 @@
                 </v-col>
               </v-row>
             </v-container>
+
 
             <center>
               <v-btn dark color="secondary_app" @click="crearUsuario()"> Guardar </v-btn>
@@ -64,7 +87,8 @@
 </template>
 
 <script>
-import { listarUsuarios, crearUsuario, escucharEventos, editarUsuario, eliminarUsuario } from "../../../conexion_web3/usuarios";
+import controlador_usuario from "../../../controlador/controlador_usuario";
+import { formato_usuario } from "../../../controlador/util_format";
 export default {
   name: "Usuarios_Administracion_",
   components: {},
@@ -103,67 +127,51 @@ export default {
   methods: {
 
     async crearUsuario() {
-      try {
-        var data = {};
-        data.id = this.id_usuario * 1;
-        data.rol = this.rol * 1;
-        data.nombre = this.nombre;
-        data.billetera = this.billetera;
-        data.permisos = this.permisos;
-        if (data.id == -1) {
-          await crearUsuario(data);
-        } else {
-          await editarUsuario(data);
-        }
-        this.$toast.open({
-          message: "Guardado correctramente",
-          type: "success",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
-        });
+      var data = {};
+      data.rol = this.rol * 1;
+      data.nombre = this.nombre;
+      data.billetera = this.billetera;
+      data.permisos = this.permisos;
+      if ((this.id_usuario) != -1) data.id_usuario = this.id_usuario;
+      controlador_usuario.crear_editar_usuario(data, async (response) => {
         this.dialog_usuario = false;
-      } catch (error) {
         this.$toast.open({
-          message: "Error en al crear o editar usuario",
-          type: "error",
+          message: response.mensaje,
+          type: response.tipo,
           duration: 5000,
           position: "top-right",
           pauseOnHover: true,
         });
-      }
+        if (response.tipo == "success") {
+          this.listarUsuarios();
+        }
+      });
     },
 
     async eliminarUsuario(id) {
-      try {
-        await eliminarUsuario(id);
+      controlador_usuario.eliminar_usuario(id, async (response) => {
         this.$toast.open({
-          message: "Eliminado correctramente",
-          type: "success",
+          message: response.mensaje,
+          type: response.tipo,
           duration: 5000,
           position: "top-right",
           pauseOnHover: true,
         });
-      } catch (error) {
-        this.$toast.open({
-          message: "Error al elimnar usuario",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
-        });
-      }
+        if (response.tipo == "success") {
+          this.listarUsuarios();
+        }
+      });
     },
 
     async nuevoUsuarioDialog(item) {
       if (item == -1) {
-        this.id_usuario = item * 1;
+        this.id_usuario = item;
         this.rol = 1;
         this.nombre = null;
         this.billetera = null;
         this.permisos = [1, 2, 3, 4, 5, 6, 7];
       } else {
-        this.id_usuario = item.id * 1;
+        this.id_usuario = item._id;
         this.rol = item.rol * 1;
         this.nombre = item.nombre;
         this.billetera = item.billetera;
@@ -173,23 +181,20 @@ export default {
     },
 
     async listarUsuarios() {
-      try {
-        this.usuarios = [];
-        await listarUsuarios((item) => {
-          this.usuarios.push(item);
-        });
-      } catch (error) {
-        console.log(error);
-      }
+      controlador_usuario.listar_usuario(async (response) => {
+        if (response.tipo == "success") {
+          this.usuarios = [];
+          response.data.usuarios.forEach(e => {
+            this.usuarios.push(formato_usuario(e));
+          });
+        }
+      });
     },
 
 
   },
   async mounted() {
     this.listarUsuarios();
-    escucharEventos(() => {
-      this.listarUsuarios();
-    });
   }
 };
 </script>

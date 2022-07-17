@@ -24,7 +24,7 @@
 
 <script>
 import { QrcodeStream } from 'vue-qrcode-reader';
-import { encontrarBotella } from "../../../conexion_web3/procesos";
+// import { encontrarBotella } from "../../../conexion_web3/procesos";
 export default {
   name: "Leer_Qr",
   components: { QrcodeStream },
@@ -35,8 +35,8 @@ export default {
 
     async encontrarBotella(hash_botella) {
       try {
-        var botella = await encontrarBotella(hash_botella);
-        this.hash_botella = botella.hash_botella;
+        // var botella = await encontrarBotella(hash_botella);
+        this.hash_botella = hash_botella;
         this.$toast.open({
           message: "Código qr leído correctamente",
           type: "success",
@@ -44,7 +44,7 @@ export default {
           position: "top-right",
           pauseOnHover: true,
         });
-        this.$router.push({ name: 'Trazabilidad', params: { hash_botella } }).catch(() => { });
+        // this.$router.push({ name: 'Trazabilidad', params: { hash_botella } }).catch(() => { });
 
       } catch (error) {
         this.$toast.open({

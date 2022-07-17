@@ -54,7 +54,7 @@
 import VueQr from 'vue-qr';
 import InfoBotella from '@/components/info_botella.vue'
 import { generarInfoBotella } from "../../../conexion_web3/procesos";
-import { listarItemProceso } from "../../../conexion_web3/util_procesos";
+import { listarItemProceso } from "../../../controlador/util_format";
 export default {
   name: "Botellas_Envasado",
   components: {

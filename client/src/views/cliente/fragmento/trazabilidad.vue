@@ -17,7 +17,7 @@
 <script>
 import InfoBotella from '@/components/info_botella.vue';
 import { encontrarBotella } from "../../../conexion_web3/procesos";
-import { listarItemProceso } from "../../../conexion_web3/util_procesos";
+import { listarItemProceso } from "../../../controlador/util_format";
 export default {
   name: "Cliente_Trazabilidad",
   components: {

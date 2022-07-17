@@ -12,7 +12,7 @@
                     <v-list-item-title class="title" v-text="usuario.nombre"></v-list-item-title>
                     <v-list-item-subtitle>Billetera: {{ usuario.billetera }}</v-list-item-subtitle>
                     <v-list-item-subtitle>Rol: {{ usuario.rol_str }}</v-list-item-subtitle>
-                    <v-list-item-subtitle>Permisos: {{ usuario.permisos_array }}</v-list-item-subtitle>
+                    <v-list-item-subtitle>Permisos: {{ permisos }}</v-list-item-subtitle>
                 </v-list-item-content>
             </v-list-item>
         </v-card>
@@ -20,7 +20,9 @@
 </template>
 
 <script>
-import { encontrarMiUsuario } from "../../../conexion_web3/usuarios";
+import controlador_usuario from "../../../controlador/controlador_usuario";
+import { infoCuenta } from "../../../conexion_web3/getWeb3";
+import { formato_usuario } from "../../../controlador/util_format";
 export default {
     name: "Perfil_Usuario",
     components: {},
@@ -30,18 +32,26 @@ export default {
             identificacion: "...",
             billetera: "....",
         },
+        permisos: "...",
     }),
     async mounted() {
-        this.usuario = await encontrarMiUsuario();
-        if (this.usuario == undefined) {
-            this.$toast.open({
-                message: "Error al encontrar usuario",
-                type: "error",
-                duration: 5000,
-                position: "top-right",
-                pauseOnHover: true,
-            });
-        }
+        var { cuenta } = await infoCuenta();
+        controlador_usuario.encontrar_usuario(cuenta, async (response) => {
+            if (response.tipo == "success") {
+                this.usuario = formato_usuario(response.data);
+                this.usuario.permisos_array.forEach(e => {
+                    this.permisos += e + ", ";
+                });
+            } else {
+                this.$toast.open({
+                    message: response.mensaje,
+                    type: response.tipo,
+                    duration: 5000,
+                    position: "top-right",
+                    pauseOnHover: true,
+                });
+            }
+        });
     }
 
 };

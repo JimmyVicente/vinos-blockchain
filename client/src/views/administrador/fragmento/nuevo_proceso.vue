@@ -166,7 +166,7 @@ import FormClarificacion from '@/components/form_clarificacion.vue'
 import FormTrasiego from '@/components/form_trasiego.vue'
 import FormEnvasado from '@/components/form_envasado.vue'
 //importaciones web3
-import { formato_proceso } from "../../../conexion_web3/util_procesos";
+import { formato_proceso } from "../../../controlador/util_format";
 import controlador_proceso from "../../../controlador/controlador_proceso";
 
 export default {
