@@ -14,13 +14,6 @@
       <v-spacer></v-spacer>
       <v-list-item-subtitle>Trazabilidad Vinos Ambrosia</v-list-item-subtitle>
 
-      <v-btn v-if="usuario.esMiCuenta != undefined && usuario.esMiCuenta == true" x-large color="success" dark
-        @click="login">
-        Administración
-        <v-avatar style="margin-left: 5px" size="40">
-          <img src="@/assets/iconos/metamask.png" />
-        </v-avatar>
-      </v-btn>
 
     </v-app-bar>
     <v-main style="margin-left : 3%;margin-right: 3%;">
@@ -35,25 +28,13 @@
 </template>
 
 <script>
-import { cargarContratos } from "../../conexion_web3/procesos";
-import { encontrarMiUsuario } from "../../conexion_web3/usuarios";
+
 export default {
   name: "Base_Cliente",
   data: () => ({
     drawer: true,
     loading: true,
-    cuenta: '',
-    usuario: {},
   }),
-  methods: {
-    async login() {
-      this.$router.push({ name: 'Inicio Administrador' }).catch(() => { });
-    },
-  },
-  async mounted() {
-    cargarContratos();
-    this.usuario = await encontrarMiUsuario() ?? {};
-  }
 };
 </script>
 <style scoped>

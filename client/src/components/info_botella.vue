@@ -49,7 +49,7 @@
 import VueQr from 'vue-qr';
 import { enviarToken } from '../conexion_web3/procesos';
 export default {
-  name: "FormClarificacion",
+  name: "InfoBotella",
   components: {
     VueQr
   },

@@ -13,16 +13,20 @@ export default {
             })
         });
     },
-    encontrar_usuario(id_usuario, call) {
-        axios.post(path.encontrar_usuario, { id_usuario }).then((response) => {
-            call(response.data);
-        }).catch((error) => {
-            call({
+    async encontrar_usuario(id_usuario, call) {
+        try {
+            var response = await axios.post(path.encontrar_usuario, { id_usuario });
+            if (call != undefined) call(response.data);
+            return response.data.data;
+        } catch (error) {
+            var data = {
                 tipo: "error",
                 mensaje: "Error desconocido",
                 mensaje_alterno: error,
-            })
-        });
+            };
+            if (call != undefined) call(data);
+            return data;
+        }
     },
     eliminar_usuario(id_usuario, call) {
         axios.post(path.eliminar_usuario, { id_usuario }).then((response) => {

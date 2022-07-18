@@ -53,8 +53,8 @@
 //importaciones web3
 import VueQr from 'vue-qr';
 import InfoBotella from '@/components/info_botella.vue'
-import { generarInfoBotella } from "../../../conexion_web3/procesos";
-import { listarItemProceso } from "../../../controlador/util_format";
+import { formato_proceso } from "../../../controlador/util_format";
+import controlador_proceso from "../../../controlador/controlador_proceso";
 export default {
   name: "Botellas_Envasado",
   components: {
@@ -74,39 +74,37 @@ export default {
   methods: {
 
     async encontrarBotella(botella) {
-      try {
-        // var botella = await encontrarBotella(hash_botella);
-        this.botella = await generarInfoBotella(botella);
-        this.dialog_item = true;
-      } catch (error) {
-        this.$toast.open({
-          message: "Error al generar botella",
-          type: "error",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
-        });
-      }
+      console.log(botella);
+      // try {
+      //   // var botella = await encontrarBotella(hash_botella);
+      //   this.botella = await generarInfoBotella(botella);
+      //   this.dialog_item = true;
+      // } catch (error) {
+      //   this.$toast.open({
+      //     message: "Error al generar botella",
+      //     type: "error",
+      //     duration: 5000,
+      //     position: "top-right",
+      //     pauseOnHover: true,
+      //   });
+      // }
     },
 
     async generarProceso(hash) {
-      try {
-        var { proceso, items } = await listarItemProceso(hash);
-        //setVariables
-        if (proceso.envasado != undefined) {
-          this.botellas = proceso.envasado.botellas;
-        }
-        this.proceso = proceso;
-        this.items = items.reverse();
-      } catch (error) {
+      controlador_proceso.encontrar_proceso(hash, async (response) => {
         this.$toast.open({
-          message: "Error al generar procesos",
-          type: "error",
+          message: response.mensaje,
+          type: response.tipo,
           duration: 5000,
           position: "top-right",
           pauseOnHover: true,
         });
-      }
+        if (response.tipo == "success") {
+          var item = await formato_proceso(response.data);
+          this.items = item.items;
+          this.proceso = item.proceso;
+        }
+      });
     }
   },
   async mounted() {

@@ -123,11 +123,15 @@ const router = new VueRouter({
 
 
 router.beforeEach(async (to, from, next) => {
-  var usuario = await encontrarMiUsuario() ?? {};
-  var esMiCuenta = usuario.esMiCuenta ?? false;
   var requiresAuth = to.meta.requiresAuth;
-  if (requiresAuth == true && esMiCuenta == false) {
-    next('/');
+  if (requiresAuth == true) {
+    var usuario = await encontrarMiUsuario() ?? {};
+    var esMiCuenta = usuario.esMiCuenta ?? false;
+    if (esMiCuenta == false) {
+      next('/');
+    } else {
+      next();
+    }
   } else {
     next();
   }

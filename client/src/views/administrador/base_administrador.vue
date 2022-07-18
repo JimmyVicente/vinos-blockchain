@@ -15,7 +15,7 @@
       <v-divider></v-divider>
       <v-list dense nav>
         <v-list-item-group color="primary_app">
-          <v-list-item v-for="item in menu" :key="item.title" link :to="item.to">
+          <v-list-item v-for="(item, i) in menu" :key="i" link :to="item.to">
             <v-list-item-icon>
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
@@ -28,7 +28,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar fixed dark color="primary_app" elevate-on-scroll scroll-target="#scrolling-techniques-7">
-       <v-btn icon color="white" :to="{ name: 'Inicio Administrador' }">
+      <v-btn icon color="white" :to="{ name: 'Inicio Administrador' }">
         <v-avatar style="margin-left: 5px" size="40">
           <img src="@/assets/iconos/logo.png" />
         </v-avatar>
@@ -63,8 +63,9 @@ export default {
     menu: [
       { title: "Inicio", icon: "mdi-view-dashboard", to: { name: "Inicio Administrador" } },
       { title: "Perfil", icon: "mdi-account-box", to: { name: "Perfil" } },
-      { title: "Procesos", icon: "mdi-shape-circle-plus", to: { name: "Proceso" } },
+      { title: "Procesos", icon: "mdi-glass-tulip", to: { name: "Proceso" } },
       { title: "Usuarios", icon: "mdi-account-multiple-outline", to: { name: "Usuario" } },
+      { title: "Salir", icon: "mdi-forward", to: { name: "Inicio" } },
     ],
   }),
   methods: {

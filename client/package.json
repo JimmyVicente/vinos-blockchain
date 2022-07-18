@@ -22,7 +22,6 @@
     "vue-qr": "^4.0.9",
     "vue-qrcode-reader": "^3.1.0",
     "vue-router": "^3.5.1",
-    "vue-slick-carousel": "^1.0.6",
     "vue-toast-notification": "^0.6.2",
     "vuelidate": "^0.7.7",
     "vuetify": "^2.6.0",
