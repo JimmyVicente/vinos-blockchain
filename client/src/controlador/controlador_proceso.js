@@ -46,4 +46,15 @@ export default {
             })
         });
     },
+    firmar_proceso(id_proceso, hash, call) {
+        axios.post(path.firmar_proceso, { id_proceso, hash }).then((response) => {
+            call(response.data);
+        }).catch((error) => {
+            call({
+                tipo: "error",
+                mensaje: "Error desconocido",
+                mensaje_alterno: error,
+            })
+        });
+    },
 }

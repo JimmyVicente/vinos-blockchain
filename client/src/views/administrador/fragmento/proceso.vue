@@ -79,6 +79,15 @@
             <div v-else>------</div>
           </template>
 
+          <template v-slot:[`item.titulo8`]="{ item }">
+            <div v-if="item.envasado != undefined" class="textItem">
+              {{ item.aprobado ? 'Aprobado' : 'Sin aprobar' }}
+              <v-icon v-if="item.aprobado" color="green" size="15px">mdi-check</v-icon>
+              <v-icon v-if="!item.aprobado" color="red" size="15px">mdi-close</v-icon>
+            </div>
+            <div v-else>------</div>
+          </template>
+
           <template v-slot:[`item.accion`]="{ item }">
             <v-menu bottom origin="center center" transition="scale-transition">
               <template v-slot:activator="{ on, attrs }">
@@ -136,6 +145,7 @@ export default {
       { text: "Clarificación (Turbidez)", sortable: false, value: "titulo5" },
       { text: "Trasiego (Rendimineto)", sortable: false, value: "titulo6" },
       { text: "Envasado (Nro botellas)", sortable: false, value: "titulo7" },
+      { text: "Estado", sortable: false, value: "titulo8" },
       { text: "Acción", sortable: false, value: "accion" },
     ],
     desserts: [],

@@ -10,14 +10,23 @@
             <v-icon left large> mdi-glass-tulip </v-icon>
             Agregar
           </v-btn>
-          <v-btn v-if="n_proceso == 8 || esta_completado == true" dark color="primary_app" x-large
-            style="margin-right: 2%" :to="{
+          <v-btn outlined v-if="proceso != undefined && proceso.aprobado && n_proceso > 7" dark color="primary_app"
+            x-large style="margin-right: 2%" :to="{
               name: 'Botellas',
               params: { hash: hash },
             }">
             <v-icon left large> mdi-glass-tulip </v-icon>
             Botellas producidas
           </v-btn>
+
+          <v-btn x-large color="green" outlined @click="dialog_firmar_proceso = true"
+            v-if="proceso != undefined && !proceso.aprobado && n_proceso > 7">
+            Firmar contrato
+            <v-avatar style="margin-left: 5px" size="40">
+              <img src="@/assets/iconos/metamask.png" />
+            </v-avatar>
+          </v-btn>
+
         </v-card-title>
         <v-divider></v-divider>
         <v-container>
@@ -136,10 +145,6 @@
           ¿Estás seguro de aprobar el proceso?
         </v-card-title>
 
-        <v-card-text>
-          Una vez aprobado el proceso no podrás eliminar o editar la información guardada en la blockchain.
-        </v-card-text>
-
         <v-divider></v-divider>
 
         <v-card-actions>
@@ -148,6 +153,31 @@
             Cerrar
           </v-btn>
           <v-btn color="primary" text @click="aprobarProceso()">
+            Aprobar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="dialog_firmar_proceso" width="600">
+
+      <v-card>
+        <v-card-title class="text-h6 grey lighten-2">
+          ¿Estás seguro de firmar el proceso con Blockchain?
+        </v-card-title>
+
+        <v-card-text>
+          Una vez firmado el proceso no podrás eliminar o editar la información guardada en la blockchain.
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="dialog_firmar_proceso = false">
+            Cerrar
+          </v-btn>
+          <v-btn color="primary" text @click="firmarProceso()">
             Aprobar
           </v-btn>
         </v-card-actions>
@@ -167,6 +197,7 @@ import FormTrasiego from '@/components/form_trasiego.vue'
 import FormEnvasado from '@/components/form_envasado.vue'
 //importaciones web3
 import { formato_proceso } from "../../../controlador/util_format";
+import { firmarProceso } from "../../../conexion_web3/procesos";
 import controlador_proceso from "../../../controlador/controlador_proceso";
 
 export default {
@@ -197,7 +228,9 @@ export default {
     proceso_f: 6,
     proceso_g: 7,
     items: [],
+    proceso: null,
     dialog_aprobar_proceso: false,
+    dialog_firmar_proceso: false,
     data_aprobar_proceso: {},
   }),
   props: {
@@ -223,10 +256,36 @@ export default {
           pauseOnHover: true,
         });
         if (response.tipo == "success") this.generarProceso(response.data);
-
       });
-
     },
+
+    async firmarProceso() {
+      try {
+        var hash = await firmarProceso(this.proceso);
+        controlador_proceso.firmar_proceso(this.proceso._id, hash, async (response) => {
+          this.dialog_firmar_proceso = false;
+          this.$toast.open({
+            message: response.mensaje,
+            type: response.tipo,
+            duration: 5000,
+            position: "top-right",
+            pauseOnHover: true,
+          });
+          if (response.tipo == "success") this.generarProceso(response.data);
+        });
+      } catch (error) {
+        console.log(error);
+        this.dialog_firmar_proceso = false;
+        this.$toast.open({
+          message: "Error al firmar proceso ",
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      }
+    },
+
 
     async editar(index, item) {
       this.n_proceso = index;
@@ -262,6 +321,7 @@ export default {
           this.items = item.items;
           this.siguiente_proceso = item.siguiente_proceso;
           this.esta_completado = item.esta_completado;
+          this.proceso = item.proceso;
         } else {
           this.hash_anterior = null;
           if (hash != "agregar") {

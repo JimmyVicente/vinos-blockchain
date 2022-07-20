@@ -10,4 +10,5 @@ export default {
     encontrar_proceso: path + '/proceso/encontrar_proceso',
     crear_editar_proceso: path + '/proceso/crear_editar_proceso',
     aprobar_proceso: path + '/proceso/aprobar_proceso',
+    firmar_proceso: path + '/proceso/firmar_proceso',
 }

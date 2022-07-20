@@ -64,9 +64,7 @@ npm install
 _Iniciar subsistema de contratos inteligentes_
 
 ```
-truffle develop
-compile
-migrate
+truffle migrate
 ```
 _Iniciar subsistema de aplicaciones (en **otra consola**, no en la que se ejecutó anteriormente para truffle, desde la carpeta raíz del proyecto)_
 ```
