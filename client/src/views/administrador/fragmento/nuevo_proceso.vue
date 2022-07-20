@@ -20,7 +20,7 @@
           </v-btn>
 
           <v-btn x-large color="green" outlined @click="dialog_firmar_proceso = true"
-            v-if="proceso != undefined && !proceso.aprobado && n_proceso > 7">
+            v-if="proceso != undefined && esta_completado == true && !proceso.aprobado && n_proceso > 7">
             Firmar contrato
             <v-avatar style="margin-left: 5px" size="40">
               <img src="@/assets/iconos/metamask.png" />
@@ -42,8 +42,8 @@
                     <v-btn :color="item.color" class="mx-1" outlined @click="editar(item.index, item.model)">
                       Editar
                     </v-btn>
-                    <v-btn class="mx-1" outlined style="color: green;"
-                      @click="dialogAprobarProceso(item.index, item.model.id_proceso)">
+                    <v-btn class="mx-1" outlined v-if="miUsuario != undefined && miUsuario.rol == 1"
+                      style="color: green;" @click="dialogAprobarProceso(item.index, item.model.id_proceso)">
                       Aprobar
                     </v-btn>
                   </div>
@@ -199,6 +199,8 @@ import FormEnvasado from '@/components/form_envasado.vue'
 import { formato_proceso } from "../../../controlador/util_format";
 import { firmarProceso } from "../../../conexion_web3/procesos";
 import controlador_proceso from "../../../controlador/controlador_proceso";
+import { encontrarMiUsuario } from "../../../conexion_web3/usuarios";
+import { formato_usuario } from "../../../controlador/util_format";
 
 export default {
   name: "Nuevo_proceso_",
@@ -232,6 +234,7 @@ export default {
     dialog_aprobar_proceso: false,
     dialog_firmar_proceso: false,
     data_aprobar_proceso: {},
+    miUsuario: undefined,
   }),
   props: {
     hash: [String],
@@ -245,9 +248,9 @@ export default {
     },
 
     async aprobarProceso() {
+      this.dialog_aprobar_proceso = false;
       var data = this.data_aprobar_proceso;
       controlador_proceso.aprobar_proceso(data, async (response) => {
-        this.dialog_aprobar_proceso = false;
         this.$toast.open({
           message: response.mensaje,
           type: response.tipo,
@@ -274,7 +277,6 @@ export default {
           if (response.tipo == "success") this.generarProceso(response.data);
         });
       } catch (error) {
-        console.log(error);
         this.dialog_firmar_proceso = false;
         this.$toast.open({
           message: "Error al firmar proceso ",
@@ -294,12 +296,28 @@ export default {
       this.agregar_proceso = true;
     },
 
+    tengoPermiso() {
+      if (this.miUsuario == undefined) return false;
+      var tengoPermiso = false;
+      for (let i = 0; i < this.miUsuario.permisos.length; i++) {
+        if (this.miUsuario.permisos[i] == this.n_proceso) {
+          tengoPermiso = true;
+          break;
+        }
+      }
+      return tengoPermiso;
+    },
     async siguienteProceso() {
-      if (this.siguiente_proceso) {
-        this.editar_proceso = false;
-        this.elemento_editar = null;
-        this.agregar_proceso = true;
-      } else {
+      var usuario = formato_usuario(this.miUsuario);
+      if (this.tengoPermiso() == false) {
+        this.$toast.open({
+          message: "Solo tines permiso para agregar estos procesos: " + usuario.permisos_str,
+          type: "error",
+          duration: 5000,
+          position: "top-right",
+          pauseOnHover: true,
+        });
+      } else if (this.siguiente_proceso == false) {
         this.$toast.open({
           message: "Todos los procesos deben estar aceptados para poder crear el siguiente proceso",
           type: "error",
@@ -307,6 +325,10 @@ export default {
           position: "top-right",
           pauseOnHover: true,
         });
+      } else {
+        this.editar_proceso = false;
+        this.elemento_editar = null;
+        this.agregar_proceso = true;
       }
     },
 
@@ -336,10 +358,19 @@ export default {
         }
       });
 
-    }
+    },
+
+    async encontrarMiUsuario() {
+      try {
+        this.miUsuario = await encontrarMiUsuario();
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
   async mounted() {
     this.generarProceso(this.hash);
+    this.encontrarMiUsuario();
   }
 };
 </script>

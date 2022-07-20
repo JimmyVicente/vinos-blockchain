@@ -127,7 +127,7 @@ router.beforeEach(async (to, from, next) => {
   if (requiresAuth == true) {
     var usuario = await encontrarMiUsuario() ?? {};
     var esMiCuenta = usuario.esMiCuenta ?? false;
-    if (esMiCuenta == false) {
+    if (esMiCuenta == false || usuario.rol == 3) {
       next('/');
     } else {
       next();

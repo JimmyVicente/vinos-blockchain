@@ -13,7 +13,7 @@
         </v-btn>
       </v-col>
 
-      <v-col cols="3" sm="12" md="3" v-if="conectado && usuario.esMiCuenta">
+      <v-col cols="3" sm="12" md="3" v-if="conectado && usuario.esMiCuenta && usuario.rol != 3">
         <v-btn x-large color="green" outlined @click="login()">
           ADMINISTRACIÓN
           <v-avatar style="margin-left: 5px" size="40">
@@ -46,7 +46,7 @@
 
     <v-container class="container">
 
-       <Carrucel />
+      <Carrucel />
 
     </v-container>
   </section>
@@ -85,7 +85,7 @@ export default {
     },
   },
   async mounted() {
-    this.conectar();
+    // this.conectar();
   }
 };
 </script>

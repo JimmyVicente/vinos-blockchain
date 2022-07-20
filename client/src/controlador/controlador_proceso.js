@@ -57,4 +57,37 @@ export default {
             })
         });
     },
+    listar_botella(id_proceso, call) {
+        axios.post(path.listar_botella, { id_proceso }).then((response) => {
+            call(response.data);
+        }).catch((error) => {
+            call({
+                tipo: "error",
+                mensaje: "Error desconocido",
+                mensaje_alterno: error,
+            })
+        });
+    },
+    cambiar_estado_botella(hash_botella, call) {
+        axios.post(path.cambiar_estado_botella, { hash_botella }).then((response) => {
+            call(response.data);
+        }).catch((error) => {
+            call({
+                tipo: "error",
+                mensaje: "Error desconocido",
+                mensaje_alterno: error,
+            })
+        });
+    },
+    econtrar_proceso_botella(hash_botella, call) {
+        axios.post(path.econtrar_proceso_botella, { hash_botella }).then((response) => {
+            call(response.data);
+        }).catch((error) => {
+            call({
+                tipo: "error",
+                mensaje: "Error desconocido",
+                mensaje_alterno: error,
+            })
+        });
+    },
 }

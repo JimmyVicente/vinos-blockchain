@@ -24,7 +24,7 @@
 
 <script>
 import { QrcodeStream } from 'vue-qrcode-reader';
-// import { encontrarBotella } from "../../../conexion_web3/procesos";
+import controlador_proceso from "../../../controlador/controlador_proceso";
 export default {
   name: "Leer_Qr",
   components: { QrcodeStream },
@@ -32,20 +32,25 @@ export default {
     async onDecode(result) {
       await this.encontrarBotella(result);
     },
-
-    async encontrarBotella(hash_botella) {
+    async encontrarBotella(uri) {
       try {
-        // var botella = await encontrarBotella(hash_botella);
-        this.hash_botella = hash_botella;
-        this.$toast.open({
-          message: "Código qr leído correctamente",
-          type: "success",
-          duration: 5000,
-          position: "top-right",
-          pauseOnHover: true,
+        var array_uri = uri.split("/");
+        var hash_botella = array_uri[4];
+        if (hash_botella == undefined) throw "error";
+        controlador_proceso.econtrar_proceso_botella(hash_botella, async (response) => {
+          this.$toast.open({
+            message: response.mensaje,
+            type: response.tipo,
+            duration: 5000,
+            position: "top-right",
+            pauseOnHover: true,
+          });
+          if (response.tipo == "success") {
+            this.hash_botella = hash_botella;
+            this.$emit("update:botella", response.data.botella);
+            this.$router.push({ name: 'Trazabilidad', params: { hash_botella } }).catch(() => { });
+          }
         });
-        // this.$router.push({ name: 'Trazabilidad', params: { hash_botella } }).catch(() => { });
-
       } catch (error) {
         this.$toast.open({
           message: "Qr invalidó, no existe información de este código QR",

@@ -7,7 +7,7 @@
       <br><br>
 
       <div v-if="presentar == true">
-        <InfoBotella :items="items" :botella="botella" :proceso="proceso" :tipo="1" />
+        <InfoBotella :items="items" :botella.sync="botella" :proceso="proceso" :tipo="1" />
       </div>
 
     </v-container>
@@ -16,8 +16,8 @@
 
 <script>
 import InfoBotella from '@/components/info_botella.vue';
-import { encontrarBotella } from "../../../conexion_web3/procesos";
-import { listarItemProceso } from "../../../controlador/util_format";
+import { formato_proceso } from "../../../controlador/util_format";
+import controlador_proceso from "../../../controlador/controlador_proceso";
 export default {
   name: "Cliente_Trazabilidad",
   components: {
@@ -36,11 +36,14 @@ export default {
     async encontrarBotella() {
       try {
         this.presentar = false;
-        var botella = await encontrarBotella(this.hash_botella);
-        this.botella = botella;
-        await this.generarProceso(botella.hash_anterior);
+        controlador_proceso.econtrar_proceso_botella(this.hash_botella, async (response) => {
+          if (response.tipo == "success") {
+            this.botella = response.data.botella;
+            this.proceso = response.data.proceso;
+            await this.generarProceso(this.proceso);
+          }
+        });
       } catch (error) {
-        console.log(error);
         this.$toast.open({
           message: "Qr invalidó, no existe información de este código QR",
           type: "error",
@@ -52,7 +55,7 @@ export default {
     },
     async generarProceso(hash) {
       try {
-        var { proceso, items } = await listarItemProceso(hash);
+        var { proceso, items } = await formato_proceso(hash);
         this.proceso = proceso;
         this.items = items.reverse();
         this.presentar = true;

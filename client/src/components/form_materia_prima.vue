@@ -19,7 +19,7 @@
             @input="$v.nombre_propietario.$touch()" @blur="$v.nombre_propietario.$touch()"></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
-          <v-text-field v-model="gadros_brix" label="Gadros Brix (gramos)" placeholder="Ingrese grados brix" outlined
+          <v-text-field v-model="gadros_brix" label="Gadros Brix " placeholder="Ingrese grados brix" outlined
             type="number" :error-messages="gadros_brix_errors" @input="$v.gadros_brix.$touch()"
             @blur="$v.gadros_brix.$touch()">
           </v-text-field>

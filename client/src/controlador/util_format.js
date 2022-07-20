@@ -168,7 +168,11 @@ export const formato_usuario = (usuario) => {
 
     usuario.createdAt = new Date(usuario.createdAt).toLocaleDateString();
     var permisos_array = [];
-    usuario.permisos = JSON.parse(usuario.permisos);
+    try {
+        usuario.permisos = JSON.parse(usuario.permisos);
+    } catch (error) {
+        console.log("");
+    }
     usuario.permisos.forEach(e => {
         if (e == 1) permisos_array.push(" Materia prima");
         if (e == 2) permisos_array.push(" Extracción del mosto");
@@ -177,10 +181,20 @@ export const formato_usuario = (usuario) => {
         if (e == 5) permisos_array.push(" Clarificación");
         if (e == 6) permisos_array.push(" Trasiego");
         if (e == 7) permisos_array.push(" Envasado");
+        if (e == 8) permisos_array.push(" Vendedor");
     });
     usuario.permisos_array = permisos_array;
+    var permisos_str = "";
+    usuario.permisos_array.forEach((e, i) => {
+        permisos_str += e;
+        if ((i + 1) != usuario.permisos_array.length) {
+            permisos_str += ",";
+        }
+    });
+    usuario.permisos_str = permisos_str;
     if (usuario.rol == 1) usuario.rol_str = "Administración";
     if (usuario.rol == 2) usuario.rol_str = "Empleado";
+    if (usuario.rol == 3) usuario.rol_str = "Vendedor";
     return usuario;
 
 

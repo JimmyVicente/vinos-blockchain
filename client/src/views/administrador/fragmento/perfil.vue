@@ -20,8 +20,7 @@
 </template>
 
 <script>
-import controlador_usuario from "../../../controlador/controlador_usuario";
-import { infoCuenta } from "../../../conexion_web3/getWeb3";
+import { encontrarMiUsuario } from "../../../conexion_web3/usuarios";
 import { formato_usuario } from "../../../controlador/util_format";
 export default {
     name: "Perfil_Usuario",
@@ -35,23 +34,13 @@ export default {
         permisos: "...",
     }),
     async mounted() {
-        var { cuenta } = await infoCuenta();
-        controlador_usuario.encontrar_usuario(cuenta, async (response) => {
-            if (response.tipo == "success") {
-                this.usuario = formato_usuario(response.data);
-                this.usuario.permisos_array.forEach(e => {
-                    this.permisos += e + ", ";
-                });
-            } else {
-                this.$toast.open({
-                    message: response.mensaje,
-                    type: response.tipo,
-                    duration: 5000,
-                    position: "top-right",
-                    pauseOnHover: true,
-                });
-            }
-        });
+        try {
+            var usuario = await encontrarMiUsuario();
+            this.usuario = formato_usuario(usuario);
+            this.permisos = usuario.permisos_str;
+        } catch (error) {
+            console.log("");
+        }
     }
 
 };
