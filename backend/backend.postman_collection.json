@@ -1,0 +1,470 @@
+{
+	"info": {
+		"_postman_id": "1f96a714-9fd6-40ed-973a-e1991b7790c8",
+		"name": "vinos-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7740080"
+	},
+	"item": [
+		{
+			"name": "proceso",
+			"item": [
+				{
+					"name": "listar_proceso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/listar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"listar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar_botella",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_proceso\": \"62d7542403a67097cd681f7b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/listar_botella",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"listar_botella"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aprobar_proceso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"proceso\": 7,\r\n    \"id_proceso\": \"62d7542403a67097cd681f7b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/aprobar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"aprobar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "econtrar_proceso_botella",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash_botella\": \"62d75d80b58b262fcf76ee39\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/econtrar_proceso_botella",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"econtrar_proceso_botella"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cambiar_estado_botella",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash_botella\": \"62d75d80b58b262fcf76ee36\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/cambiar_estado_botella",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"cambiar_estado_botella"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "encontrar_proceso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_proceso\": \"62d7542403a67097cd681f7b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/encontrar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"encontrar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_editar_proceso_1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"proceso\": 1,\r\n   \"nro_cosecha\":  \"2\",\r\n   \"lugar_procedencia\":  \"Saraguro\",\r\n   \"nombre_propietario\":  \"Jimmy Vicente\",\r\n   \"gadros_brix\":  \"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/crear_editar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"crear_editar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_editar_proceso_2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"proceso\": 2,\r\n   \"id_proceso\": \"62d7542403a67097cd681f7b\",\r\n   \"tipo\":  \"Pulpatado\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/crear_editar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"crear_editar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_editar_proceso_3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"proceso\": 3,\r\n   \"id_proceso\": \"62d7542403a67097cd681f7b\",\r\n   \"temperatura_caliente\":  \"60\",\r\n   \"temperatura_fria\":  \"40\",\r\n   \"tiempo_proceso\":  \"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/crear_editar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"crear_editar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_editar_proceso_4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"proceso\": 4,\r\n   \"id_proceso\": \"62d7542403a67097cd681f7b\",\r\n   \"fecha_inicio\":  \"1657994581481\",\r\n   \"fecha_final\":  \"1657994581481\",\r\n   \"grados_invertidos\":  \"11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/crear_editar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"crear_editar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_editar_proceso_5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"proceso\": 5,\r\n   \"id_proceso\": \"62d7542403a67097cd681f7b\",\r\n   \"turbidez\":  \"11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/crear_editar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"crear_editar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_editar_proceso_6",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"proceso\": 6,\r\n   \"id_proceso\": \"62d7542403a67097cd681f7b\",\r\n   \"liquido_claro\":  \"60\",\r\n   \"liquido_oscuro\":  \"60\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/crear_editar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"crear_editar_proceso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear_editar_proceso_7",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"proceso\": 7,\r\n    \"id_proceso\": \"62d7542403a67097cd681f7b\",\r\n    \"nro_lote\": \"80\",\r\n    \"nro_botellas\": 2000,\r\n    \"nro_botellas_especiales\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/proceso/crear_editar_proceso",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"proceso",
+								"crear_editar_proceso"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "crear_editar_usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"billetera\": \"0xf011a785046808A3dcA7cc3d157ECe7A126d64CB\",\r\n   \"id_usuario\": \"62d3567d3c9b0ac960f270aa\",\r\n   \"nombre\": \"Jimmy Leonel Vicente Guayanay\",\r\n   \"rol\":  1,\r\n   \"permisos\": [1, 2, 3, 4, 5, 6, 7]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/usuario/crear_editar_usuario",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"usuario",
+								"crear_editar_usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "encontrar_usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id_usuario\": \"62d3567d3c9b0ac960f270aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/usuario/encontrar_usuario",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"usuario",
+								"encontrar_usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar_usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id_usuario\": \"62d353c5fbdff818516f5937\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/usuario/eliminar_usuario",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"usuario",
+								"eliminar_usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar_usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_vinos}}/usuario/listar_usuario",
+							"host": [
+								"{{domain_vinos}}"
+							],
+							"path": [
+								"usuario",
+								"listar_usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
