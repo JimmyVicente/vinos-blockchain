@@ -13,13 +13,7 @@ var Botella = require('../modelos/botella');
 var GlobalApp = require('../global/global_app');
 var UtilApi = require('../utils/util_api');
 
-/** @api {post} /proceso/listar_proceso Listar proceso
- @apiName Listar proceso
- @apiGroup controlador.proceso
- @apiDescription Permite listar proceso
- @apiSuccess {Object} object { message: "¡Bienvenido!" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Datos incorrectos" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Cuenta inactiva" }*/
+
 exports.listar_proceso = async function (req, res) {
     try {
         var procesos = await Proceso.find()
@@ -37,13 +31,6 @@ exports.listar_proceso = async function (req, res) {
 };
 
 
-/** @api {post} /proceso/encontrar_proceso Encontrar proceso
- @apiName Encontrar proceso
- @apiGroup controlador.proceso
- @apiDescription Permite encontrar proceso
- @apiSuccess {Object} object { message: "¡Bienvenido!" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Datos incorrectos" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Cuenta inactiva" }*/
 exports.encontrar_proceso = async function (req, res) {
     try {
         let { id_proceso } = req.body;
@@ -55,14 +42,7 @@ exports.encontrar_proceso = async function (req, res) {
 };
 
 
-/** @api {post} /proceso/crear_editar_proceso Crear editar proceso
- @apiName Crear editar proceso
- @apiGroup controlador.proceso
- @apiDescription Permite editar proceso
- @apiParam {String} email Correo electrónico o número de celular.
- @apiSuccess {Object} object { message: "¡Bienvenido!" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Datos incorrectos" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Cuenta inactiva" }*/
+
 exports.crear_editar_proceso = async function (req, res) {
     try {
         let { proceso, id_proceso } = req.body;
@@ -168,15 +148,6 @@ exports.crear_editar_proceso = async function (req, res) {
     }
 };
 
-
-/** @api {post} /proceso/aprobar_proceso Aprobar proceso
- @apiName Aprobarr proceso
- @apiGroup controlador.proceso
- @apiDescription Permite aprobar proceso
- @apiParam {String} email Correo electrónico o número de celular.
- @apiSuccess {Object} object { message: "¡Bienvenido!" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Datos incorrectos" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Cuenta inactiva" }*/
 exports.aprobar_proceso = async function (req, res) {
     try {
         let { proceso, id_proceso } = req.body;
@@ -233,14 +204,7 @@ exports.aprobar_proceso = async function (req, res) {
     }
 };
 
-/** @api {post} /proceso/firmar_proceso Firmar proceso
- @apiName Firmar proceso
- @apiGroup controlador.proceso
- @apiDescription Permite firmar proceso
- @apiParam {String} email Correo electrónico o número de celular.
- @apiSuccess {Object} object { message: "¡Bienvenido!" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Datos incorrectos" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Cuenta inactiva" }*/
+
 exports.firmar_proceso = async function (req, res) {
     try {
         let { id_proceso, hash } = req.body;
@@ -252,14 +216,7 @@ exports.firmar_proceso = async function (req, res) {
     }
 };
 
-/** @api {post} /proceso/econtrar_proceso_botella Firmar proceso
- @apiName Firmar proceso
- @apiGroup controlador.proceso
- @apiDescription Permite firmar proceso
- @apiParam {String} email Correo electrónico o número de celular.
- @apiSuccess {Object} object { message: "¡Bienvenido!" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Datos incorrectos" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Cuenta inactiva" }*/
+
 exports.econtrar_proceso_botella = async function (req, res) {
     try {
         let { hash_botella } = req.body;
@@ -272,14 +229,7 @@ exports.econtrar_proceso_botella = async function (req, res) {
     }
 };
 
-/** @api {post} /proceso/cambiar_estado_botella Firmar proceso
- @apiName Firmar proceso
- @apiGroup controlador.proceso
- @apiDescription Permite firmar proceso
- @apiParam {String} email Correo electrónico o número de celular.
- @apiSuccess {Object} object { message: "¡Bienvenido!" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Datos incorrectos" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Cuenta inactiva" }*/
+
 exports.cambiar_estado_botella = async function (req, res) {
     try {
         let { hash_botella } = req.body;
@@ -297,14 +247,6 @@ exports.cambiar_estado_botella = async function (req, res) {
 };
 
 
-/** @api {post} /proceso/listar_botella Firmar proceso
- @apiName Firmar proceso
- @apiGroup controlador.proceso
- @apiDescription Permite firmar proceso
- @apiParam {String} email Correo electrónico o número de celular.
- @apiSuccess {Object} object { message: "¡Bienvenido!" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Datos incorrectos" }
- @apiError {Object} object { "name": "ValidationError", "status": 400, "message": "Cuenta inactiva" }*/
 exports.listar_botella = async function (req, res) {
     try {
         let { id_proceso } = req.body;

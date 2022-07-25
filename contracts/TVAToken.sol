@@ -25,6 +25,10 @@ contract TVATOKEN is ERC721 {
     {
         return _botellas_ids[_hash];
     }
+
+    function asignarBotella(address to, uint256 tokenId) public {
+        _transfer(msg.sender, to, tokenId);
+    }
 }
 
 //0x1261C955E1d1aC349Fd988a27492e1139ecAD846
