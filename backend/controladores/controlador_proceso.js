@@ -13,7 +13,6 @@ var Botella = require('../modelos/botella');
 var GlobalApp = require('../global/global_app');
 var UtilApi = require('../utils/util_api');
 
-
 exports.listar_proceso = async function (req, res) {
     try {
         var procesos = await Proceso.find()
@@ -40,8 +39,6 @@ exports.encontrar_proceso = async function (req, res) {
         UtilApi.errorServer(req, res, error);
     }
 };
-
-
 
 exports.crear_editar_proceso = async function (req, res) {
     try {
@@ -150,8 +147,8 @@ exports.crear_editar_proceso = async function (req, res) {
 
 exports.aprobar_proceso = async function (req, res) {
     try {
-        let { proceso, id_proceso } = req.body;
-        UtilApi.validarCampos({ proceso, id_proceso });
+        let { proceso, id_proceso, billetera } = req.body;
+        UtilApi.validarCampos({ proceso, id_proceso, billetera });
         var proceso_validar = await encontrar_proceso(id_proceso);
         switch (proceso) {
             case 1:
@@ -187,7 +184,7 @@ exports.aprobar_proceso = async function (req, res) {
                         var data = {
                             nro_botella: index + 1,
                             id_proceso: id_proceso,
-                            estados: [{ fecha: new Date(), estado: "Empacado" }]
+                            estados: [{ fecha: new Date(), estado: "Empacado", billetera}]
                         };
                         var botella = await Botella.create(data);
                         botellas.push({ botella: botella._id });
@@ -216,7 +213,6 @@ exports.firmar_proceso = async function (req, res) {
     }
 };
 
-
 exports.econtrar_proceso_botella = async function (req, res) {
     try {
         let { hash_botella } = req.body;
@@ -229,17 +225,16 @@ exports.econtrar_proceso_botella = async function (req, res) {
     }
 };
 
-
 exports.cambiar_estado_botella = async function (req, res) {
     try {
-        let { hash_botella } = req.body;
-        UtilApi.validarCampos({ hash_botella });
+        let { hash_botella, billetera } = req.body;
+        UtilApi.validarCampos({ hash_botella, billetera });
         var botella = await Botella.findOne({ _id: hash_botella });
         var estados = botella.estados;
         var length = estados.length;
-        if (length == 0) estados.push({ fecha: new Date(), estado: "Empacado" });
-        if (length == 1) estados.push({ fecha: new Date(), estado: "Vendido" });
-        if (length == 2) estados.push({ fecha: new Date(), estado: "Token asignado" });
+        if (length == 0) estados.push({ fecha: new Date(), estado: "Empacado", billetera });
+        if (length == 1) estados.push({ fecha: new Date(), estado: "Vendido", billetera });
+        if (length == 2) estados.push({ fecha: new Date(), estado: "Token asignado", billetera });
         await Botella.updateOne({ _id: botella._id }, { estados });
         UtilApi.succeesServer(req, res, null, GlobalApp.mensaje_botella_actualizada);
     } catch (error) {

@@ -68,8 +68,8 @@ export default {
             })
         });
     },
-    cambiar_estado_botella(hash_botella, call) {
-        axios.post(path.cambiar_estado_botella, { hash_botella }).then((response) => {
+    cambiar_estado_botella(data, call) {
+        axios.post(path.cambiar_estado_botella, data).then((response) => {
             call(response.data);
         }).catch((error) => {
             call({

@@ -46,7 +46,7 @@
                   </v-avatar>
                 </v-btn>
                 <v-btn color="green" outlined v-else-if="botella.estados.length == 1 && usuario.rol == 3"
-                  @click="cambiarEstadoBotella()">
+                  @click="cambiarEstadoBotella(usuario.billetera)">
                   Marcar como vendido
                 </v-btn>
                 <v-btn color="green" outlined v-else-if="botella.estados.length == 2 && usuario.rol == undefined"
@@ -113,7 +113,7 @@ export default {
         this.usuario = await encontrarMiUsuario() ?? {};
         this.conectado = true;
       } catch (error) {
-          console.log(error);
+        console.log(error);
         this.$toast.open({
           message: "No se pudo conectar con metamask",
           type: "error",
@@ -130,8 +130,12 @@ export default {
         }
       });
     },
-    async cambiarEstadoBotella() {
-      controlador_proceso.cambiar_estado_botella(this.botella._id, async (response) => {
+    async cambiarEstadoBotella(billetera) {
+      var data = {
+        hash_botella: this.botella._id,
+        billetera: billetera,
+      };
+      controlador_proceso.cambiar_estado_botella(data, async (response) => {
         this.$toast.open({
           message: response.mensaje,
           type: response.tipo,
@@ -144,8 +148,8 @@ export default {
     },
     async asignarToken() {
       try {
-        await crearBotella(this.botella._id);
-        await this.cambiarEstadoBotella();
+        var data = await crearBotella(this.botella._id);
+        await this.cambiarEstadoBotella(data.billetera);
       } catch (error) {
         console.log(error);
         this.$toast.open({

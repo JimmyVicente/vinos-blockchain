@@ -32,6 +32,9 @@ export const crearBotella = async (hash) => {
   const config = { from: cuenta };
   var contratoTVATOKEN = await cargarContatrato(web3, TVATOKEN);
   await contratoTVATOKEN.crearBotella(cuenta, hash, config);
+  return {
+    billetera: cuenta
+  };
 }
 
 export const encontrarBotella = async (hash) => {

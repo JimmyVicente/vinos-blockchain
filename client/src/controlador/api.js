@@ -1,4 +1,5 @@
 const path = 'https://vinos-backend.herokuapp.com/api';
+// const path = 'http://192.168.1.102:3000/api';
 const path_qr = 'http://192.168.1.102:8080/trazabilidad/';
 export default {
     path_qr: path_qr,

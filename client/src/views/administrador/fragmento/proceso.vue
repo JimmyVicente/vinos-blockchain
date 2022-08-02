@@ -159,13 +159,10 @@ export default {
   async mounted() {
     this.cargando_tipo = true;
     controlador_proceso.lista_proceso(async (response) => {
-
       if (response.tipo == "success") {
         this.desserts = response.data.procesos;
       }
-
       this.cargando_tipo = false;
-
     });
   }
 };

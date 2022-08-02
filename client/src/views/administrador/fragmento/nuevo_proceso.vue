@@ -247,7 +247,8 @@ export default {
   methods: {
 
     async dialogAprobarProceso(proceso, id_proceso) {
-      var data = { proceso, id_proceso };
+      var billetera = this.miUsuario.billetera;
+      var data = { proceso, id_proceso, billetera };
       this.data_aprobar_proceso = data;
       this.dialog_aprobar_proceso = true;
     },
@@ -356,6 +357,7 @@ export default {
           this.siguiente_proceso = item.siguiente_proceso;
           this.esta_completado = item.esta_completado;
           this.proceso = item.proceso;
+          this.$router.push({ name: 'Nuevo Proceso', params: { hash } }).catch(() => { });
         } else {
           this.hash_anterior = null;
           if (hash != "agregar") {
@@ -382,7 +384,9 @@ export default {
     },
   },
   async mounted() {
-    this.generarProceso(this.hash);
+    if (this.hash != 'agregar') {
+      this.generarProceso(this.hash);
+    }
     this.encontrarMiUsuario();
   }
 };
