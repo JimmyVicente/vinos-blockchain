@@ -26,6 +26,22 @@
           </v-list-item>
         </v-list-item-group>
       </v-list>
+        <template v-slot:append>
+        <div class="pa-2">
+          <v-btn dark  color="white" class="primary_app" :to="{ name: 'Inicio' }"  >
+             <v-tooltip right color="white">
+              <template v-slot:activator="{ on, attrs }">
+
+                <v-icon left dark v-bind="attrs" v-on="on">  mdi-logout </v-icon>
+              </template>
+              <strong >CERRAR SESION</strong>
+            </v-tooltip>
+            
+            <strong>Cerrar sesion</strong>
+          </v-btn>
+        </div>
+      </template>
+
     </v-navigation-drawer>
     <v-app-bar fixed dark color="primary_app" elevate-on-scroll scroll-target="#scrolling-techniques-7">
       <v-btn icon color="white" :to="{ name: 'Inicio Administrador' }">
@@ -65,7 +81,6 @@ export default {
       { title: "Perfil", icon: "mdi-account-box", to: { name: "Perfil" } },
       { title: "Procesos", icon: "mdi-glass-tulip", to: { name: "Proceso" } },
       { title: "Usuarios", icon: "mdi-account-multiple-outline", to: { name: "Usuario" } },
-      { title: "Salir", icon: "mdi-forward", to: { name: "Inicio" } },
     ],
   }),
   methods: {

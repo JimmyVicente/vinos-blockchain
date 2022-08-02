@@ -6,10 +6,10 @@ var usuario_cache;
 export const encontrarMiUsuario = async () => {
     const { cuenta } = await infoCuenta();
     if (usuario_cache != undefined && usuario_cache.billetera == cuenta) return usuario_cache;
-    var usuario = await controlador_usuario.encontrar_usuario(cuenta);
+    var usuario = await controlador_usuario.encontrar_usuario(cuenta) ?? {};
     usuario_cache = usuario;
     usuario.esMiCuenta = false;
-    usuario.permisos = JSON.parse(usuario.permisos);
+    usuario.permisos = JSON.parse(usuario.permisos ?? "[]");
     if (usuario.billetera == cuenta) usuario.esMiCuenta = true;
     return usuario;
 };

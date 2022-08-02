@@ -2,6 +2,7 @@ import Web3 from 'web3';
 var TruffleContract = require('@truffle/contract');
 
 const getWeb3 = async () => {
+  console.log(window.ethereum);
   if (window.ethereum) {
     const web3 = new Web3(window.ethereum);
     await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -10,7 +11,7 @@ const getWeb3 = async () => {
     const web3 = new Web3(window.web3.currentProvider);
     return web3;
   } else {
-    throw { mensaje: "Se detectó un navegador que no admitido. ¡Deberías considerar probar MetaMask!" };
+    throw { mensaje_metamask: "Se detectó un navegador que no admitido. ¡Deberías considerar probar MetaMask!" };
   }
 }
 
@@ -29,10 +30,10 @@ export const infoCuenta = async () => {
     return { web3, cuenta, balanceETHER };
   } catch (error) {
     console.log(error);
-    var mensaje = error.mensaje ?? "Ocurrió un problema al conectarse con la blockchain";
-    if (error.code == 4001) mensaje = "Rechazaste la solicitud para conectarte con metamask";
-    if (error.code == -32002) mensaje = "Revisa la extensión de metamask y confirma la solicitud";
-    throw { mensaje };
+    var mensaje_metamask = error.mensaje_metamask ?? "Ocurrió un problema al conectarse con la wallet";
+    if (error.code == 4001) mensaje_metamask = "Rechazaste la solicitud para conectarte con metamask";
+    if (error.code == -32002) mensaje_metamask = "Revisa la extensión de metamask y confirma la solicitud";
+    throw { mensaje_metamask };
   }
 };
 

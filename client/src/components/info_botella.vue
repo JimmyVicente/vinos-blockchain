@@ -13,7 +13,7 @@
       <br>
 
       <v-row>
-        <v-col cols="4" md="4" sm="12">
+        <v-col cols="12" md="4" sm="12">
           <v-card color="grey" dark>
             Información botella
             <v-card-text class="white text--primary">
@@ -24,7 +24,7 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="4" md="4" sm="12">
+        <v-col cols="12" md="4" sm="12">
           <v-card color="grey" dark>
             Estado de botella
             <v-card-text class="white text--primary">
@@ -34,7 +34,7 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="4" md="4" sm="12">
+        <v-col cols="12" md="4" sm="12">
           <v-card color="grey" dark>
             Acciones
             <v-card-text class="white text--primary">
@@ -49,7 +49,8 @@
                   @click="cambiarEstadoBotella()">
                   Marcar como vendido
                 </v-btn>
-                <v-btn color="green" outlined v-else-if="botella.estados.length == 3" @click="asignarToken()">
+                <v-btn color="green" outlined v-else-if="botella.estados.length == 2 && usuario.rol == undefined"
+                  @click="asignarToken()">
                   Asinar Token
                 </v-btn>
                 <div v-else> Sin acciones</div>
@@ -63,7 +64,7 @@
 
     <v-container>
       <v-row>
-        <v-col cols="6" md="6" sm="12" v-for="(item, i) in items" :key="i">
+        <v-col cols="12" md="6" sm="12" v-for="(item, i) in items" :key="i">
           <v-card :color="item.color" dark>
             <v-card-title class="text-h6" v-text="item.index + ' ' + item.nombre"></v-card-title>
             <v-card-text class="white text--primary">
@@ -112,6 +113,7 @@ export default {
         this.usuario = await encontrarMiUsuario() ?? {};
         this.conectado = true;
       } catch (error) {
+          console.log(error);
         this.$toast.open({
           message: "No se pudo conectar con metamask",
           type: "error",

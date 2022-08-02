@@ -1,6 +1,6 @@
 <template>
-    <section class="container margin">
-
+    <section class="container ">
+<br><br><br>
         <h1>Información acerca del funcionamiento de la trazabililidad Vinos Ambrosia</h1><br>
 
 
@@ -97,8 +97,3 @@ export default {
     }),
 };
 </script>
-<style scoped>
-.margin {
-    margin-top: 5%;
-}
-</style>

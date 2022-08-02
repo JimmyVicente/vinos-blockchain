@@ -31,13 +31,33 @@ import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
 import controlador_proceso from "../controlador/controlador_proceso";
 const moment = require("moment");
+const fecha_minima = (value) => {
+  var fecha = new Date(value);
+  var fecha_minima = new Date();
+  if (fecha_minima <= fecha) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const fecha_finalizacion = (value, vm) => {
+  var fecha = new Date(value);
+  var fecha_inicio = new Date(vm.fecha_inicio);
+  if (fecha_inicio < fecha) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+
 export default {
   name: "FormFermentacion",
   components: {},
   mixins: [validationMixin],
   validations: {
-    fecha_inicio: { required, },
-    fecha_final: { required, },
+    fecha_inicio: { required,fecha_minima },
+    fecha_final: { required,fecha_finalizacion },
     grados_invertidos: { required, },
   },
   data: () => ({
@@ -50,12 +70,14 @@ export default {
       const errors = [];
       if (!this.$v.fecha_inicio.$dirty) return errors;
       !this.$v.fecha_inicio.required && errors.push("Este campo es obligatorio.");
+      !this.$v.fecha_inicio.fecha_minima && errors.push("Ingrese una fecha mayor o igual a la actual.");
       return errors;
     },
     fecha_final_errors() {
       const errors = [];
       if (!this.$v.fecha_final.$dirty) return errors;
       !this.$v.fecha_final.required && errors.push("Este campo es obligatorio.");
+      !this.$v.fecha_final.fecha_finalizacion && errors.push("Ingrese una fecha mayor a la fecha de inicio.");
       return errors;
     },
     grados_invertidos_errors() {

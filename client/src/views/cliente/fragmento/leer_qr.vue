@@ -1,15 +1,15 @@
 <template>
-  <section class="container">
-    <v-container class="margin">
+  <section class="container ">
+    <br><br><br>
       <v-card>
         <h1>Leer QR</h1>
       </v-card>
       <br><br>
 
       <center>
-        <v-card style="padding: 0.5rem; height: 34rem; width: 22rem;">
+        <v-card style="padding: 0.5rem; height: 60vh; width: 45vh;" >
 
-          <div style="height: 30rem; width: 20rem;">
+          <div style="height: 50vh; width: 35vh;">
             <qrcode-stream @decode="onDecode" @init="onInit" />
           </div>
           <br>
@@ -18,7 +18,6 @@
         </v-card>
       </center>
 
-    </v-container>
   </section>
 </template>
 
@@ -91,9 +90,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.margin {
-  margin-top: 5%;
-
-}
-</style>

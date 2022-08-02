@@ -184,6 +184,7 @@
       </v-card>
     </v-dialog>
 
+    <CargandoVista :cargando_tipo="cargando_tipo" :cargando_mensaje="cargando_mensaje"></CargandoVista>
   </section>
 </template>
 
@@ -195,6 +196,7 @@ import FormFermentacion from '@/components/form_fermentacion.vue'
 import FormClarificacion from '@/components/form_clarificacion.vue'
 import FormTrasiego from '@/components/form_trasiego.vue'
 import FormEnvasado from '@/components/form_envasado.vue'
+import CargandoVista from "@/components/cargando_vista.vue";
 //importaciones web3
 import { formato_proceso } from "../../../controlador/util_format";
 import { firmarProceso } from "../../../conexion_web3/procesos";
@@ -212,6 +214,7 @@ export default {
     FormClarificacion,
     FormTrasiego,
     FormEnvasado,
+    CargandoVista,
   },
   data: () => ({
     nombre_proceso: "Nuevo proceso",
@@ -235,6 +238,8 @@ export default {
     dialog_firmar_proceso: false,
     data_aprobar_proceso: {},
     miUsuario: undefined,
+    cargando_tipo: false,
+    cargando_mensaje: "Por favor espere...."
   }),
   props: {
     hash: [String],
@@ -250,6 +255,9 @@ export default {
     async aprobarProceso() {
       this.dialog_aprobar_proceso = false;
       var data = this.data_aprobar_proceso;
+      this.cargando_tipo = true;
+      this.cargando_mensaje = "Aprobando proceso..";
+      if (data.proceso == 7) this.cargando_mensaje = "Generando botellas";
       controlador_proceso.aprobar_proceso(data, async (response) => {
         this.$toast.open({
           message: response.mensaje,
@@ -259,14 +267,16 @@ export default {
           pauseOnHover: true,
         });
         if (response.tipo == "success") this.generarProceso(response.data);
+        this.cargando_tipo = false;
       });
     },
 
     async firmarProceso() {
       try {
+        this.cargando_tipo = true;
+        this.dialog_firmar_proceso = false;
         var hash = await firmarProceso(this.proceso);
         controlador_proceso.firmar_proceso(this.proceso._id, hash, async (response) => {
-          this.dialog_firmar_proceso = false;
           this.$toast.open({
             message: response.mensaje,
             type: response.tipo,
@@ -275,9 +285,9 @@ export default {
             pauseOnHover: true,
           });
           if (response.tipo == "success") this.generarProceso(response.data);
+          this.cargando_tipo = false;
         });
       } catch (error) {
-        this.dialog_firmar_proceso = false;
         this.$toast.open({
           message: "Error al firmar proceso ",
           type: "error",
@@ -285,6 +295,7 @@ export default {
           position: "top-right",
           pauseOnHover: true,
         });
+        this.cargando_tipo = false;
       }
     },
 
@@ -333,6 +344,7 @@ export default {
     },
 
     async generarProceso(hash) {
+      this.cargando_tipo = true;
       controlador_proceso.encontrar_proceso(hash, async (response) => {
         if (response.tipo == "success") {
           var item = await formato_proceso(response.data);
@@ -356,6 +368,7 @@ export default {
             });
           }
         }
+        this.cargando_tipo = false;
       });
 
     },

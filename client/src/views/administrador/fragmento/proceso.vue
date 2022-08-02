@@ -127,14 +127,19 @@
         </v-data-table>
       </v-card>
     </v-container>
+    
+  <CargandoVista :cargando_tipo="cargando_tipo" ></CargandoVista>
   </section>
 </template>
 
 <script>
 import controlador_proceso from "../../../controlador/controlador_proceso";
+import CargandoVista from "@/components/cargando_vista.vue";
 export default {
   name: "Proceso_",
-  components: {},
+  components: {
+    CargandoVista
+  },
   data: () => ({
     search: "",
     headers: [
@@ -149,12 +154,18 @@ export default {
       { text: "Acción", sortable: false, value: "accion" },
     ],
     desserts: [],
+    cargando_tipo:true,
   }),
   async mounted() {
+    this.cargando_tipo = true;
     controlador_proceso.lista_proceso(async (response) => {
+
       if (response.tipo == "success") {
         this.desserts = response.data.procesos;
       }
+
+      this.cargando_tipo = false;
+
     });
   }
 };
