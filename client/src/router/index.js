@@ -50,6 +50,15 @@ const routes = [
         },
         component: () => import('../views/cliente/fragmento/trazabilidad.vue')
       },
+      {
+        path: "*", 
+        name: '404',
+        props: true,
+        meta: {
+          requiresAuth: false
+        },
+        component: () => import('../views/cliente/fragmento/404.vue')
+      },
 
     ]
   },
