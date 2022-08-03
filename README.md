@@ -74,3 +74,6 @@ npm run serve
 ```
 **NOTA**: Es importante asegurarse que MetaMask este conectada a la **red localhost**
 _Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+
+
+"start": "concurrently --kill-others \"npm run serve --prefix client/\" \"npm start --prefix backend/\""
