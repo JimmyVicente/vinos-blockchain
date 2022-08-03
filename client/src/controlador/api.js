@@ -1,6 +1,5 @@
-const path = 'https://vinos-backend.herokuapp.com/api';
-// const path = 'http://192.168.1.102:3000/api';
-const path_qr = 'http://192.168.1.102:8080/trazabilidad/';
+const path = 'https://vinos-blockchain.herokuapp.com/api';
+const path_qr = 'https://vinos-blockchain.herokuapp.com/trazabilidad/';
 export default {
     path_qr: path_qr,
     //usuario
