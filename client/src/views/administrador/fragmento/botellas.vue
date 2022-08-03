@@ -11,6 +11,17 @@
           <h6>Nro. Botellas vendidas: {{ getBotellasVendidas() }}</h6>
           <v-spacer></v-spacer>
           <h6>Nro. Tokens asignados: {{ getTokensAsignados() }}</h6>
+          <v-spacer></v-spacer>
+
+          <v-btn color="green" outlined @click="generarPdf()">
+
+            Imprimir
+            <v-btn icon color="green">
+              <v-icon>mdi-cloud-print-outline</v-icon>
+            </v-btn>
+          </v-btn>
+
+
         </v-card-title>
         <v-divider></v-divider>
         <v-container>
@@ -72,6 +83,20 @@
             </v-card>
           </v-dialog>
 
+
+          <!-- Imprimir pdf -->
+          <vue-html2pdf :show-layout="false" :float-layout="true" :enable-download="false" :preview-modal="true"
+            filename="Qr de botellas " :pdf-quality="2" :manual-pagination="true" pdf-format="a4"
+            pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf">
+            <section slot="pdf-content">
+
+              <ImprimirQr :proceso="proceso" :botellas="botellas" ></ImprimirQr>
+
+            </section>
+          </vue-html2pdf>
+
+          <!-- fin de imprimir -->
+
         </v-container>
       </v-card>
     </v-container>
@@ -84,9 +109,12 @@
 <script>
 //importaciones web3
 import VueQr from 'vue-qr';
+import VueHtml2pdf from 'vue-html2pdf'
 import InfoBotella from '@/components/info_botella.vue'
+import ImprimirQr from '@/components/imprimir_qr.vue'
 import CargandoVista from "@/components/cargando_vista.vue";
 
+import { encontrarMiUsuario } from "../../../conexion_web3/usuarios";
 import { formato_proceso } from "../../../controlador/util_format";
 import controlador_proceso from "../../../controlador/controlador_proceso";
 import path from "../../../controlador/api";
@@ -94,8 +122,10 @@ export default {
   name: "Botellas_Envasado",
   components: {
     VueQr,
+    VueHtml2pdf,
     InfoBotella,
     CargandoVista,
+    ImprimirQr,
   },
   data: () => ({
     dialog_item: false,
@@ -105,11 +135,15 @@ export default {
     botellas: [],
     path_qr: "",
     cargando_tipo: false,
+    usuario: {},
   }),
   props: {
     hash: [String],
   },
   methods: {
+    generarPdf(){
+      this.$refs.html2Pdf.generatePdf();
+    },
     getBotellasVendidas() {
       var vendidas = this.botellas.filter(e => e.botella.estados.length > 1);
       return vendidas.length;
@@ -173,6 +207,11 @@ export default {
     this.generarProceso(this.hash);
     this.listaBotellas(this.hash);
     this.path_qr = path.path_qr;
+    try {
+      this.usuario = await encontrarMiUsuario() ?? {};
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 </script>
