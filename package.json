@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm start --prefix backend/"
+    "start": "npm start --prefix backend/",
+    "postinstall": "npm install --prefix ./backend"
   },
   "author": "",
   "license": "ISC",
