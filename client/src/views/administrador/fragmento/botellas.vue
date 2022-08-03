@@ -33,8 +33,8 @@
                   class="d-flex align-content-end flex-wrap">
                   <v-card style="padding: 10px;" @click="encontrarBotella(item.botella)">
                     <center>
-                      <v-img src="@/assets/galeria/vino_qr.png" max-width="90" style="align-items: center;">
-                        <vue-qr class="vue-qr" :text="path_qr + item.botella._id" :size="75" style="margin-top: 30px;">
+                      <v-img src="@/assets/galeria/vino_qr.png" max-width="60" style="align-items: center;">
+                        <vue-qr class="vue-qr" :text="path_qr + item.botella._id" :size="50" style="margin-top: 30px;">
                         </vue-qr>
                       </v-img>
                     </center>
@@ -69,13 +69,12 @@
             <v-card style="padding: 20px">
               <v-card-text>
                 <InfoBotella :items="items" :botella.sync="botella" :proceso="proceso" :tipo="0" />
-
               </v-card-text>
               <br><br>
               <v-card-actions>
 
                 <v-spacer></v-spacer>
-                <v-btn dark color="secondary_app" @click="dialog_item = false"> Salir </v-btn>
+                <v-btn dark color="secondary_app" @click="dialog_item = false"> CERRAR </v-btn>
 
               </v-card-actions>
 
@@ -90,7 +89,7 @@
             pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf">
             <section slot="pdf-content">
 
-              <ImprimirQr :proceso="proceso" :botellas="botellas" ></ImprimirQr>
+              <ImprimirQr :proceso="proceso" :botellas="botellas"></ImprimirQr>
 
             </section>
           </vue-html2pdf>
@@ -141,7 +140,7 @@ export default {
     hash: [String],
   },
   methods: {
-    generarPdf(){
+    generarPdf() {
       this.$refs.html2Pdf.generatePdf();
     },
     getBotellasVendidas() {

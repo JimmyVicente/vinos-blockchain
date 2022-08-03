@@ -39,7 +39,7 @@ export const formato_proceso = async (proceso) => {
         siguiente_proceso = model.aprobado;
         informacion = `Tipo: ${model.tipo}`;
         items.push({
-            color: "#500617",
+            color: "#0092D3",
             icon: "mdi-glass-tulip",
             nombre: "Extración del mosto",
             informacion: informacion,
@@ -61,7 +61,7 @@ export const formato_proceso = async (proceso) => {
         Tiempo proceso: ${model.tiempo_proceso} min<br>
         `;
         items.push({
-            color: "#500617",
+            color: "#00D3AF",
             icon: "mdi-book-variant",
             nombre: "Pasteurización del mosto",
             informacion: informacion,
@@ -83,7 +83,7 @@ export const formato_proceso = async (proceso) => {
         Grados invertidos: ${model.grados_invertidos} %<br>
       `;
         items.push({
-            color: "#500617",
+            color: "#D3BD00",
             icon: "mdi-cup",
             nombre: "Fermentación",
             informacion: informacion,
@@ -103,7 +103,7 @@ export const formato_proceso = async (proceso) => {
         Turbidez: ${model.turbidez} ppm<br>
       `;
         items.push({
-            color: "#500617",
+            color: "#6EBAFC",
             icon: "mdi-cup-water",
             nombre: "Clarificación",
             informacion: informacion,
@@ -124,7 +124,7 @@ export const formato_proceso = async (proceso) => {
         Liquído oscuro: ${model.liquido_oscuro}%<br>
       `;
         items.push({
-            color: "#500617",
+            color: "#FE7840",
             icon: "mdi-glass-tulip",
             nombre: "Trasiego",
             informacion: informacion,

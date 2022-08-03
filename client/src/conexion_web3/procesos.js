@@ -41,6 +41,6 @@ export const encontrarBotella = async (hash) => {
   var { web3 } = await infoCuenta();
   var contratoTVATOKEN = await cargarContatrato(web3, TVATOKEN);
   var encontrar = await contratoTVATOKEN.encontrarBotella(hash);
-  console.log(encontrar);
+  return encontrar;
 }
 

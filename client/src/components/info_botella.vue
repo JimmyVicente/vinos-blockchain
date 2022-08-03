@@ -18,6 +18,8 @@
             Información botella
             <v-card-text class="white text--primary">
               <div style="font-size: 11px; text-align: start;">
+                Firma de proceso: {{proceso.hash}}<br>
+                Nro Lote: {{proceso.envasado.nro_lote}}<br>
                 Nro botella: {{ botella.nro_botella }}<br>
                 Hash: 0x{{ botella._id }}
               </div>
@@ -29,7 +31,8 @@
             Estado de botella
             <v-card-text class="white text--primary">
               <div style="font-size: 11px; text-align: start;" v-for="(estado, i) in botella.estados" :key="i">
-                {{ estado.estado }}: {{ format_fecha(estado.fecha) }}
+                {{ estado.estado }}: {{ estado.billetera }}<br>
+                <em style="font-size: 10px;"> {{ format_fecha(estado.fecha) }}</em>
               </div>
             </v-card-text>
           </v-card>
@@ -39,7 +42,7 @@
             Acciones
             <v-card-text class="white text--primary">
               <div style="font-size: 11px; text-align: center;">
-                <v-btn color="green" outlined v-if="!conectado" @click="conectar()">
+                <v-btn color="green" outlined v-if="!conectado && botella.estados.length < 3" @click="conectar()">
                   Conectar
                   <v-avatar style="margin-left: 5px" size="30">
                     <img src="@/assets/iconos/metamask.png" />
