@@ -46,6 +46,33 @@ export default {
                 `
             },
             {
+                titulo: "¿Cómo agregar Goerli (Görli) Testnet Network a Metamask ?",
+                cuerpo: `
+                <ol>
+                    <li>Visita <a href="https://goerli.net/" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
+                        https://goerli.net/</a> página oficial</li>
+                    <li>Visita el tutorial 
+                        <a href="https://blog.cryptostars.is/goerli-g%C3%B6rli-testnet-network-to-metamask-and-receiving-test-ethereum-in-less-than-2-min-de13e6fe5677" 
+                        data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
+                        https://blog.cryptostars.is/goerli-g%C3%B6rli-testnet-network-to-metamask-and-receiving-test-ethereum-in-less-than-2-min-de13e6fe5677</a> 
+                        para mayor información.</li>
+                    <li>Abrir Metamask.</li>
+                    <li>Haz clic en la red de conexión</li>
+                    <li>Haz clic en “Agregar red”.</li>
+                    <li>Haz clic en la parte derecha “Redes”.</li>
+                    <li>Seleccionar “Red de prueba Goerli”.</li>
+                    <li>Haz clic en la parte izquierda “Agregar una red”.</li>
+                </ol>
+                <p style="font-size: 12px;">
+                    <br/> Nombre de la red: Red de prueba Goerli
+                    <br/> Nueva dirección URL de RPC:  https://goerli.infura.io/v3/
+                    <br/> Identificador de cadena: 5
+                    <br/> Símbolo de moneda: GoerliETH 
+                    <br/> Dirección URL del explorador de bloques(Opcional): https://goerli.etherscan.io
+                    </p>
+                `
+            },
+            {
                 titulo: "¿Para qué me sirve la Trazabilidad Vinos Ambrosia (TVA)?",
                 cuerpo: `TVA es las siglas de "Trazabilidad Vinos Ambrosia" siendo un sistema que permite controlar la trazabilidad de los
                 7 procesos mas importantes durante la cadena de suministro de producción de vinos tales como: 

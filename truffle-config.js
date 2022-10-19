@@ -1,6 +1,7 @@
 require('dotenv').config();
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 const mnemonic = process.env.MNEMONIC;
+const infura_url = process.env.URL_INFURA;
 
 module.exports = {
   contracts_build_directory: "./client/src/contracts",
@@ -10,14 +11,16 @@ module.exports = {
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
-    rinkeby:{
-      provider: function() {
-        return new HDWalletProvider(mnemonic, process.env.URL_INFURA);
-      },
-      network_id: '4',
-      networkCheckTimeout: 999999,
+    // goerli: {
+    //   provider: () => new HDWalletProvider(mnemonic, process.env.URL_INFURA),
+    //   network_id: 5,
+    //   gas: 4465030,
+    //   gasPrice: 10000000000,
+    // },
+    sepolia: {
+      provider: () => new HDWalletProvider(mnemonic, process.env.URL_INFURA),
+      network_id: 11155111,
     },
-
   },
 
   // Set default mocha options here, use special reporters etc.
