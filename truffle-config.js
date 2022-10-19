@@ -1,5 +1,6 @@
 require('dotenv').config();
 const HDWalletProvider = require("@truffle/hdwallet-provider");
+
 const mnemonic = process.env.MNEMONIC;
 const infura_url = process.env.URL_INFURA;
 
@@ -11,14 +12,8 @@ module.exports = {
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
-    // goerli: {
-    //   provider: () => new HDWalletProvider(mnemonic, process.env.URL_INFURA),
-    //   network_id: 5,
-    //   gas: 4465030,
-    //   gasPrice: 10000000000,
-    // },
     sepolia: {
-      provider: () => new HDWalletProvider(mnemonic, process.env.URL_INFURA),
+      provider: () => new HDWalletProvider(mnemonic, infura_url),
       network_id: 11155111,
     },
   },

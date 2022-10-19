@@ -46,30 +46,30 @@ export default {
                 `
             },
             {
-                titulo: "¿Cómo agregar Goerli (Görli) Testnet Network a Metamask ?",
+                titulo: "¿Cómo agregar Sepolia Testnet Network a Metamask ?",
                 cuerpo: `
                 <ol>
-                    <li>Visita <a href="https://goerli.net/" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
-                        https://goerli.net/</a> página oficial</li>
-                    <li>Visita el tutorial 
-                        <a href="https://blog.cryptostars.is/goerli-g%C3%B6rli-testnet-network-to-metamask-and-receiving-test-ethereum-in-less-than-2-min-de13e6fe5677" 
-                        data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
-                        https://blog.cryptostars.is/goerli-g%C3%B6rli-testnet-network-to-metamask-and-receiving-test-ethereum-in-less-than-2-min-de13e6fe5677</a> 
-                        para mayor información.</li>
-                    <li>Abrir Metamask.</li>
-                    <li>Haz clic en la red de conexión</li>
-                    <li>Haz clic en “Agregar red”.</li>
-                    <li>Haz clic en la parte derecha “Redes”.</li>
-                    <li>Seleccionar “Red de prueba Goerli”.</li>
-                    <li>Haz clic en la parte izquierda “Agregar una red”.</li>
+                    <li>Visita <a href="https://sepolia.dev" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
+                        https://sepolia.dev</a> página oficial.</li>
+                    <li>Hacer click en "+ ADD TO METAMASk"</li>
+                    <li>Se agregará a la lista de redes en Metamask</li>
                 </ol>
-                <p style="font-size: 12px;">
-                    <br/> Nombre de la red: Red de prueba Goerli
-                    <br/> Nueva dirección URL de RPC:  https://goerli.infura.io/v3/
-                    <br/> Identificador de cadena: 5
-                    <br/> Símbolo de moneda: GoerliETH 
-                    <br/> Dirección URL del explorador de bloques(Opcional): https://goerli.etherscan.io
-                    </p>
+                `
+            },
+            {
+                titulo: "¿Cómo obtener ETHERS en Sepolia Testnet Network ?",
+                cuerpo: `
+                <ol>
+                    <li>Visita <a href="https://faucet.sepolia.dev" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
+                        https://faucet.sepolia.dev</a>.</li>
+                    <li>Abrir Metamask</li>
+                    <li>Copiar dirección de wallet(billetera)</li>
+                    <li>Pegar en el formulario de sepolia</li>
+                    <li>Lennar el Captcha</li>
+                    <li>Hacer click en "Request funds"</li>
+                    
+                    <p style="font-size: 12px;">Nota: Se enviaran fondos a tu wallet(billetera) en caso de necesitar mas fondos repetir el proceso después de 60 minutos.</p>
+                </ol>
                 `
             },
             {
@@ -114,7 +114,11 @@ export default {
                     <ol>
                         <li>Abrir la extexión Metamask</li>
                         <li>Hacer click en Agregar Activo</li>
-                        <li>Escribir la dirección de contrato: sadffdasffdsfsdafdsfsadsafafa</li>
+                        <li>Escribir la dirección de contrato:
+                            <a href="https://sepolia.etherscan.io/tx/0xeece73a2d51a62f2509a6479493daecf90775ff01b92f35abb35bd097cbba575" 
+                            data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
+                            0xeece73a2d51a62f2509a6479493daecf90775ff01b92f35abb35bd097cbba575</a>.
+                            </li>
                         <li>Hacer click en añadir token personalizado</li>
                     </ol>
                     Listo podrás ver los tokens que se te hayan asignado en recompensa de comprar tu botella

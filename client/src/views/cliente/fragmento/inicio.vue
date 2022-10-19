@@ -86,7 +86,7 @@ export default {
     },
   },
   async mounted() {
-    // this.conectar();
+    this.conectar();
   }
 };
 </script>

@@ -51,7 +51,7 @@ const routes = [
         component: () => import('../views/cliente/fragmento/trazabilidad.vue')
       },
       {
-        path: "*", 
+        path: "/404",
         name: '404',
         props: true,
         meta: {
@@ -133,6 +133,7 @@ const router = new VueRouter({
 
 router.beforeEach(async (to, from, next) => {
   var requiresAuth = to.meta.requiresAuth;
+  if (to.name == null) next("/404");
   if (requiresAuth == true) {
     var usuario = await encontrarMiUsuario() ?? {};
     var esMiCuenta = usuario.esMiCuenta ?? false;

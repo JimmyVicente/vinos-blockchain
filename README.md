@@ -77,3 +77,6 @@ _Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para 
 
 
 "start": "concurrently --kill-others \"npm run serve --prefix client/\" \"npm start --prefix backend/\""
+
+
+ truffle migrate --network sepolia --reset
