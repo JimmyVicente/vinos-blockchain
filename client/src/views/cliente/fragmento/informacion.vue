@@ -122,9 +122,9 @@ export default {
                         <li>Abrir la extexión Metamask</li>
                         <li>Hacer click en Agregar Activo</li>
                         <li>Escribir la dirección de contrato:
-                            <a href="https://sepolia.etherscan.io/tx/0xeece73a2d51a62f2509a6479493daecf90775ff01b92f35abb35bd097cbba575" 
+                            <a href="https://sepolia.etherscan.io/tx/0xD00FFdD650264c2EB04b1A065C1405f09afCba92" 
                             data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
-                            0x1ea67c599bb000886132f0c2cdcb7533d9c14617</a>.
+                            0xD00FFdD650264c2EB04b1A065C1405f09afCba92</a>.
                             </li>
                         <li>Hacer click en añadir token personalizado</li>
                     </ol>

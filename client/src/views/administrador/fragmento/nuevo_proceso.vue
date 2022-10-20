@@ -6,9 +6,9 @@
           <div style="text-align: start;">
             <h1>{{ nombre_proceso }}</h1>
             <a v-if="proceso != undefined && proceso.aprobado && n_proceso > 7" :href="proceso.http_txn_hash"
-              target="_blank" style="font-size: 12px;">
+              target="_blank" style="font-size: 10px;">
               {{proceso.txn_hash}}
-              <v-icon size="18">mdi-arrow-top-right </v-icon>
+              <v-icon size="15" color="green">mdi-arrow-top-right </v-icon>
             </a>
           </div>
           <v-spacer></v-spacer>

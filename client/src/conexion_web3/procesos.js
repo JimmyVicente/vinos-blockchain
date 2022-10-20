@@ -1,5 +1,5 @@
 import ProcesoContract from '../contracts/ProcesoContract.json';
-import TVATOKEN from '../contracts/TVAToken.json';
+import TVATOKEN from '../contracts/TVATOKEN.json';
 import { infoCuenta, cargarContatrato } from "./getWeb3";
 var sha256 = require('sha256');
 
