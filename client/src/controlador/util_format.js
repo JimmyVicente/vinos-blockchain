@@ -1,4 +1,6 @@
 
+import path from "./api";
+
 export const formato_proceso = async (proceso) => {
     var items = [];
     var nombre_proceso = "Nuevo proceso";
@@ -135,7 +137,7 @@ export const formato_proceso = async (proceso) => {
     }
     //envasado
     if (proceso.envasado != undefined) {
-        nombre_proceso = "Procesos completados";
+        nombre_proceso = "Proceso completado";
         n_proceso = 8;
         model = proceso.envasado;
         model.id_proceso = proceso._id;
@@ -156,7 +158,10 @@ export const formato_proceso = async (proceso) => {
             index: 7,
         });
     }
-
+    if (proceso.aprobado && proceso.txn_hash) {
+        nombre_proceso = "Proceso firmado";
+        proceso.http_txn_hash = path.txn_hash + proceso.txn_hash
+    }
     //setVariables
     items = items.reverse();
     return { nombre_proceso, n_proceso, items, siguiente_proceso, proceso, esta_completado };

@@ -18,6 +18,11 @@
             Información botella
             <v-card-text class="white text--primary">
               <div style="font-size: 11px; text-align: start;">
+                Transaction Hash: <a v-if="proceso.aprobado" :href="proceso.http_txn_hash" target="_blank"
+                  style="font-size: 10px;">
+                  {{proceso.txn_hash}}
+                  <v-icon size="15" color="green">mdi-arrow-top-right </v-icon>
+                </a><br>
                 Firma de proceso: {{proceso.hash}}<br>
                 Nro Lote: {{proceso.envasado.nro_lote}}<br>
                 Nro botella: {{ botella.nro_botella }}<br>

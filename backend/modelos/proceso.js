@@ -37,6 +37,10 @@ const roleSchema = new Schema({
     type: String,
     trim: true
   },
+  txn_hash: {
+    type: String,
+    trim: true
+  },
 },
   {
     timestamps: true,

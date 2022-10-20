@@ -204,9 +204,9 @@ exports.aprobar_proceso = async function (req, res) {
 
 exports.firmar_proceso = async function (req, res) {
     try {
-        let { id_proceso, hash } = req.body;
-        UtilApi.validarCampos({ id_proceso, hash });
-        await Proceso.updateOne({ _id: id_proceso }, { aprobado: true, hash });
+        let { id_proceso, hash, txn_hash } = req.body;
+        UtilApi.validarCampos({ id_proceso, hash, txn_hash });
+        await Proceso.updateOne({ _id: id_proceso }, { aprobado: true, hash, txn_hash });
         UtilApi.succeesServer(req, res, id_proceso, GlobalApp.mensaje_aprobar_proceso);
     } catch (error) {
         UtilApi.errorServer(req, res, error);

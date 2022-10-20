@@ -1,13 +1,17 @@
 const path = 'https://vinos-blockchain.herokuapp.com/api';
 const path_qr = 'https://vinos-blockchain.herokuapp.com/trazabilidad/';
+const path_scan = 'https://sepolia.etherscan.io';
 export default {
     path_qr: path_qr,
-    //usuario
+    path_scan: path_scan,
+    //sepolia etherscan
+    txn_hash: path_scan + "/tx/",
+    //usuario controlador
     listar_usuario: path + '/usuario/listar_usuario',
     encontrar_usuario: path + '/usuario/encontrar_usuario',
     crear_editar_usuario: path + '/usuario/crear_editar_usuario',
     eliminar_usuario: path + '/usuario/eliminar_usuario',
-    //producto 
+    //producto controlador
     listar_proceso: path + '/proceso/listar_proceso',
     encontrar_proceso: path + '/proceso/encontrar_proceso',
     crear_editar_proceso: path + '/proceso/crear_editar_proceso',

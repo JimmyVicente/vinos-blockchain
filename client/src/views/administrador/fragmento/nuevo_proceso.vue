@@ -3,7 +3,14 @@
     <v-container class="margin">
       <v-card>
         <v-card-title>
-          <h1>{{ nombre_proceso }}</h1>
+          <div style="text-align: start;">
+            <h1>{{ nombre_proceso }}</h1>
+            <a v-if="proceso != undefined && proceso.aprobado && n_proceso > 7" :href="proceso.http_txn_hash"
+              target="_blank" style="font-size: 12px;">
+              {{proceso.txn_hash}}
+              <v-icon size="18">mdi-arrow-top-right </v-icon>
+            </a>
+          </div>
           <v-spacer></v-spacer>
           <v-btn v-if="n_proceso < 8 && n_proceso > 0 && esta_completado == false" dark color="primary_app" x-large
             style="margin-right: 2%" @click="siguienteProceso()">
@@ -276,8 +283,8 @@ export default {
       try {
         this.cargando_tipo = true;
         this.dialog_firmar_proceso = false;
-        var hash = await firmarProceso(this.proceso);
-        controlador_proceso.firmar_proceso(this.proceso._id, hash, async (response) => {
+        var { hash, txn_hash } = await firmarProceso(this.proceso);
+        controlador_proceso.firmar_proceso(this.proceso._id, hash, txn_hash, async (response) => {
           this.$toast.open({
             message: response.mensaje,
             type: response.tipo,

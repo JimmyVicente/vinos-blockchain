@@ -1,9 +1,8 @@
 <template>
     <section class="container ">
-<br><br><br>
+        <br><br><br>
         <h1>Información acerca del funcionamiento de la trazabililidad Vinos Ambrosia</h1><br>
-
-
+        
         <v-expansion-panels accordion>
             <v-expansion-panel v-for="(item, i) in preguntas" :key="i">
                 <v-expansion-panel-header style="font-size: 18px;">{{ i + 1 }}. {{ item.titulo }}
@@ -34,7 +33,7 @@ export default {
                 titulo: "¿Cómo instalar Metamasken Chrome?",
                 cuerpo: `
                 <ol>
-                    <li>Visita <a href="https://metamask.io/" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">https://metamask.io/</a>.</li>
+                    <li>Visita <a href="https://metamask.io/" target="_blank">https://metamask.io/</a>.</li>
                     <li>Haz clic en “Descargar”.</li>
                     <li>Haz clic en “Instalar MetaMask”. Se te dirigirá a la extensión de Chrome Web Store.</li>
                     <li>Haz clic en “Agregar a Chrome”.</li>
@@ -49,10 +48,17 @@ export default {
                 titulo: "¿Cómo agregar Sepolia Testnet Network a Metamask ?",
                 cuerpo: `
                 <ol>
-                    <li>Visita <a href="https://sepolia.dev" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
+                    <li>Visita <a href="https://sepolia.dev" target="_blank">
                         https://sepolia.dev</a> página oficial.</li>
                     <li>Hacer click en "+ ADD TO METAMASk"</li>
                     <li>Se agregará a la lista de redes en Metamask</li>
+                    <p style="font-size: 12px;"> 
+                             Nombre de la red: Sepolia test network
+                        <br/>Nueva dirección URL de RPC: https://sepolia.infura.io/v3/
+                        <br/>Identificador de cadena: 11155111
+                        <br/>Símbolo de moneda: SepoliaETH
+                        <br/>Dirección URL del explorador de bloques(Opcional): https://sepolia.etherscan.io
+                    </p>
                 </ol>
                 `
             },
@@ -60,7 +66,7 @@ export default {
                 titulo: "¿Cómo obtener ETHERS en Sepolia Testnet Network ?",
                 cuerpo: `
                 <ol>
-                    <li>Visita <a href="https://faucet.sepolia.dev" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
+                    <li>Visita <a href="https://faucet.sepolia.dev" target="_blank">
                         https://faucet.sepolia.dev</a>.</li>
                     <li>Abrir Metamask</li>
                     <li>Copiar dirección de wallet(billetera)</li>
@@ -68,7 +74,8 @@ export default {
                     <li>Lennar el Captcha</li>
                     <li>Hacer click en "Request funds"</li>
                     
-                    <p style="font-size: 12px;">Nota: Se enviaran fondos a tu wallet(billetera) en caso de necesitar mas fondos repetir el proceso después de 60 minutos.</p>
+                    <p style="font-size: 12px;">Nota: Se enviaran fondos a tu wallet(billetera) 
+                    en caso de necesitar mas fondos repetir el proceso después de 60 minutos.</p>
                 </ol>
                 `
             },
@@ -117,7 +124,7 @@ export default {
                         <li>Escribir la dirección de contrato:
                             <a href="https://sepolia.etherscan.io/tx/0xeece73a2d51a62f2509a6479493daecf90775ff01b92f35abb35bd097cbba575" 
                             data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
-                            0xeece73a2d51a62f2509a6479493daecf90775ff01b92f35abb35bd097cbba575</a>.
+                            0x1ea67c599bb000886132f0c2cdcb7533d9c14617</a>.
                             </li>
                         <li>Hacer click en añadir token personalizado</li>
                     </ol>
