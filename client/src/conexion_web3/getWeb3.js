@@ -1,5 +1,6 @@
 import Web3 from 'web3';
 var TruffleContract = require('@truffle/contract');
+const chainId = 11155111; //id de sepolia
 
 const getWeb3 = async () => {
   if (window.ethereum) {
@@ -15,10 +16,40 @@ const getWeb3 = async () => {
 }
 
 
+const verifyChainId = async (web3) => {
+  if (window.ethereum.networkVersion !== chainId) {
+    try {
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: web3.utils.toHex(chainId) }]
+      });
+      return true;
+    } catch (err) {
+      if (err.code === 4902) {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainName: 'Sepolia test network',
+              chainId: web3.utils.toHex(chainId),
+              nativeCurrency: { name: 'Sepolia test network', decimals: 18, symbol: 'SepoliaETH' },
+              rpcUrls: ['https://sepolia.infura.io/v3/']
+            }
+          ]
+        });
+        return window.ethereum.networkVersion == chainId;
+      }
+    }
+  }
+}
+
+
 export const infoCuenta = async () => {
   try {
     // Obtener el proveedor de red y la instancia web3.
     const web3 = await getWeb3();
+    const networkVersion = await verifyChainId(web3);
+    if(!networkVersion) throw {mensaje_metamask: "No se pudo establecer conexión con la red de tesnet de Sepolia"};
     // Usar web3 para obtener las cuentas de los usuarios.
     const cuentas = await web3.eth.getAccounts();
     const cuenta = cuentas[0];
