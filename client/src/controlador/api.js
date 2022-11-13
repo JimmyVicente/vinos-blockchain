@@ -1,7 +1,14 @@
-const path = 'https://vinos-blockchain.herokuapp.com/api';
-// const path = 'http://localhost:3000/api';
-const path_qr = 'https://vinos-blockchain.herokuapp.com/trazabilidad/';
-const path_scan = 'https://sepolia.etherscan.io';
+import env from "../../env";
+var path = 'http://localhost:3000/api';
+var path_qr = 'http://localhost:8080/trazabilidad/';
+var path_scan = 'http://localhost:8545';
+
+if (env == "PRODUCTION") {
+    path = 'https://vinos-blockchain.herokuapp.com/api';
+    path_qr = 'https://vinos-blockchain.herokuapp.com/trazabilidad/';
+    path_scan = 'https://sepolia.etherscan.io';
+}
+
 export default {
     path_qr: path_qr,
     path_scan: path_scan,

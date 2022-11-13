@@ -1,5 +1,5 @@
-const TVATOKEN = artifacts.require("TVATOKEN");
+const TVAToken = artifacts.require("TVAToken");
 
 module.exports = function (deployer) {
-  deployer.deploy(TVATOKEN);
+  deployer.deploy(TVAToken);
 };

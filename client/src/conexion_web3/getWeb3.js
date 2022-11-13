@@ -1,3 +1,4 @@
+import env from "../../env";
 import Web3 from 'web3';
 var TruffleContract = require('@truffle/contract');
 const chainId = 11155111; //id de sepolia
@@ -17,6 +18,7 @@ const getWeb3 = async () => {
 
 
 const verifyChainId = async (web3) => {
+  if (env == "DEVELOP") return true;
   if (window.ethereum.networkVersion !== chainId) {
     try {
       await window.ethereum.request({
@@ -49,7 +51,7 @@ export const infoCuenta = async () => {
     // Obtener el proveedor de red y la instancia web3.
     const web3 = await getWeb3();
     const networkVersion = await verifyChainId(web3);
-    if(!networkVersion) throw {mensaje_metamask: "No se pudo establecer conexión con la red de tesnet de Sepolia"};
+    if (!networkVersion) throw { mensaje_metamask: "No se pudo establecer conexión con la red de tesnet de Sepolia" };
     // Usar web3 para obtener las cuentas de los usuarios.
     const cuentas = await web3.eth.getAccounts();
     const cuenta = cuentas[0];

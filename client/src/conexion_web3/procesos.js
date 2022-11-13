@@ -1,5 +1,5 @@
-import ProcesoContract from '../contracts/ProcesoContract.json';
-import TVATOKEN from '../contracts/TVATOKEN.json';
+import ProcesoContract from "../contracts/ProcesoContract.json";
+import TVAToken from "../contracts/TVAToken.json";
 import { infoCuenta, cargarContatrato } from "./getWeb3";
 var sha256 = require('sha256');
 
@@ -32,15 +32,15 @@ export const encontrarFirmaProceso = async (proceso) => {
 export const crearBotella = async (hash) => {
   var { web3, cuenta } = await infoCuenta();
   const config = { from: cuenta };
-  var contratoTVATOKEN = await cargarContatrato(web3, TVATOKEN);
-  await contratoTVATOKEN.crearBotella(cuenta, hash, config);
+  var contratoTVAToken = await cargarContatrato(web3, TVAToken);
+  await contratoTVAToken.crearBotella(cuenta, hash, config);
   return { billetera: cuenta };
 }
 
 export const encontrarBotella = async (hash) => {
   var { web3 } = await infoCuenta();
-  var contratoTVATOKEN = await cargarContatrato(web3, TVATOKEN);
-  var encontrar = await contratoTVATOKEN.encontrarBotella(hash);
+  var contratoTVAToken = await cargarContatrato(web3, TVAToken);
+  var encontrar = await contratoTVAToken.encontrarBotella(hash);
   return encontrar;
 }
 
