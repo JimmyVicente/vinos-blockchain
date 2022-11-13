@@ -1,7 +1,6 @@
 import env from "../../env";
 import Web3 from 'web3';
 var TruffleContract = require('@truffle/contract');
-const chainId = 11155111; //id de sepolia
 
 const getWeb3 = async () => {
   if (window.ethereum) {
@@ -18,7 +17,8 @@ const getWeb3 = async () => {
 
 
 const verifyChainId = async (web3) => {
-  if (env == "DEVELOP") return true;
+  if (env.MODE == "DEVELOP") return true;
+  var chainId = env.CHAINID;
   if (window.ethereum.networkVersion !== chainId) {
     try {
       await window.ethereum.request({

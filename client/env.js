@@ -1,2 +1,6 @@
 
-export default "DEVELOP"; //"PRODUCTION" 
+export default {
+    MODE: "DEVELOP",
+    // MODE: "PRODUCTION",
+    CHAINID: 11155111, 
+}; 

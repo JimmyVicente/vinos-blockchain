@@ -3,7 +3,7 @@ var path = 'http://localhost:3000/api';
 var path_qr = 'http://localhost:8080/trazabilidad/';
 var path_scan = 'http://localhost:8545';
 
-if (env == "PRODUCTION") {
+if (env.MODE == "PRODUCTION") {
     path = 'https://vinos-blockchain.herokuapp.com/api';
     path_qr = 'https://vinos-blockchain.herokuapp.com/trazabilidad/';
     path_scan = 'https://sepolia.etherscan.io';
