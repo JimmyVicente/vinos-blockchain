@@ -3,7 +3,7 @@ pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract TVATOKEN is ERC721 {
+contract TVAToken is ERC721 {
     mapping(string => bool) _botellaExiste;
     uint256 contador = 0;
 
