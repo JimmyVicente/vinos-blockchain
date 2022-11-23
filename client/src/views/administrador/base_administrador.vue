@@ -26,17 +26,17 @@
           </v-list-item>
         </v-list-item-group>
       </v-list>
-        <template v-slot:append>
+      <template v-slot:append>
         <div class="pa-2">
-          <v-btn dark  color="white" class="primary_app" :to="{ name: 'Inicio' }"  >
-             <v-tooltip right color="white">
+          <v-btn dark color="white" class="primary_app" :to="{ name: 'Inicio' }">
+            <v-tooltip right color="white">
               <template v-slot:activator="{ on, attrs }">
 
-                <v-icon left dark v-bind="attrs" v-on="on">  mdi-logout </v-icon>
+                <v-icon left dark v-bind="attrs" v-on="on"> mdi-logout </v-icon>
               </template>
-              <strong >CERRAR SESION</strong>
+              <strong>CERRAR SESION</strong>
             </v-tooltip>
-            
+
             <strong>Cerrar sesion</strong>
           </v-btn>
         </div>
@@ -68,7 +68,9 @@
 </template>
 
 <script>
-import { infoCuenta } from "../../conexion_web3/getWeb3";
+
+import { encontrarMiUsuario } from "../../conexion_web3/usuarios";
+import { infoCuenta, eventWeb3 } from "../../conexion_web3/getWeb3";
 export default {
   name: "Base_Administrador",
   data: () => ({
@@ -89,6 +91,11 @@ export default {
         let { cuenta, balanceETHER } = await infoCuenta();
         this.cuenta = cuenta;
         this.balanceETHER = balanceETHER;
+        var miUsuario = await encontrarMiUsuario() ?? {};
+        var esMiCuenta = miUsuario.esMiCuenta ?? false;
+        if (!esMiCuenta) {
+          window.location.reload();
+        }
       } catch (error) {
         console.log(error);
       }
@@ -96,6 +103,14 @@ export default {
   },
   async mounted() {
     this.getBalance();
+    eventWeb3((type) => {
+      console.log(type);
+      if (type == 0) {
+        window.location.reload();
+      } else {
+        this.getBalance();
+      }
+    });
   }
 };
 </script>

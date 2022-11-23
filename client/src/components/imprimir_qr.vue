@@ -53,7 +53,7 @@
 import VueQr from 'vue-qr';
 import path from "../controlador/api";
 export default {
-    name: "imprimirQr",
+    name: "ImprimirQr",
     components: {
         VueQr,
     },
