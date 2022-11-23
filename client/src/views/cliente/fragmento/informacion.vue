@@ -2,7 +2,7 @@
     <section class="container ">
         <br><br><br>
         <h1>Información acerca del funcionamiento de la trazabililidad Vinos Ambrosia</h1><br>
-        
+
         <v-expansion-panels accordion>
             <v-expansion-panel v-for="(item, i) in preguntas" :key="i">
                 <v-expansion-panel-header style="font-size: 18px;">{{ i + 1 }}. {{ item.titulo }}
@@ -108,24 +108,26 @@ export default {
                 `
             },
             {
-                titulo: "¿Puedo recibir mas de un TVA token por botella?",
+                titulo: "¿Puedo recibir mas de un TVANFT token por botella?",
                 cuerpo: `
                     Una vez que se haya asignado el TVA token de la botella al usuario, ya no habrá la posibilidad 
                     que se vuelva asignar otro token por la misma botella. 
                 `
             },
             {
-                titulo: "¿Cómo importar TVA Token a mi billetera Metamask?",
+                titulo: "¿Cómo importar TVANFT Token a mi billetera Metamask?",
                 cuerpo: `
                     Se debe llevar a cabo los siguientes procesos.
                     <ol>
                         <li>Abrir la extexión Metamask</li>
                         <li>Hacer click en Agregar Activo</li>
                         <li>Escribir la dirección de contrato:
-                            <a href="https://sepolia.etherscan.io/tx/0xD00FFdD650264c2EB04b1A065C1405f09afCba92" 
+                            <a href="https://sepolia.etherscan.io/address/0xD00FFdD650264c2EB04b1A065C1405f09afCba92" 
                             data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">
-                            0xD00FFdD650264c2EB04b1A065C1405f09afCba92</a>.
-                            </li>
+                            0xD00FFdD650264c2EB04b1A065C1405f09afCba92</a>
+                        </li>
+                        <li>Símbolo del token: TVANFT</li>
+                        <li>Decimales del token: 1</li>
                         <li>Hacer click en añadir token personalizado</li>
                     </ol>
                     Listo podrás ver los tokens que se te hayan asignado en recompensa de comprar tu botella

@@ -46,6 +46,19 @@ const verifyChainId = async (web3) => {
 }
 
 
+export const eventWeb3 = async (event) => {
+  if (window.ethereum) {
+    window.ethereum.on('accountsChanged', (accounts) => {
+      if (accounts.length == 0) event(0); //cuentas desconectadas
+      if (accounts.length > 0) event(1); //cuenta conectada
+    });
+    window.ethereum.on('chainChanged', () => {
+      if (event) event(2); //cambio de red
+    });
+  }
+}
+
+
 export const infoCuenta = async () => {
   try {
     // Obtener el proveedor de red y la instancia web3.
