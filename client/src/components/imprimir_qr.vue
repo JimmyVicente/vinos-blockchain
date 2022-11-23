@@ -17,15 +17,15 @@
                 <div v-for="(item, i) in botellas" :key="i">
                     <table>
                         <tr v-if="i % 8 == 0">
-                            <div v-for="(b, j) in 8" :key="j">
+                            <row v-for="(b, j) in 8" :key="j" >
                                 <td v-if="i + j < botellas.length">
                                     <center>
-                                        <vue-qr class="vue-qr" :text="path_qr + botellas[i + j].botella._id" :size="95">
+                                        <vue-qr class="vue-qr" :text="path_qr + botellas[i + j].botella._id" :size="92">
                                         </vue-qr>
                                     </center>
                                     <!-- {{ botellas[i + j].botella.nro_botella }} -->
                                 </td>
-                            </div>
+                            </row>
                         </tr>
 
                     </table>
