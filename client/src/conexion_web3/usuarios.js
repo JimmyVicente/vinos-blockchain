@@ -10,6 +10,7 @@ export const encontrarMiUsuario = async () => {
     usuario_cache = usuario;
     usuario.esMiCuenta = false;
     usuario.permisos = JSON.parse(usuario.permisos ?? "[]");
+    usuario.isSeller = (usuario.permisos ?? []).includes(8);
     if (usuario.billetera == cuenta) usuario.esMiCuenta = true;
     return usuario;
 };

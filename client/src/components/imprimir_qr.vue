@@ -16,44 +16,25 @@
 
                 <div v-for="(item, i) in botellas" :key="i">
                     <table>
-                        <tr v-if="i % 4 == 0">
-                            <td>
-                                <center>
-                                    <vue-qr class="vue-qr" :text="path_qr + botellas[i].botella._id" :size="190">
-                                    </vue-qr>
-                                </center>
-                            </td>
-                            <td v-if="i + 1 < botellas.length">
-                                <center>
-                                    <vue-qr class="vue-qr" :text="path_qr + botellas[i + 1].botella._id" :size="190">
-                                    </vue-qr>
-                                </center>
-                            </td>
-                            <td v-if="i + 2 < botellas.length">
-                                <center>
-                                    <vue-qr class="vue-qr" :text="path_qr + botellas[i + 2].botella._id" :size="190">
-                                    </vue-qr>
-                                </center>
-                            </td>
-
-                            <td v-if="i + 3 < botellas.length">
-                                <center>
-                                    <vue-qr class="vue-qr" :text="path_qr + botellas[i + 3].botella._id" :size="190">
-                                    </vue-qr>
-                                </center>
-                            </td>
-
+                        <tr v-if="i % 8 == 0">
+                            <row v-for="(b, j) in 8" :key="j" >
+                                <td v-if="i + j < botellas.length">
+                                    <center>
+                                        <vue-qr class="vue-qr" :text="path_qr + botellas[i + j].botella._id" :size="92">
+                                        </vue-qr>
+                                    </center>
+                                    <!-- {{ botellas[i + j].botella.nro_botella }} -->
+                                </td>
+                            </row>
                         </tr>
 
                     </table>
 
-                    <div v-if="(i + 1) % 20 == 0 && (i + 1) != botellas.length">
+                    <div v-if="(i + 1) % 80 == 0 && (i + 1) != botellas.length">
                         <div style=" display:block;page-break-before:always;"></div><br>
                     </div>
 
                 </div>
-
-
 
             </v-container>
         </v-card>
@@ -99,7 +80,9 @@ table {
     border-collapse: collapse;
 }
 
-table, th, td {
-  border: 1px solid black;
+table,
+th,
+td {
+    border: 1px solid black;
 }
 </style>
