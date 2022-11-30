@@ -7,7 +7,7 @@
             <h1>{{ nombre_proceso }}</h1>
             <a v-if="proceso != undefined && proceso.aprobado && n_proceso > 7" :href="proceso.http_txn_hash"
               target="_blank" style="font-size: 10px;">
-              {{proceso.txn_hash}}
+              {{ proceso.txn_hash }}
               <v-icon size="15" color="green">mdi-arrow-top-right </v-icon>
             </a>
           </div>
@@ -101,13 +101,12 @@
             </v-stepper-step>
           </v-stepper-header>
 
-          <v-stepper-items>
+          <v-stepper-items style="overflow: auto;">
             <v-stepper-content :step="proceso_a" style="height: 300px;">
               <FormMateriaPrima v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
                 :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
                 :elemento_editar="elemento_editar" />
             </v-stepper-content>
-
             <v-stepper-content :step="proceso_b" style="height: 300px;">
               <FormExtraccionMosto v-on:generarProceso="generarProceso" :n_proceso.sync="n_proceso"
                 :agregar_proceso.sync="agregar_proceso" :hash_anterior="hash_anterior" :editar_proceso="editar_proceso"
