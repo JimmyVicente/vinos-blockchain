@@ -24,13 +24,13 @@ export default {
     data: () => ({
         preguntas: [
             {
-                titulo: "¿Qué es Metamask?",
+                titulo: "¿Qué es MetaMask?",
                 cuerpo: `MetaMask es una aplicación (extensión web o app móvil) 
                 que permite administrar las claves privadas de Ethereum a través de su navegador web. 
                 Al hacerlo, se convierte en una billetera para tokens Ether y ERC-20.`
             },
             {
-                titulo: "¿Cómo instalar Metamasken Chrome?",
+                titulo: "¿Cómo instalar MetaMask en Chrome?",
                 cuerpo: `
                 <ol>
                     <li>Visita <a href="https://metamask.io/" target="_blank">https://metamask.io/</a>.</li>
@@ -45,7 +45,7 @@ export default {
                 `
             },
             {
-                titulo: "¿Cómo agregar Sepolia Testnet Network a Metamask ?",
+                titulo: "¿Cómo agregar Sepolia Testnet Network a MetaMask ?",
                 cuerpo: `
                 <ol>
                     <li>Visita <a href="https://sepolia.dev" target="_blank">
@@ -97,7 +97,7 @@ export default {
                 `
             },
             {
-                titulo: "¿Qué es TVA Token?",
+                titulo: "¿Qué es TVANFT Token?",
                 cuerpo: `
                     TVA Token es las siglas de "Trazabilidad Vinos Ambrosia" es un smart contract que 
                     cuenta con una estructura de datos ya preestablecida. Esta estructura está pensada en 
@@ -119,7 +119,7 @@ export default {
                 cuerpo: `
                     Se debe llevar a cabo los siguientes procesos.
                     <ol>
-                        <li>Abrir la extexión Metamask</li>
+                        <li>Abrir la extexión MetaMask</li>
                         <li>Hacer click en Agregar Activo</li>
                         <li>Escribir la dirección de contrato:
                             <a href="https://sepolia.etherscan.io/address/0xD00FFdD650264c2EB04b1A065C1405f09afCba92" 
