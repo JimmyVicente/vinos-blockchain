@@ -35,7 +35,7 @@ const verifyChainId = async (web3) => {
               chainName: 'Sepolia test network',
               chainId: web3.utils.toHex(chainId),
               nativeCurrency: { name: 'Sepolia test network', decimals: 18, symbol: 'SepoliaETH' },
-              rpcUrls: ['https://sepolia.infura.io/v3/']
+              rpcUrls: ['https://sepolia.infura.io/v3/af20a50e2b824b2d8597415979754ac1']
             }
           ]
         });
