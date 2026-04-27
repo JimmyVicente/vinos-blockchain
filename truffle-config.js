@@ -1,41 +1,48 @@
 require('dotenv').config();
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
-const mnemonic = process.env.MNEMONIC;
-const infura_url = process.env.URL_INFURA;
+const privateKey = process.env.PRIVATE_KEY;
+const infuraUrl  = process.env.INFURA_URL;
 
 module.exports = {
   contracts_build_directory: "./client/src/contracts",
+
   networks: {
     development: {
-      host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
+      host: "127.0.0.1",
+      port: 8545,
+      network_id: "*",
     },
+
     sepolia: {
-      provider: () => new HDWalletProvider(mnemonic, infura_url),
+      provider: () =>
+        new HDWalletProvider({
+          privateKeys: [privateKey],
+          providerOrUrl: infuraUrl,
+          pollingInterval: 15000,
+        }),
       network_id: 11155111,
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+      gas: 4500000,
+      gasPrice: 10000000000, // 10 gwei
     },
   },
 
-  // Set default mocha options here, use special reporters etc.
   mocha: {
-    timeout: 100000
+    timeout: 200000,
   },
 
-  // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.11",    // Fetch exact version from solc-bin (default: truffle's version)
-      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      settings: {          // See the solidity docs for advice about optimization and evmVersion
+      version: "0.8.11",
+      settings: {
         optimizer: {
           enabled: true,
-          runs: 200
+          runs: 200,
         },
-        //  evmVersion: "byzantium"
-      }
-    }
+      },
+    },
   },
-
 };

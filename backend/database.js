@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
 
 async function connect() {
     var MONGO_URI = process.env.MONGO_URI_DEVELOP;
